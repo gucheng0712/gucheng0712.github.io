@@ -7,31 +7,31 @@ baseurl: "/blog"
 url: ""
 
 parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
-#parallax_image_two: assets/images/startup3.jpg
+parallax_image_two: assets/images/mid.jpg
 
 project_one: "First Project"
 project_one_description: Describe your project!
 project_one_url: https://github.com/jameshamann/jekyll-material-theme
 project_one_icon: location_on
 
-project_two: Second Project
+project_two: "Second Project"
 project_two_description: Describe your project!
 project_two_url: https://github.com/jameshamann/jekyll-material-theme
 project_two_icon: photo_camera
 
 
-project_three: Third Project
+project_three: "Third Project"
 project_three_description: Describe your project!
 project_three_url: https://github.com/jameshamann/jekyll-material-theme
 project_three_icon: hotel
 
 
-project_four: Fourth Project
+project_four: "Fourth Project"
 project_four_description: Describe your project!
 project_four_url: https://github.com/jameshamann/jekyll-material-theme
 project_four_icon: restaurant
 
-project_five: Fifth Project
+project_five: "Fifth Project"
 project_five_description: Describe your project!
 project_five_url: https://github.com/jameshamann/jekyll-material-theme
 project_five_icon: restaurant
