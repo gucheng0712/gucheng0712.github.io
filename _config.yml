@@ -6,8 +6,8 @@ description: A Otaku who likes making games and playing games.
 baseurl: "/blog"
 url: ""
 
-parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
-parallax_image_two: assets/images/startup3.jpg
+parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
+#parallax_image_two: assets/images/startup3.jpg
 
 project_one: "First Project"
 project_one_description: Describe your project!
@@ -30,6 +30,11 @@ project_four: Fourth Project
 project_four_description: Describe your project!
 project_four_url: https://github.com/jameshamann/jekyll-material-theme
 project_four_icon: restaurant
+
+project_five: Fifth Project
+project_five_description: Describe your project!
+project_five_url: https://github.com/jameshamann/jekyll-material-theme
+project_five_icon: restaurant
 
 portfolio_heading: Portfolio
 portfolio_type: cards
