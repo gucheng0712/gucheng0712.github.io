@@ -1,7 +1,7 @@
 title: Suzuka Blog
 name: Cheng Gu
 email: gucheng0712@126.com
-description: A Otaku who likes making games and playing games.
+description: An Otaku who loves making games and playing games.
 
 baseurl: "/blog"
 url: ""
@@ -31,10 +31,6 @@ project_four_description: Describe your project!
 project_four_url: https://github.com/jameshamann/jekyll-material-theme
 project_four_icon: restaurant
 
-project_five: "Fifth Project"
-project_five_description: Describe your project!
-project_five_url: https://github.com/jameshamann/jekyll-material-theme
-project_five_icon: restaurant
 
 portfolio_heading: Portfolio
 portfolio_type: cards
