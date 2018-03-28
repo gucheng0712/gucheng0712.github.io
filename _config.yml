@@ -7,7 +7,7 @@ baseurl: "/blog"
 url: ""
 
 parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
-parallax_image_two: assets/images/mid.jpg
+parallax_image_two: assets/images/Mid.png
 
 project_one: "First Project"
 project_one_description: Describe your project!
