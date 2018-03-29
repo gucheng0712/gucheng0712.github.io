@@ -9,7 +9,7 @@ url: ""
 parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/Center.jpg
 
-project_one: "A Tragedy of Little Chicks P5.js"
+project_one: "A Tragedy of Little Chicks"
 project_one_description: A Game inspired by Snake vs Block. The Chicken Mother wants to save her children and fight with bad animals.
 project_one_url: https://github.com/gucheng0712/A-Tragedy-of-Little-Chicks-P5.js-
 
