@@ -4832,7 +4832,7 @@ small {
 .card {
     position: relative;
     margin: 0.5rem 0 1rem 0;
-    background-color: #fff;
+    background-color: #f1f2f6;
     -webkit-transition: -webkit-box-shadow .25s;
     transition: -webkit-box-shadow .25s;
     transition: box-shadow .25s;
@@ -5030,7 +5030,7 @@ small {
 .card .card-reveal {
     padding: 24px;
     position: absolute;
-    background-color: #fff;
+    background-color: #f1f2f6;
     width: 100%;
     overflow-y: auto;
     left: 0;
