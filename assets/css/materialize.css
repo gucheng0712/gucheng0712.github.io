@@ -2823,7 +2823,7 @@ video.responsive-video {
 }
 
 .breadcrumb:last-child {
-    color: #fff;
+    color: #f1f2f6;
 }
 
 .parallax-container {
@@ -4826,13 +4826,13 @@ small {
     padding: 24px;
     margin: 0.5rem 0 1rem 0;
     border-radius: 2px;
-    background-color: #f7f1e3;
+    background-color: #f1f2f6;
 }
 
 .card {
     position: relative;
     margin: 0.5rem 0 1rem 0;
-    background-color: #f7f1e3;
+    background-color: #f1f2f6;
     -webkit-transition: -webkit-box-shadow .25s;
     transition: -webkit-box-shadow .25s;
     transition: box-shadow .25s;
