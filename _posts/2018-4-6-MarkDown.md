@@ -16,27 +16,19 @@ layout: post
 title: Markdown Style Guide
 ---
 
-This is a demo of all styled elements in Jekyll Now. 
 
-[View the markdown used to create this post](https://raw.githubusercontent.com/barryclark/www.jekyllnow.com/gh-pages/_posts/2014-6-19-Markdown-Style-Guide.md).
 
-This is a paragraph, it's surrounded by whitespace. Next up are some headers, they're heavily influenced by GitHub's markdown style.
-
-## Header 2 (H1 is reserved for post titles)##
-
-### Header 3
-
-#### Header 4
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
  
-A link to [Jekyll Now](http://github.com/barryclark/jekyll-now/). A big ass literal link <http://github.com/barryclark/jekyll-now/>
-  
-
-Here's our logo (hover to see the title text):
-
-Inline-style: 
-![alt text](/assets/images/markdown.jpg)
-
-Reference-style: 
-![alt text][logo]
-
-[logo]: /assets/images/twoscreen.jpg
+```python
+s = "Python syntax highlighting"
+print s
+```
+ 
+```
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
+```
