@@ -17,25 +17,9 @@ title: Markdown Style Guide
 ---
 
 
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
- 
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-```csharp
-string s = "c# syntax highlighting"
-Debug.Log(s)
-for (int i = 0 ; i < 10; i++)
-{
-    // Code to execute.
-}
-```
+As Grace Hopper said:
+> I’ve always been more interested
+> in the future than in the past.
 
 
 ```
