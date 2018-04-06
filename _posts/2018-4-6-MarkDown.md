@@ -12,23 +12,68 @@ image: /assets/images/markdown.jpg
 ###### This is the sixth largest size of a header
 
 
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
+layout: post
+title: Markdown Style Guide
+---
 
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+This is a demo of all styled elements in Jekyll Now. 
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+[View the markdown used to create this post](https://raw.githubusercontent.com/barryclark/www.jekyllnow.com/gh-pages/_posts/2014-6-19-Markdown-Style-Guide.md).
 
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
+This is a paragraph, it's surrounded by whitespace. Next up are some headers, they're heavily influenced by GitHub's markdown style.
 
+## Header 2 (H1 is reserved for post titles)##
+
+### Header 3
+
+#### Header 4
+ 
+A link to [Jekyll Now](http://github.com/barryclark/jekyll-now/). A big ass literal link <http://github.com/barryclark/jekyll-now/>
+  
+An image, located within /images
+
+![an image alt text]({{ site.baseurl }}/images/jekyll-logo.png "an image title")
+
+* A bulletted list
+- alternative syntax 1
++ alternative syntax 2
+  - an indented list item
+
+1. An
+2. ordered
+3. list
+
+Inline markup styles: 
+
+- _italics_
+- **bold**
+- `code()` 
+ 
+> Blockquote
+>> Nested Blockquote 
+ 
+Syntax highlighting can be used by wrapping your code in a liquid tag like so:
+
+{{ "{% highlight javascript " }}%}  
+/* Some pointless Javascript */
+var rawr = ["r", "a", "w", "r"];
+{{ "{% endhighlight " }}%}  
+
+creates...
+
+{% highlight javascript %}
+/* Some pointless Javascript */
+var rawr = ["r", "a", "w", "r"];
+{% endhighlight %}
+ 
+Use two trailing spaces  
+on the right  
+to create linebreak tags  
+ 
+Finally, horizontal lines
+ 
+----
+****
  
 
 Emphasis, aka italics, with *asterisks* or _underscores_.
