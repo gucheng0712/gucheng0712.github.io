@@ -28,9 +28,13 @@ s = "Python syntax highlighting"
 print s
 ```
 
-```c#
+```csharp
 string s = "c# syntax highlighting"
 Debug.Log(s)
+for (int i = 0 ; i < 10; i++)
+{
+    // Code to execute.
+}
 ```
 
 
