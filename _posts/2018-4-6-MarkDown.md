@@ -27,7 +27,13 @@ alert(s);
 s = "Python syntax highlighting"
 print s
 ```
- 
+
+```c#
+string s = "c# syntax highlighting"
+Debug.Log(s)
+```
+
+
 ```
 No language indicated, so no syntax highlighting. 
 But let's throw in a <b>tag</b>.
