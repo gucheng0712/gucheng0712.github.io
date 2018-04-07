@@ -17,10 +17,8 @@ title: Markdown Style Guide
 ---
 
 
-As Grace Hopper said:
-> I’ve always been more interestedssssssssssssss ssss ssssssss ssssss sssss sssss sss ssssss sssssssdewdwdw dssvsvs dsafxcs.
-
-> in the future than in the past.
+As Tom sama said:
+>I like watching anime, and making anime games
 
 
 ```
