@@ -17,10 +17,24 @@ title: Markdown Style Guide
 ---
 
 
-As Tom sama said:
->I like watching anime, and making anime games
+First Header | Second Header
+------------ | -------------
+Content cell 1 | Content cell 2
+Content column 1 | Content column 2
 
+Three or more...
 
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
 ```
 No language indicated, so no syntax highlighting. 
 But let's throw in a <b>tag</b>.
