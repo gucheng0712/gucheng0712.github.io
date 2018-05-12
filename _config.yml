@@ -9,18 +9,18 @@ url: ""
 parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/Center.jpg
 
-project_one: "A Tragedy of Little Chicks"
+project_one: "A Tragedy of Little Chicks -using P5.js"
 project_one_description: A Game inspired by Snake vs Block. The Chicken Mother wants to save her children and fight with bad animals.
 project_one_url: https://github.com/gucheng0712/A-Tragedy-of-Little-Chicks-P5.js-
 
-project_two: "Suzuka-Chan Character Creation"
-project_two_description: This is my first anime character, called Suzuka-Chan made by Blender 
-project_two_url: https://github.com/gucheng0712/Suzuka-chan-Character-Creation
+project_two: "Suzuka Wants to Fly (Compatible with VR) -using Unity3D"
+project_two_description: This is a third person spiderman style game. Because many people will have motion sickness when they are playing a game with faster visual change. I used a third person view spiderman style swinging game demo to try to find a way to reduce this adverse consequences. In this Project, I created my first anime Character called Suzuka-chan, with swinging moving, wall walking, battle system, machanics. Also, I also created a infinite city generator for supporting this game demo. 
+project_two_url: https://github.com/gucheng0712/Suzuka-wants-to-fly
 
 
-project_three: "Third Project"
-project_three_description: Describe your project!
-project_three_url: https://github.com/jameshamann/jekyll-material-theme
+project_three: "Beyond Atlantis -using TouchDesigner & Arduino"
+project_three_description: Using the versatility of projection mapping and the depth of infinity mirrors to show a piece that would inspire curiosity about the wonders, beauty, and unknowns that lie deep beneath the surface of what the human eye can perceive; the deep sea.
+project_three_url: https://github.com/gucheng0712/Beyond-Atlantis
 
 
 project_four: "Fourth Project"
