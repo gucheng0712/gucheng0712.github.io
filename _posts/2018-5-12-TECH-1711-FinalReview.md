@@ -17,7 +17,8 @@ When player jump or isn't grounded, he will always look at the camera's look dir
 3. WallWalking: Done with Raycasting and Cross Product.
 
 #### 2. Battle State Movement
-Player's change to battle state. Player are not be able to jump, which means he is not able to swing, burst,or walking on the wall, but he gains weapons from WeaponManager(so far only a hidden blade and a pistol) . Switch weapon can gain different abilities to against enemy.
+When the player encounter an Enemy, player's state will change to battle state, and the only way to change state back to normal state is to beat the enemy. Of course, player will not be able to jump, which means he also can't swing, burst,or walk onto the wall, but he gains weapons from WeaponManager(so far only a hidden blade and a pistol) . Switch weapon can gain different abilities to against enemy.
+
 
 #### 3. Infinity City Generator
 Also, I created a infinite city generator instead of using a lot of time on level design. (because Level design is a pain) Done by Raycast from each city to detect if there is another city in the front, right, left, back. and based on the player's distance between the cities to determine "destroy" or "instantiate" Done by object pool.
