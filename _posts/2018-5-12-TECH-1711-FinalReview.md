@@ -2,7 +2,7 @@
 layout: post
 title:  "Game Machanics in Suzuka Wants to Fly Project"
 date:   2018-05-12 14:15:05 +0000
-image: /assets/images/P2.jpg
+image: /assets/images/PostTitle.jpg
 
 ---
 This is a third person spiderman style game. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality. I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
