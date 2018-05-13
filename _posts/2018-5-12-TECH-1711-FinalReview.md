@@ -9,6 +9,7 @@ image: /assets/images/P2.jpg
 This is a third person spiderman style game. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality. I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
 
 In this game, I created my own third person controling system which is also compatible with HTC Vive in Unity Game Engine.
+
 [Watch Demo Video Here]: https://youtu.be/A_9pIAYPuW0
 
 #### 1. Normal State Movement
