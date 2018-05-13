@@ -14,7 +14,7 @@ project_one_description: A Game inspired by Snake vs Block. The Chicken Mother w
 project_one_url: https://github.com/gucheng0712/A-Tragedy-of-Little-Chicks-P5.js-
 
 project_two: "Suzuka Wants to Fly (Compatible with VR) -using Unity3D"
-project_two_description: This is a third person spiderman style game. Because many people will have motion sickness when they are playing a game with faster visual change. I used a third person view spiderman style swinging game demo to try to find a way to reduce this adverse consequences. In this Project, I created my first anime Character called Suzuka-chan, with swinging moving, wall walking, battle system, machanics. Also, I also created a infinite city generator for supporting this game demo. 
+project_two_description: In this Project, I created my first anime Character called Suzuka-chan, with swinging moving, wall walking, battle system, machanics. Also, I also created a infinite city generator instead of using a lot of time on level design. 
 
 project_two_url: https://github.com/gucheng0712/Suzuka-wants-to-fly
 
