@@ -35,5 +35,5 @@ I used a Spot light's angle as the enemy's detecting range. When the enemy disco
 
 
 
-###### That's the Game Machanic I had so far
+#### That's the Game Machanic I had so far
 
