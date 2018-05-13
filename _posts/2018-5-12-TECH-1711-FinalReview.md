@@ -12,6 +12,7 @@ In this game, I created my own third person controling system which is also comp
 
 ---
 [Watch Demo Video Here]: https://youtu.be/A_9pIAYPuW0
+---
 
 #### 1. Normal State Movement
 Player's movement depends on the input direction. When the player is not moving, the camera is free look, but once player moves, the camera view will look along the player's moving direction.
@@ -38,6 +39,6 @@ Due to the limition of unity's NavMeshAgent, it cannot support the procedural ge
 I used a Spot light's angle as the enemy's detecting range. When the enemy discover the player, he will chase the player. Attacking while being close to the player. Also, in order to prevent enemy go through the wall, I also used LineCast() method to detect if there is something between the player and the enemy when the enemy is chasing the player. 
 
 
-
-#### End --Cheng Gu
+---
+End --Cheng Gu
 
