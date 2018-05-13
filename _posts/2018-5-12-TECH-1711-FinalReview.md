@@ -10,6 +10,7 @@ This is a third person spiderman style game. Because many people will have motio
 
 In this game, I created my own third person controling system which is also compatible with HTC Vive in Unity Game Engine.
 
+---
 [Watch Demo Video Here]: https://youtu.be/A_9pIAYPuW0
 
 #### 1. Normal State Movement
