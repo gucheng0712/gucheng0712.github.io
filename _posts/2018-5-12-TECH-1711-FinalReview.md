@@ -7,23 +7,23 @@ image: /assets/images/P2.jpg
 ---
 This is a third person spiderman style game. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality. I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
 
-## Intro to Game Machanics in Suzuka Wants To Fly
+### Intro to Game Machanics in Suzuka Wants To Fly
 In this game, I created my own third person controling system which is also compatible with HTC Vive in Unity Game Engine.
 
-#### 1. Normal State Movement
+###### 1. Normal State Movement
 Player's movement depends on the input direction. When the player is not moving, the camera is free look, but once player moves, the camera view will look along the player's moving direction.
 When player jump or isn't grounded, he will always look at the camera's look direction with a smooth transition. Also, he will gain three abilities: 
 1. Swinging: Done with Unity's Fixed Joint (In the future, it will be improved by using Configuable Joint)
 2. Bursting: Done with Unity's AddForce () function.
 3. WallWalking: Done with Raycasting and Cross Product.
 
-#### 2. Battle State Movement
+###### 2. Battle State Movement
 Player's change to battle state. Player are not be able to jump, which means he is not able to swing, burst,or walking on the wall, but he gains weapons from WeaponManager(so far only a hidden blade and a pistol) . Switch weapon can gain different abilities to against enemy.
 
-#### 3. Infinity City Generator
+###### 3. Infinity City Generator
 Also, I created a infinite city generator instead of using a lot of time on level design. (because Level design is a pain) Done by Raycast from each city to detect if there is another city in the front, right, left, back. and based on the player's distance between the cities to determine "destroy" or "instantiate" Done by object pool.
 
-#### 4. Enemy AI Behavior Tree
+###### 4. Enemy AI Behavior Tree
 So far the enemy has four mental states:
 1. Chase
 2. Patrol
@@ -35,5 +35,5 @@ I used a Spot light's angle as the enemy's detecting range. When the enemy disco
 
 
 
-#### That's the Game Machanic I had so far
+###### That's the Game Machanic I had so far
 
