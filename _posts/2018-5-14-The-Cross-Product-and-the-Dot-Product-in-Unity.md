@@ -4,15 +4,13 @@ title:  "Game Machanics in Suzuka Wants to Fly Project"
 date:   2018-05-12 14:15:05 +0000
 image: /assets/images/P2.jpg
 ---
-
-{: .center}
-![screenshots](/assets/images/screenShoots.jpg){:height="70%" width="70%"}
-
->This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality. I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
+This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality. I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
 
 In this Project, I my own third person controling system for my first anime Character called Suzuka, with swinging moving, wall walking, battle system, and wallwalking machanics (compatible with HTC Vive). Also, I created a infinite city generator instead of wasting time on level design. [Watch Demo Video Here][Watch-demo-video-here].
 
 [Watch-demo-video-here]:https://youtu.be/A_9pIAYPuW0
+
+![Screenshot]({{ "/assets/images/P2.jpg"}})
 
 ---
 #### 1. Normal State Movement
@@ -23,7 +21,7 @@ When player jump or isn't grounded, he will always look at the camera's look dir
 3. **WallWalking**: Done with Raycasting and Cross Product.
 
 ---
-#### 2. Battle State Movement 
+#### 2. Battle State Movement
 When the player encounter an Enemy, player's state will change to battle state, and the only way to change state back to normal state is to beat the enemy. Of course, player will not be able to jump, which means he also can't swing, burst,or walk onto the wall, but he gains weapons from WeaponManager(so far only a hidden blade and a pistol) . Switch weapon can gain different abilities to against enemy.
 
 ---
@@ -43,5 +41,5 @@ I used a Spot light's angle as the enemy's detecting range. When the enemy disco
 
 
 ---
->**End --Cheng Gu**
+**End --Cheng Gu**
 
