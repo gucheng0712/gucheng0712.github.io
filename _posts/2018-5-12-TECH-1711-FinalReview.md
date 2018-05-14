@@ -10,6 +10,8 @@ In this Project, I my own third person controling system for my first anime Char
 
 [Watch-demo-video-here]:https://youtu.be/A_9pIAYPuW0
 
+![Screenshot]({{ "/assets/images/P2.jpg"}})
+
 ---
 #### 1. Normal State Movement
 Player's movement depends on the input direction. When the player is not moving, the camera is free look, but once player moves, the camera view will look along the player's moving direction.
