@@ -1,45 +1,110 @@
 ---
 layout: post
-title:  "Game Machanics in Suzuka Wants to Fly Project"
-date:   2018-05-12 14:15:05 +0000
-image: /assets/images/P2.jpg
+title:  "Cross Or Dot"
+date:   2018-05-14 14:15:05 +0000
+image: /assets/images/Post2.png
 ---
-This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality. I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
 
-In this Project, I my own third person controling system for my first anime Character called Suzuka, with swinging moving, wall walking, battle system, and wallwalking machanics (compatible with HTC Vive). Also, I created a infinite city generator instead of wasting time on level design. [Watch Demo Video Here][Watch-demo-video-here].
 
-[Watch-demo-video-here]:https://youtu.be/A_9pIAYPuW0
 
-![Screenshot]({{ "/assets/images/P2.jpg"}})
+The Cross Product and the Dot Product are the most common calculations of Vector. In the Game Development, it is necessary to understand both of them. The biggest difference between them is that:
+1. The result of dot product is a **value**
+2. The result of cross product is a **vector**
 
----
-#### 1. Normal State Movement
-Player's movement depends on the input direction. When the player is not moving, the camera is free look, but once player moves, the camera view will look along the player's moving direction.
-When player jump or isn't grounded, he will always look at the camera's look direction with a smooth transition. Also, he will gain three abilities: 
-1. **Swinging**: Done with Unity's Fixed Joint (In the future, it will be improved by using Configuable Joint)
-2. **Bursting**: Done with Unity's AddForce () function.
-3. **WallWalking**: Done with Raycasting and Cross Product.
+
+{: .center}
+![screenshots](/assets/images/PostImages/CrossOrDot.jpg){:height="70%" width="70%"}
 
 ---
-#### 2. Battle State Movement
-When the player encounter an Enemy, player's state will change to battle state, and the only way to change state back to normal state is to beat the enemy. Of course, player will not be able to jump, which means he also can't swing, burst,or walk onto the wall, but he gains weapons from WeaponManager(so far only a hidden blade and a pistol) . Switch weapon can gain different abilities to against enemy.
+#### 1. Dot Product
+
+{: .center}
+![dot](/assets/images/PostImages/Dot.jpg){:height="50%" width="50%"}
+
+The position relation of two vectors can be determined by the sign of the dot product of these two vector.
+1. If the dot product = 0, these two vectors are perpendicular.
+2. If the dot product <0, the angle between two Vector is 90 ~ 180.
+3. If the dot product >0, the angle between two Vector is 0 ~ 90
+
+***Example in Game Development:***
+
+(1) Get the Angle of two vectors: range [0, 180], whether the view of the game monster can be viewed to the player, and can be used to calculate whether the enemy is within the range of the character's attack.
+{% highlight csharp %} 
+Vector A,B;
+float dotValue = Vector3.Dot (A.normalized, B.normalized);
+float angle = Mathf.Acos(dotValue) * Mathf.Rad2Deg;  
+//However. there is a easier way to do it in unity by using Vector.Angle().
+//float angle= Vector3.Angle (Vector3 from, Vector3 to) 
+{% endhighlight %} 
+(2) Determine if the target is in front of you, or behind you.
+{% highlight csharp %} 
+float dotValue=Vector3.Dot(transform.forward, target.position)
+if(dotValue>0)
+{
+    print("Target is in front of you");
+}else if(dotValue<0)
+{
+    print("Target is behind you");
+}else{
+    print("Target is on the left or right.");
+}
+{% endhighlight %}
+(3) Simulate the flight status of the aircraft
+{% highlight csharp %} 
+float dotValue = Vector3.Dot(transform.forward, Vector3.up);
+if (dotValue < 0)
+{
+    print("This plane is flying down");
+}
+else if (dotValue > 0)
+{
+    print("This plane is flying up");
+}
+else
+{
+    print("This plane is flying in parallel ");
+}
+{% endhighlight %}
+
+
 
 ---
-#### 3. Infinity City Generator
-Also, I created a infinite city generator instead of using a lot of time on level design. (because Level design is a pain) Done by Raycast from each city to detect if there is another city in the front, right, left, back. and based on the player's distance between the cities to determine "destroy" or "instantiate" Done by object pool.
+#### 2. Cross Product 
+
+{: .center}
+![dot](/assets/images/PostImages/Cross.jpg){:height="50%" width="50%"}
+
+The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is ***perpendicular*** to the coordinate plane of these two vectors.
+
+> In Math, it satisfy right hand rule, a x b = -b x a. So we can use the result of Cross product's value is positive or negative to determine a and b's relative position.
+
+***Right-hand Cooridinate System***
+
+![dot](/assets/images/PostImages/right-hand.jpg){:height="20%" width="20%"}
+
+***Left-hand Cooridinate System***
+
+![dot](/assets/images/PostImages/left-hand.jpg){:height="20%" width="20%"}
+
+Normal vector of a plane is calculated from the Cross Product of the coordinate plane of x and y vectors.
+
+![dot](/assets/images/PostImages/Cross2.jpg){:height="20%" width="20%"}
+
+
+***Example in Game Development:***
+
+1. WallWalking
+2. Determine the target is on your right or left 
+{% highlight csharp %} 
+Vector3.Cross(transform.forward, target.position).y
+{% endhighlight %}
+
+
 
 ---
-#### 4. Enemy AI Behavior Tree
-So far the enemy has four mental states:
-1. **Chase**
-2. **Patrol**
-3. **Idle**
-4. **Die**
+In conclusion, ***Dot Product*** determine the angle of two Vectors, ***Cross Product*** determine the direction of two Vectors.
 
-Due to the limition of unity's NavMeshAgent, it cannot support the procedural generating map. I used waypoints as the Enemy's movement (in the future maybe using A* Pathfinding Algorithm to achieve this challange). 
-I used a Spot light's angle as the enemy's detecting range. When the enemy discover the player, he will chase the player. Attacking while being close to the player. Also, in order to prevent enemy go through the wall, I also used LineCast() method to detect if there is something between the player and the enemy when the enemy is chasing the player. 
+For instance, when an enemy behind you, ***Cross Product*** determine whether you should turn left or turn right to face to the enemy quickly; the ***Dot Product*** can get the angle size you need to turn towards the enemy.
 
-
----
-**End --Cheng Gu**
+>**End --Cheng Gu**
 
