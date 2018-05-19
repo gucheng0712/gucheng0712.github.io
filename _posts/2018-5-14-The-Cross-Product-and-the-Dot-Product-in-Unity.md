@@ -5,9 +5,10 @@ date:   2018-05-14 14:15:05 +0000
 image: /assets/images/Post2.png
 ---
 
-
-
 The Cross Product and the Dot Product are the most common calculations of Vector. In the Game Development, it is necessary to understand both of them. The biggest difference between them is that:
+
+
+
 1. The result of dot product is a **value**
 2. The result of cross product is a **vector**
 

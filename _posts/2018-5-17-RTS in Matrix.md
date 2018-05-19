@@ -5,7 +5,7 @@ date:   2018-05-17 14:15:05 +0000
 image: /assets/images/post3.png
 ---
 
-Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Sometimes the transformation can be more complicated, like the translation and then the rotation, the rotation and then the translation, and the scaling.
+Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Sometimes the transformation can be more complicated, like the translation and then the rotation, scaling.
 
 It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.
 
@@ -76,9 +76,10 @@ when P(x,y,z) rotate along the y-axis got P'(x',y',z'). y will not change. the Z
 ---
 Above Described the roation in matrix. These three are all similar except rotating along the y-axis. The reason is the y-axis have a different axial order. 
 1. XYZ ---Along x-axis
-2. YZX ---Along y-axis 
+2. {: style="color: red"}YZX ---Along y-axis (NOT YXZ, Order changed)
 3. ZXY ---Along z-axis
-So, when rotating along y-axis, 
+
+So, when rotating along y-axis,
 
 it should transpose from **[x y z 1]** =>
 ![dot](/assets/images/PostImages/y_r_format.png){:height="10%" width="10%"}
@@ -196,6 +197,7 @@ eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
     }
 {% endhighlight %}
 
+---
 
 >**End --Cheng Gu**
 
