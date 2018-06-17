@@ -9,11 +9,7 @@ This is a third person spiderman style game demo. Because many people will have 
 
 In this Project, I my own third person controling system for my first anime Character called Suzuka, with swinging moving, wall walking, battle system, and wallwalking machanics (compatible with HTC Vive). Also, I created a infinite city generator instead of wasting time on level design. [Watch Demo Video Here][Watch-demo-video-here].
 
-[Watch-demo-video-here]:https://youtu.be/A_9pIAYPuW0
-
-
-{: .center}
-![screenshots](/assets/images/PostImages/screenShoots.jpg){:height="70%" width="70%"}
+<iframe class="center-block" width="420" height="315"  src="http://www.youtube.com/embed/A_9pIAYPuW0" frameborder="0" allowfullscreen></iframe>
 
 ---
 #### 1. Normal State Movement
