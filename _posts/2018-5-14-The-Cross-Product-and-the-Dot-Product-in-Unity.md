@@ -13,9 +13,6 @@ The Cross Product and the Dot Product are the most common calculations of Vector
 2. The result of cross product is a **vector**
 
 
-{: .center}
-![screenshots](/assets/images/PostImages/CrossOrDot.jpg){:height="70%" width="70%"}
-
 ---
 #### 1. Dot Product
 
@@ -23,9 +20,9 @@ The Cross Product and the Dot Product are the most common calculations of Vector
 ![dot](/assets/images/PostImages/Dot.jpg){:height="50%" width="50%"}
 
 The position relation of two vectors can be determined by the sign of the dot product of these two vector.
-1. If the dot product = 0, these two vectors are perpendicular.
-2. If the dot product <0, the angle between two Vector is 90 ~ 180.
-3. If the dot product >0, the angle between two Vector is 0 ~ 90
+1. If the dot product = 0, these two vectors are perpendicular. Two Vector point mostly same direction.
+2. If the dot product <0, the angle between two Vector is 90 ~ 180. Two Vector perpendicular.
+3. If the dot product >0, the angle between two Vector is 0 ~ 90. Two Vector point mostly opposite direction.
 
 ***Example in Game Development:***
 
@@ -73,7 +70,7 @@ else
 #### 2. Cross Product 
 
 {: .center}
-![dot](/assets/images/PostImages/Cross.jpg){:height="50%" width="50%"}
+![dot](/assets/images/PostImages/Cross.jpg){:height="70%" width="70%"}
 
 The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is ***perpendicular*** to the coordinate plane of these two vectors.
 
@@ -95,10 +92,15 @@ Normal vector of a plane is calculated from the Cross Product of the coordinate 
 ***Example in Game Development:***
 
 1. WallWalking
-2. Determine the target is on your right or left 
+2. Determine the target is on your right or left:
+
 {% highlight csharp %} 
+// if return a negative value, the target is on the left,
+// if return a positive value, the target is on the right,
+// if return 0, the the target is on the front side or back side
 Vector3.Cross(transform.forward, target.position).y
 {% endhighlight %}
+
 
 
 
