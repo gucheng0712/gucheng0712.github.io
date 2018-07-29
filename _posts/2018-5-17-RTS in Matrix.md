@@ -9,7 +9,8 @@ Normally when we develop programs, unavoidably want to do all sorts of transform
 
 It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.
 
->{: style="color: red"} Important Note: The order of Transformation does affect the result. In most cases, The order of Matrix Transformation is ***Scale -> Rotate -> Translate***. 
+{: style="color: red"}
+>Important Note: The order of Transformation does affect the result. In most cases, The order of Matrix Transformation is ***Scale -> Rotate -> Translate***. 
 
 {: .center}
 ![screenshots](/assets/images/PostImages/matrix_rts.png){:height="80%" width="80%"}

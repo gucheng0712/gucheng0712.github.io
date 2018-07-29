@@ -91,17 +91,28 @@ Normal vector of a plane is calculated from the Cross Product of the coordinate 
 
 ***Example in Game Development:***
 
-1. WallWalking
-2. Determine the target is on your right or left:
-
+(1) WallWalking
+    > The core is to use cross product cauculate the normal of wall's plane, and ground plane's normal to implement into player's Up direction
+(2) Determine the target is on your right or left:
+    > if return a negative value, the target is on the left,
+    if return a positive value, the target is on the right,
+    if return 0, the the target is on the front side or back side
 {% highlight csharp %} 
-// if return a negative value, the target is on the left,
-// if return a positive value, the target is on the right,
-// if return 0, the the target is on the front side or back side
 Vector3.Cross(transform.forward, target.position).y
 {% endhighlight %}
 
+(3) Get the area size of a parallelogram which formed by 2 objects
 
+>`S = |b| * |a| * sin(θ)`
+
+(4) Get the angle between two vectors
+{% highlight csharp %} 
+Vector3 a, b;
+float value = Vector3.Cross(a.normalized, b.normalized);
+float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
+{% endhighlight %}
+
+(5) Can Determine if two vector is **Parallel** or **Intersecting**.
 
 
 ---

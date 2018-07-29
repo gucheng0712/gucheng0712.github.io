@@ -32,7 +32,7 @@ portfolio_heading: Portfolio
 portfolio_type: cards
 
 syntax_highlighting: true
-
+highlighter: rouge
 
 icon_size: 50 # font-size of icons in px
 colored: colored # Leave blank for black and white icons
