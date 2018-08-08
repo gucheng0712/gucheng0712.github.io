@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Matrix TRS (in Right Hand Coordinate System)"
-date:   2018-05-17 14:15:05 +0000
+date:   2018-05-25 14:15:05 +0000
 image: /assets/images/post3.png
 ---
 
-Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Sometimes the transformation can be more complicated, like the translation and then the rotation, scaling.
+Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.
 
 It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.
 

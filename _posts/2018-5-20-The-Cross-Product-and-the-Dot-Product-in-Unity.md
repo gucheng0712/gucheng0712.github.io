@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Cross Or Dot"
-date:   2018-05-14 14:15:05 +0000
+date:   2018-05-20 14:15:05 +0000
 image: /assets/images/Post2.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Texture Mapping"
-date:   2018-06-02 14:15:05 +0000
+date:   2018-06-20 14:15:05 +0000
 image: /assets/images/post7.png
 ---
 

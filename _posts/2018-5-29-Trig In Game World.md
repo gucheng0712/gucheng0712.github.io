@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trig In Game World"
-date:   2018-05-18 14:15:05 +0000
+date:   2018-05-29 14:15:05 +0000
 image: /assets/images/post4.jpg
 ---
 In this post mainly talks about two parts of trigonometry in game development. Respectively They are Trignometry Unit Circle vs Unity Unit Circle & ATan(y/x) vs ATan2(y,x)

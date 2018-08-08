@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "OPP Common Design Principles"
-date:   2018-06-13 14:15:05 +0000
+title:  "OPP Design Principles"
+date:   2018-07-20 14:15:05 +0000
 image: /assets/images/post11.png
 ---
 

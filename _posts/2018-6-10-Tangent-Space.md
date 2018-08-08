@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Tangent Space"
-date:   2018-06-01 14:15:05 +0000
+date:   2018-06-10 14:15:05 +0000
 image: /assets/images/post6.jpg
 ---
 
@@ -21,7 +21,7 @@ Tangent Space is one of the important coordinate in CG. The most important usage
 {: .center}
 ![dot](/assets/images/PostImages/tangent space2.png){:height="50%" width="50%"}
 
-This picture showed a trangle and its tangent space. and it have three vertices ***P0, P1, P2. E0 = P1 - P0, E1 = P2 - P0***, so the corresponding texture coordinate difference is: ***(T1, B1) = (U1-U0, V1-V0), (T2, B2) = (U2,U0,V2,V0)***. 
+This picture showed a trangle and its tangent space. and it have three vertices ***P0, P1, P2. E0 = P1 - P0, E1 = P2 - P0***, so the corresponding texture coordinate difference is: ***(T1, B1) = (U1-U0, V1-V0), (T2, B2) = (U2-U0,V2-V0)***. 
 
 From here we can get: 
 >E0 = T1 x T + B1 x B
@@ -36,7 +36,7 @@ Then, break them down into components:
 
 ![dot](/assets/images/PostImages/tangent space_matrix2.png){:height="30%" width="30%"}
 
-Transformation: 
+Two Sides multiply by the inverse of TB Matrix: 
 
 ![dot](/assets/images/PostImages/tangent space_matrix4.png){:height="30%" width="30%"}
 

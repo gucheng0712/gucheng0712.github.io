@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bump Mapping"
-date:   2018-06-03 14:15:05 +0000
+date:   2018-06-23 14:15:05 +0000
 image: /assets/images/post8.jpg
 ---
 
@@ -21,7 +21,7 @@ Use a height map to simulate the surface displacement. If the color are darker, 
 
 Normally we will use normal map to modify the light. In Normal map, it represents the direction of the normal. The range of normal's component range is [-1,1], but the pixel's component range is [0,1].So that we need to do a mapping
 
->Pixel = Normal + 1 / 2
+>Pixel = (Normal + 1) / 2
 
 This will require us to use a inverse function to get the original normal direction after mapping the pixel in the Shader
 

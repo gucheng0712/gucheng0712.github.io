@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ramp & Mask Texture"
-date:   2018-06-05 14:15:05 +0000
+date:   2018-06-29 14:15:05 +0000
 image: /assets/images/post9.png
 ---
 

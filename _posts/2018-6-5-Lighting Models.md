@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Common Lighting Models"
-date:   2018-05-22 14:15:05 +0000
+date:   2018-06-05 14:15:05 +0000
 image: /assets/images/post5.jpg
 ---
 In this post, I focus on reviewing the Lighting Models I learned these days which are ***Diffuse(Lambert)***, ***Half-Lambert***, ***Specular***, and ***Blinn-Phong***. 
