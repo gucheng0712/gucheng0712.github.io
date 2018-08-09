@@ -63,3 +63,4 @@ plugins:
   - jekyll-feed
   - jekyll-assets
   - jekyll-minifier
+  - jekyll-youtube
