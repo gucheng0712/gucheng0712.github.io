@@ -1,0 +1,49 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" type="text/css" href="/assets/css/materialize.css"> <link rel="stylesheet" type="text/css" href="/assets/main.css"> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"> <title>Suzuka Site</title> </head> <body> <div class="container"> <div class="col s10"> <div class="row" style="padding:10px;"> <a id="home" class="waves-effect waves-light btn white-text darken-2 grey z-depth-4" href="/#blog"><i class="material-icons">arrow_back</i></a> </div> <h3 class="post-title" itemprop="name headline" style="text-align:center">Unity Rendering Path</h3> <p class="post-meta"> <time datetime="2018-08-14T05:15:05-07:00" itemprop="datePublished"> Aug 14, 2018 </time> </p> <div class="post-content" itemprop="articleBody"> <p>Unity support many kinds of rendering path. In Unity 5.0, there are three types of rendering path: forward, deferred, and vertex lit rendering path.</p> <hr/> <h4 id="1-forward-rendering-path">1. Forward Rendering Path</h4> <p class="center"><img src="/assets/images/PostImages/fwdRendering.png" alt="dot" height="80%" width="80%"/></p> <p>For each forward rendering, we need to render the rendering primitive of the object and calculate the data of two buffers (color buffer and depth buffer). We use the depth buffer to determine if a fragment is visible and update the color value of the color buffer if it is visible.</p> <blockquote> <p>We can use pseudo code to describe the process of forward rendering:</p> </blockquote> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+Pass
+{
+    for(each primitive in this model)
+    {
+        for(each fragment covered by this primitive)
+        {
+            if(failed in depth test)
+            {
+                discard;
+            }
+            else
+            {
+                float4 color = Shading(materialInfo, pos, normal, lightDir, viewDir);
+
+                WriteFrameBuffer(fragment, color);
+            }
+        }
+    }
+} </code></pre></figure> <hr/> <h4 id="2-deferred-rendering-path">2. Deferred Rendering Path</h4> <p class="center"><img src="/assets/images/PostImages/deferredrendering.png" alt="dot" height="80%" width="80%"/></p> <p>Deferred Rendering mainly includes two Pass. The first Pass, we don’t do any lighting calculations, and only calculate which fragment in the screen is visible, by depth buffer. After finding a fragment is visible, it will store the data into the G-Buffer. Then, in the second Pass, it will use the data of fragment in the G-Buffer to do the lighting calculation.</p> <blockquote> <p>We can use pseudo code to describe the process of the deferred rendering:</p> </blockquote> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+PassOne // Store fragment data into G-Buffer
+{
+    for(each primitive in this model)
+    {
+        for(each fragment covered by this primitive)
+        {
+            if(failed in depth test)
+            {
+                discard;
+            }
+            else
+            {
+                WriteGBuffer(materialInfo, pos, normal, lightDir, viewDir);
+            }
+        }
+    }
+}
+PassTwo // Calcaulate Lighting by using the data in G-Buffer
+{
+    for(each pixel in the screen)
+    {
+        if(the pixel is valid)
+        {
+            readGBuffer(pixel, materialInfo, pos, normal, lightDir, viewDir);
+            float4 color = Shading(materialInfo, pos, normal, lightDir, viewDir);
+            WriteFrameBuffer(pixel, color);
+        }
+    }
+} </code></pre></figure> <hr/> <h4 id="2-why-use-deferred-rendering">2. Why use Deferred Rendering</h4> <blockquote> <p>Normally we will use Forward Rendering, but when the scene has too many light sources, the performance of Forward Rendering drops dramatically.</p> </blockquote> <blockquote> <p>For example, if we place multiple light sources in an area in the Unity Scene, and these light source areas overlap and influence with each other. In order to get the final lighting effects, we need to perform multiple Pass for each object in the area to calculate the lighting result of different light source to this object, finally, blend these results in the color buffer to get the final lighting. Therefore, every time when we call a Pass we need to render the object again, but many calculations actually is repeat.</p> </blockquote> <blockquote style="color: red"> <p>Deferred Rendering can solve this problem because it not only uses color buffer, and depth buffer, it also use an additional buffer called G-Buffer (Geometry- Buffer). G-Buffer stores the information of the surface we care (normally it means the surface which is the closest to camera), such as the surface’s Normal, Position, Material Properties used for illumination calculation, etc.</p> </blockquote> <hr/> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> </div> </div> <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script> <script type="text/javascript" src="/assets/js/materialize.min.js"></script> <script src="/assets/js/init.js"></script> </body> <footer class="page-footer"> <div class="footer-copyright" style="padding-left: 30px"> <i class="material-icons" style="padding-right:5px">copyright</i> <p>2018 Copyright Cheng Gu</p> </div> </footer> </html>

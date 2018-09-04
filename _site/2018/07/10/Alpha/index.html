@@ -1,0 +1,184 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" type="text/css" href="/assets/css/materialize.css"> <link rel="stylesheet" type="text/css" href="/assets/main.css"> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"> <title>Suzuka Site</title> </head> <body> <div class="container"> <div class="col s10"> <div class="row" style="padding:10px;"> <a id="home" class="waves-effect waves-light btn white-text darken-2 grey z-depth-4" href="/#blog"><i class="material-icons">arrow_back</i></a> </div> <h3 class="post-title" itemprop="name headline" style="text-align:center">Transparent Effects</h3> <p class="post-meta"> <time datetime="2018-07-10T07:15:05-07:00" itemprop="datePublished"> Jul 10, 2018 </time> </p> <div class="post-content" itemprop="articleBody"> <p>In Game Development, we often use two ways to achieve transparent effect, Aplha Test and Alpha Blending.</p> <hr/> <h4 id="1-z-buffer-depth-buffer">1. Z-Buffer (Depth Buffer)</h4> <p class="center"><img src="/assets/images/PostImages/z_buffer.png" alt="dot" height="50%" width="50%"/></p> <blockquote> <p>Z-Buffer is used to solve the problems of visibility. It can decide which parts of the object to render first, and which parts of the objects will render later(can be blocked).</p> </blockquote> <p>The basic idea is to determine the distance between the camera and the object based on the value of the z-buffer. For example, when we want to render an fragment, the fragment’s depth value will be compared to the depth in the z-buffer (If the ZTest is On). If its depth value is smaller, it means this object is more far away from the camer. so this frament should not be rendered onto screen (which means it is covered by something); Otherwise, this fragment should replace the depth value which is in the z-buffer.</p> <hr/> <h4 id="2-alpha-test-vs-alpha-blending">2. Alpha Test vs Alpha Blending</h4> <p class="center"><img src="/assets/images/PostImages/alpha.gif" alt="dot" height="70%" width="70%"/></p> <p><strong><em>Alpha Test:</em></strong>: As long as there is one fragment’s alpha value does not meet the conditions, the fragment which corresponding to it will be discarded (into a completely transparent fragment). Otherwise, it will be rendered as an opaque object.</p> <p><strong><em>Alpha Blending</em></strong>: Through the Alpha blending, we can get a translucent effect. it will combine the current fragment’s alpha value with the color value which has already been stored in the color buffer, to form a new color, but Alpha Blending needs to Turn Off the ZWrite. Therefore, we need to be careful with the rendering order when we are doing alpha blending.</p> <hr/> <h4 id="3-create-a-alpha-test-shader-in-unity">3. Create A Alpha Test Shader In Unity</h4> <p class="center"><img src="/assets/images/PostImages/alpha_test.png" alt="dot" height="70%" width="70%"/></p> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+Shader "MyShader/AlphaTest" 
+{
+    Properties
+    {
+        _Color("Color", Color) = (1,1,1,1)
+        _MainTex("Main Texture", 2D)= "white"{}
+        _Cutoff("Alpha Cutoff", Range(0,1)) = 0.5
+    }
+    SubShader
+    {
+        // Usually when utilize the alpha test we should have these three tags
+        Tags { "Queue" = "AlphaTest" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
+        Pass
+        {
+            Tags{ "LightMode" = "ForwardBase" }
+
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "Lighting.cginc"
+
+            fixed4 _Color;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            fixed _Cutoff;
+
+            struct a2v
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+                float4 texcoord : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float3 worldNormal : TEXCOORD0;
+                float3 worldVertex : TEXCOORD1;
+                float2 uv : TEXCOORD2;
+            };
+
+            v2f vert(a2v v)
+            {
+                v2f f;
+                f.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                f.worldNormal = mul(_Object2World, v.normal);
+                f.worldVertex = mul(v.vertex, _World2Object);
+                f.uv = v.texcoord.xy*_MainTex_ST.xy+_MainTex_ST.zw;
+                return f;
+            }
+
+            fixed4 frag(v2f f): SV_Target
+            {
+                fixed3 worldNormal = normalize(f.worldNormal);
+                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(f.worldVertex));
+                fixed4 texColor = tex2D(_MainTex, f.uv);
+
+                // Alpha Test
+                if((texColor.a - _Cutoff) &lt; 0.0){ discard; }
+                // or use clip function
+                //clip(texColor.a - _Cutoff);
+
+                fixed3 albedo = texColor.rgb * _Color.rgb;
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
+                fixed3 diffuse = _LightColor0.rgb * albedo * saturate(dot(worldNormal,worldLightDir));
+                fixed3 c = ambient + diffuse;
+                return fixed4(c, 1.0);
+
+            }
+
+            ENDCG
+        }
+    }
+}</code></pre></figure> <hr/> <h4 id="4-create-a-alpha-blending-shader-in-unity">4. Create A Alpha Blending Shader In Unity</h4> <p class="center"><img src="/assets/images/PostImages/Alpha Blending.png" alt="dot" height="70%" width="70%"/></p> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+Shader "MyShader/AlphaBlending" 
+{
+    Properties
+    {
+        _Color("Main Tint", Color) =(1,1,1,1)
+        _MainTex("Main Texture", 2D) = "white"{}
+        _AlphaScale ("Alpha Scale", Range(0, 1)) = 1
+    }
+
+    SubShader
+    {
+        Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+
+
+        // The first Pass only for store the model's depth info into the z-buffer,
+        // to eliminate the fragment which covered by itself in the model
+        Pass
+        {
+            ZWrite On 
+            // ColorMask use for mask Color in the model.
+            // ColorMask RGB: Mask RGB Color
+            // ColorMask A: Mask Alpha Channel
+            // ColorMask 0: Mask all color, but since ZWrite is On, it will only pass the z-buffer
+            ColorMask 0 
+        }
+
+        Pass
+        {
+            Tags{ "LightMode" = "ForwardBase" }
+            ZWrite Off // not passing  z-buffer
+
+            // The semantic for blending mode
+            // Blend Off : Close Blending
+
+            // Blend SrcFactor DstFactor: Open Blending, and Set Blending factor.
+            // Color in the Color Buffer = The object's fragment color * SrcFactor + The color which is already in color buffer * DstFactor
+
+            // Blend SrcFactor DstFactor, SrcFactorA DstFactorA: Same as above but using different factor for blending alpha channel
+
+            Blend SrcAlpha OneMinusSrcAlpha
+
+
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "Lighting.cginc"
+
+            fixed4 _Color;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            fixed _AlphaScale;
+
+            struct a2v
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+                float4 texcoord : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float3 worldNormal : TEXCOORD0;
+                float3 worldVertex : TEXCOORD1;
+                float2 uv : TEXCOORD2;
+            };
+
+            v2f vert(a2v v)
+            {
+                v2f f;
+                f.pos = UnityObjectToClipPos(v.vertex);
+                f.worldNormal = mul(unity_ObjectToWorld, v.normal);
+                f.worldVertex = mul(v.vertex, unity_WorldToObject);
+                f.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                return f;
+            }
+
+            fixed4 frag(v2f f): SV_Target
+            {
+                fixed3 worldNormal = normalize(f.worldNormal);
+                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(f.worldVertex));
+                fixed4 texColor = tex2D(_MainTex,f.uv);
+                fixed3 albedo = texColor.rgb * _Color.rgb;
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
+                fixed3 diffuse = _LightColor0.rgb * albedo *saturate(dot(worldNormal,worldLightDir));
+                fixed3 c = diffuse + ambient;
+                return fixed4(c,texColor.a * _AlphaScale);
+            }
+            ENDCG
+        }
+    } 
+}</code></pre></figure> <hr/> <h4 id="5-shaderlab-blending-command">5. ShaderLab Blending Command</h4> <hr/> <table> <tbody> <tr> <td>Command</td> <td>Description</td> </tr> <tr> <td>Blend SrcFactor DstFactor</td> <td>Open Blending, and Set Blending factor.Color in the Color Buffer = The object’s fragment color * SrcFactor + The color which is already in color buffer * DstFactor</td> </tr> <tr> <td>Blend SrcFactor DstFactor, SrcFactorA DstFactorA</td> <td>Same function as above, butbut using different factor for blending alpha channe</td> </tr> </tbody> </table> <hr/> <blockquote style="color: red"> <p>So, What are these factors?</p> </blockquote> <hr/> <table> <tbody> <tr> <td>Parameters</td> <td>Description</td> </tr> <tr> <td>One</td> <td>Factor is 1</td> </tr> <tr> <td>Zero</td> <td>Factor is 0</td> </tr> <tr> <td>SrcColor</td> <td>Factor is the source color value</td> </tr> <tr> <td>SrcAlpha</td> <td>Factor is the source alpha value</td> </tr> <tr> <td>DstColor</td> <td>Factor is the target color value</td> </tr> <tr> <td>DstAlpha</td> <td>Factor is the target alpha value</td> </tr> <tr> <td>OneMinusSrcColor</td> <td>Factor is 1 - source color value</td> </tr> <tr> <td>OneMinusSrcAlpha</td> <td>Factor is 1 - source alpha value</td> </tr> <tr> <td>OneMinusDstColor</td> <td>Factor is 1 - target color value</td> </tr> <tr> <td>OneMinusDstAlpha</td> <td>Factor is 1 - target alpha value</td> </tr> </tbody> </table> <hr/> <blockquote style="color: red"> <p>We also can sue ShaderLab’s BlendOp Command to perform various blending operations</p> </blockquote> <hr/> <table> <tbody> <tr> <td>Operation</td> <td>Description</td> </tr> <tr> <td>Add</td> <td>O = SrcFactor * SourceColor + DstFactor * TargetColor</td> </tr> <tr> <td>Sub</td> <td>O = SrcFactor * SourceColor - DstFactor * TargetColor</td> </tr> <tr> <td>RevSub</td> <td>O = DstFactor * TargetColor - SrcFactor * SourceColor</td> </tr> <tr> <td>Min</td> <td>O = (min(S.r, D.r), min(S.g, D.g), min(S.b, D.b), min(S.a, D.a))</td> </tr> <tr> <td>Max</td> <td>O = (max(S.r, D.r), max(S.g, D.g), max(S.b, D.b), max(S.a, D.a))</td> </tr> </tbody> </table> <hr/> <blockquote style="color: red"> <p>The Common Blending Type:</p> </blockquote> <p class="center"><img src="/assets/images/PostImages/Blending Mode.png" alt="dot" height="70%" width="70%"/></p> <figure class="highlight"><pre><code class="language-cg" data-lang="cg">Blend SrcAlpha OneMinusSrcAlpha  // Normal
+
+Blend OneMinusDstColor One  // Soft Additive
+
+Blend DstColor Zero  // Multiply
+
+Blend DstColor SrcColor  // 2x Multiply
+
+BlendOp Min    // Darken
+Blend One One
+
+BlendOp Max   // Lighten
+Blend One One
+
+Blend OneMinusDstColor One // Screen
+Blend One OneMinusSrcColor // Same as above
+
+Blend One One // Linear Dodge</code></pre></figure> <hr/> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> </div> </div> <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script> <script type="text/javascript" src="/assets/js/materialize.min.js"></script> <script src="/assets/js/init.js"></script> </body> <footer class="page-footer"> <div class="footer-copyright" style="padding-left: 30px"> <i class="material-icons" style="padding-right:5px">copyright</i> <p>2018 Copyright Cheng Gu</p> </div> </footer> </html>

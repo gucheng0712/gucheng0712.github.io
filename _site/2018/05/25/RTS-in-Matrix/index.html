@@ -1,0 +1,127 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" type="text/css" href="/assets/css/materialize.css"> <link rel="stylesheet" type="text/css" href="/assets/main.css"> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"> <title>Suzuka Site</title> </head> <body> <div class="container"> <div class="col s10"> <div class="row" style="padding:10px;"> <a id="home" class="waves-effect waves-light btn white-text darken-2 grey z-depth-4" href="/#blog"><i class="material-icons">arrow_back</i></a> </div> <h3 class="post-title" itemprop="name headline" style="text-align:center">Matrix TRS (in Right Hand Coordinate System)</h3> <p class="post-meta"> <time datetime="2018-05-25T07:15:05-07:00" itemprop="datePublished"> May 25, 2018 </time> </p> <div class="post-content" itemprop="articleBody"> <p>Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.</p> <p>It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.</p> <blockquote style="color: red"> <p>Important Note: The order of Transformation does affect the result. In most cases, The order of Matrix Transformation is <strong><em>Scale -&gt; Rotate -&gt; Translate</em></strong>.</p> </blockquote> <p class="center"><img src="/assets/images/PostImages/matrix_rts.png" alt="screenshots" height="80%" width="80%"/></p> <hr/> <h4 id="1-translate-t">1. Translate (T)</h4> <p><img src="/assets/images/PostImages/t.png" alt="dot" height="30%" width="30%"/></p> <p>eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)</p> <figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="k">public</span> <span class="n">Matrix4x4</span> <span class="n">matrix</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Vector4</span> <span class="n">vector</span><span class="p">;</span>
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// if the w is 1 represent a point, 0 represent a vector</span>
+        <span class="n">vector</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector4</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+        <span class="n">matrix</span> <span class="p">=</span> <span class="n">Matrix4x4</span><span class="p">.</span><span class="n">identity</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Before Translate: "</span> <span class="p">+</span> <span class="n">transform</span><span class="p">.</span><span class="n">localToWorldMatrix</span><span class="p">);</span>
+        <span class="c1">//Before Translate: </span>
+        <span class="c1">//    1.00000	0.00000	0.00000	2.00000</span>
+        <span class="c1">//    0.00000	1.00000	0.00000	3.00000</span>
+        <span class="c1">//    0.00000	0.00000	1.00000	5.00000</span>
+        <span class="c1">//    0.00000	0.00000	0.00000	1.00000</span>
+        
+        
+        <span class="n">matrix</span><span class="p">.</span><span class="n">m03</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span> <span class="c1">// move (3,-2,1.5)</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">m13</span> <span class="p">=</span> <span class="p">-</span><span class="m">2</span><span class="p">;</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">m23</span> <span class="p">=</span> <span class="m">1.5f</span><span class="p">;</span>
+        
+        
+        <span class="c1">// Translate</span>
+        <span class="n">vector</span> <span class="p">=</span> <span class="n">matrix</span> <span class="p">*</span> <span class="n">vector</span><span class="p">;</span>
+        <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vector</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vector</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"After Translate: "</span> <span class="p">+</span> <span class="n">transform</span><span class="p">.</span><span class="n">localToWorldMatrix</span><span class="p">);</span>
+        <span class="c1">//After Translate: </span>
+        <span class="c1">//    1.00000	0.00000	0.00000	5.00000</span>
+        <span class="c1">//    0.00000	1.00000	0.00000	1.00000</span>
+        <span class="c1">//    0.00000	0.00000	1.00000	6.50000</span>
+        <span class="c1">//    0.00000	0.00000	0.00000	1.00000</span>
+    <span class="p">}</span></code></pre></figure> <hr/> <h4 id="2-rotate-r">2. Rotate (R)</h4> <p>(1) Rotate Along X-Axis: In 3D, when P(x,y,z) rotate along the x-axis and got P’(x’,y’,z’). x will not change. the Y and Z composite a plane with O (the origin) - <strong><em>YOZ</em></strong> so: x′=x y′=ycosθ−zsinθ z′=ysinθ+zcosθ</p> <p>Normally use Matrix4X4 represent this transformation:</p> <p><img src="/assets/images/PostImages/r_x.png" alt="dot" height="30%" width="30%"/></p> <p>(2) Rotate Along Z-Axis:</p> <p><img src="/assets/images/PostImages/r_z.png" alt="dot" height="30%" width="30%"/></p> <p>(3) Rotate Along Y-Axis: when P(x,y,z) rotate along the y-axis got P’(x’,y’,z’). y will not change. the ZOX composite a plane<strong><em>(NOT XOZ)</em></strong> so:</p> <p><img src="/assets/images/PostImages/r_y.png" alt="dot" height="30%" width="30%"/></p> <hr/> <p>Above Described the roation in matrix. These three are all similar except rotating along the y-axis. The reason is the y-axis have a different axial order.</p> <ol> <li>XYZ —Along x-axis</li> <li style="color: red">YZX —Along y-axis (NOT YXZ, Order changed)</li> <li>ZXY —Along z-axis</li> </ol> <p>So, when rotating along y-axis,</p> <p>it should transpose from <strong>[x y z 1]</strong> =&gt; <img src="/assets/images/PostImages/y_r_format.png" alt="dot" height="10%" width="10%"/></p> <p>eg: rotate along respectively x, y, z 30 degree:</p> <figure class="highlight"><pre><code class="language-csharp" data-lang="csharp">    <span class="n">Matrix4x4</span> <span class="n">matrix</span><span class="p">;</span>
+    <span class="n">Vector4</span> <span class="n">vector</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">angle</span> <span class="p">=</span> <span class="m">30</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">enum</span> <span class="n">Axis</span> <span class="p">{</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">Axis</span> <span class="n">axis</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">matrix</span> <span class="p">=</span> <span class="n">Matrix4x4</span><span class="p">.</span><span class="n">identity</span><span class="p">;</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Before Rotate: "</span> <span class="p">+</span> <span class="n">matrix</span><span class="p">);</span>
+        <span class="c1">//Before Rotate: 1.00000  0.00000 0.00000 0.00000</span>
+        <span class="c1">//               0.00000 1.00000 0.00000 0.00000</span>
+        <span class="c1">//               0.00000 0.00000 1.00000 0.00000</span>
+        <span class="c1">//               0.00000 0.00000 0.00000 1.00000</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="n">Axis</span><span class="p">.</span><span class="n">X</span><span class="p">:</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m11</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m12</span> <span class="p">=</span> <span class="p">-</span><span class="n">Mathf</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m21</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m22</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"After Rotate(along x-axis) : "</span> <span class="p">+</span> <span class="n">matrix</span><span class="p">);</span>
+
+                <span class="c1">//After Rotate(along x-axis):   1.00000   0.00000   0.00000   0.00000</span>
+                <span class="c1">//                              0.00000   0.86603  -0.50000   0.00000</span>
+                <span class="c1">//                              0.00000   0.50000   0.86603   0.00000</span>
+                <span class="c1">//                              0.00000   0.00000   0.00000   1.00000</span>
+
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Y</span><span class="p">:</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m01</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m02</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m21</span> <span class="p">=</span> <span class="p">-</span><span class="n">Mathf</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m22</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"After Rotate(along y-axis): "</span> <span class="p">+</span> <span class="n">matrix</span><span class="p">);</span>
+                <span class="c1">//After Rotate(along y-axis):   1.00000   0.86603   0.50000   0.00000</span>
+                <span class="c1">//                              0.00000   1.00000   0.00000   0.00000</span>
+                <span class="c1">//                              0.00000   -0.50000  0.86603   0.00000</span>
+                <span class="c1">//                              0.00000   0.00000   0.00000   1.00000</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">Axis</span><span class="p">.</span><span class="n">Z</span><span class="p">:</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m01</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m02</span> <span class="p">=</span> <span class="p">-</span><span class="n">Mathf</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m11</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Sin</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">matrix</span><span class="p">.</span><span class="n">m12</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Cos</span><span class="p">(</span><span class="n">angle</span> <span class="p">*</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Deg2Rad</span><span class="p">);</span>
+                <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"After Rotate(along z-axis): "</span> <span class="p">+</span> <span class="n">matrix</span><span class="p">);</span>
+
+                <span class="c1">//After Rotate(along z-axis):   1.00000   0.86603  -0.50000   0.00000</span>
+                <span class="c1">//                              0.00000   0.50000   0.86603   0.00000</span>
+                <span class="c1">//                              0.00000   0.00000   1.00000   0.00000</span>
+                <span class="c1">//                              0.00000   0.00000   0.00000   1.00000</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="nf">MatrixToQuaternion</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">Quaternion</span> <span class="nf">MatrixToQuaternion</span><span class="p">(</span><span class="n">Matrix4x4</span> <span class="n">_matrix</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">float</span> <span class="n">qw</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="m">1f</span> <span class="p">+</span> <span class="n">_matrix</span><span class="p">.</span><span class="n">m00</span> <span class="p">+</span> <span class="n">_matrix</span><span class="p">.</span><span class="n">m11</span> <span class="p">+</span> <span class="n">_matrix</span><span class="p">.</span><span class="n">m22</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">w</span> <span class="p">=</span> <span class="m">4</span> <span class="p">*</span> <span class="n">qw</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">qx</span> <span class="p">=</span> <span class="p">(</span><span class="n">_matrix</span><span class="p">.</span><span class="n">m21</span> <span class="p">-</span> <span class="n">_matrix</span><span class="p">.</span><span class="n">m12</span><span class="p">)</span> <span class="p">/</span> <span class="n">w</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">qy</span> <span class="p">=</span> <span class="p">(</span><span class="n">_matrix</span><span class="p">.</span><span class="n">m02</span> <span class="p">-</span> <span class="n">_matrix</span><span class="p">.</span><span class="n">m20</span><span class="p">)</span> <span class="p">/</span> <span class="n">w</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">qz</span> <span class="p">=</span> <span class="p">(</span><span class="n">_matrix</span><span class="p">.</span><span class="n">m10</span> <span class="p">-</span> <span class="n">_matrix</span><span class="p">.</span><span class="n">m01</span><span class="p">)</span> <span class="p">/</span> <span class="n">w</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Quaternion</span><span class="p">(</span><span class="n">qx</span><span class="p">,</span> <span class="n">qy</span><span class="p">,</span> <span class="n">qz</span><span class="p">,</span> <span class="n">qw</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></figure> <hr/> <h4 id="3-scale-s">3. Scale (S)</h4> <p><img src="/assets/images/PostImages/s.png" alt="dot" height="30%" width="30%"/></p> <p>eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)</p> <figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"> <span class="k">public</span> <span class="n">Matrix4x4</span> <span class="n">matrix</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Vector4</span> <span class="n">vector</span><span class="p">;</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"Before scale: "</span> <span class="p">+</span> <span class="n">transform</span><span class="p">.</span><span class="n">localToWorldMatrix</span><span class="p">);</span>
+        <span class="c1">//Before scale: 1.00000   0.00000 0.00000 2.00000</span>
+        <span class="c1">//              0.00000 1.00000 0.00000 3.00000</span>
+        <span class="c1">//              0.00000 0.00000 1.00000 5.00000</span>
+        <span class="c1">//              0.00000 0.00000 0.00000 1.00000</span>
+
+
+        <span class="n">matrix</span> <span class="p">=</span> <span class="n">Matrix4x4</span><span class="p">.</span><span class="n">identity</span><span class="p">;</span>
+
+        <span class="c1">// if the w is 1 represent a point, 0 represent a vector</span>
+        <span class="n">vector</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector4</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">localScale</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+
+        <span class="c1">//scale times</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">m00</span> <span class="p">=</span> <span class="m">1.5f</span><span class="p">;</span> <span class="c1">// scale x</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">m11</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span> <span class="c1">// scale y</span>
+        <span class="n">matrix</span><span class="p">.</span><span class="n">m22</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span> <span class="c1">// scale z</span>
+
+        <span class="n">vector</span> <span class="p">=</span> <span class="n">matrix</span> <span class="p">*</span> <span class="n">vector</span><span class="p">;</span>
+        <span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vector</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vector</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">"After scale: "</span> <span class="p">+</span> <span class="n">transform</span><span class="p">.</span><span class="n">localToWorldMatrix</span><span class="p">);</span>
+
+        <span class="c1">//After scale: 1.50000    0.00000 0.00000 2.00000</span>
+        <span class="c1">//             0.00000 2.00000 0.00000 3.00000</span>
+        <span class="c1">//             0.00000 0.00000 3.00000 5.00000</span>
+        <span class="c1">//             0.00000 0.00000 0.00000 1.00000</span>
+    <span class="p">}</span></code></pre></figure> <hr/> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> </div> </div> <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script> <script type="text/javascript" src="/assets/js/materialize.min.js"></script> <script src="/assets/js/init.js"></script> </body> <footer class="page-footer"> <div class="footer-copyright" style="padding-left: 30px"> <i class="material-icons" style="padding-right:5px">copyright</i> <p>2018 Copyright Cheng Gu</p> </div> </footer> </html>

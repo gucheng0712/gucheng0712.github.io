@@ -5,7 +5,7 @@ date:   2018-07-20 14:15:05 +0000
 image: /assets/images/post11.png
 ---
 
-In order to make our code system more stable, esay to maintain, and more portability, we should fully understand and apply these principles in to our code.
+For making our code system more stable and portability, esay to maintain, follow the solid design principle is significant.
 
 ---
 #### 1. SRP (Single Responsibility Principle)

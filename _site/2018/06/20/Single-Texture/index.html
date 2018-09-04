@@ -1,0 +1,138 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" type="text/css" href="/assets/css/materialize.css"> <link rel="stylesheet" type="text/css" href="/assets/main.css"> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"> <title>Suzuka Site</title> </head> <body> <div class="container"> <div class="col s10"> <div class="row" style="padding:10px;"> <a id="home" class="waves-effect waves-light btn white-text darken-2 grey z-depth-4" href="/#blog"><i class="material-icons">arrow_back</i></a> </div> <h3 class="post-title" itemprop="name headline" style="text-align:center">Texture Mapping</h3> <p class="post-meta"> <time datetime="2018-06-20T07:15:05-07:00" itemprop="datePublished"> Jun 20, 2018 </time> </p> <div class="post-content" itemprop="articleBody"> <p>The basic idea of “texture mapping” is to put a flat image onto the surface of a three-dimensional shape.</p> <hr/> <h4 id="1-create-a-single-texture-shader">1. Create a Single Texture Shader</h4> <p class="center"><img src="/assets/images/PostImages/st.png" alt="dot" height="70%" width="70%"/></p> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+    Shader "MyShader/SingleTexture"
+{
+    Properties
+    {
+        _MainTex("Texture",2D) ="white"{}
+    }
+    SubShader
+    {
+        Pass
+        {
+            Tags{"LightMode" = "ForwardBase"}
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            // In order to use some built-in variables, 
+            // we need to use "Lighting.cginc" Library which is builtin unity
+            #include "Lighting.cginc"
+
+            sampler2D _MainTex;
+
+            // Compared with other properties, we not only need to declare a sampler2D type variable,
+            // but also we should declare a float4 type variable _MainTex_ST. 
+            // Names are not random. We MUST follow "Texture Name"_ST. 
+            // S represents scale, T represents transformation.
+            float4 _MainTex_ST;
+
+            struct a2v
+            {
+                float4 vertex : POSITION;
+                float4 texcoord : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            v2f vert(a2v v)
+            {
+                v2f f;
+                f.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+
+
+                f.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                // or just call below function which builtin cg
+                //f.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+                return f;
+            }
+
+            fixed4 frag(v2f f) : SV_Target
+            {
+                fixed3 c = tex2D(_MainTex, f.uv).rgb;
+                return fixed4(c,1); 
+            } 
+            ENDCG
+        }
+    }
+    FallBack "Diffuse"
+}</code></pre></figure> <hr/> <h4 id="2-combine-texture-with-lighting-model">2. Combine Texture with Lighting Model</h4> <p class="center"><img src="/assets/images/PostImages/texinLightmodel.png" alt="dot" height="70%" width="70%"/></p> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+Shader "MyShader/TextureInLightModel"
+{
+    Properties
+    {
+        _Color("Color", Color) = (1,1,1,1)
+        _MainTex("Texture", 2D) ="white"{}
+        _Specular("Specular", Color) = (1,1,1,1)
+        _Gloss("Gloss", Range(5,100)) = 5
+    } 
+
+    SubShader
+    {
+        Pass
+        {
+            Tags{"LightMode" = "ForwardBase"}
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include "Lighting.cginc"
+
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+
+            fixed4 _Color;
+            fixed4 _Specular;
+            float _Gloss;
+
+            struct a2v
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+                float4 texcoord : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float4 worldVertex : TEXCOORD0;
+                float3 worldNormal : TEXCOORD1;
+                float2 uv : TEXCOORD2;
+            };
+
+            v2f vert(a2v v)
+            {
+                v2f f;
+                f.pos = UnityObjectToClipPos(v.vertex);
+                f.worldNormal = mul(_Object2World, v.normal);
+                f.worldVertex = mul(_Object2World, v.vertex);
+                f.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+                // or just call below function which builtin cg
+                //f.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+                return f;
+            }
+
+            fixed4 frag(v2f f) : SV_Target
+            {
+                fixed3 worldNormalDir = normalize(f.worldNormal);
+                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(f.worldVertex));
+                fixed3 albedo = tex2D(_MainTex, f.uv).rgb * _Color.rgb;
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
+                fixed3 diffuse = _LightColor0.rgb * albedo * saturate(dot(worldNormalDir, worldLightDir));
+
+                fixed3 viewDir = normalize(UnityWorldSpaceViewDir(f.worldVertex));
+                fixed3 halfDir = normalize(viewDir + worldLightDir);
+                fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(saturate(dot(halfDir,worldNormalDir)),_Gloss);
+
+                fixed3 c = ambient + diffuse + specular;
+
+                return fixed4(c,1); 
+            } 
+            ENDCG
+        }
+    }
+    FallBack "Diffuse"
+}</code></pre></figure> <hr/> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> </div> </div> <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script> <script type="text/javascript" src="/assets/js/materialize.min.js"></script> <script src="/assets/js/init.js"></script> </body> <footer class="page-footer"> <div class="footer-copyright" style="padding-left: 30px"> <i class="material-icons" style="padding-right:5px">copyright</i> <p>2018 Copyright Cheng Gu</p> </div> </footer> </html>

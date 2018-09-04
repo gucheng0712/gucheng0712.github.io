@@ -1,0 +1,95 @@
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" type="text/css" href="/assets/css/materialize.css"> <link rel="stylesheet" type="text/css" href="/assets/main.css"> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"> <title>Suzuka Site</title> </head> <body> <div class="container"> <div class="col s10"> <div class="row" style="padding:10px;"> <a id="home" class="waves-effect waves-light btn white-text darken-2 grey z-depth-4" href="/#blog"><i class="material-icons">arrow_back</i></a> </div> <h3 class="post-title" itemprop="name headline" style="text-align:center">Dynamic Discoloration Shader</h3> <p class="post-meta"> <time datetime="2018-07-29T07:15:05-07:00" itemprop="datePublished"> Jul 29, 2018 </time> </p> <div class="post-content" itemprop="articleBody"> <p>An exercise of writing surface shader with vertex function to achieve dynamic discoloration of the model and cube map reflection.</p> <hr/> <p class="center"><img src="/assets/images/PostImages/Model Dynamic Discoloration.gif" alt="dot" height="70%" width="70%"/></p> <figure class="highlight"><pre><code class="language-cg" data-lang="cg"> 
+Shader "MyShader/CarPaint_SurfaceShader" 
+{
+	Properties 
+    {
+        _MainColor("MainColor",Color) = (1,1,1,1)
+        _SecondColor("SecondColor",Color) = (1,1,1,1)
+        _Center("Center",Range(-0.7,0.7)) = 0
+        _Radius("R", Range(0,0.5)) = 0.2
+		_Glossiness ("Smoothness", Range(0,1)) = 0.5
+		_Metallic ("Metallic", Range(0,1)) = 0.0
+        _MainTex("Main Texture",2D) = ""{}
+        _CubeMap("Cube Map",Cube)=""{}
+    }
+	SubShader {
+		Tags { "RenderType"="Opaque" }
+
+		CGPROGRAM
+
+		// Physically based Standard lighting model, and enable shadows on all light types
+		#pragma surface surf Standard fullforwardshadows vertex:vert
+        
+        #pragma target 3.5 // needs it for dx 11
+
+        float4 _MainColor;
+        float4 _SecondColor;
+        float _Center;
+        float _Radius;
+        half _Glossiness;
+        half _Metallic;
+		sampler2D _MainTex;
+        samplerCUBE _CubeMap;
+
+		struct Input 
+        {
+			float2 uv_MainTex;
+            float3 R;
+            float z;
+		};
+
+        void vert(inout appdata_full v, out Input o)
+        {
+            // UNITY_INITIALIZE_OUTPUT(Input,o);
+            // or
+            o.uv_MainTex = v.texcoord.xy;
+
+            float3 V = -WorldSpaceViewDir(v.vertex);
+            // float3 V = mul(_Object2World,v.vertex).xyz - _WorldSpaceCameraPos.xyz;
+            // or
+            float3 N = normalize(mul(v.normal,(float3x3)unity_WorldToObject));
+
+            o.R = reflect(V,N);
+            o.z = v.vertex.z;// determine the direction the lerp
+        }
+        
+
+		void surf (Input IN, inout SurfaceOutputStandard o) {
+			// Albedo comes from a texture tinted by color
+			fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+            fixed4 cubeMapCol = texCUBE(_CubeMap,IN.R);
+
+            // Combine texture color and the cubemap reflection color
+			o.Albedo = c.rgb + cubeMapCol.rgb;
+
+			// Metallic and smoothness come from slider variables
+			o.Metallic = _Metallic;
+			o.Smoothness = _Glossiness;
+			o.Alpha = c.a;
+
+
+            float d = IN.z - _Center;
+            float dLength = abs(d);
+            
+            // Get 1 or -1 to determine the color on two sides
+            // the vertices &gt; _Center, it will be 1
+            // the vertices &lt; _Center, it will be -1
+            d = d / dLength;
+
+            // The pure level represents the _MainColor and _SecondColor value
+            // when the pureLevel increase, the blending between two color will increase
+            float pureLevel = dLength /_Radius;
+            pureLevel = saturate(pureLevel);
+
+            // This determine the negative or positive value
+            d *= pureLevel;
+
+            d = d * 0.5+0.5;
+
+            o.Albedo *= lerp(_MainColor, _SecondColor, d);
+
+		}
+		ENDCG
+	}
+	FallBack "Diffuse"
+}</code></pre></figure> <hr/> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> </div> </div> <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script> <script type="text/javascript" src="/assets/js/materialize.min.js"></script> <script src="/assets/js/init.js"></script> </body> <footer class="page-footer"> <div class="footer-copyright" style="padding-left: 30px"> <i class="material-icons" style="padding-right:5px">copyright</i> <p>2018 Copyright Cheng Gu</p> </div> </footer> </html>

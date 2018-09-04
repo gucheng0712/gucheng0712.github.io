@@ -5,7 +5,7 @@ date:   2018-06-23 14:15:05 +0000
 image: /assets/images/post8.jpg
 ---
 
-Bump mapping is used for giving models more details by modifying the normal of the model. 
+Bump mapping is used for giving models more details with cheap costs by modifying the normal of the model . 
 
 This method doesn't change the models detail level, but give us a visual effect that the model has more details after bump mapping.
 
