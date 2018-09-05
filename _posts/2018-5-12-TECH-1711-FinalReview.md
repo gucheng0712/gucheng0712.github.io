@@ -3,6 +3,8 @@ layout: post
 title:  "Game Machanics in Suzuka Wants to Fly Project"
 date:   2018-05-12 14:15:05 +0000
 image: /assets/images/P2.jpg
+youtubeId: A_9pIAYPuW0
+
 ---
 
 This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality.
@@ -11,12 +13,9 @@ I used a third person view spiderman style swinging game demo to try to discover
 
 In this Project, I my own third person controling system for my first anime Character called Suzuka, with swinging moving, wall walking, battle system, and wallwalking machanics (compatible with HTC Vive). Also, I created a infinite city generator instead of wasting time on level design.
 
+{% include youtubePlayer.html id=page.youtubeId %}
 
-<!--
-<figure class="video_container">
-  <iframe class="center-block" width="420" height="315" src="http://www.youtube.com/embed/A_9pIAYPuW0" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
--->
+
 ---
 #### 1. Normal State Movement
 Player's movement depends on the input direction. When the player is not moving, the camera is free look, but once player moves, the camera view will look along the player's moving direction.

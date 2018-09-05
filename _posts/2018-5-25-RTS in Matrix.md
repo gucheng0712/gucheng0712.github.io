@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Matrix TRS (in Right Hand Coordinate System)"
+title:  "Matrix TRS"
 date:   2018-05-25 14:15:05 +0000
 image: /assets/images/post3.png
 ---
