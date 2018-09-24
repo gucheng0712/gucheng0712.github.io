@@ -212,7 +212,7 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
 {% endhighlight %}
 
 
-[ObserverPattern with multiple Subjects]
+[ObserverPattern with multiple Subjects]https://github.com/gucheng0712/ObserverPattern
 
 ---
 #### 3. Observer Pattern By using C# Event (Simple and Neat)
