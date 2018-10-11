@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Observer Pattern in Delegate and Non-Delegate"
+title:  "Observer Pattern in C#"
 date:   2018-09-16 1:00:05 +0000
 image: /assets/images/post21.png
 ---
