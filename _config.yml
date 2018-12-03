@@ -4,28 +4,10 @@ email: gucheng0712@126.com
 description: An Otaku who loves making and playing games.
 
 baseurl: "/blog"
-url: ""
+url: " "
 
 parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/Center.jpg
-
-project_one: "A Tragedy of Little Chicks -using P5.js"
-project_one_description: A Game inspired by Snake vs Block. The Chicken Mother wants to save her children and fight with bad animals.
-project_one_url: https://github.com/gucheng0712/A-Tragedy-of-Little-Chicks-P5.js-
-
-project_two: "Suzuka Wants to Fly (Compatible with VR) -using Unity3D"
-project_two_description: In this Project, I focus on creating a third person controller system for my first anime character, with Swinging, Fly-Bursiting, wallwalking, and battle machanics. I also create a infinity City Generator to help me create a world easily.
-project_two_url: https://github.com/gucheng0712/Suzuka-wants-to-fly
-
-
-project_three: "Beyond Atlantis -using TouchDesigner & Arduino"
-project_three_description: Using the versatility of projection mapping and the depth of infinity mirrors to show a piece that would inspire curiosity about the wonders, beauty, and unknowns that lie deep beneath the surface of what the human eye can perceive; the deep sea.
-project_three_url: https://github.com/gucheng0712/Beyond-Atlantis
-
-
-project_four: "Fourth Project"
-project_four_description: Describe your project!
-project_four_url: https://github.com/jameshamann/jekyll-material-theme
 
 
 portfolio_heading: Portfolio
@@ -51,7 +33,7 @@ google_analytics_tracking_id: # This looks something like UA-000000000-0 Head ov
 
 cookies_banner: none # The value "show" will show the cookies banner, the value "none" will hide the banner.
 
-cookie_accept_message: Thanks!
+cookie_accept_message: Thanks
 
 syntax_highlighting: true # include the css for syntax highlighting
 

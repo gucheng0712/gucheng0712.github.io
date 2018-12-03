@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Game Machanics in Suzuka Wants to Fly Project"
+title:  "    "
 date:   2018-05-12 14:15:05 +0000
-image: /assets/images/P2.jpg
+image: /assets/images/P2.png
 youtubeId: A_9pIAYPuW0
 
 ---
