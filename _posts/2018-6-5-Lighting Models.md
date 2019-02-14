@@ -283,6 +283,10 @@ Shader "MyShader/Specular" {
 				
 				// Get the reflect direction in world space
 				fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));
+                // Reflection can be calculate as below:
+                //      float NdotL = dot(worldNormal,worldLightDir);
+                //      float reflectDir = normalize(2.0 * worldNormal * NdotL - worldLightDir);
+                
 				// Get the view direction in world space
 				fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
 				// Compute specular term
