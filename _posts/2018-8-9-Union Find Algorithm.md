@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Union Find Algorithm"
-date:   2018-08-09 14:15:05 +0000
-image: /assets/images/post15.png
+date:   2018-08-09
+categories: [Data structure,Csharp]
+tags: [Data Structure, Java]
+icon: fa-code
 ---
 
 This article focuses on an algorithm for solving problems such as dynamic connectivity, using a data structure called Union Find.
@@ -12,15 +14,16 @@ The Evolutionary history of Union Find is From Quick Find --> Union Find --> Wei
 {: style="color: red"}
 > This is the Performance consumption table:
 
-{: .center}
-![dot](/assets/images/PostImages/Performance consumption table.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/Performance consumption table.png" width="50%">
+</p>
 
 
 ---
 #### Dynamic-Connectivity Client
 >Code:
 
-{% highlight cg %} 
+```
 public static void main(String[] args)
 {
     int N = StdIn.readInt();
@@ -36,17 +39,18 @@ public static void main(String[] args)
         }
     }
 }
-{% endhighlight %}
+```
 
 ---
 #### Quick Find
 
-{: .center}
-![dot](/assets/images/PostImages/qf.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/qf.png" width="70%">
+</p>
 
 >Code:
 
-{% highlight cg %} 
+``` 
 public class QuickFindUF
 {
     private int[] id;
@@ -88,18 +92,18 @@ public class QuickFindUF
         count--;
     }
 }
-
-{% endhighlight %}
+```
 
 ---
 #### Quick Union
 
-{: .center}
-![dot](/assets/images/PostImages/uf.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/uf.png" width="70%">
+</p>
 
 >Code:
 
-{% highlight cg %} 
+```
 public class QuickUnionUF
 {
     private int[] id;
@@ -154,19 +158,20 @@ public class QuickUnionUF
         count--;
     }
 }
-{% endhighlight %}
+```
 
 
 ---
 
 #### Weighted Quick Union
 
-{: .center}
-![dot](/assets/images/PostImages/wuf.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/wuf.png" width="70%">
+</p>
 
 >Code:
 
-{% highlight cg %} 
+```
 public class WeightedQuickUnionUF
 {
     private int[] id;
@@ -234,16 +239,16 @@ public class WeightedQuickUnionUF
         count--;
     }
 }
-{% endhighlight %}
+```
 
 
 ---
 
 #### Comparsion between if it is Weighted or not
 
-{: .center}
-![dot](/assets/images/PostImages/uf vs wuf.png){:height="80%" width="80%"}
-
+<p align="center">     
+<img src="/static/assets/img/blog/uf vs wuf.png" width="80%">
+</p>
 ---
 
 >**End --Cheng Gu**

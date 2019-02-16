@@ -1,0 +1,548 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Common Lighting Models </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 5 Jun 2018</span> <h1> Common Lighting Models </h1> </div> <p>In this post, I focus on reviewing the Lighting Models I learned these days which are <strong><em>Diffuse(Lambert)</em></strong>, <strong><em>Half-Lambert</em></strong>, <strong><em>Specular</em></strong>, and <strong><em>Blinn-Phong</em></strong>.</p> <hr /> <h4 id="1-diffuselambert">1. Diffuse(Lambert)</h4> <p><img src="/static/assets/img/blog/lambert.png" width="50%" /> <img src="/static/assets/img/blog/Lambert rule.png" width="40%" /></p> <blockquote> <ul> <li>M_diff：material color.</li> <li>S_diff：light source color.</li> <li>n · l：the radius of the angle between normal and light direction by using dot product to calculate.</li> </ul> </blockquote> <p>(1) <strong><em>Lambert Per-Vertex-Level (Low Cost, but less accurate)</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/Diffuse Vertex-Level" 
+{
+    Properties 
+    {
+        _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)
+    }
+    SubShader 
+    {
+        Pass 
+        { 
+            Tags { "LightMode"="ForwardBase" }
+            
+            CGPROGRAM
+            
+            #pragma vertex vert
+            #pragma fragment frag
+            
+            #include "Lighting.cginc"
+            
+            fixed4 _Diffuse;
+            
+            struct a2v 
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
+            
+            struct v2f 
+            {
+                float4 pos : SV_POSITION;
+                fixed3 color : COLOR;
+            };
+            
+            v2f vert(a2v v) 
+            {
+                v2f o;
+                // Transform the vertex from object space to projection space
+                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                
+                // Get ambient term
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+                
+                // Transform the normal from object space to world space
+                fixed3 worldNormal = normalize(mul(v.normal, (float3x3)_World2Object));
+                // Get the light direction in world space
+                fixed3 worldLight = normalize(_WorldSpaceLightPos0.xyz);
+                // Compute diffuse term
+                fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLight));
+                
+                o.color = ambient + diffuse;
+                
+                return o;
+            }
+            
+            fixed4 frag(v2f i) : SV_Target
+            {
+                return fixed4(i.color, 1.0);
+            }
+            ENDCG
+        }
+    }
+    FallBack "Diffuse"
+}
+</code></pre></div></div> <p>(2) <strong><em>Lambert Per-Pixel-Level (higher Cost, but more accurate)</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/Diffuse Pixel-Level" {
+    Properties 
+    {
+        _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)
+    }
+    SubShader 
+    {
+        Pass 
+        { 
+            Tags { "LightMode"="ForwardBase" }
+            CGPROGRAM
+            
+            #pragma vertex vert
+            #pragma fragment frag
+            
+            #include "Lighting.cginc"
+            
+            fixed4 _Diffuse;
+            
+            struct a2v 
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
+            
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float3 worldNormal : TEXCOORD0;
+            };
+            
+            v2f vert(a2v v) 
+            {
+                v2f o;
+                // Transform the vertex from object space to projection space
+                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+
+                // Transform the normal from object space to world space
+                o.worldNormal = mul(v.normal, (float3x3)_World2Object);
+
+                return o;
+            }
+            
+            fixed4 frag(v2f i) : SV_Target 
+            {
+                // Get ambient term
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+                
+                // Get the normal in world space
+                fixed3 worldNormal = normalize(i.worldNormal);
+                // Get the light direction in world space
+                fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
+                
+                // Compute diffuse term
+                fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir)); 
+                fixed3 color = ambient + diffuse;
+                
+                return fixed4(color, 1.0);
+            } 
+            ENDCG
+        }
+    } 
+    FallBack "Diffuse"
+}
+</code></pre></div></div> <p>(3) <strong><em>Lambert in Unity Surface Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/SurfaceShader_Diffuse" 
+{
+    Properties 
+    {
+        _Color ("Color", Color) = (1,1,1,1)
+        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+    }
+    SubShader 
+    {
+        Tags { "RenderType"="Opaque" }
+
+        CGPROGRAM
+        #pragma surface surf SimpleLambert
+        
+        sampler2D _MainTex;
+        fixed4 _Color;
+
+        struct Input
+        {
+            float2 uv_MainTex;
+        };
+        
+        // Custom Lighting Model
+        half4 LightingSimpleLambert(SurfaceOutput s, half3 lightDir, half atten)
+        {
+            // Get the dot product of normal and light
+            half NdotL = dot(s.Normal, lightDir);
+        
+            half3 color = s.Albedo * _LightColor0.rgb * saturate(NdotL) * atten);
+            
+            return fixed4(color,1);
+        }
+
+        void surf (Input IN, inout SurfaceOutput o) 
+        {
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            o.Albedo = c.rgb;
+        }
+        ENDCG
+    }
+    FallBack "Diffuse"
+}
+
+</code></pre></div></div> <hr /> <h4 id="2-half-lambert">2. Half Lambert</h4> <p><img src="/static/assets/img/blog/half_lambert.png" width="70%" /></p> <p>(2) <strong><em>HalfLambert in Unity vertex/fragment Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/Half Lambert-Pixel-Level" 
+{
+    Properties 
+    {
+        _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)
+    }
+    SubShader 
+    {
+        Pass 
+        { 
+            Tags { "LightMode"="ForwardBase" }
+            
+            CGPROGRAM
+            
+            #pragma vertex vert
+            #pragma fragment frag
+            
+            #include "Lighting.cginc"
+            
+            fixed4 _Diffuse;
+            
+            struct a2v 
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
+            
+            struct v2f 
+            {
+                float4 pos : SV_POSITION;
+                float3 worldNormal : TEXCOORD0;
+            };
+            
+            v2f vert(a2v v) 
+            {
+                v2f o;
+                // Transform the vertex from object space to projection space
+                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                
+                // Transform the normal from object space to world space
+                o.worldNormal = mul(v.normal, (float3x3)_World2Object);
+                
+                return o;
+            }
+            
+            fixed4 frag(v2f i) : SV_Target 
+            {
+                // Get ambient term
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+                
+                // Get the normal in world space
+                fixed3 worldNormal = normalize(i.worldNormal);
+                // Get the light direction in world space
+                fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
+                
+                // Compute diffuse term
+                fixed halfLambert = dot(worldNormal, worldLightDir) * 0.5 + 0.5;
+                fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * halfLambert;
+                
+                fixed3 color = ambient + diffuse;
+                
+                return fixed4(color, 1.0);
+            }
+            ENDCG
+        }
+    } 
+    FallBack "Diffuse"
+}
+</code></pre></div></div> <p>(2) <strong><em>HalfLambert in Unity Surface Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/SurfaceShader_HalfLambert" 
+{
+    Properties 
+    {
+        _Color ("Color", Color) = (1,1,1,1)
+        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+    }
+    SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        CGPROGRAM
+        #pragma surface surf HalfLambert
+        
+        sampler2D _MainTex;
+        fixed4 _Color;
+
+        struct Input
+        {
+            float2 uv_MainTex;
+        };
+        
+        // Custom Lighting Model
+        half4 LightingHalfLambert(SurfaceOutput s, half3 lightDir)
+        {
+            // Get the dot product of normal and light
+            half NdotL = dot(s.Normal, lightDir);
+            
+            half halfLambert = NdotL * 0.5+0.5;
+            
+            half3 color = s.Albedo * _LightColor0.rgb * halfLambert;
+            
+            return fixed4(color,1);
+        }
+        void surf (Input IN, inout SurfaceOutput o) 
+        {
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            o.Albedo = c.rgb;
+        }
+        ENDCG
+    }
+    FallBack "Diffuse"
+}
+
+</code></pre></div></div> <hr /> <h4 id="3-specularphong">3. Specular(Phong)</h4> <p><img src="/static/assets/img/blog/Specular.png" width="50%" /> <img src="/static/assets/img/blog/Specular_rule.png" width="40%" /></p> <blockquote> <ul> <li>M_spec：material color.</li> <li>S_spec：light source color.</li> <li>v · r: the radius of the angle between view direction and the reflection direction of the light direction and normal.</li> </ul> </blockquote> <p>In Specular lighting model, shouldn’t use per-vertex-level because it is not accurate with less vertex area.</p> <p>(1) <strong><em>Phong in vertex&amp;fragment Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/Specular" 
+{
+    Properties 
+    {
+        _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)
+        _Specular ("Specular", Color) = (1, 1, 1, 1)
+        _Gloss ("Gloss", Range(8.0, 256)) = 20
+    }
+    SubShader 
+    {
+        Pass 
+        { 
+            Tags { "LightMode"="ForwardBase" }
+        
+            CGPROGRAM
+            
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include "Lighting.cginc"
+            
+            fixed4 _Diffuse;
+            fixed4 _Specular;
+            float _Gloss;
+            
+            struct a2v 
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
+            
+            struct v2f 
+            {
+                float4 pos : SV_POSITION;
+                float3 worldNormal : TEXCOORD0;
+                float3 worldPos : TEXCOORD1;
+            };
+            
+            v2f vert(a2v v) 
+            {
+                v2f o;
+                // Transform the vertex from object space to projection space
+                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                
+                // Transform the normal from object space to world space
+                o.worldNormal = mul(v.normal, (float3x3)_World2Object);
+                // Transform the vertex from object spacet to world space
+                o.worldPos = mul(_Object2World, v.vertex).xyz;
+                
+                return o;
+            }
+            
+            fixed4 frag(v2f i) : SV_Target 
+            {
+                // Get ambient term
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+                
+                fixed3 worldNormal = normalize(i.worldNormal);
+                fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
+                
+                // Compute diffuse term
+                fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * saturate(dot(worldNormal, worldLightDir));
+                
+                // Get the reflect direction in world space
+                fixed3 reflectDir = normalize(reflect(-worldLightDir, worldNormal));
+                // Reflection can be calculate as below:
+                //      float NdotL = dot(worldNormal,worldLightDir);
+                //      float reflectDir = normalize(2.0 * worldNormal * NdotL - worldLightDir);
+                
+                // Get the view direction in world space
+                fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
+                // Compute specular term
+                fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(saturate(dot(reflectDir, viewDir)), _Gloss);
+                
+                return fixed4(ambient + diffuse + specular, 1.0);
+            }
+            ENDCG
+        }
+    } 
+    FallBack "Specular"
+} 
+</code></pre></div></div> <p>(2) <strong><em>Phong in Unity Surface Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/SurfaceShader_Phong" 
+{
+    Properties 
+    {
+        _Color ("Color", Color) = (1,1,1,1)
+        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _SpecularColor("Specular Color",Color) = (1,1,1,1)
+        _SpecPower("Specular Power",Range(0,30)) =1
+    }
+    SubShader 
+    {
+        Tags { "RenderType"="Opaque" }
+
+        CGPROGRAM
+        #pragma surface surf Phong
+        
+        sampler2D _MainTex;
+        fixed4 _Color;
+        fixed4 _SpecularColor;
+        float _SpecPower;
+
+        struct Input
+        {
+            float2 uv_MainTex;
+        };
+        
+        // Custom Lighting Model
+        fixed4 LightingPhong(SurfaceOutput s, fixed3 lightDir,fixed3 viewDir, fixed atten)
+        {
+            // Diffuse  
+            half NdotL = dot(s.Normal, lightDir);
+            float3 diffuse = max(0,NdotL) * atten;
+            
+            // Reflection
+            float3 reflectDir = normalize(2.0*s.Normal*NdotL-lightDir);
+            
+            //Specular
+            float spec = pow(max(0,dot(reflectDir,viewDir)),_SpecPower);
+            float3 finalSpec = _SpecularColor.rgb*spec;
+            
+            // Final Effect
+            half3 color = s.Albedo * _LightColor0.rgb * diffuse +(_LightColor0*finalSpec);
+            
+            return fixed4(color,1);
+        }
+        void surf (Input IN, inout SurfaceOutput o) 
+        {
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            o.Albedo = c.rgb;
+        }
+        ENDCG
+    }
+    FallBack "Diffuse"
+}
+</code></pre></div></div> <hr /> <h4 id="4-blinn-phong">4. Blinn-Phong</h4> <p><img src="/static/assets/img/blog/blinn-phong.png" width="50%" /> <img src="/static/assets/img/blog/blinn-rule.png" width="40%" /></p> <blockquote> <ul> <li>h(halfway): h is the middle vector between view direction and light direction (just like the axis of symmetry).</li> </ul> </blockquote> <p>(1) <strong><em>Blinn-Phong in vertex&amp;fragment Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/Blinn-Phong"
+{
+    Properties 
+    {
+        _Diffuse ("Diffuse", Color) = (1, 1, 1, 1)
+        _Specular ("Specular", Color) = (1, 1, 1, 1)
+        _Gloss ("Gloss", Range(8.0, 256)) = 20
+    }
+    SubShader 
+    {
+        Pass 
+        { 
+            Tags { "LightMode"="ForwardBase" }
+            CGPROGRAM
+            
+            #pragma vertex vert
+            #pragma fragment frag
+            
+            #include "Lighting.cginc"
+            
+            fixed4 _Diffuse;
+            fixed4 _Specular;
+            float _Gloss;
+            
+            struct a2v 
+            {
+                float4 vertex : POSITION;
+                float3 normal : NORMAL;
+            };
+            
+            struct v2f 
+            {
+                float4 pos : SV_POSITION;
+                float3 worldNormal : TEXCOORD0;
+                float3 worldPos : TEXCOORD1;
+            };
+            
+            v2f vert(a2v v) 
+            {
+                v2f o;
+                // Transform the vertex from object space to projection space
+                o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+                
+                // Transform the normal from object space to world space
+                o.worldNormal = mul(v.normal, (float3x3)_World2Object);
+                
+                // Transform the vertex from object spacet to world space
+                o.worldPos = mul(_Object2World, v.vertex).xyz;
+                
+                return o;
+            }
+            
+            fixed4 frag(v2f i) : SV_Target 
+            {
+                // Get ambient term
+                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz;
+                
+                fixed3 worldNormal = normalize(i.worldNormal);
+                fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
+                
+                // Compute diffuse term
+                fixed3 diffuse = _LightColor0.rgb * _Diffuse.rgb * max(0, dot(worldNormal, worldLightDir));
+                
+                // Get the view direction in world space
+                fixed3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
+                // Get the half direction in world space
+                fixed3 halfDir = normalize(worldLightDir + viewDir);
+                // Compute specular term
+                fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(max(0, dot(worldNormal, halfDir)), _Gloss);
+                
+                return fixed4(ambient + diffuse + specular, 1.0);
+            }  
+            ENDCG
+        }
+    } 
+    FallBack "Specular"
+}
+</code></pre></div></div> <p>(2) <strong><em>Blinn-Phong in Unity Surface Shader</em></strong></p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Shader "MyShader/SurfaceShader_BilnnPhong" 
+{
+    Properties 
+    {
+        _Color ("Color", Color) = (1,1,1,1)
+        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _SpecularColor("Specular Color",Color) = (1,1,1,1)
+        _SpecPower("Specular Power",Range(8,255)) =1
+	}
+    SubShader 
+    {
+        Tags { "RenderType"="Opaque" }
+
+        CGPROGRAM
+        #pragma surface surf CustomBlinnPhong
+        
+        sampler2D _MainTex;
+        fixed4 _Color;
+        fixed4 _SpecularColor;
+        float _SpecPower;
+
+        struct Input
+        {
+            float2 uv_MainTex;
+        };
+        
+        // Custom Lighting Model
+        half4 LightingCustomBlinnPhong(SurfaceOutput s, fixed3 lightDir, half3 viewDir, half atten)
+        {
+            // Get the dot product of normal and light
+            half NdotL = dot(s.Normal, lightDir);
+            
+            half3 diffuse = _LightColor0.rgb * _Color.rgb * saturate(NdotL);
+           
+            // Get the direction between lighrDir and viewDir
+            half3 halfDir = normalize(lightDir + viewDir);
+            half NdotH = dot(s.Normal, halfDir);
+            
+            half3 specular = _LightColor0.rgb * _SpecularColor.rgb * pow(max(0,NdotH), _SpecPower);
+            half3 color =s.Albedo * diffuse +specular;
+            
+            return half4(color,1);
+        }
+        void surf (Input IN, inout SurfaceOutput o) 
+        {
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            o.Albedo = c.rgb;
+        }
+        ENDCG
+    }
+	FallBack "Diffuse"
+}
+
+</code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Unity</button> <button class="btn btn-white btn-xs" type="button">Shader</button> <button class="btn btn-white btn-xs" type="button">Math</button> <button class="btn btn-white btn-xs" type="button">CG</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

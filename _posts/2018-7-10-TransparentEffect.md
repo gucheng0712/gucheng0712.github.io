@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Transparent Effects"
-date:   2018-07-10 14:15:05 +0000
-image: /assets/images/post10.png
+date:   2018-07-10 
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 
 In Game Development, we often use two ways to achieve transparent effect, Aplha Test and Alpha Blending.
@@ -12,8 +14,9 @@ In Game Development, we often use two ways to achieve transparent effect, Aplha 
 ---
 #### 1. Z-Buffer (Depth Buffer)
 
-{: .center}
-![dot](/assets/images/PostImages/z_buffer.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/z_buffer.png" width="50%">
+</p>
 
 >Z-Buffer is used to solve the problems of visibility. It can decide which parts of the object to render first, and which parts of the objects will render later(can be blocked). 
 
@@ -22,8 +25,9 @@ The basic idea is to determine the distance between the camera and the object ba
 ---
 #### 2. Alpha Test vs Alpha Blending
 
-{: .center}
-![dot](/assets/images/PostImages/alpha.gif){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/alpha.gif" width="70%">
+</p>
 
 ***Alpha Test:***: As long as there is one fragment's alpha value does not meet the conditions, the fragment which corresponding to it will be discarded (into a completely transparent fragment). Otherwise, it will be rendered as an opaque object.
 
@@ -33,10 +37,11 @@ The basic idea is to determine the distance between the camera and the object ba
 
 #### 3. Create A Alpha Test Shader In Unity 
 
-{: .center}
-![dot](/assets/images/PostImages/alpha_test.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/alpha_test.png" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 Shader "MyShader/AlphaTest" 
 {
     Properties
@@ -111,16 +116,17 @@ Shader "MyShader/AlphaTest"
         }
     }
 }
-{% endhighlight %}
+```
 
 ---
 
 #### 4. Create A Alpha Blending Shader In Unity 
 
-{: .center}
-![dot](/assets/images/PostImages/Alpha Blending.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/Alpha Blending.png" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 Shader "MyShader/AlphaBlending" 
 {
     Properties
@@ -213,17 +219,16 @@ Shader "MyShader/AlphaBlending"
         }
     } 
 }
-{% endhighlight %}
-
+```
 ---
 
 #### 5. ShaderLab Blending Command
 
 * * *
 
-| Command | Description |
-|Blend SrcFactor DstFactor|Open Blending, and Set Blending factor.Color in the Color Buffer = The object's fragment color * SrcFactor + The color which is already in color buffer * DstFactor|
-|Blend SrcFactor DstFactor, SrcFactorA DstFactorA|Same function as above, butbut using different factor for blending alpha channe|
+| Command| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Description |
+|Blend SrcFactor DstFactor|        |Open Blending, and Set Blending factor.Color in the Color Buffer = The object's fragment color * SrcFactor + The color which is already in color buffer * DstFactor|
+|Blend SrcFactor DstFactor, SrcFactorA DstFactorA|        |Same function as above, butbut using different factor for blending alpha channe|
 
 * * *
 
@@ -232,17 +237,17 @@ Shader "MyShader/AlphaBlending"
 
 * * *
 
-| Parameters | Description |
-| One | Factor is 1 |
-| Zero | Factor is 0 |
-| SrcColor | Factor is the source color value |
-| SrcAlpha | Factor is the source alpha value |
-| DstColor | Factor is the target color value |
-| DstAlpha | Factor is the target alpha value |
-| OneMinusSrcColor | Factor is 1 - source color value |
-| OneMinusSrcAlpha | Factor is 1 - source alpha value |
-| OneMinusDstColor | Factor is 1 - target color value |
-| OneMinusDstAlpha | Factor is 1 - target alpha value |
+| Parameters |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Description |
+| One || Factor is 1 |
+| Zero || Factor is 0 |
+| SrcColor || Factor is the source color value |
+| SrcAlpha || Factor is the source alpha value |
+| DstColor || Factor is the target color value |
+| DstAlpha || Factor is the target alpha value |
+| OneMinusSrcColor || Factor is 1 - source color value |
+| OneMinusSrcAlpha || Factor is 1 - source alpha value |
+| OneMinusDstColor || Factor is 1 - target color value |
+| OneMinusDstAlpha || Factor is 1 - target alpha value |
 
 * * *
 
@@ -251,22 +256,23 @@ Shader "MyShader/AlphaBlending"
 
 * * *
 
-| Operation | Description |
-| Add | O = SrcFactor * SourceColor + DstFactor * TargetColor |
-| Sub | O = SrcFactor * SourceColor - DstFactor * TargetColor |
-| RevSub | O = DstFactor * TargetColor - SrcFactor * SourceColor |
-| Min | O = (min(S.r, D.r), min(S.g, D.g), min(S.b, D.b), min(S.a, D.a)) |
-| Max | O = (max(S.r, D.r), max(S.g, D.g), max(S.b, D.b), max(S.a, D.a)) |
+| Operation |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Description |
+| Add || O = SrcFactor * SourceColor + DstFactor * TargetColor |
+| Sub || O = SrcFactor * SourceColor - DstFactor * TargetColor |
+| RevSub || O = DstFactor * TargetColor - SrcFactor * SourceColor |
+| Min || O = (min(S.r, D.r), min(S.g, D.g), min(S.b, D.b), min(S.a, D.a)) |
+| Max || O = (max(S.r, D.r), max(S.g, D.g), max(S.b, D.b), max(S.a, D.a)) |
 
 * * *
 
 {: style="color: red"}
 >The Common Blending Type:
 
-{: .center}
-![dot](/assets/images/PostImages/Blending Mode.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/Blending Mode.png" width="70%">
+</p>
 
-{% highlight cg %}
+```
 Blend SrcAlpha OneMinusSrcAlpha  // Normal
 
 Blend OneMinusDstColor One  // Soft Additive
@@ -285,8 +291,7 @@ Blend OneMinusDstColor One // Screen
 Blend One OneMinusSrcColor // Same as above
 
 Blend One One // Linear Dodge
-
-{% endhighlight %}
+```
 
 
 

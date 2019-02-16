@@ -1,0 +1,38 @@
+# blog page sections
+- name: Blog
+  href: /blog/
+
+# edit following lines to custom your blog page, make sure name is the same as href but capitalized first letter(except HTML)
+
+- name: Unity
+  href: /unity/
+  
+- name: AI
+  href: /ai/
+  
+- name: CG
+  href: /cg/
+
+- name: Math
+  href: /math/
+
+- name: Data Structure
+  href: /data structure/
+
+- name: C#
+  href: /csharp/
+  
+- name: Python
+  href: /python/
+  
+- name: JavaScript
+  href: /javascript/
+  
+- name: Game Dev
+  href: /game dev/
+  
+
+
+# Don't display donation page: change donation to off at file '_config.yml'
+- name: Donate
+  href: /donate/

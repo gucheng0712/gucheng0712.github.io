@@ -1,0 +1,196 @@
+{
+    "code" : 0 ,
+    "data" : [
+     
+    {
+        "title" : "Data Preprocessing Techniques (ML) - 2019-01-21",
+        "url" : "/python/ai/2019/01/21/DataPreprocessing.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "IComparable and IComparer - 2018-09-30",
+        "url" : "/csharp/2018/09/30/IComparable-and-IComparer-copy.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "CubeMap - 2018-09-22",
+        "url" : "/cg/unity/2018/09/22/CubeMap.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Observer Pattern in C# - 2018-09-16",
+        "url" : "/csharp/2018/09/16/Observer-Pattern-in-C.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Rendering Pipeline - 2018-09-14",
+        "url" : "/cg/2018/09/14/Rendering-Pipeline.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Lazy vs Eager Evalution - 2018-09-11",
+        "url" : "/data%20structure/2018/09/11/Lazy-vs-Eager-Evaluation.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "The Flag Attribute in Enumation - 2018-09-04",
+        "url" : "/csharp/2018/09/04/The-Flag-Attribute-in-Enumation.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "C# Iterator - 2018-08-28",
+        "url" : "/csharp/2018/08/28/CSharp-Iterator.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Unity Rendering Path - 2018-08-14",
+        "url" : "/unity/cg/2018/08/14/Unity-Rendering-Path.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Union Find Algorithm - 2018-08-09",
+        "url" : "/data%20structure/csharp/2018/08/09/Union-Find-Algorithm.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "X-Ray Effect in Shader - 2018-08-05",
+        "url" : "/cg/unity/2018/08/05/X-Ray-Effect-in-Shader.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Partial Derivative in Shader - 2018-08-03",
+        "url" : "/cg/unity/2018/08/03/Partial-Derivative-in-Shader.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Dynamic Discoloration Shader - 2018-07-29",
+        "url" : "/cg/unity/2018/07/29/Dynamic-Discoloration-Shader.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "OPP Design Principles - 2018-07-20",
+        "url" : "/csharp/python/javascript/2018/07/20/OPP-Programming-Common-Design-Pattern.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Transparent Effects - 2018-07-10",
+        "url" : "/cg/unity/2018/07/10/TransparentEffect.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Ramp & Mask Texture - 2018-06-29",
+        "url" : "/cg/unity/2018/06/29/Ramp-And-Mask.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Bump Mapping - 2018-06-23",
+        "url" : "/cg/unity/2018/06/23/Bump-Mapping.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Texture Mapping - 2018-06-20",
+        "url" : "/cg/unity/2018/06/20/Single-Texture.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Tangent Space - 2018-06-10",
+        "url" : "/cg/math/2018/06/10/Tangent-Space.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Common Lighting Models - 2018-06-05",
+        "url" : "/cg/unity/2018/06/05/Lighting-Models.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Trig In Game World - 2018-05-29",
+        "url" : "/math/unity/csharp/2018/05/29/Trig-In-Game-World.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Matrix TRS - 2018-05-25",
+        "url" : "/math/unity/csharp/2018/05/25/RTS-in-Matrix.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Cross Or Dot - 2018-05-20",
+        "url" : "/math/unity/csharp/2018/05/20/The-Cross-Product-and-the-Dot-Product-in-Unity.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Suzuka Wants to Fly Game Development Journal - 2018-05-12",
+        "url" : "/game%20dev/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html"
+    }
+    
+    
+    ]
+}

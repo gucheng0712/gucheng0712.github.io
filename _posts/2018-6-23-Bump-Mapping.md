@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Bump Mapping"
-date:   2018-06-23 14:15:05 +0000
-image: /assets/images/post8.jpg
+date:   2018-06-23
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 
 Bump mapping is used for giving models more details with cheap costs by modifying the normal of the model . 
@@ -14,8 +16,9 @@ This method doesn't change the models detail level, but give us a visual effect 
 
 There are two common ways to do the bump mapping, which are Height Mapping, and Normal Mapping.
 
-{: .center}
-![dot](/assets/images/PostImages/hm_nm.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/hm_nm.png" width="70%">
+</p>
 
 Use a height map to simulate the surface displacement. If the color are darker, the surface are lower; if the color are lighter, the surface are higher. The advantage of this using height map is make the height of the surface more obviouse to see. But it is also more expensive performance.
 
@@ -27,8 +30,10 @@ This will require us to use a inverse function to get the original normal direct
 
 >Normal = Pixel x 2 - 1
 
-{: .center}
-![dot](/assets/images/PostImages/tangent space and model space.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/tangent space and model space.png" width="70%">
+</p>
+
 
 >The above image respectively gives us the normal map in the model space and tangent space.
 
@@ -39,7 +44,7 @@ This will require us to use a inverse function to get the original normal direct
 
 >The advantage in the tangent space to calculate normal mapping is more efficient don't need too many conversion.
 
-{% highlight cg %} 
+```
 Shader "MyShader/NormalMapInTangentSpace"
 {
  Properties
@@ -93,26 +98,26 @@ Shader "MyShader/NormalMapInTangentSpace"
 
         v2f vert(a2v v)
         {
-                v2f o;
-                o.pos = UnityObjectToClipPos(v.vertex);
+            v2f o;
+            o.pos = UnityObjectToClipPos(v.vertex);
                 
-                o.uv.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
-                o.uv.zw = v.texcoord.xy * _BumpMap_ST.xy + _BumpMap_ST.zw;
+            o.uv.xy = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+            o.uv.zw = v.texcoord.xy * _BumpMap_ST.xy + _BumpMap_ST.zw;
                
 
-                // Compute the binormal
-//              float3 binormal = cross( normalize(v.normal), normalize(v.tangent.xyz) ) * v.tangent.w;
-//              // Construct a matrix which transform vectors from object space to tangent space
-//              float3x3 rotation = float3x3(v.tangent.xyz, binormal, v.normal);
-                // Or just use the built-in macro
+            // Compute the binormal
+            // float3 binormal = cross( normalize(v.normal), normalize(v.tangent.xyz) ) * v.tangent.w;
+            // Construct a matrix which transform vectors from object space to tangent space
+            // float3x3 rotation = float3x3(v.tangent.xyz, binormal, v.normal);
+            // Or just use the built-in macro
             TANGENT_SPACE_ROTATION;
-//              
-//              // Transform the light direction from object space to tangent space
-              o.lightDir = mul(rotation, normalize(ObjSpaceLightDir(v.vertex))).xyz;
-//              // Transform the view direction from object space to tangent space
-              o.viewDir = mul(rotation, normalize(ObjSpaceViewDir(v.vertex))).xyz;
+
+            // Transform the light direction from object space to tangent space
+            o.lightDir = mul(rotation, normalize(ObjSpaceLightDir(v.vertex))).xyz;
+            // Transform the view direction from object space to tangent space
+            o.viewDir = mul(rotation, normalize(ObjSpaceViewDir(v.vertex))).xyz;
                 
-                return o;
+            return o;
         }
 
         fixed4 frag(v2f f) : SV_Target
@@ -140,24 +145,23 @@ Shader "MyShader/NormalMapInTangentSpace"
 
             return fixed4(c,1);
         }
-
         ENDCG
     }
  }
   FallBack "Specular"
 }
-
-{% endhighlight %}
+```
 
 ---
 #### 3. Normal Mapping in World Space 
 
 >However, from a general point of view, normal mapping in world space is better than in tangent space. For example if we need to use Cubemap to mapping the environment we have to 
 
-{% highlight cg %} 
+```
 Shader "MyShader/NormalMapInWorldSpace"
 {
- Properties {
+    Properties 
+    {
         _Color ("Color Tint", Color) = (1, 1, 1, 1)
         _MainTex ("Main Tex", 2D) = "white" {}
         _BumpMap ("Normal Map", 2D) = "bump" {}
@@ -165,8 +169,10 @@ Shader "MyShader/NormalMapInWorldSpace"
         _Specular ("Specular", Color) = (1, 1, 1, 1)
         _Gloss ("Gloss", Range(8.0, 256)) = 20
     }
-    SubShader {
-        Pass { 
+    SubShader 
+    {
+        Pass 
+        { 
             Tags { "LightMode"="ForwardBase" }
         
             CGPROGRAM
@@ -185,14 +191,16 @@ Shader "MyShader/NormalMapInWorldSpace"
             fixed4 _Specular;
             float _Gloss;
             
-            struct a2v {
+            struct a2v 
+            {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
                 float4 texcoord : TEXCOORD0;
             };
             
-            struct v2f {
+            struct v2f 
+            {
                 float4 pos : SV_POSITION;
                 float4 uv : TEXCOORD0;
                 float4 TtoW0 : TEXCOORD1;  
@@ -200,7 +208,8 @@ Shader "MyShader/NormalMapInWorldSpace"
                 float4 TtoW2 : TEXCOORD3; 
             };
             
-            v2f vert(a2v v) {
+            v2f vert(a2v v) 
+            {
                 v2f o;
                 o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
                 
@@ -221,7 +230,8 @@ Shader "MyShader/NormalMapInWorldSpace"
                 return o;
             }
             
-            fixed4 frag(v2f i) : SV_Target {
+            fixed4 frag(v2f i) : SV_Target 
+            {
                 // Get the position in world space      
                 float3 worldPos = float3(i.TtoW0.w, i.TtoW1.w, i.TtoW2.w);
                 // Compute the light and view dir in world space
@@ -246,14 +256,12 @@ Shader "MyShader/NormalMapInWorldSpace"
                 
                 return fixed4(ambient + diffuse + specular, 1.0);
             }
-            
             ENDCG
         }
     } 
     FallBack "Specular"
 }
-
-{% endhighlight %}
+```
 
 ---
 

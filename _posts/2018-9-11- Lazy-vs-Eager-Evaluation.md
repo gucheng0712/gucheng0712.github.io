@@ -1,16 +1,17 @@
 ---
 layout: post
 title:  "Lazy vs Eager Evalution"
-date:   2018-09-11 1:00:05 +0000
-image: /assets/images/post19.png
+date:   2018-09-11
+categories: [Data structure]
+tags: [Data Structure]
+icon: fa-code
 ---
 
 ***Evaluation Strategies*** are used by programming languages to determine when to evaluate the arguement(s) of a function call and what kind of value to pass to the function.
 
 For example, ***Call By Value / Call By Reference*** specifies that a function application evaluates the argument and to modify it through an assignment statement.
 
-
-![dot](/assets/images/PostImages/Evaluations.png){:height="50%" width="50%"}
+<img src="/static/assets/img/blog/Evaluations.png" width="50%">
 
 ---
 #### 1. Lazy Evaluation

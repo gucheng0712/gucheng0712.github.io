@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Partial Derivative in Shader"
-date:   2018-08-3 14:15:05 +0000
-image: /assets/images/post13.png
+date:   2018-08-3
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 
 Currently found a post talked about ddx, and ddy function in shader, so here is a conclusion from that post, and some examples.
@@ -13,13 +15,12 @@ This is the [Reference Link](http://www.aclockworkberry.com/shader-derivative-fu
 #### Partial Derivative(ddx,ddy)
 In Shader Language, The partial derivative functions are divided into HLSL: ddx and ddy; GLSL:dFdx and dFdy, respectively corresponding to the change rate of various variables in the pixel block in the screen space on the x and y axes.
 
-{: .center}
-![dot](/assets/images/PostImages/glslPartialDerivative.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/glslPartialDerivative.png" width="50%">
+</p>
 
 {: style="color: red"}
-{: .center}
 This image illustrates the calculation of Partial Derivative.
-
 
 As We know, during the Rasterization, GPUs will run many Fragment shaders in parallel at the same time, but it is not performed pixel by pixel, but by organizing them into a group of pixels at 2x2 pixels to execute in parallel. And the partial derivative is exactly the rate of change in this pixel. It can be seen from the figure above that ddx() is the value of the pixel block on the right minus the value of the pixel block on the left, while ddy is the value of the pixel block below minus the value of the pixel block above. Where x and y represent screen coordinates.
 
@@ -28,8 +29,10 @@ As We know, during the Rasterization, GPUs will run many Fragment shaders in par
 ---
 #### Example 1: Derivatives and mipmaps (For UV)
 
-{: .center}
-![dot](/assets/images/PostImages/mipmap.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/mipmap.png" width="70%">
+</p>
+
 
 In 3D world, the size of image is related to the location of the camera. When it is close to the camera, the actual pixel of the picture is bigger; when it is far away from the camera, the actual pixel of the picture is smaller. For example, a 64x64 image may show 50*50 pixels when it is close to the camera; when it is far away, it may only show 20*20 pixels. So, if the texture pixel is always the orginal number, when it is far away from the camera, this will lead to performance waste.
 
@@ -50,31 +53,33 @@ Particular attention must be paid to the ordering of the cross product: being th
 
 The interactive model below shows the link between screen pixels and fragmets over a triangle surface being rasterized, the derivative vectors on the surface (in red and green), and the normal vector (in blue) obtained by the cross product of the twos.
 
-{: .center}
-![dot](/assets/images/PostImages/fs1.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/fs1.png" width="70%">
+</p>
 
 >The normal is shown in Unity shaderlab as follows
 
-{: .center}
-![dot](/assets/images/PostImages/fs2.png){:height="60%" width="60%"}
+<p align="center">     
+<img src="/static/assets/img/blog/fs2.png" width="60%">
+</p>
 
-{% highlight cg %} 
+
+```
 void surf (Input IN, inout SurfaceOutput o)
 {
     o.Albedo = normalize(cross(ddy(IN.worldPos),ddx(IN.worldPos)));
 }
-{% endhighlight %}
-
-
+```
 
 ---
 
 #### Example 3: Sharpen Edge (For Texture)
 
-{: .center}
-![dot](/assets/images/PostImages/es.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/es.png" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 void surf (Input IN, inout SurfaceOutput o)
 {
     half4 c = tex2D(_MainTex, IN.uv_MainTex);
@@ -84,16 +89,17 @@ void surf (Input IN, inout SurfaceOutput o)
     o.Albedo = c.rgb;
     o.Alpha = c.a;
 }
-{% endhighlight %}
+```
 
 ---
 
 #### Example 4: Blur image except the pixels which are facing towards camera
 
-{: .center}
-![dot](/assets/images/PostImages/Blur.gif){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/Blur.gif" width="70%">
+</p>
 
-{% highlight cg %}
+```
 Shader "MyShader/SimpleBlur"
 {
 	Properties
@@ -150,7 +156,7 @@ Shader "MyShader/SimpleBlur"
 		}
 	}
 }
-{% endhighlight %}
+```
 
 ---
 

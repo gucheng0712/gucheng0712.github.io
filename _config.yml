@@ -1,47 +1,70 @@
+# Welcome to Jekyll!
+
+# Website settings
 title: Suzuka Site
-name: Cheng Gu
-email: gucheng0712@126.com
 description: An Otaku who loves making and playing games.
+keywords: #Jack,Jalpc,blog,Jekyll,github,gh-pages
+baseurl: 
+url: https://gucheng0712.github.io/  # url should be 'http://<github_username>.github.io/homepage' as before
+# url: http://127.0.0.1:4000
+img_path: /homepage/static/assets/img/blog  # url should be '/homepage/static/assets/img/blog' as before
 
-baseurl: "/blog"
-url: " "
+# author -- index page "about me" section
+author:  # change following line to your infomation.
+  name: ChengGu  # Be used at blog posts' author.
+  first_name: Cheng  # Be used at index page about me section.
+  last_name: Gu  # Be used at index page about me section.
+  avatar: /static/assets/img/landing/avatar.jpg  # upload your avatar at directory and edit it.
+  github_username: gucheng0712  # Leave blank if you don't have now
+  linkedin_id:  # Leave blank if you don't have now
+  facebook_username:   # Leave blank if you don't have now
+  twitter_username:   # Leave blank if you don't have now
+  email: guhceng0712@126.com  # Leave blank if you don't have now
+  cv: #http://cv.jarrekk.com  # An online CV can be printed as PDF, leave blank if you don't have now
+  
+  # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
+  skill_icon1:
+    - name: icon-unity
+    - name: fa-code
+  skill_icon2:
+    - name: fa-gamepad
+    - name: fa-paw
+  desc: Hi, my name is Cheng Gu. I love Game Programming, and everything related to Computer Graphics!  # Describe yourself.
 
-parallax_image_one: assets/images/Top.jpg # These are the images used for the parallax background
-parallax_image_two: assets/images/Center.jpg
+## comment
+#disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
+#  name: jalpc
 
+# analytics
+## google analytics
+#ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get your configuration; if not, comment following line.
+#  id: UA-93473370-3
 
-portfolio_heading: Portfolio
-portfolio_type: cards
+## google optimize
+go:
+  # id:
 
-syntax_highlighting: true
-highlighter: rouge
+### growingIO
+#gio:  # if you wanna this feature, go to https://www.growingio.com/ to get your configuration; if not, comment following line.
+#  # id:
 
-icon_size: 50 # font-size of icons in px
-colored: colored # Leave blank for black and white icons
+## donation
+donation: off  # type 'on'/'off' to choice display donation button at post page or not
 
-project_button: Github
+## carousels
+index_carousel: on  # index page carousel switch
+blog_carousel: on  # blog page carousel switch
 
-github: https://github.com/gucheng0712
-#medium: https://medium.com
-
-baseurl: # if your site is located at /blog or /home, enter it here, otherwise leave it empty
-url: http://localhost:4000/ #the url of your site
-
-# Google tracking, if both are filled, tag manager will prevail. Set up GA through GTM in that case
-tag_manager_id: # This looks something like GTM-XXXXXXX
-google_analytics_tracking_id: # This looks something like UA-000000000-0 Head over to https://analytics.google.com/ to setup.
-
-cookies_banner: none # The value "show" will show the cookies banner, the value "none" will hide the banner.
-
-cookie_accept_message: Thanks
-
-syntax_highlighting: true # include the css for syntax highlighting
+# scss
+sass:
+  style: compressed
 
 # Build settings
+encoding: utf-8
+
+# other settings
+highlighter: rouge
 markdown: kramdown
-# theme: minima
-permalink: pretty
-plugins:
-  - jekyll-feed
-  - jekyll-assets
-  - jekyll-minifier
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

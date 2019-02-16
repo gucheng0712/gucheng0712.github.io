@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "The Flag Attribute in Enumation"
-date:   2018-09-04 12:15:05 +0000
-image: /assets/images/post18.png
+date:   2018-09-04 
+categories: [Csharp]
+tags: [Csharp]
+icon: fa-code
 ---
 
 The problem with enumation is when you want to use conditional operator in your statement, you have to use bit operator.
@@ -24,7 +26,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >(1) create a enumation
 
-{% highlight csharp %} 
+```
     public enum PersonType
     {
         Tall,  
@@ -33,11 +35,11 @@ if we want to create a new List Type. Ignore all other details, only focus on th
         White,
         Beauty
     }
-{% endhighlight %}
+```
 
 >(2) Declare the enum and use switch case to do condition statement:
 
-{% highlight csharp %} 
+```
  public static PersonType person;
  {
         public static void Main(string[] args)
@@ -63,22 +65,22 @@ if we want to create a new List Type. Ignore all other details, only focus on th
                     break;
             }
         }
-{% endhighlight %}
+```
 
 ---
 #### 2. Problem
 
 > so far, it's fine. However if you want to have multiply choice such as 
 
-{% highlight csharp %} 
+```
     case PersonType.White | PersonType.Beauty:
-{% endhighlight %}
+```
 
 > It is still fine. No error at all. Then we try one more choice:
 
-{% highlight csharp %} 
+```
     case PersonType.White | PersonType.Handsome:
-{% endhighlight %}
+```
 
 {: style="color: red"}
 > So now you will see an error! Why it will happen? 
@@ -89,7 +91,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >Because when we create an enum the default value of it is 
 
-{% highlight csharp %} 
+```
     public enum PersonType
     {
         Tall = 0,       // 000000
@@ -98,7 +100,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
         White = 3,      // 000011
         Beauty = 4      // 000100
     }
-{% endhighlight %}
+```
 
 {: style="color: red"}
 >So when the condition is `PersonType.White | PersonType.Beauty`,   the comparison actually is `000011 | 000100 -> 000111`,  there is no other duplicated address, so there is no error.
@@ -109,7 +111,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >The right way is add a `[Flag]` Attributes, And Change the value to 2^n, so that they will never meet each other
 
-{% highlight csharp %} 
+```
     public enum PersonType
     {
         Tall = 1,       // 000001
@@ -153,7 +155,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
                     break;
             }
         }
-{% endhighlight %}
+```
 
 ---
 

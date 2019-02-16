@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Ramp & Mask Texture"
-date:   2018-06-29 14:15:05 +0000
-image: /assets/images/post9.png
+date:   2018-06-29
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 
 Ramp Texture allows us to control the diffuse light of an object. Mask Texture can protect some part of the texture not be influence.
@@ -10,10 +12,11 @@ Ramp Texture allows us to control the diffuse light of an object. Mask Texture c
 ---
 #### 1. Ramp Texture
 
-{: .center}
-![dot](/assets/images/PostImages/ramp.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/ramp.png" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 Shader "MyShader/RampMap"
 {
     Properties {
@@ -87,16 +90,17 @@ Shader "MyShader/RampMap"
         }
     } 
 }
-{% endhighlight %}
+```
 
 
 ---
 #### 2. Mask Texture 
 
-{: .center}
-![dot](/assets/images/PostImages/mask.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/mask.png" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 Shader "MyShader/7. MaskMap"
 {
     Properties
@@ -187,8 +191,7 @@ Shader "MyShader/7. MaskMap"
         }
     }
 }
-
-{% endhighlight %}
+```
 
 ---
 

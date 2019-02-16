@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "C# Iterator"
-date:   2018-08-28 12:15:05 +0000
-image: /assets/images/post17.png
+date:   2018-08-28
+categories: [Csharp]
+tags: [Csharp]
+icon: fa-code
 ---
 
 Iterator can make you get all the elements in a sequence without caring about its type is ***Array***, ***List***, or other sequence structure.  
@@ -11,9 +13,9 @@ In .Net, Iterator is encapsulated by ***IEnumerator*** and their corresponding g
 
 In C#1, it has already supported iterator, which is the ***foreach*** statement. Compared with using for loop to, many times using ***foreach*** will be more easy and strightforward. when doing ***foreach***, the compiler will compile ***foreach*** to invoke the ***GetEnumerator*** and ***MoveNext*** methods, as well as the ***Current*** property.  
 
-
-{: .center}
-![dot](/assets/images/PostImages/iterator.png){:height="80%" width="80%"}
+<p align="center">     
+<img src="/static/assets/img/blog/iterator.png" width="80%">
+</p>
 
 ---
 #### 1. C# 1.0: Implementing Iterators Manually
@@ -23,7 +25,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >Main Program:
 
-{% highlight csharp %} 
+```
 class MainClass
     {
         public static void Main(string[] args)
@@ -36,11 +38,11 @@ class MainClass
             }
         }
     }
-{% endhighlight %}
+```
 
 >IterationSample Class:
 
-{% highlight csharp %} 
+```
  public class IterationSample : IEnumerable
     {
         public Object[] values;
@@ -58,11 +60,11 @@ class MainClass
             return new IterationSampleEnumerator(this);
         }
     }
-{% endhighlight %}
+```
 
 > In above code, we implemented IEnumerable Interface, but we haven't implement the GetEnumerator() method. We can use this ***IterationSample*** class to implement the Ienumerator Interface, and use different functions implements the Iterator's Logics, but this goes against the principle of single responsibility. So we use another class to implement this.
 
-{% highlight csharp %} 
+```
  public class IterationSampleEnumerator : IEnumerator
     {
         IterationSample parent;//object to iterate
@@ -105,7 +107,7 @@ class MainClass
             position = -1;
         }
     }
-{% endhighlight %}
+```
 
 
 ---
@@ -116,7 +118,7 @@ After C# 2.0, it introduced ***iterator***, and ***yield return*** statements. I
 
 >Main Program:
 
-{% highlight csharp %} 
+```
 class MainClass
     {
         public static void Main(string[] args)
@@ -129,11 +131,11 @@ class MainClass
             }
         }
     }
-{% endhighlight %}
+```
 
 >IterationSample Class:
 
-{% highlight csharp %} 
+```
  public class IterationSample : IEnumerable
     {
         public Object[] values;
@@ -154,7 +156,7 @@ class MainClass
             }   
         }
     }
-{% endhighlight %}
+```
 
 ---
 

@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Texture Mapping"
-date:   2018-06-20 14:15:05 +0000
-image: /assets/images/post7.png
+date:   2018-06-20 
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 
 The basic idea of “texture mapping” is to put a flat image onto the surface of a three-dimensional shape.
@@ -10,10 +12,12 @@ The basic idea of “texture mapping” is to put a flat image onto the surface 
 ---
 #### 1. Create a Single Texture Shader
 
-{: .center}
-![dot](/assets/images/PostImages/st.png){:height="70%" width="70%"}
+<p align="center">   
+<img src="/static/assets/img/blog/st.png" width="70%">
+</p>
 
-{% highlight cg %} 
+
+```
     Shader "MyShader/SingleTexture"
 {
     Properties
@@ -75,15 +79,16 @@ The basic idea of “texture mapping” is to put a flat image onto the surface 
     }
     FallBack "Diffuse"
 }
-{% endhighlight %}
+```
 
 ---
 #### 2. Combine Texture with Lighting Model
 
-{: .center}
-![dot](/assets/images/PostImages/texinLightmodel.png){:height="70%" width="70%"}
+<p align="center">   
+<img src="/static/assets/img/blog/texinLightmodel.png" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 Shader "MyShader/TextureInLightModel"
 {
     Properties
@@ -161,7 +166,7 @@ Shader "MyShader/TextureInLightModel"
     FallBack "Diffuse"
 }
 
-{% endhighlight %}
+```
 
 ---
 

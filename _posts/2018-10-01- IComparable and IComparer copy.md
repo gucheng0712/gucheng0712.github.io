@@ -2,7 +2,9 @@
 layout: post
 title:  "IComparable and IComparer"
 date:   2018-10-1 1:00:05 +0000
-image: /assets/images/post23.jpg
+categories: [Csharp]
+tags: [Csharp]
+icon: fa-code
 ---
 
 In Collection class, when we are going to use simple Sort() function in a List, the base types all provide default comparison algorithms, such as string that provides the alphabetic comparisions and int that provides integer comparisions.
@@ -17,49 +19,49 @@ If the elements inside the list are strings, it will sort by the first letter of
 
 > Code:
 
-{% highlight csharp %} 
+```
    	List<string> strList = new List<string>() { "Tom", "Jerry", "Joab", "Edi", "Kane", "Hans" };
        strList.Sort();
        strList.ForEach(Console.WriteLine);
-{% endhighlight %}
+```
 
 > Output:
 
-{% highlight csharp %} 
+```
     Edi
     Hans
     Jerry
     Joab
     Kane
     Tom
-{% endhighlight %}
+```
 
 If the elements inside the list are integers, it will sort by the integer from small to big:
 
 > Code:
 
-{% highlight csharp %} 
+```
     List<int> nums = new List<int>() { 2, 33, 22, 1, 5, 8 };
     nums.Sort();
     nums.ForEach(Console.WriteLine);
-{% endhighlight %}
+```
 
 > Output:
 
-{% highlight csharp %} 
+```
     1
     2
     5
     8
     22
     33
-{% endhighlight %}
+```
 
 However, if you create a `Human` class, and declare a variable called Name, you want to sort the Human by name, it will give you an error after you using `Sort()` function, if you didn't implement the `IComparable` Interface in the `Human` class.
 
 >Code:
 
-{% highlight csharp %} 
+```
     class Human
     {
         public string Name { get; set; }
@@ -86,7 +88,7 @@ However, if you create a `Human` class, and declare a variable called Name, you 
         human.Sort();
         human.ForEach(Console.WriteLine);
     }
-{% endhighlight %}
+```
 
 
 > Output: 
@@ -103,7 +105,7 @@ So Only if you implement the `IComparable` Interface
 >So, lets sort Human by name
 > Code:
 
-{% highlight csharp %} 
+```
     class Human : IComparable<Human>
     {
         public string Name { get; set; }
@@ -148,17 +150,17 @@ So Only if you implement the `IComparable` Interface
         human.ForEach(Console.WriteLine);
     }
     
-{% endhighlight %}
+```
 
 > Output:
 
-{% highlight csharp %} 
+```
     Kyroll 11
     Jerry 12
     Joab 18
     Cheng Gu 19
     Tom 22
-{% endhighlight %}
+```
 
 
 ---
@@ -169,8 +171,8 @@ Now, The `IComparable` Interface solved the sorting error. There is another ques
 
 >Code:
 
-    {% highlight csharp %} 
-           class Human : IComparable<Human>
+```
+    class Human : IComparable<Human>
     {
         public string Name { get; set; }
         public int Age { get; set; }
@@ -223,18 +225,17 @@ Now, The `IComparable` Interface solved the sorting error. There is another ques
             };
             human.Sort(new HumanNameComparer());
             human.ForEach(Console.WriteLine);
-    {% endhighlight %}
+```
 
 > Output:
 
-{% highlight csharp %} 
+```
     Cheng Gu 19
     Jerry 12
     Joab 18
     Kyroll 11
     Tom 22
-{% endhighlight %}
-
+```
 
 ---
 

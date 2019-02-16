@@ -1,17 +1,20 @@
 ---
 layout: post
 title:  "Dynamic Discoloration Shader"
-date:   2018-07-29 14:15:05 +0000
-image: /assets/images/post12.png
+date:   2018-07-29 
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 An exercise of writing surface shader with vertex function to achieve dynamic discoloration of the model and cube map reflection.
 
 ---
 
-{: .center}
-![dot](/assets/images/PostImages/Model Dynamic Discoloration.gif){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/Model Dynamic Discoloration.gif" width="70%">
+</p>
 
-{% highlight cg %} 
+```
 Shader "MyShader/CarPaint_SurfaceShader" 
 {
 	Properties 
@@ -106,7 +109,7 @@ Shader "MyShader/CarPaint_SurfaceShader"
 	}
 	FallBack "Diffuse"
 }
-{% endhighlight %}
+```
 
 ---
 

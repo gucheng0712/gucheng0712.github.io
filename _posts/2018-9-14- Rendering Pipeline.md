@@ -1,14 +1,17 @@
 ---
 layout: post
 title:  "Rendering Pipeline"
-date:   2018-09-14 1:00:05 +0000
-image: /assets/images/post20.jpg
+date:   2018-09-14
+categories: [Cg]
+tags: [CG]
+icon: icon-splatter
 ---
 
 The pipeline of Graphic Rendering includes 3 stages: Application Stage --> Geometry Stage --> Rasterization Stage.
 
-{: .center}
-![dot](/assets/images/PostImages/RenderingPipeline.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/RenderingPipeline.png" width="50%">
+</p>
 
 ---
 #### 1. Application Stage
@@ -27,16 +30,18 @@ The start point of the rendering pipeline is CPU. In the Application Stage, the 
 
 > For example.
 
-{: .center}
-![dot](/assets/images/PostImages/applicationStage.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/applicationStage.png" width="50%">
+</p>
 
 ---
 #### 2. Geometry Stage
 
 In Geometry Stage, the GPU will do the vertex operation through the received vertex data from the CPU.  
 
-{: .center}
-![dot](/assets/images/PostImages/GeometryStage.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/GeometryStage.png" width="70%">
+</p>
 
 > The Process:
 
@@ -66,8 +71,9 @@ Once a model's vertices have been transformed into camera space, they will also 
 
 In this stage, will use the data passed in the previous stage(Geometry stage) to produce pixels on the screen and render the final image.
 
-{: .center}
-![dot](/assets/images/PostImages/RasterizationStage.png){:height="70%" width="70%"}
+<p align="center">     
+<img src="/static/assets/img/blog/RasterizationStage.png" width="70%">
+</p>
 
 > The Process:
 

@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Matrix TRS"
-date:   2018-05-25 14:15:05 +0000
-image: /assets/images/post3.png
+date:   2018-05-25 
+categories: [Math, Unity, Csharp]
+tags: [Unity,Csharp,Math,CG]
+icon: fa-calculator
 ---
 
 Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.
@@ -12,16 +14,18 @@ It is not only complicated but also inefficient. We can combine multiple transfo
 {: style="color: red"}
 >Important Note: The order of Transformation does affect the result. In most cases, The order of Matrix Transformation is ***Scale -> Rotate -> Translate***. 
 
-{: .center}
-![screenshots](/assets/images/PostImages/matrix_rts.png){:height="80%" width="80%"}
+<p align="center">   
+<img src="/static/assets/img/blog/matrix_rts.png" width="80%">
+</p>
 
 ---
 #### 1. Translate (T)
 
-![dot](/assets/images/PostImages/t.png){:height="30%" width="30%"}
+<img src="/static/assets/img/blog/t.png" width="30%">
 
 eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)
-{% highlight csharp %}
+
+```
     public Matrix4x4 matrix;
     public Vector4 vector;
     void Start()
@@ -52,7 +56,7 @@ eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)
         //    0.00000	0.00000	1.00000	6.50000
         //    0.00000	0.00000	0.00000	1.00000
     }
-{% endhighlight %}
+```
 
 ---
 #### 2. Rotate (R)
@@ -64,17 +68,16 @@ In 3D, when P(x,y,z) rotate along the x-axis and got P'(x',y',z'). x will not ch
    
 Normally use Matrix4X4 represent this transformation: 
 
-![dot](/assets/images/PostImages/r_x.png){:height="30%" width="30%"}
+<img src="/static/assets/img/blog/r_x.png" width="30%">
 
 (2) Rotate Along Z-Axis: 
 
-![dot](/assets/images/PostImages/r_z.png){:height="30%" width="30%"}
-
+<img src="/static/assets/img/blog/r_z.png" width="30%">
 
 (3) Rotate Along Y-Axis:
 when P(x,y,z) rotate along the y-axis got P'(x',y',z'). y will not change. the ZOX composite a plane***(NOT XOZ)*** so:
 
-![dot](/assets/images/PostImages/r_y.png){:height="30%" width="30%"}
+<img src="/static/assets/img/blog/r_y.png" width="30%">
 
 ---
 Above Described the roation in matrix. These three are all similar except rotating along the y-axis. The reason is the y-axis have a different axial order. 
@@ -85,10 +88,11 @@ Above Described the roation in matrix. These three are all similar except rotati
 So, when rotating along y-axis,
 
 it should transpose from **[x y z 1]** =>
-![dot](/assets/images/PostImages/y_r_format.png){:height="10%" width="10%"}
+<img src="/static/assets/img/blog/y_r_format.png" width="10%">
 
 eg: rotate along respectively x, y, z 30 degree:
-{% highlight csharp %}
+
+```
     Matrix4x4 matrix;
     Vector4 vector;
     public float angle = 30;
@@ -157,16 +161,16 @@ eg: rotate along respectively x, y, z 30 degree:
 
         return new Quaternion(qx, qy, qz, qw);
     }
-{% endhighlight %}
+```
 
 ---
 #### 3. Scale (S)
 
-![dot](/assets/images/PostImages/s.png){:height="30%" width="30%"}
+<img src="/static/assets/img/blog/s.png" width="30%">
 
 eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
 
-{% highlight csharp %}
+```
  public Matrix4x4 matrix;
     public Vector4 vector;
 
@@ -198,7 +202,7 @@ eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
         //             0.00000 0.00000 3.00000 5.00000
         //             0.00000 0.00000 0.00000 1.00000
     }
-{% endhighlight %}
+```
 
 ---
 

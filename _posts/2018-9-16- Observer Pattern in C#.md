@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Observer Pattern in C#"
-date:   2018-09-16 1:00:05 +0000
-image: /assets/images/post21.png
+date:   2018-09-16
+categories: [Csharp]
+tags: [Csharp]
+icon: fa-code
 ---
 
 Use observer pattern to implement A cat and few mice. When cat comes all the mices are running away.
@@ -10,11 +12,13 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
 ---
 #### 1. Normal ways (Violates the Open Closed Principle)
 
-![dot](/assets/images/PostImages/Normal.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/Normal.png" width="50%">
+</p>
 
 >Code:
 
-{% highlight csharp %} 
+```
     public class Normal : MonoBehaviour
     {
         Cat ws = new Cat();
@@ -73,16 +77,18 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
 
     }
 
-{% endhighlight %}
+```
 
 ---
 #### 2. ObserverPattern (Complex but often used in big framework)
 
-![dot](/assets/images/PostImages/OB.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/OB.png" width="50%">
+</p>
 
 >Code:
 
-{% highlight csharp %} 
+```
     public class ObserverPattern : MonoBehaviour
     {
         Cat cat = new Cat();
@@ -209,19 +215,21 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
             Debug.Log("MouseC is run away");
         }
     }
-{% endhighlight %}
+```
 
 
-[ObserverPattern with multiple Subjects]https://github.com/gucheng0712/ObserverPattern
+[ObserverPattern with multiple Subjects](https://github.com/gucheng0712/ObserverPattern)
 
 ---
 #### 3. Observer Pattern By using C# Event (Simple and Neat)
 
-![dot](/assets/images/PostImages/OB_Event.png){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/OB_Event.png" width="50%">
+</p>
 
 >Code:
 
-{% highlight csharp %} 
+```
     public class ObserverPattern_Delegate : MonoBehaviour
     {
         Cat cat = new Cat();
@@ -288,9 +296,7 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
             Debug.Log("MouseC,Run, Cat is coming");
         }
     }
-
-
-{% endhighlight %}
+```
 
 
 ---

@@ -1,0 +1,15 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name:
+    detail: Study at Woodbury University
+    i18n: college
+  desc:
+    detail: At September 2016,I went to Woodbury University majoring Applied Computer Science, and started my IT career.
+    i18n: college_des
+  date:
+    detail: Sep. 2016
+    i18n: college_date
+  job:
+    detail: Student
+    i18n: college_job
+  icon: fa-plus-square

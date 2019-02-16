@@ -1,22 +1,40 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-    {% if jekyll.environment == 'production' %} {% if site.tag_manager_id %} {% include google_tag_manager.html %} {% elsif site.google_analytics_tracking_id %} {% include google_analytics.html %} {% endif %} {% endif %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;">
+  {% if page.desc %}
+    <meta content="{{ page.desc }}" name="description">
+  {% endif %}
+  {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}">
+  {% endif %}
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="baseurl" content="{{ site.baseurl }}">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/css/materialize.css"> {% if site.syntax_highlighting %}
-    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/main.css"> {% endif %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-    <title>{{site.title}}</title>
-</head>
-
-<body>
-    {% if site.tag_manager_id and jekyll.environment == 'production' %}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{site.tag_manager_id}}"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <title>
+    {% if page.title != "index" %}
+        {{ site.title }}|{{ page.title }}
+    {% else %}
+        {{ site.title }}
     {% endif %}
+  </title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{{ "/static/assets/img/favicon.ico" | prepend: site.baseurl }}">
+
+  <!-- Main CSS -->
+  <link href="{{ "/static/assets/app-20180125.min.css" | prepend: site.baseurl }}" rel="stylesheet">
+  <link href="{{ "/static/css/custom.css" | prepend: site.baseurl }}" rel="stylesheet">
+
+  <!-- Main Scripts -->
+  <script src="{{"/static/assets/app-20180125.min.js"| prepend: site.baseurl }}"></script>
+  <script src="{{"/static/assets/blog-20180125.min.js"| prepend: site.baseurl }}"></script>
+
+  <!-- Google AdSense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6196184668650108",
+      enable_page_level_ads: true
+    });
+  </script>
+</head>

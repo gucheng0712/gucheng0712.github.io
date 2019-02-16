@@ -2,13 +2,14 @@
 layout: post
 title:  "Data Preprocessing Techniques (ML)"
 date:   2019-1-22 1:00:05 +0000
-image: /assets/images/post24.png
+categories: [Python, Ai]
+tags: [Python, Ai]
+icon: fa-code
 ---
 
 In order to start machine learning training process, the algorithms needs to make the data be formatted in certain way. This is called ***Data Preprocessing***.
 
 There are many ways of doing data preprocessing, the most common ways are ***Binarization, Mean Removal, Scaling***, and ***Normalization***.
-
 
 ---
 #### 1. Binarization
@@ -17,7 +18,7 @@ Binarization is the process of convert the numerical values into boolean values 
 
 >For example:
 
-{% highlight python %} 
+```
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -30,7 +31,7 @@ Binarization is the process of convert the numerical values into boolean values 
     # Binarize Data based on teh threshold 2.1, every element above the threshold will be 1, else 0
     data_binarized = preprocessing.Binarizer(threshold = 2.1).transform(input_data)
     print("\nBinarized Data:\n",data_binarized)
-{% endhighlight %}
+```
 
 > Output:
 
@@ -49,7 +50,7 @@ Removing the mean is commonly used in machine learning. It usually useful to rem
 
 >For example:
 
-{% highlight python %} 
+```
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -74,7 +75,7 @@ Removing the mean is commonly used in machine learning. It usually useful to rem
     print('\nAFTER:')
     print('Mean = ', data_scaled.mean(axis=0))
     print("Std Deviation = ", data_scaled.std(axis=0))
-{% endhighlight %}
+```
 
 > Output:
 
@@ -114,7 +115,7 @@ There are 2 common normalization techniques:
 
 >For example:
 
-{% highlight python %} 
+```
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -128,7 +129,7 @@ There are 2 common normalization techniques:
     data_scaler_minmax = preprocessing.MinMaxScaler(feature_range=(0, 1))  # create a (0,1) data scalar
     data_scaled_minmax = data_scaler_minmax.fit_transform(input_data)  # scalar the data by using scalar
     print("\nMin max scaled data:\n", data_scaled_minmax)
-{% endhighlight %}
+```
 
 > Output:
 
@@ -146,7 +147,7 @@ In vector, the value of each feature can vary between many random values, so rer
 It is often rescaled into the range between 0 and 1. This is useful for optimization algorithms, such as like gradient descent, weight inputs.
 >For example:
 
-{% highlight python %} 
+```
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -164,7 +165,7 @@ It is often rescaled into the range between 0 and 1. This is useful for optimiza
     data_normalized_l2 = preprocessing.normalize(input_data, norm='l2')  # default more stable
     print("\nL1 Normalized Data:\n", data_normalized_l1)
     print("\nL2 Normalized Data:\n", data_normalized_l2)
-{% endhighlight %}
+```
 
 > Output:
 
@@ -181,8 +182,6 @@ It is often rescaled into the range between 0 and 1. This is useful for optimiza
      [ 0.87690281  0.08993875  0.47217844]
      [ 0.55734935 -0.75585734 -0.34357152]]
 ```
-
-
 
 ---
 

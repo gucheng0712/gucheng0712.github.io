@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Unity Rendering Path"
-date:   2018-08-14 12:15:05 +0000
-image: /assets/images/post16.jpg
+date:   2018-08-14
+categories: [Unity, Cg]
+tags: [Unity, CG]
+icon: icon-splatter
 ---
 
 Unity support many kinds of rendering path. In Unity 5.0, there are three types of rendering path: forward, deferred, and vertex lit rendering path.
@@ -10,14 +12,15 @@ Unity support many kinds of rendering path. In Unity 5.0, there are three types 
 ---
 #### 1. Forward Rendering Path
 
-{: .center}
-![dot](/assets/images/PostImages/fwdRendering.png){:height="80%" width="80%"}
+<p align="center">     
+<img src="/static/assets/img/blog/fwdRendering.png" width="80%">
+</p>
 
 For each forward rendering, we need to render the rendering primitive of the object and calculate the data of two buffers (color buffer and depth buffer). We use the depth buffer to determine if a fragment is visible and update the color value of the color buffer if it is visible.
 
 >We can use pseudo code to describe the process of forward rendering:
 
-{% highlight cg %} 
+```
 Pass
 {
     for(each primitive in this model)
@@ -37,19 +40,20 @@ Pass
         }
     }
 } 
-{% endhighlight %}
+```
 
 ---
 #### 2. Deferred Rendering Path
 
-{: .center}
-![dot](/assets/images/PostImages/deferredrendering.png){:height="80%" width="80%"}
+<p align="center">     
+<img src="/static/assets/img/blog/deferredrendering.png" width="80%">
+</p>
 
 Deferred Rendering mainly includes two Pass. The first Pass, we don’t do any lighting calculations, and only calculate which fragment in the screen is visible, by depth buffer. After finding a fragment is visible, it will store the data into the G-Buffer. Then, in the second Pass, it will use the data of fragment in the G-Buffer to do the lighting calculation. 
 
 >We can use pseudo code to describe the process of the deferred rendering:
 
-{% highlight cg %} 
+```
 PassOne // Store fragment data into G-Buffer
 {
     for(each primitive in this model)
@@ -79,7 +83,7 @@ PassTwo // Calcaulate Lighting by using the data in G-Buffer
         }
     }
 } 
-{% endhighlight %}
+```
 
 ---
 #### 2. Why use Deferred Rendering

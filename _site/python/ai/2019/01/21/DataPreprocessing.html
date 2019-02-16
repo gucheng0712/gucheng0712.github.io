@@ -1,0 +1,109 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Data Preprocessing Techniques (ML) </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/python">Python</a> <a class="btn btn-white btn-xs" href="/ai">Ai</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 21 Jan 2019</span> <h1> Data Preprocessing Techniques (ML) </h1> </div> <p>In order to start machine learning training process, the algorithms needs to make the data be formatted in certain way. This is called <strong><em>Data Preprocessing</em></strong>.</p> <p>There are many ways of doing data preprocessing, the most common ways are <strong><em>Binarization, Mean Removal, Scaling</em></strong>, and <strong><em>Normalization</em></strong>.</p> <hr /> <h4 id="1-binarization">1. Binarization</h4> <p>Binarization is the process of convert the numerical values into boolean values based on a threshold value.</p> <blockquote> <p>For example:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    import numpy as np  # numpy library
+    from sklearn import preprocessing  # sklearn library
+   	#inputs
+    input_data = np.array([
+        [5.1, -2.9, 3.3],
+        [-1.2, 7.8, -6.1],
+        [3.9, 0.4, 2.1],
+        [7.3, -9.9, -4.5]])
+        
+    # Binarize Data based on teh threshold 2.1, every element above the threshold will be 1, else 0
+    data_binarized = preprocessing.Binarizer(threshold = 2.1).transform(input_data)
+    print("\nBinarized Data:\n",data_binarized)
+</code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Binarized data:
+    [[ 1.  0.  1.]
+    [ 0.  1.  0.]
+    [ 1.  0.  0.]
+    [ 1.  0.  0.]]
+</code></pre></div></div> <hr /> <h4 id="2-mean-removal">2. Mean Removal</h4> <p>Removing the mean is commonly used in machine learning. It usually useful to remove the mean from out feature vector, so that each feature is centered on zero. We do this in order to remove bias from the features in our feature vector.</p> <blockquote> <p>For example:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    import numpy as np  # numpy library
+    from sklearn import preprocessing  # sklearn library
+   	#inputs
+    input_data = np.array([
+        [5.1, -2.9, 3.3],
+        [-1.2, 7.8, -6.1],
+        [3.9, 0.4, 2.1],
+        [7.3, -9.9, -4.5]])
+        
+    # Standard Deviation: The size of the fluctuations in the data set
+    # Print mean and standard deviation
+    print("\nDataBeforeMeanRemoval: \n", input_data)
+    print("\nBEFORE:")
+    print("Mean = ", input_data.mean(axis=0))  # axis represents the mean's dimension 0 -&gt; vertical   1 -&gt; horizontal
+    print("Std Deviation = ", input_data.std(axis=0))
+    print("Mean = ", input_data.mean(axis=1))
+    print("Std Deviation = ", input_data.std(axis=1))
+
+    # Remove Mean by scale function
+    data_scaled = preprocessing.scale(input_data)
+    print("\nDataAfterMeanRemoval: \n", data_scaled)
+    print('\nAFTER:')
+    print('Mean = ', data_scaled.mean(axis=0))
+    print("Std Deviation = ", data_scaled.std(axis=0))
+</code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    DataBeforeMeanRemoval: 
+     [[ 5.1 -2.9  3.3]
+     [-1.2  7.8 -6.7]
+     [ 3.9  0.4  2.1]
+     [ 7.3 -9.9 -4.5]]
+
+    BEFORE:
+    Mean =  [ 3.775 -1.15  -1.45 ]
+    Std Deviation =  [3.12039661 6.36651396 4.24352448]
+    Mean =  [ 1.83333333 -0.03333333  2.13333333 -2.36666667]
+    Std Deviation =  [3.42669261 5.97680703 1.42906341 7.18207646]
+
+    DataAfterMeanRemoval: 
+     [[ 0.42462551 -0.2748757   1.11935256]
+     [-1.59434861  1.40579288 -1.23717915]
+     [ 0.04005901  0.24346134  0.83656876]
+     [ 1.12966409 -1.37437851 -0.71874217]]
+
+    AFTER:
+    Mean =  [1.11022302e-16 0.00000000e+00 5.55111512e-17]
+    Std Deviation =  [1. 1. 1.]
+</code></pre></div></div> <hr /> <h4 id="3-rescale-data">3. Rescale Data</h4> <p>The process of normalization is to modify the values in the vector so that we can measure them on a common scale.</p> <p>There are 2 common normalization techniques:</p> <ol> <li><strong><em>L1 Normalization</em></strong>, which refers to Least Absolute Deviations, works by making sure that the sum of absolute values is 1 in each row.</li> <li><strong><em>L2 Normalization</em></strong>, which refers to least squares, works by making sure that the sum of squares is 1.</li> </ol> <blockquote> <p>For example:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    import numpy as np  # numpy library
+    from sklearn import preprocessing  # sklearn library
+   	#inputs
+    input_data = np.array([
+        [5.1, -2.9, 3.3],
+        [-1.2, 7.8, -6.1],
+        [3.9, 0.4, 2.1],
+        [7.3, -9.9, -4.5]])
+        
+    # Min max scaling
+    data_scaler_minmax = preprocessing.MinMaxScaler(feature_range=(0, 1))  # create a (0,1) data scalar
+    data_scaled_minmax = data_scaler_minmax.fit_transform(input_data)  # scalar the data by using scalar
+    print("\nMin max scaled data:\n", data_scaled_minmax)
+</code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Min max scaled data:
+     [[0.74117647 0.39548023 1.       ]
+     [0.         1.         0.        ]
+     [0.6        0.5819209  0.88      ]
+     [1.         0.         0.22      ]]
+</code></pre></div></div> <hr /> <h4 id="4-normalization">4. Normalization</h4> <p>In vector, the value of each feature can vary between many random values, so rerange(scaling) the values are important. It is often rescaled into the range between 0 and 1. This is useful for optimization algorithms, such as like gradient descent, weight inputs.</p> <blockquote> <p>For example:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    import numpy as np  # numpy library
+    from sklearn import preprocessing  # sklearn library
+   	#inputs
+    input_data = np.array([
+        [5.1, -2.9, 3.3],
+        [-1.2, 7.8, -6.1],
+        [3.9, 0.4, 2.1],
+        [7.3, -9.9, -4.5]])
+        
+    # Normalize Data
+
+    # L1 Normalization ==&gt; the sum of absolute value is 1 in each row (Least Absolute Deviation)
+    # L2 Normalization ==&gt; the sum of squares is 1
+    data_normalized_l1 = preprocessing.normalize(input_data, norm='l1')
+    data_normalized_l2 = preprocessing.normalize(input_data, norm='l2')  # default more stable
+    print("\nL1 Normalized Data:\n", data_normalized_l1)
+    print("\nL2 Normalized Data:\n", data_normalized_l2)
+</code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    L1 Normalized Data:
+     [[ 0.45132743 -0.25663717  0.2920354 ]
+     [-0.07643312  0.49681529 -0.42675159]
+     [ 0.609375    0.0625      0.328125  ]
+     [ 0.33640553 -0.4562212  -0.20737327]]
+
+    L2 Normalized Data:
+     [[ 0.75765788 -0.43082507  0.49024922]
+     [-0.11591633  0.75345616 -0.64719952]
+     [ 0.87690281  0.08993875  0.47217844]
+     [ 0.55734935 -0.75585734 -0.34357152]]
+</code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Python</button> <button class="btn btn-white btn-xs" type="button">Ai</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

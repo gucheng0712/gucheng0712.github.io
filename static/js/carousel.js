@@ -1,0 +1,1 @@
+$('#carouselHacked').carousel();

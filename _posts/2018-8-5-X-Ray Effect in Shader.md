@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "X-Ray Effect in Shader"
-date:   2018-08-5 14:15:05 +0000
-image: /assets/images/post14.png
+date:   2018-08-5
+categories: [Cg, Unity]
+tags: [Unity, Shader, Math,CG]
+icon: icon-splatter
 ---
 
 In many games, we can use special ability to see through the wall. So In this post I am going to make a X-ray effect.
@@ -11,15 +13,15 @@ A X-Ray is easy to achieve. basicly, just need to add an additional `Pass{}` in 
 
 >This is the result of the experiment:
 
-
-{: .center}
-![dot](/assets/images/PostImages/X-Ray.gif){:height="50%" width="50%"}
+<p align="center">     
+<img src="/static/assets/img/blog/X-Ray.gif" width="50%">
+</p>
 
 ---
 
 >Code:
 
-{% highlight cg %} 
+```
 Shader "MyShader/Transparent2"
 {
 	Properties
@@ -141,7 +143,7 @@ Shader "MyShader/Transparent2"
 	}
 }
 
-{% endhighlight %}
+```
 
 
 ---
