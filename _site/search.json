@@ -3,6 +3,22 @@
     "data" : [
      
     {
+        "title" : "Data Classification Approaches (ML) - 2019-01-29",
+        "url" : "/python/ai/2019/01/29/Data-Classification-Approaches.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Linear Regression (ML) - 2019-01-21",
+        "url" : "/python/ai/2019/01/21/Linear-Regression.html"
+    }
+    
+    ,
+    
+    
+    {
         "title" : "Data Preprocessing Techniques (ML) - 2019-01-21",
         "url" : "/python/ai/2019/01/21/DataPreprocessing.html"
     }
@@ -179,7 +195,7 @@
     
     
     {
-        "title" : "Linear Algebra: Cross Or Dot - 2018-05-20",
+        "title" : "Cross Or Dot - 2018-05-20",
         "url" : "/math/unity/csharp/2018/05/20/The-Cross-Product-and-the-Dot-Product-in-Unity.html"
     }
     

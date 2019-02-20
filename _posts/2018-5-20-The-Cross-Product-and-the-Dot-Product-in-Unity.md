@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Linear Algebra: Cross Or Dot"
+title:  "Cross Or Dot"
 date:   2018-05-20 
 categories: [Math, Unity, Csharp]
 tags: [Unity,Csharp,Math,CG]
