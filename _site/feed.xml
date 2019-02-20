@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Feb 2019 19:44:38 -0800</pubDate>
-    <lastBuildDate>Tue, 19 Feb 2019 19:44:38 -0800</lastBuildDate>
+    <pubDate>Tue, 19 Feb 2019 21:24:00 -0800</pubDate>
+    <lastBuildDate>Tue, 19 Feb 2019 21:24:00 -0800</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -4799,29 +4799,61 @@ when P(x,y,z) rotate along the y-axis got P’(x’,y’,z’). y will not chang
       </item>
     
       <item>
-        <title>Cross Or Dot</title>
+        <title>Linear Algebra: Cross Or Dot</title>
         <description>&lt;p&gt;The Cross Product and the Dot Product are the most common calculations of Vector. In the Game Development, it is necessary to understand both of them. The biggest difference between them is that:&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;The result of dot product is a &lt;strong&gt;value&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;The result of cross product is a &lt;strong&gt;vector&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The result of &lt;strong&gt;dot product&lt;/strong&gt; is a &lt;strong&gt;value&lt;/strong&gt;
+The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vector&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;1-dot-product&quot;&gt;1. Dot Product&lt;/h4&gt;
+&lt;h2 id=&quot;1-dot-product&quot;&gt;&lt;strong&gt;1. Dot Product&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The dot product of two n-dimensional vectors A and B, written as A ⋅ B, is the scalar quantity given by the formula:&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/Dot.jpg&quot; width=&quot;50%&quot; /&gt;
-&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}&lt;/script&gt;
+
+&lt;p&gt;eg:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;if:&lt;/strong&gt;&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\large \qquad Vector3\:\: v_1 = (x_1,y_1,z_1), Vector3\:\: v_2 = (x_2,y_2,z_2)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;then:&lt;/strong&gt;&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\large \qquad v_1 \cdot v_2 = {x_1}{x_2}+{y_1}{y_2}+{z_1}{z_2}&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow the law of trig it can write as:&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\large \qquad A\cdot B = \|A\|\|B\| cos\theta&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow up, it also can write as:&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\large\qquad\theta = acos (\frac{A\cdot B}{\|A\|\|B\| })&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;The position relation of two vectors can be determined by the sign of the dot product of these two vector.&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;If the dot product = 0, these two vectors are perpendicular. Two Vector point mostly same direction.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180. Two Vector perpendicular.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point mostly opposite direction.&lt;/li&gt;
+  &lt;li&gt;If the dot product = 0, these two vectors are perpendicular. Two Vector point &lt;strong&gt;mostly same direction&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180. Two Vector &lt;strong&gt;perpendicular&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;strong&gt;mostly opposite direction&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example in Game Development:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The dot product A ⋅ B may also be expressed as the &lt;strong&gt;matrix product&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\begin{equation} A_T B = \begin{bmatrix}A_1 &amp;amp; A_2 &amp;amp; \cdots &amp;amp; A_n\end{bmatrix} \begin{bmatrix}B_1 \\ B_2 \\ \vdots \\ B_n\end{bmatrix} \end{equation}&lt;/p&gt;
+
+&lt;p&gt;Dot Product also can calculate the &lt;strong&gt;projection&lt;/strong&gt; of a vector by giving A and B vectors:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;script type=&quot;math/tex; mode=display&quot;&gt;proj_BA = \frac{A\cdot B}{\|B\|}&lt;/script&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;example-in-game-development&quot;&gt;&lt;strong&gt;&lt;em&gt;Example in Game Development:&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;(1) Get the Angle of two vectors: range [0, 180], whether the view of the game monster can be viewed to the player, and can be used to calculate whether the enemy is within the range of the character’s attack.&lt;/p&gt;
 
@@ -4864,10 +4896,27 @@ else
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-cross-product&quot;&gt;2. Cross Product&lt;/h4&gt;
+&lt;h2 id=&quot;2-cross-product&quot;&gt;&lt;strong&gt;2. Cross Product&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The cross product of two three-dimensional vectors, returns a new vector that is perpendicular to both of the vectors being multiplied together. This property has many uses in computer graphics, one of which is a method for calculating a surface normal at a particular point given two distinct tangent vectors.&lt;/p&gt;
+
+&lt;p&gt;The cross product of two 3D vectors A and B, written as A × B, is a vector quantity given by the formula:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\large A×B = (A_yB_z−A_zB_y, A_zB_x−A_xB_z, A_xB_y−A_yB_x)&lt;/script&gt;
+
+&lt;p&gt;This equation seems no regularity, but it has, shown as below:&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/Cross.jpg&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow the law of trig it can write as:&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\large \qquad \|A×B\|=\|A\|\|B\|sin\theta&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Follow up, it also can write as:&lt;br /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\large \qquad \theta = asin (\frac{\|A×B\|}{\|A\|\|B\| })&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is &lt;strong&gt;&lt;em&gt;perpendicular&lt;/em&gt;&lt;/strong&gt; to the coordinate plane of these two vectors.&lt;/p&gt;
 
@@ -4875,16 +4924,25 @@ else
   &lt;p&gt;In Math, it satisfy right hand rule, a x b = -b x a. So we can use the result of Cross product’s value is positive or negative to determine a and b’s relative position.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Right-hand Cooridinate System&lt;/em&gt;&lt;/strong&gt; 
-&lt;img src=&quot;/static/assets/img/blog/right-hand.jpg&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;    
+&lt;img src=&quot;/static/assets/img/blog/right-hand.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Left-hand Cooridinate System&lt;/em&gt;&lt;/strong&gt;
-&lt;img src=&quot;/static/assets/img/blog/left-hand.jpg&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+&lt;b&gt;Right-hand Cooridinate System&lt;/b&gt;
+&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Normal vector of a plane is calculated from the Cross Product of the coordinate plane of x and y vectors.&lt;/em&gt;&lt;/strong&gt;
-&lt;img src=&quot;/static/assets/img/blog/Cross2.jpg&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/left-hand.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example in Game Development:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;b&gt;Left-hand Cooridinate System**&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/Cross2.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
+
+&lt;b&gt;Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.**&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;example-in-game-development-1&quot;&gt;&lt;strong&gt;&lt;em&gt;Example in Game Development:&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;(1) WallWalking:&lt;/p&gt;
 
