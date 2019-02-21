@@ -35,7 +35,12 @@
         "college": "Woodbury University",
         "college_des": "At September 2016,I went to Woodbury University majoring Applied Computer Science, and started my IT career.",
         "college_date": "Sep. 2016",
-        "college_job": "Student"
+        "college_job": "Student",
+
+        "companyA": "Math & Science Tutoring Center in Woodbury University",
+        "companyA_des": "At October 2017,I got my first on-campus job, which is tutoring student in the Math and other Science Subjects at Woodbuty University Tutoring Center.",
+        "companyA_date": "Oct. 2016",
+        "companyA_job": "Tutor"
     },
     "blog": {
         "my_blog": "My Blog"

@@ -35,7 +35,12 @@
         "college": "伍德伯里大学",
         "college_des": "2016年9月，我进入伍德伯里大学，主修应用计算机科学，开始了我的IT学习生涯",
         "college_date": "2016年9月",
-        "college_job": "学生"
+        "college_job": "学生",
+
+        "companyA": "伍德伯里大学-数学与科学辅导中心",
+        "companyA_des": "在2017年10月，我找到了我的第一份校园工作，在数学与科学辅导中心辅导学生数学和其他科学方面的课程。",
+        "companyA_date": "2017年10月",
+        "companyA_job": "辅导员"
     },
     "blog": {
         "my_blog": "我的博客"
