@@ -91,7 +91,7 @@ In this stage, will use the data passed in the previous stage(Geometry stage) to
 
 >c) ***Alpha Test***: When the final color of a fragment is calculated, an application may also calculate an alpha value that usually represents the degree of transparency associated with the fragment. The alpha test compares the final alpha value of a fragment to a constant value that is preset by the application. The application can specifies what relationship between the two values (such as less than, greater than, or equal to) causes the test to pass. If the relationship is not satisfied, then the fragment is discarded.
 
->d) ***Stencil Test***:  The sten- cil test reads the value stored in the stencil buffer at a fragment’s location and compares it to a value previously specified by the application. 
+>d) ***Stencil Test***:  The stencil test reads the value stored in the stencil buffer at a fragment’s location and compares it to a value previously specified by the application. 
 The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.
 
 >e) ***Depth Test***: The depth Test compares the final depth associated with a fragment to the value currently residing in the depth buffer.

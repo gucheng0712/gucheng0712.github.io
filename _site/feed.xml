@@ -5,13 +5,264 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Feb 2019 22:17:54 -0800</pubDate>
-    <lastBuildDate>Tue, 19 Feb 2019 22:17:54 -0800</lastBuildDate>
+    <pubDate>Wed, 20 Feb 2019 15:16:07 -0800</pubDate>
+    <lastBuildDate>Wed, 20 Feb 2019 15:16:07 -0800</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
         <title>Data Classification Approaches (ML)</title>
-        <description>&lt;hr /&gt;
+        <description>&lt;h2 id=&quot;1-data-classification&quot;&gt;&lt;strong&gt;1. Data Classification&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;Machine learning involves building models of data based on features available in the data. In &lt;strong&gt;&lt;em&gt;Supervised Learning&lt;/em&gt;&lt;/strong&gt;, features have some labels associated with them.&lt;/p&gt;
+
+&lt;p&gt;For examle:&lt;/p&gt;
+
+&lt;p&gt;A 2D data will have &lt;strong&gt;&lt;em&gt;2 features&lt;/em&gt;&lt;/strong&gt; represented by the (x,y) positions of the points on the plane.&lt;/p&gt;
+
+&lt;p&gt;The data is classified with 2 or more class labels, which can be represented by colors of the points.&lt;/p&gt;
+
+&lt;p&gt;Assuming that the 2 classes of data can be separated by drawing a line between the data points, the line represents the &lt;strong&gt;&lt;em&gt;model&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The numbers describing the location and orientation of the line are &lt;strong&gt;&lt;em&gt;model parameters&lt;/em&gt;&lt;/strong&gt; - values for these model parameters are “learned” from the data, which is known as training the model.&lt;/p&gt;
+
+&lt;p&gt;Once the model has been trained, it can be generalized to new data. Assigning labels to new unclassified points based on the model is called &lt;strong&gt;&lt;em&gt;prediction&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/DataClassification1.png&quot; width=&quot;40%&quot; /&gt;
+After trained ==&amp;gt;
+&lt;img src=&quot;/static/assets/img/blog/DataClassification2.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;2-approaches-of-data-classification&quot;&gt;&lt;strong&gt;2. Approaches of Data Classification&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;There are three different kinds of Data Classification Approaches, respectively &lt;strong&gt;&lt;em&gt;Functional Approach (Logistic Regression)&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;Statistical Approach (Naive Bayes)&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;Geometrical Approach (Perceptron, SVM)&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/DataClassificationApproaches.png&quot; width=&quot;60%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;3-logistic-regression&quot;&gt;&lt;strong&gt;3. Logistic Regression&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;In functional approaches to data classification, such as logistic regression, the goal is to find a hypothetical function h(x) which can best describe the correlation between variables x and y.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/LogisticRegression.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If the input data is 2D, the function is a &lt;strong&gt;curve&lt;/strong&gt; which fits through the data points. In 3D the function represents a &lt;strong&gt;plane&lt;/strong&gt; and in higher dimensions a &lt;strong&gt;hyperplane&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The mathematical function used in Logistic Regression is known as a &lt;strong&gt;sigmoid&lt;/strong&gt; (aka logistic). The output of the function is &lt;strong&gt;between 0 and 1&lt;/strong&gt; for all input values. The formula is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x) = \frac{1}{1+e^{-x}}&lt;/script&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/sigmoid.png&quot; width=&quot;38%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
+import matplotlib.pyplot as plt    
+from sklearn import linear_model
+
+
+'''=====================Visualzation Function========================''' 
+def visualize_classifier(classifier, x,y):
+    # Define the min and max values for x and y
+    # that will be used in the mesh grid
+    min_x = x[:,0].min()-1.0 # show the first col of x's min value-1
+    max_x = x[:,0].max()+1.0 # show the first col of x's max value+1
+    min_y = x[:,1].min()-1.0 # show the second col of x's min value-1
+    max_y = x[:,1].max()+1.0 # show the second col of x's max value+1
+    
+    # Define the step size to use in plotting the mesh grid
+    mesh_step_size = 0.01
+    
+    # Define the mesh grid of x and y values
+    x_vals,y_vals = np.meshgrid(np.arange(min_x, max_x, mesh_step_size), 
+                                np.arange(min_y, max_y, mesh_step_size))
+    
+    # Run the classifier on the mesh grid
+    output = classifier.predict(np.c_[x_vals.ravel(), y_vals.ravel()])
+    
+    # Reshape the output array
+    output = output.reshape(x_vals.shape)
+    
+    # Create a plot
+    plt.figure()
+    
+    # Choose a color scheme for the plot
+    plt.pcolormesh(x_vals, y_vals, output, cmap=plt.cm.gray)
+    
+    # Overlay the training points on the plot
+    plt.scatter(x[:, 0], x[:, 1], c=y, s=75, edgecolors='black', 
+                linewidth=1, cmap=plt.cm.Paired)
+
+    # Specify the boundaries of the plot
+    plt.xlim(x_vals.min(), x_vals.max())
+    plt.ylim(y_vals.min(), y_vals.max())
+    
+    # Specify the ticks on the X and Y axes
+    plt.xticks((np.arange(int(x[:, 0].min() - 1), 
+                          int(x[:, 0].max() + 1), 1.0)))
+    plt.yticks((np.arange(int(x[:, 1].min() - 1), 
+                          int(x[:, 1].max() + 1), 1.0)))
+    
+    #plt.show() # only don't call in jupyter 
+    
+'''=============================Main=================================''' 
+
+
+# Define sample input data
+x = np.array([[3.1, 7.2],
+              [4, 6.7],
+              [2.9, 8],
+              [5.1, 4.5],
+              [6, 5],
+              [5.6, 5],
+              [3.3, 0.4],
+              [3.9, 0.9],
+              [2.8, 1],
+              [0.5, 3.4],
+              [1, 4],
+              [0.6, 4.9]])
+
+y = np.array([0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3])
+
+# Create the logistic regression classifier
+classifier = linear_model.LogisticRegression(solver='liblinear', C=100)
+
+# Train the classifier
+classifier.fit(x, y)
+
+# Visualize the performance of the classifier
+visualize_classifier(classifier, x, y)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/LR_Output.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-naive-bayes-classification&quot;&gt;&lt;strong&gt;4. Naive Bayes Classification&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;Naive Bayes models are a group of extremely fast and simple classification algorithms that are often suitable for very &lt;strong&gt;high-demensional dataset&lt;/strong&gt;. Therefore, it end up being very useful as a quick-and-dirty baseline for a &lt;strong&gt;classification problem&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;bayes-theorem&quot;&gt;Bayes’ Theorem&lt;/h4&gt;
+
+&lt;p&gt;Naive Bayes classifiers are built on Bayesian classification methods. These rely on Bayes’s theorem. In Bayesian classification, we’re interested in finding the probability of a label given some observed features, which we can write as:
+  &lt;script type=&quot;math/tex&quot;&gt;P(A~|~{B})&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Mathematically, conditional probability of A given B is expressed by
+the following &lt;strong&gt;formula&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large P(A~|~B) = \frac{P(A \cap B)}{P(B)}&lt;/script&gt;
+
+&lt;p&gt;However, based on this &lt;strong&gt;formula&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large P(A \cap B)=P(A~|~B)\cdot P(B)&lt;/script&gt;
+
+&lt;p&gt;The same applies for &lt;strong&gt;B given A&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large P(A \cap B)=P(B~|~A)\cdot P(A)&lt;/script&gt;
+
+&lt;p&gt;Therefore, The propability of &lt;strong&gt;A given B&lt;/strong&gt; can be re-written as Bayes’s Rule:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large P(A~|~B) = \frac{P(B~|~A)P(A)}{P(B)}&lt;/script&gt;
+
+&lt;p&gt;If we are trying to decide between two labels, $A_1$ and $A_2$, one way to make decision is compute the ratio of the posterior probabilities for each label:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large \frac{P(A_1~|~B)}{P(A_2~|~B)} = \frac{P(B~|~A_1)P(A_1)}{P(B~|~A_2)P(A_2)}&lt;/script&gt;
+
+&lt;p&gt;The important things need to know is some model by which we can compute 
+&lt;script type=&quot;math/tex&quot;&gt;P(B~|~A_i)&lt;/script&gt; for each label. This is called a &lt;strong&gt;generative model&lt;/strong&gt;, because it specifies the hypothetical random process that generates the data. Specifying this generative model for each label is the main piece of the training of such Bayesian classifier.&lt;/p&gt;
+
+&lt;p&gt;Naive Bayes classifier calculates the probabilities for every feature
+available in the data and selects the outcome with &lt;strong&gt;highest
+probability&lt;/strong&gt;. It is a popular and powerful algorithm used for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Real-time prediction&lt;/li&gt;
+  &lt;li&gt;Text Classification (e.g. spam filtering)&lt;/li&gt;
+  &lt;li&gt;Recommendation Systems (e.g. online shopping)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.naive_bayes import GaussianNB
+
+'''======================Visualzation Function=========================''' 
+def visualize_classifier(classifier, x,y):
+    # Define the min and max values for x and y
+    # that will be used in the mesh grid
+    min_x = x[:,0].min()-1.0 # show the first col of x's min value-1
+    max_x = x[:,0].max()+1.0 # show the first col of x's max value+1
+    min_y = x[:,1].min()-1.0 # show the second col of x's min value-1
+    max_y = x[:,1].max()+1.0 # show the second col of x's max value+1
+    
+    # Define the step size to use in plotting the mesh grid
+    mesh_step_size = 0.01
+    
+    # Define the mesh grid of x and y values
+    x_vals, y_vals = np.meshgrid(np.arange(min_x, max_x, mesh_step_size), 
+                                 np.arange(min_y, max_y, mesh_step_size))
+    # Run the classifier on the mesh grid
+    output = classifier.predict(np.c_[x_vals.ravel(), y_vals.ravel()])
+    
+    # Reshape the output array
+    output = output.reshape(x_vals.shape)
+    
+    # Create a plot
+    plt.figure()
+    
+    # Choose a color scheme for the plot
+    plt.pcolormesh(x_vals, y_vals, output, cmap=plt.cm.gray)
+    
+    # Overlay the training points on the plot
+    plt.scatter(x[:, 0], x[:, 1], c=y, s=75, edgecolors='black', 
+                linewidth=1, cmap=plt.cm.Paired)
+
+    # Specify the boundaries of the plot
+    plt.xlim(x_vals.min(), x_vals.max())
+    plt.ylim(y_vals.min(), y_vals.max())
+    
+    # Specify the ticks on the X and Y axes
+    plt.xticks((np.arange(int(x[:, 0].min() - 1), 
+                          int(x[:, 0].max() + 1), 1.0)))
+    plt.yticks((np.arange(int(x[:, 1].min() - 1), 
+                          int(x[:, 1].max() + 1), 1.0)))
+    
+    #plt.show() # only don't call in jupyter 
+    
+    
+'''==============================Main==================================''' 
+# Load data from input file
+input_file = 'data_multivar_nb.txt'
+data = np.loadtxt(input_file,delimiter=',')
+x = data[:,:-1]
+#print('\n x Data: \n',x)
+y = data[:,-1]
+#print('\n y Data: \n',y)
+
+# Create Naive Bayes classifier
+classifier = GaussianNB()
+
+# Train the classifier and predict the value for training data
+classifier.fit(x,y)
+y_pred = classifier.predict(x)
+
+# Visualize the performance of the classifier
+visualize_classifier(classifier,x,y)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
@@ -512,8 +763,8 @@ Code:&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 30 Sep 2018 18:00:05 -0700</pubDate>
-        <link>http://localhost:4000/csharp/2018/09/30/IComparable-and-IComparer-copy.html</link>
-        <guid isPermaLink="true">http://localhost:4000/csharp/2018/09/30/IComparable-and-IComparer-copy.html</guid>
+        <link>http://localhost:4000/csharp/2018/09/30/IComparable-and-IComparer.html</link>
+        <guid isPermaLink="true">http://localhost:4000/csharp/2018/09/30/IComparable-and-IComparer.html</guid>
         
         <category>Csharp</category>
         
@@ -1225,7 +1476,7 @@ Once a model’s vertices have been transformed into camera space, they will als
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;d) &lt;strong&gt;&lt;em&gt;Stencil Test&lt;/em&gt;&lt;/strong&gt;:  The sten- cil test reads the value stored in the stencil buffer at a fragment’s location and compares it to a value previously specified by the application. 
+  &lt;p&gt;d) &lt;strong&gt;&lt;em&gt;Stencil Test&lt;/em&gt;&lt;/strong&gt;:  The stencil test reads the value stored in the stencil buffer at a fragment’s location and compares it to a value previously specified by the application. 
 The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.&lt;/p&gt;
 &lt;/blockquote&gt;
 
