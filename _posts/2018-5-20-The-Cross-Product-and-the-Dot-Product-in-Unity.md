@@ -35,6 +35,20 @@ $$\large \qquad A\cdot B = \|A\|\|B\| cos\theta$$
 >Follow up, it also can write as:  
 $$\large\qquad\theta = acos (\frac{A\cdot B}{\|A\|\|B\| })$$
 
+Dot Product also can calculate the **projection** of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
+$$\|B\| cos\theta$$. Shown as below image:
+
+<p align="center">     
+<img src="/static/assets/img/blog/proj_ab.png" width="30%">
+</p>
+
+The length of the projection of the **Vector A onto the Vector B** is given by $$\large\frac{A⋅B}{\|B\|}$$, because $$A⋅B = \|A\| \|B\| cos\theta$$.
+
+Therefore, in order to get the Vector of with this length, we can just multiply by the **unit vector of B**, which is 
+$$\Large\frac{B}{\|B\|}$$, we can get the following formula:
+
+$$\Large proj_BA = \frac{A\cdot B}{\|B\|^2}B$$
+
 The position relation of two vectors can be determined by the sign of the dot product of these two vector.
 1. If the dot product = 0, these two vectors are perpendicular. Two Vector point **mostly same direction**.
 2. If the dot product <0, the angle between two Vector is 90 ~ 180. Two Vector **perpendicular**.
@@ -44,9 +58,7 @@ The dot product A ⋅ B may also be expressed as the **matrix product**
 
 \begin{equation} A_T B = \begin{bmatrix}A_1 & A_2 & \cdots & A_n\end{bmatrix} \begin{bmatrix}B_1 \\\ B_2 \\\ \vdots \\\ B_n\end{bmatrix} \end{equation}
 
-Dot Product also can calculate the **projection** of a vector by giving A and B vectors:
 
->$$proj_BA = \frac{A\cdot B}{\|B\|}$$
 
 
 <br><br>
