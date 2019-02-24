@@ -133,7 +133,7 @@ The cross product of two vectors, the result of the cross product is a vector in
 > In Math, it satisfy right hand rule, a x b = -b x a. So we can use the result of Cross product's value is positive or negative to determine a and b's relative position.
 
 <p align="center">    
-<img src="/static/assets/img/blog/right-hand.jpg" width="20%"><br>
+<img src="/static/assets/img/blog/right-hand.png" width="20%"><br>
 
 <b>Right-hand Cooridinate System</b>
 </p>
