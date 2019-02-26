@@ -34,28 +34,32 @@ eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)
         vector = new Vector4(transform.position.x, transform.position.y, transform.position.z, 1);
         matrix = Matrix4x4.identity;
         Debug.Log("Before Translate: " + transform.localToWorldMatrix);
-        //Before Translate: 
-        //    1.00000	0.00000	0.00000	2.00000
-        //    0.00000	1.00000	0.00000	3.00000
-        //    0.00000	0.00000	1.00000	5.00000
-        //    0.00000	0.00000	0.00000	1.00000
-        
-        
+
         matrix.m03 = 3; // move (3,-2,1.5)
         matrix.m13 = -2;
         matrix.m23 = 1.5f;
-        
         
         // Translate
         vector = matrix * vector;
         transform.position = new Vector3(vector.x, vector.y, vector.z);
         Debug.Log("After Translate: " + transform.localToWorldMatrix);
-        //After Translate: 
-        //    1.00000	0.00000	0.00000	5.00000
-        //    0.00000	1.00000	0.00000	1.00000
-        //    0.00000	0.00000	1.00000	6.50000
-        //    0.00000	0.00000	0.00000	1.00000
     }
+```
+
+>Output:
+
+```
+Before Translate: 
+    1.00000    0.00000    0.00000    2.00000
+    0.00000    1.00000    0.00000    3.00000
+    0.00000    0.00000    1.00000    5.00000
+    0.00000    0.00000    0.00000    1.00000
+
+After Translate: 
+    1.00000    0.00000    0.00000    5.00000
+    0.00000    1.00000    0.00000    1.00000
+    0.00000    0.00000    1.00000    6.50000
+    0.00000    0.00000    0.00000    1.00000
 ```
 
 ---
@@ -104,10 +108,7 @@ eg: rotate along respectively x, y, z 30 degree:
     {
         matrix = Matrix4x4.identity;
         Debug.Log("Before Rotate: " + matrix);
-        //Before Rotate: 1.00000  0.00000 0.00000 0.00000
-        //               0.00000 1.00000 0.00000 0.00000
-        //               0.00000 0.00000 1.00000 0.00000
-        //               0.00000 0.00000 0.00000 1.00000
+
         switch (axis)
         {
             case Axis.X:
@@ -116,12 +117,6 @@ eg: rotate along respectively x, y, z 30 degree:
                 matrix.m21 = Mathf.Sin(angle * Mathf.Deg2Rad);
                 matrix.m22 = Mathf.Cos(angle * Mathf.Deg2Rad);
                 Debug.Log("After Rotate(along x-axis) : " + matrix);
-
-                //After Rotate(along x-axis):   1.00000   0.00000   0.00000   0.00000
-                //                              0.00000   0.86603  -0.50000   0.00000
-                //                              0.00000   0.50000   0.86603   0.00000
-                //                              0.00000   0.00000   0.00000   1.00000
-
                 break;
             case Axis.Y:
                 matrix.m01 = Mathf.Cos(angle * Mathf.Deg2Rad);
@@ -129,10 +124,6 @@ eg: rotate along respectively x, y, z 30 degree:
                 matrix.m21 = -Mathf.Sin(angle * Mathf.Deg2Rad);
                 matrix.m22 = Mathf.Cos(angle * Mathf.Deg2Rad);
                 Debug.Log("After Rotate(along y-axis): " + matrix);
-                //After Rotate(along y-axis):   1.00000   0.86603   0.50000   0.00000
-                //                              0.00000   1.00000   0.00000   0.00000
-                //                              0.00000   -0.50000  0.86603   0.00000
-                //                              0.00000   0.00000   0.00000   1.00000
                 break;
             case Axis.Z:
                 matrix.m01 = Mathf.Cos(angle * Mathf.Deg2Rad);
@@ -140,11 +131,6 @@ eg: rotate along respectively x, y, z 30 degree:
                 matrix.m11 = Mathf.Sin(angle * Mathf.Deg2Rad);
                 matrix.m12 = Mathf.Cos(angle * Mathf.Deg2Rad);
                 Debug.Log("After Rotate(along z-axis): " + matrix);
-
-                //After Rotate(along z-axis):   1.00000   0.86603  -0.50000   0.00000
-                //                              0.00000   0.50000   0.86603   0.00000
-                //                              0.00000   0.00000   1.00000   0.00000
-                //                              0.00000   0.00000   0.00000   1.00000
                 break;
         }
 
@@ -163,6 +149,35 @@ eg: rotate along respectively x, y, z 30 degree:
     }
 ```
 
+>Output:
+
+```
+Before Rotate: 
+        1.00000  0.00000 0.00000 0.00000
+        0.00000 1.00000 0.00000 0.00000
+        0.00000 0.00000 1.00000 0.00000
+        0.00000 0.00000 0.00000 1.00000
+
+After Rotate(along x-axis): 
+        1.00000   0.00000   0.00000   0.00000
+        0.00000   0.86603  -0.50000   0.00000
+        0.00000   0.50000   0.86603   0.00000
+        0.00000   0.00000   0.00000   1.00000
+                
+After Rotate(along y-axis): 
+        1.00000   0.86603   0.50000   0.00000
+        0.00000   1.00000   0.00000   0.00000
+        0.00000   -0.50000  0.86603   0.00000
+        0.00000   0.00000   0.00000   1.00000
+                            
+
+After Rotate(along z-axis): 
+        1.00000   0.86603  -0.50000   0.00000
+        0.00000   0.50000   0.86603   0.00000
+        0.00000   0.00000   1.00000   0.00000
+        0.00000   0.00000   0.00000   1.00000
+```
+
 ---
 #### 3. Scale (S)
 
@@ -177,11 +192,6 @@ eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
     void Start()
     {
         Debug.Log("Before scale: " + transform.localToWorldMatrix);
-        //Before scale: 1.00000   0.00000 0.00000 2.00000
-        //              0.00000 1.00000 0.00000 3.00000
-        //              0.00000 0.00000 1.00000 5.00000
-        //              0.00000 0.00000 0.00000 1.00000
-
 
         matrix = Matrix4x4.identity;
 
@@ -196,12 +206,23 @@ eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
         vector = matrix * vector;
         transform.localScale = new Vector3(vector.x, vector.y, vector.z);
         Debug.Log("After scale: " + transform.localToWorldMatrix);
-
-        //After scale: 1.50000    0.00000 0.00000 2.00000
-        //             0.00000 2.00000 0.00000 3.00000
-        //             0.00000 0.00000 3.00000 5.00000
-        //             0.00000 0.00000 0.00000 1.00000
     }
+```
+
+>Output:
+
+```
+Before scale: 
+        1.00000   0.00000 0.00000 2.00000
+        0.00000 1.00000 0.00000 3.00000
+        0.00000 0.00000 1.00000 5.00000
+        0.00000 0.00000 0.00000 1.00000
+
+After scale: 
+        1.50000    0.00000 0.00000 2.00000
+        0.00000 2.00000 0.00000 3.00000
+        0.00000 0.00000 3.00000 5.00000
+        0.00000 0.00000 0.00000 1.00000
 ```
 
 ---
