@@ -44,7 +44,7 @@ This will require us to use a inverse function to get the original normal direct
 
 >The advantage in the tangent space to calculate normal mapping is more efficient don't need too many conversion.
 
-```
+```csharp
 Shader "MyShader/NormalMapInTangentSpace"
 {
  Properties
@@ -157,7 +157,7 @@ Shader "MyShader/NormalMapInTangentSpace"
 
 >However, from a general point of view, normal mapping in world space is better than in tangent space. For example if we need to use Cubemap to mapping the environment we have to 
 
-```
+```csharp
 Shader "MyShader/NormalMapInWorldSpace"
 {
     Properties 

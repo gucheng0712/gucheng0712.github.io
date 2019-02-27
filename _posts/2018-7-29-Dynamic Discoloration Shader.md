@@ -14,7 +14,7 @@ An exercise of writing surface shader with vertex function to achieve dynamic di
 <img src="/static/assets/img/blog/Model Dynamic Discoloration.gif" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/CarPaint_SurfaceShader" 
 {
 	Properties 

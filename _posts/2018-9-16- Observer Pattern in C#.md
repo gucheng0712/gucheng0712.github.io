@@ -18,7 +18,7 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
 
 >Code:
 
-```
+```csharp
     public class Normal : MonoBehaviour
     {
         Cat ws = new Cat();
@@ -88,7 +88,7 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
 
 >Code:
 
-```
+```csharp
     public class ObserverPattern : MonoBehaviour
     {
         Cat cat = new Cat();
@@ -229,7 +229,7 @@ Use observer pattern to implement A cat and few mice. When cat comes all the mic
 
 >Code:
 
-```
+```csharp
     public class ObserverPattern_Delegate : MonoBehaviour
     {
         Cat cat = new Cat();

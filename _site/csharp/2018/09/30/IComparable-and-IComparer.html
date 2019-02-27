@@ -1,150 +1,150 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|IComparable and IComparer </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/csharp">Csharp</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 30 Sep 2018</span> <h1> IComparable and IComparer </h1> </div> <p>In Collection class, when we are going to use simple Sort() function in a List, the base types all provide default comparison algorithms, such as string that provides the alphabetic comparisions and int that provides integer comparisions.</p> <p>However, when we create our own class. If we want to sort the certain variable in the object list, the class need to implement the IComparable Interface.</p> <hr /> <h4 id="1-sorting-integer-and-string-lists">1. Sorting Integer and String Lists</h4> <p>If the elements inside the list are strings, it will sort by the first letter of the string:</p> <blockquote> <p>Code:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   	List&lt;string&gt; strList = new List&lt;string&gt;() { "Tom", "Jerry", "Joab", "Edi", "Kane", "Hans" };
-       strList.Sort();
-       strList.ForEach(Console.WriteLine);
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|IComparable and IComparer </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/csharp">Csharp</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 30 Sep 2018</span> <h1> IComparable and IComparer </h1> </div> <p>In Collection class, when we are going to use simple Sort() function in a List, the base types all provide default comparison algorithms, such as string that provides the alphabetic comparisions and int that provides integer comparisions.</p> <p>However, when we create our own class. If we want to sort the certain variable in the object list, the class need to implement the IComparable Interface.</p> <hr /> <h4 id="1-sorting-integer-and-string-lists">1. Sorting Integer and String Lists</h4> <p>If the elements inside the list are strings, it will sort by the first letter of the string:</p> <blockquote> <p>Code:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   	<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="s">"Tom"</span><span class="p">,</span> <span class="s">"Jerry"</span><span class="p">,</span> <span class="s">"Joab"</span><span class="p">,</span> <span class="s">"Edi"</span><span class="p">,</span> <span class="s">"Kane"</span><span class="p">,</span> <span class="s">"Hans"</span> <span class="p">};</span>
+       <span class="n">strList</span><span class="p">.</span><span class="nf">Sort</span><span class="p">();</span>
+       <span class="n">strList</span><span class="p">.</span><span class="nf">ForEach</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">);</span>
 </code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Edi
     Hans
     Jerry
     Joab
     Kane
     Tom
-</code></pre></div></div> <p>If the elements inside the list are integers, it will sort by the integer from small to big:</p> <blockquote> <p>Code:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    List&lt;int&gt; nums = new List&lt;int&gt;() { 2, 33, 22, 1, 5, 8 };
-    nums.Sort();
-    nums.ForEach(Console.WriteLine);
+</code></pre></div></div> <p>If the elements inside the list are integers, it will sort by the integer from small to big:</p> <blockquote> <p>Code:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">nums</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">33</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">8</span> <span class="p">};</span>
+    <span class="n">nums</span><span class="p">.</span><span class="nf">Sort</span><span class="p">();</span>
+    <span class="n">nums</span><span class="p">.</span><span class="nf">ForEach</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">);</span>
 </code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    1
     2
     5
     8
     22
     33
-</code></pre></div></div> <p>However, if you create a <code class="highlighter-rouge">Human</code> class, and declare a variable called Name, you want to sort the Human by name, it will give you an error after you using <code class="highlighter-rouge">Sort()</code> function, if you didn’t implement the <code class="highlighter-rouge">IComparable</code> Interface in the <code class="highlighter-rouge">Human</code> class.</p> <blockquote> <p>Code:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    class Human
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
+</code></pre></div></div> <p>However, if you create a <code class="highlighter-rouge">Human</code> class, and declare a variable called Name, you want to sort the Human by name, it will give you an error after you using <code class="highlighter-rouge">Sort()</code> function, if you didn’t implement the <code class="highlighter-rouge">IComparable</code> Interface in the <code class="highlighter-rouge">Human</code> class.</p> <blockquote> <p>Code:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">class</span> <span class="nc">Human</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
-        public Human(string name, int age)
-        {
-            Name = name;
-            Age = age;
-        }
-    }
-    --------------------
-    public static void Main(string[] args)
-    {
-        List&lt;Human&gt; human = new List&lt;Human&gt;()
-        {
-            new Human("Tom",22),
-            new Human("Jerry",12),
-            new Human("Joab",18),
-            new Human("Kyroll",11),
-            new Human("Cheng Gu",19)
-        };
+        <span class="k">public</span> <span class="nf">Human</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">--------------------</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;</span> <span class="n">human</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;()</span>
+        <span class="p">{</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Tom"</span><span class="p">,</span><span class="m">22</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Jerry"</span><span class="p">,</span><span class="m">12</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Joab"</span><span class="p">,</span><span class="m">18</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Kyroll"</span><span class="p">,</span><span class="m">11</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Cheng Gu"</span><span class="p">,</span><span class="m">19</span><span class="p">)</span>
+        <span class="p">};</span>
 
-        human.Sort();
-        human.ForEach(Console.WriteLine);
-    }
+        <span class="n">human</span><span class="p">.</span><span class="nf">Sort</span><span class="p">();</span>
+        <span class="n">human</span><span class="p">.</span><span class="nf">ForEach</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">);</span>
+    <span class="p">}</span>
 </code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>System.Collections.Generic.ArraySortHelper&lt;Human&gt;.Sort(Human[] keys, int index, int length, System.Collections.Generic.ObjectComparer&lt;Human&gt; comparer) in /Users/builder/jenkins/workspace/build-package-osx-mono/2018-02/external/bockbuild/builds/mono-x64/external/corert/src/System.Private.CoreLib/src/System/Collections/Generic/ArraySortHelper.cs:66
-</code></pre></div></div> <hr /> <h4 id="2-icomparable">2. IComparable</h4> <p>So Only if you implement the <code class="highlighter-rouge">IComparable</code> Interface</p> <blockquote> <p>So, lets sort Human by name Code:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    class Human : IComparable&lt;Human&gt;
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
+</code></pre></div></div> <hr /> <h4 id="2-icomparable">2. IComparable</h4> <p>So Only if you implement the <code class="highlighter-rouge">IComparable</code> Interface</p> <blockquote> <p>So, lets sort Human by name Code:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">class</span> <span class="nc">Human</span> <span class="p">:</span> <span class="n">IComparable</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
-        public Human(string name, int age)
-        {
-            Name = name;
-            Age = age;
-        }
+        <span class="k">public</span> <span class="nf">Human</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        public int CompareTo(Human other)
-        {
-            if (Age &gt; other.Age) { return 1; }
-            else if (Age &lt; other.Age) { return -1; }
-            else { return 0; }
+        <span class="k">public</span> <span class="kt">int</span> <span class="nf">CompareTo</span><span class="p">(</span><span class="n">Human</span> <span class="n">other</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">Age</span> <span class="p">&gt;</span> <span class="n">other</span><span class="p">.</span><span class="n">Age</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Age</span> <span class="p">&lt;</span> <span class="n">other</span><span class="p">.</span><span class="n">Age</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
 
-            /* 
+            <span class="cm">/* 
              * Below is the default CompareTo() which does the same thing as above, 
              * used here to better illustrate how the comparator works.
-             */
-            // return Age.CompareTo(other.Age);
-        }
+             */</span>
+            <span class="c1">// return Age.CompareTo(other.Age);</span>
+        <span class="p">}</span>
 
-        public override string ToString()
-        {
-            return Name + " " + Age;
-        }
-    }
-    ----------------
-    public static void Main(string[] args)
-    {
-        List&lt;Human&gt; human = new List&lt;Human&gt;()
-        {
-            new Human("Tom",22),
-            new Human("Jerry",12),
-            new Human("Joab",18),
-            new Human("Kyroll",11),
-            new Human("Cheng Gu",19)
-        };
-        human.Sort();
-        human.ForEach(Console.WriteLine);
-    }
+        <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Name</span> <span class="p">+</span> <span class="s">" "</span> <span class="p">+</span> <span class="n">Age</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">----------------</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;</span> <span class="n">human</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;()</span>
+        <span class="p">{</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Tom"</span><span class="p">,</span><span class="m">22</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Jerry"</span><span class="p">,</span><span class="m">12</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Joab"</span><span class="p">,</span><span class="m">18</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Kyroll"</span><span class="p">,</span><span class="m">11</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Cheng Gu"</span><span class="p">,</span><span class="m">19</span><span class="p">)</span>
+        <span class="p">};</span>
+        <span class="n">human</span><span class="p">.</span><span class="nf">Sort</span><span class="p">();</span>
+        <span class="n">human</span><span class="p">.</span><span class="nf">ForEach</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">);</span>
+    <span class="p">}</span>
     
 </code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Kyroll 11
     Jerry 12
     Joab 18
     Cheng Gu 19
     Tom 22
-</code></pre></div></div> <hr /> <h4 id="3-icomparator">3. IComparator</h4> <p>Now, The <code class="highlighter-rouge">IComparable</code> Interface solved the sorting error. There is another question pop up. What if you don’t want to Sort by age, you want to sort by human’s name, so you can use IComparer to implement a custom comparator.</p> <blockquote> <p>Code:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    class Human : IComparable&lt;Human&gt;
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
+</code></pre></div></div> <hr /> <h4 id="3-icomparator">3. IComparator</h4> <p>Now, The <code class="highlighter-rouge">IComparable</code> Interface solved the sorting error. There is another question pop up. What if you don’t want to Sort by age, you want to sort by human’s name, so you can use IComparer to implement a custom comparator.</p> <blockquote> <p>Code:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">class</span> <span class="nc">Human</span> <span class="p">:</span> <span class="n">IComparable</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
 
-        public Human(string name, int age)
-        {
-            Name = name;
-            Age = age;
-        }
+        <span class="k">public</span> <span class="nf">Human</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+            <span class="n">Age</span> <span class="p">=</span> <span class="n">age</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        public int CompareTo(Human other)
-        {
-            if (Age &gt; other.Age) { return 1; }
-            else if (Age &lt; other.Age) { return -1; }
-            else { return 0; }
+        <span class="k">public</span> <span class="kt">int</span> <span class="nf">CompareTo</span><span class="p">(</span><span class="n">Human</span> <span class="n">other</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">Age</span> <span class="p">&gt;</span> <span class="n">other</span><span class="p">.</span><span class="n">Age</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">Age</span> <span class="p">&lt;</span> <span class="n">other</span><span class="p">.</span><span class="n">Age</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
 
-            /* 
+            <span class="cm">/* 
              * Below is the default CompareTo() which does the same thing as above, 
              * used here to better illustrate how the comparator works.
-             */
-            // return Age.CompareTo(other.Age);
-        }
+             */</span>
+            <span class="c1">// return Age.CompareTo(other.Age);</span>
+        <span class="p">}</span>
 
-        public override string ToString()
-        {
-            return Name + " " + Age;
-        }
+        <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Name</span> <span class="p">+</span> <span class="s">" "</span> <span class="p">+</span> <span class="n">Age</span><span class="p">;</span>
+        <span class="p">}</span>
 
-    }
-    ----------
-    class HumanNameComparer : IComparer&lt;Human&gt;
-    {
-        public int Compare(Human x, Human y)
-        {
-            return x.Name.CompareTo(y.Name);
-        }
-    }
-    ----------
-    class MainClass
-    {
-        public static void Main(string[] args)
-        {
-            List&lt;Human&gt; human = new List&lt;Human&gt;()
-            {
-                new Human("Tom",22),
-                new Human("Jerry",12),
-                new Human("Joab",18),
-                new Human("Kyroll",11),
-                new Human("Cheng Gu",19)
-            };
-            human.Sort(new HumanNameComparer());
-            human.ForEach(Console.WriteLine);
+    <span class="p">}</span>
+    <span class="p">----------</span>
+    <span class="k">class</span> <span class="nc">HumanNameComparer</span> <span class="p">:</span> <span class="n">IComparer</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="kt">int</span> <span class="nf">Compare</span><span class="p">(</span><span class="n">Human</span> <span class="n">x</span><span class="p">,</span> <span class="n">Human</span> <span class="n">y</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="nf">CompareTo</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">----------</span>
+    <span class="k">class</span> <span class="nc">MainClass</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">List</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;</span> <span class="n">human</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Human</span><span class="p">&gt;()</span>
+            <span class="p">{</span>
+                <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Tom"</span><span class="p">,</span><span class="m">22</span><span class="p">),</span>
+                <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Jerry"</span><span class="p">,</span><span class="m">12</span><span class="p">),</span>
+                <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Joab"</span><span class="p">,</span><span class="m">18</span><span class="p">),</span>
+                <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Kyroll"</span><span class="p">,</span><span class="m">11</span><span class="p">),</span>
+                <span class="k">new</span> <span class="nf">Human</span><span class="p">(</span><span class="s">"Cheng Gu"</span><span class="p">,</span><span class="m">19</span><span class="p">)</span>
+            <span class="p">};</span>
+            <span class="n">human</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="k">new</span> <span class="nf">HumanNameComparer</span><span class="p">());</span>
+            <span class="n">human</span><span class="p">.</span><span class="nf">ForEach</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">);</span>
 </code></pre></div></div> <blockquote> <p>Output:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Cheng Gu 19
     Jerry 12
     Joab 18

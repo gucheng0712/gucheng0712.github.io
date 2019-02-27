@@ -20,7 +20,7 @@ For each forward rendering, we need to render the rendering primitive of the obj
 
 >We can use pseudo code to describe the process of forward rendering:
 
-```
+```csharp
 Pass
 {
     for(each primitive in this model)
@@ -53,7 +53,7 @@ Deferred Rendering mainly includes two Pass. The first Pass, we don’t do any l
 
 >We can use pseudo code to describe the process of the deferred rendering:
 
-```
+```csharp
 PassOne // Store fragment data into G-Buffer
 {
     for(each primitive in this model)

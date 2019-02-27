@@ -25,7 +25,7 @@ It is not only complicated but also inefficient. We can combine multiple transfo
 
 eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)
 
-```
+```csharp
     public Matrix4x4 matrix;
     public Vector4 vector;
     void Start()
@@ -96,7 +96,7 @@ it should transpose from **[x y z 1]** =>
 
 eg: rotate along respectively x, y, z 30 degree:
 
-```
+```csharp
     Matrix4x4 matrix;
     Vector4 vector;
     public float angle = 30;
@@ -185,7 +185,7 @@ After Rotate(along z-axis):
 
 eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
 
-```
+```csharp
  public Matrix4x4 matrix;
     public Vector4 vector;
 

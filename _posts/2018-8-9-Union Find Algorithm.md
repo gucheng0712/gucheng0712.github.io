@@ -23,7 +23,7 @@ The Evolutionary history of Union Find is From Quick Find --> Union Find --> Wei
 #### Dynamic-Connectivity Client
 >Code:
 
-```
+```java
 public static void main(String[] args)
 {
     int N = StdIn.readInt();
@@ -50,7 +50,7 @@ public static void main(String[] args)
 
 >Code:
 
-``` 
+``` java
 public class QuickFindUF
 {
     private int[] id;
@@ -103,7 +103,7 @@ public class QuickFindUF
 
 >Code:
 
-```
+```java
 public class QuickUnionUF
 {
     private int[] id;
@@ -171,7 +171,7 @@ public class QuickUnionUF
 
 >Code:
 
-```
+```java
 public class WeightedQuickUnionUF
 {
     private int[] id;

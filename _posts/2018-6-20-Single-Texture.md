@@ -17,7 +17,7 @@ The basic idea of “texture mapping” is to put a flat image onto the surface 
 </p>
 
 
-```
+```csharp
     Shader "MyShader/SingleTexture"
 {
     Properties
@@ -88,7 +88,7 @@ The basic idea of “texture mapping” is to put a flat image onto the surface 
 <img src="/static/assets/img/blog/texinLightmodel.png" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/TextureInLightModel"
 {
     Properties

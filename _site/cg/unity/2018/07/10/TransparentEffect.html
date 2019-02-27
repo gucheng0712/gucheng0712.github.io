@@ -1,169 +1,169 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Transparent Effects </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 10 Jul 2018</span> <h1> Transparent Effects </h1> </div> <p>In Game Development, we often use two ways to achieve transparent effect, Aplha Test and Alpha Blending.</p> <hr /> <h4 id="1-z-buffer-depth-buffer">1. Z-Buffer (Depth Buffer)</h4> <p align="center"> <img src="/static/assets/img/blog/z_buffer.png" width="50%" /> </p> <blockquote> <p>Z-Buffer is used to solve the problems of visibility. It can decide which parts of the object to render first, and which parts of the objects will render later(can be blocked).</p> </blockquote> <p>The basic idea is to determine the distance between the camera and the object based on the value of the z-buffer. For example, when we want to render an fragment, the fragment’s depth value will be compared to the depth in the z-buffer (If the ZTest is On). If its depth value is smaller, it means this object is more far away from the camer. so this frament should not be rendered onto screen (which means it is covered by something); Otherwise, this fragment should replace the depth value which is in the z-buffer.</p> <hr /> <h4 id="2-alpha-test-vs-alpha-blending">2. Alpha Test vs Alpha Blending</h4> <p align="center"> <img src="/static/assets/img/blog/alpha.gif" width="70%" /> </p> <p><strong><em>Alpha Test:</em></strong>: As long as there is one fragment’s alpha value does not meet the conditions, the fragment which corresponding to it will be discarded (into a completely transparent fragment). Otherwise, it will be rendered as an opaque object.</p> <p><strong><em>Alpha Blending</em></strong>: Through the Alpha blending, we can get a translucent effect. it will combine the current fragment’s alpha value with the color value which has already been stored in the color buffer, to form a new color, but Alpha Blending needs to Turn Off the ZWrite. Therefore, we need to be careful with the rendering order when we are doing alpha blending.</p> <hr /> <h4 id="3-create-a-alpha-test-shader-in-unity">3. Create A Alpha Test Shader In Unity</h4> <p align="center"> <img src="/static/assets/img/blog/alpha_test.png" width="70%" /> </p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/AlphaTest" 
-{
-    Properties
-    {
-        _Color("Color", Color) = (1,1,1,1)
-        _MainTex("Main Texture", 2D)= "white"{}
-        _Cutoff("Alpha Cutoff", Range(0,1)) = 0.5
-    }
-    SubShader
-    {
-        // Usually when utilize the alpha test we should have these three tags
-        Tags { "Queue" = "AlphaTest" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
-        Pass
-        {
-            Tags{ "LightMode" = "ForwardBase" }
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Transparent Effects </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 10 Jul 2018</span> <h1> Transparent Effects </h1> </div> <p>In Game Development, we often use two ways to achieve transparent effect, Aplha Test and Alpha Blending.</p> <hr /> <h4 id="1-z-buffer-depth-buffer">1. Z-Buffer (Depth Buffer)</h4> <p align="center"> <img src="/static/assets/img/blog/z_buffer.png" width="50%" /> </p> <blockquote> <p>Z-Buffer is used to solve the problems of visibility. It can decide which parts of the object to render first, and which parts of the objects will render later(can be blocked).</p> </blockquote> <p>The basic idea is to determine the distance between the camera and the object based on the value of the z-buffer. For example, when we want to render an fragment, the fragment’s depth value will be compared to the depth in the z-buffer (If the ZTest is On). If its depth value is smaller, it means this object is more far away from the camer. so this frament should not be rendered onto screen (which means it is covered by something); Otherwise, this fragment should replace the depth value which is in the z-buffer.</p> <hr /> <h4 id="2-alpha-test-vs-alpha-blending">2. Alpha Test vs Alpha Blending</h4> <p align="center"> <img src="/static/assets/img/blog/alpha.gif" width="70%" /> </p> <p><strong><em>Alpha Test:</em></strong>: As long as there is one fragment’s alpha value does not meet the conditions, the fragment which corresponding to it will be discarded (into a completely transparent fragment). Otherwise, it will be rendered as an opaque object.</p> <p><strong><em>Alpha Blending</em></strong>: Through the Alpha blending, we can get a translucent effect. it will combine the current fragment’s alpha value with the color value which has already been stored in the color buffer, to form a new color, but Alpha Blending needs to Turn Off the ZWrite. Therefore, we need to be careful with the rendering order when we are doing alpha blending.</p> <hr /> <h4 id="3-create-a-alpha-test-shader-in-unity">3. Create A Alpha Test Shader In Unity</h4> <p align="center"> <img src="/static/assets/img/blog/alpha_test.png" width="70%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Shader</span> <span class="s">"MyShader/AlphaTest"</span> 
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        <span class="nf">_Color</span><span class="p">(</span><span class="s">"Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+        <span class="nf">_MainTex</span><span class="p">(</span><span class="s">"Main Texture"</span><span class="p">,</span> <span class="m">2D</span><span class="p">)=</span> <span class="s">"white"</span><span class="p">{}</span>
+        <span class="nf">_Cutoff</span><span class="p">(</span><span class="s">"Alpha Cutoff"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.5</span>
+    <span class="p">}</span>
+    <span class="n">SubShader</span>
+    <span class="p">{</span>
+        <span class="c1">// Usually when utilize the alpha test we should have these three tags</span>
+        <span class="n">Tags</span> <span class="p">{</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"AlphaTest"</span> <span class="s">"IgnoreProjector"</span> <span class="p">=</span> <span class="s">"True"</span> <span class="s">"RenderType"</span> <span class="p">=</span> <span class="s">"TransparentCutout"</span> <span class="p">}</span>
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">Tags</span><span class="p">{</span> <span class="s">"LightMode"</span> <span class="p">=</span> <span class="s">"ForwardBase"</span> <span class="p">}</span>
 
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include "Lighting.cginc"
+            <span class="n">CGPROGRAM</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
+            <span class="err">#</span><span class="n">include</span> <span class="s">"Lighting.cginc"</span>
 
-            fixed4 _Color;
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-            fixed _Cutoff;
+            <span class="n">fixed4</span> <span class="n">_Color</span><span class="p">;</span>
+            <span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
+            <span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
+            <span class="k">fixed</span> <span class="n">_Cutoff</span><span class="p">;</span>
 
-            struct a2v
-            {
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-                float4 texcoord : TEXCOORD0;
-            };
+            <span class="k">struct</span> <span class="nc">a2v</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="p">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+                <span class="n">float4</span> <span class="n">texcoord</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+            <span class="p">};</span>
 
-            struct v2f
-            {
-                float4 pos : SV_POSITION;
-                float3 worldNormal : TEXCOORD0;
-                float3 worldVertex : TEXCOORD1;
-                float2 uv : TEXCOORD2;
-            };
+            <span class="k">struct</span> <span class="nc">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">worldNormal</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">worldVertex</span> <span class="p">:</span> <span class="n">TEXCOORD1</span><span class="p">;</span>
+                <span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD2</span><span class="p">;</span>
+            <span class="p">};</span>
 
-            v2f vert(a2v v)
-            {
-                v2f f;
-                f.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-                f.worldNormal = mul(_Object2World, v.normal);
-                f.worldVertex = mul(v.vertex, _World2Object);
-                f.uv = v.texcoord.xy*_MainTex_ST.xy+_MainTex_ST.zw;
-                return f;
-            }
+            <span class="n">v2f</span> <span class="nf">vert</span><span class="p">(</span><span class="n">a2v</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">f</span><span class="p">;</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">pos</span> <span class="p">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">UNITY_MATRIX_MVP</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">_Object2World</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">normal</span><span class="p">);</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">worldVertex</span> <span class="p">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">,</span> <span class="n">_World2Object</span><span class="p">);</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="n">v</span><span class="p">.</span><span class="n">texcoord</span><span class="p">.</span><span class="n">xy</span><span class="p">*</span><span class="n">_MainTex_ST</span><span class="p">.</span><span class="n">xy</span><span class="p">+</span><span class="n">_MainTex_ST</span><span class="p">.</span><span class="n">zw</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">f</span><span class="p">;</span>
+            <span class="p">}</span>
 
-            fixed4 frag(v2f f): SV_Target
-            {
-                fixed3 worldNormal = normalize(f.worldNormal);
-                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(f.worldVertex));
-                fixed4 texColor = tex2D(_MainTex, f.uv);
+            <span class="n">fixed4</span> <span class="nf">frag</span><span class="p">(</span><span class="n">v2f</span> <span class="n">f</span><span class="p">):</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="n">fixed3</span> <span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">worldNormal</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">worldLightDir</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">UnityWorldSpaceLightDir</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">worldVertex</span><span class="p">));</span>
+                <span class="n">fixed4</span> <span class="n">texColor</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">f</span><span class="p">.</span><span class="n">uv</span><span class="p">);</span>
 
-                // Alpha Test
-                if((texColor.a - _Cutoff) &lt; 0.0){ discard; }
-                // or use clip function
-                //clip(texColor.a - _Cutoff);
+                <span class="c1">// Alpha Test</span>
+                <span class="k">if</span><span class="p">((</span><span class="n">texColor</span><span class="p">.</span><span class="n">a</span> <span class="p">-</span> <span class="n">_Cutoff</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">0.0</span><span class="p">){</span> <span class="n">discard</span><span class="p">;</span> <span class="p">}</span>
+                <span class="c1">// or use clip function</span>
+                <span class="c1">//clip(texColor.a - _Cutoff);</span>
 
-                fixed3 albedo = texColor.rgb * _Color.rgb;
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
-                fixed3 diffuse = _LightColor0.rgb * albedo * saturate(dot(worldNormal,worldLightDir));
-                fixed3 c = ambient + diffuse;
-                return fixed4(c, 1.0);
+                <span class="n">fixed3</span> <span class="n">albedo</span> <span class="p">=</span> <span class="n">texColor</span><span class="p">.</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">_Color</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
+                <span class="n">fixed3</span> <span class="n">ambient</span> <span class="p">=</span> <span class="n">UNITY_LIGHTMODEL_AMBIENT</span><span class="p">.</span><span class="n">xyz</span> <span class="p">*</span> <span class="n">albedo</span><span class="p">;</span>
+                <span class="n">fixed3</span> <span class="n">diffuse</span> <span class="p">=</span> <span class="n">_LightColor0</span><span class="p">.</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">albedo</span> <span class="p">*</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="n">worldNormal</span><span class="p">,</span><span class="n">worldLightDir</span><span class="p">));</span>
+                <span class="n">fixed3</span> <span class="n">c</span> <span class="p">=</span> <span class="n">ambient</span> <span class="p">+</span> <span class="n">diffuse</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="m">1.0</span><span class="p">);</span>
 
-            }
+            <span class="p">}</span>
 
-            ENDCG
-        }
-    }
-}
-</code></pre></div></div> <hr /> <h4 id="4-create-a-alpha-blending-shader-in-unity">4. Create A Alpha Blending Shader In Unity</h4> <p align="center"> <img src="/static/assets/img/blog/Alpha Blending.png" width="70%" /> </p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/AlphaBlending" 
-{
-    Properties
-    {
-        _Color("Main Tint", Color) =(1,1,1,1)
-        _MainTex("Main Texture", 2D) = "white"{}
-        _AlphaScale ("Alpha Scale", Range(0, 1)) = 1
-    }
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <hr /> <h4 id="4-create-a-alpha-blending-shader-in-unity">4. Create A Alpha Blending Shader In Unity</h4> <p align="center"> <img src="/static/assets/img/blog/Alpha Blending.png" width="70%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Shader</span> <span class="s">"MyShader/AlphaBlending"</span> 
+<span class="p">{</span>
+    <span class="n">Properties</span>
+    <span class="p">{</span>
+        <span class="nf">_Color</span><span class="p">(</span><span class="s">"Main Tint"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+        <span class="nf">_MainTex</span><span class="p">(</span><span class="s">"Main Texture"</span><span class="p">,</span> <span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">"white"</span><span class="p">{}</span>
+        <span class="nf">_AlphaScale</span> <span class="p">(</span><span class="s">"Alpha Scale"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span> <span class="p">=</span> <span class="m">1</span>
+    <span class="p">}</span>
 
-    SubShader
-    {
-        Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
-
-
-        // The first Pass only for store the model's depth info into the z-buffer,
-        // to eliminate the fragment which covered by itself in the model
-        Pass
-        {
-            ZWrite On 
-            // ColorMask use for mask Color in the model.
-            // ColorMask RGB: Mask RGB Color
-            // ColorMask A: Mask Alpha Channel
-            // ColorMask 0: Mask all color, but since ZWrite is On, it will only pass the z-buffer
-            ColorMask 0 
-        }
-
-        Pass
-        {
-            Tags{ "LightMode" = "ForwardBase" }
-            ZWrite Off // not passing  z-buffer
-
-            // The semantic for blending mode
-            // Blend Off : Close Blending
-
-            // Blend SrcFactor DstFactor: Open Blending, and Set Blending factor.
-            // Color in the Color Buffer = The object's fragment color * SrcFactor + The color which is already in color buffer * DstFactor
-
-            // Blend SrcFactor DstFactor, SrcFactorA DstFactorA: Same as above but using different factor for blending alpha channel
-
-            Blend SrcAlpha OneMinusSrcAlpha
+    <span class="n">SubShader</span>
+    <span class="p">{</span>
+        <span class="n">Tags</span><span class="p">{</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Transparent"</span> <span class="s">"IgnoreProjector"</span> <span class="p">=</span> <span class="s">"True"</span> <span class="s">"RenderType"</span> <span class="p">=</span> <span class="s">"Transparent"</span> <span class="p">}</span>
 
 
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include "Lighting.cginc"
+        <span class="c1">// The first Pass only for store the model's depth info into the z-buffer,</span>
+        <span class="c1">// to eliminate the fragment which covered by itself in the model</span>
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">ZWrite</span> <span class="n">On</span> 
+            <span class="c1">// ColorMask use for mask Color in the model.</span>
+            <span class="c1">// ColorMask RGB: Mask RGB Color</span>
+            <span class="c1">// ColorMask A: Mask Alpha Channel</span>
+            <span class="c1">// ColorMask 0: Mask all color, but since ZWrite is On, it will only pass the z-buffer</span>
+            <span class="n">ColorMask</span> <span class="m">0</span> 
+        <span class="p">}</span>
 
-            fixed4 _Color;
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-            fixed _AlphaScale;
+        <span class="n">Pass</span>
+        <span class="p">{</span>
+            <span class="n">Tags</span><span class="p">{</span> <span class="s">"LightMode"</span> <span class="p">=</span> <span class="s">"ForwardBase"</span> <span class="p">}</span>
+            <span class="n">ZWrite</span> <span class="n">Off</span> <span class="c1">// not passing  z-buffer</span>
 
-            struct a2v
-            {
-                float4 vertex : POSITION;
-                float3 normal : NORMAL;
-                float4 texcoord : TEXCOORD0;
-            };
+            <span class="c1">// The semantic for blending mode</span>
+            <span class="c1">// Blend Off : Close Blending</span>
 
-            struct v2f
-            {
-                float4 pos : SV_POSITION;
-                float3 worldNormal : TEXCOORD0;
-                float3 worldVertex : TEXCOORD1;
-                float2 uv : TEXCOORD2;
-            };
+            <span class="c1">// Blend SrcFactor DstFactor: Open Blending, and Set Blending factor.</span>
+            <span class="c1">// Color in the Color Buffer = The object's fragment color * SrcFactor + The color which is already in color buffer * DstFactor</span>
 
-            v2f vert(a2v v)
-            {
-                v2f f;
-                f.pos = UnityObjectToClipPos(v.vertex);
-                f.worldNormal = mul(unity_ObjectToWorld, v.normal);
-                f.worldVertex = mul(v.vertex, unity_WorldToObject);
-                f.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
-                return f;
-            }
+            <span class="c1">// Blend SrcFactor DstFactor, SrcFactorA DstFactorA: Same as above but using different factor for blending alpha channel</span>
 
-            fixed4 frag(v2f f): SV_Target
-            {
-                fixed3 worldNormal = normalize(f.worldNormal);
-                fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(f.worldVertex));
-                fixed4 texColor = tex2D(_MainTex,f.uv);
-                fixed3 albedo = texColor.rgb * _Color.rgb;
-                fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
-                fixed3 diffuse = _LightColor0.rgb * albedo *saturate(dot(worldNormal,worldLightDir));
-                fixed3 c = diffuse + ambient;
-                return fixed4(c,texColor.a * _AlphaScale);
-            }
-            ENDCG
-        }
-    } 
-}
+            <span class="n">Blend</span> <span class="n">SrcAlpha</span> <span class="n">OneMinusSrcAlpha</span>
+
+
+            <span class="n">CGPROGRAM</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
+            <span class="err">#</span><span class="n">include</span> <span class="s">"Lighting.cginc"</span>
+
+            <span class="n">fixed4</span> <span class="n">_Color</span><span class="p">;</span>
+            <span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
+            <span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
+            <span class="k">fixed</span> <span class="n">_AlphaScale</span><span class="p">;</span>
+
+            <span class="k">struct</span> <span class="nc">a2v</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="p">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+                <span class="n">float4</span> <span class="n">texcoord</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="k">struct</span> <span class="nc">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">worldNormal</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">worldVertex</span> <span class="p">:</span> <span class="n">TEXCOORD1</span><span class="p">;</span>
+                <span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD2</span><span class="p">;</span>
+            <span class="p">};</span>
+
+            <span class="n">v2f</span> <span class="nf">vert</span><span class="p">(</span><span class="n">a2v</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">f</span><span class="p">;</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">pos</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">unity_ObjectToWorld</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">normal</span><span class="p">);</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">worldVertex</span> <span class="p">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">,</span> <span class="n">unity_WorldToObject</span><span class="p">);</span>
+                <span class="n">f</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="n">v</span><span class="p">.</span><span class="n">texcoord</span><span class="p">.</span><span class="n">xy</span> <span class="p">*</span> <span class="n">_MainTex_ST</span><span class="p">.</span><span class="n">xy</span> <span class="p">+</span> <span class="n">_MainTex_ST</span><span class="p">.</span><span class="n">zw</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">f</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">fixed4</span> <span class="nf">frag</span><span class="p">(</span><span class="n">v2f</span> <span class="n">f</span><span class="p">):</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="n">fixed3</span> <span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">worldNormal</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">worldLightDir</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">UnityWorldSpaceLightDir</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">worldVertex</span><span class="p">));</span>
+                <span class="n">fixed4</span> <span class="n">texColor</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span><span class="n">f</span><span class="p">.</span><span class="n">uv</span><span class="p">);</span>
+                <span class="n">fixed3</span> <span class="n">albedo</span> <span class="p">=</span> <span class="n">texColor</span><span class="p">.</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">_Color</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
+                <span class="n">fixed3</span> <span class="n">ambient</span> <span class="p">=</span> <span class="n">UNITY_LIGHTMODEL_AMBIENT</span><span class="p">.</span><span class="n">xyz</span> <span class="p">*</span> <span class="n">albedo</span><span class="p">;</span>
+                <span class="n">fixed3</span> <span class="n">diffuse</span> <span class="p">=</span> <span class="n">_LightColor0</span><span class="p">.</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">albedo</span> <span class="p">*</span><span class="nf">saturate</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="n">worldNormal</span><span class="p">,</span><span class="n">worldLightDir</span><span class="p">));</span>
+                <span class="n">fixed3</span> <span class="n">c</span> <span class="p">=</span> <span class="n">diffuse</span> <span class="p">+</span> <span class="n">ambient</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">texColor</span><span class="p">.</span><span class="n">a</span> <span class="p">*</span> <span class="n">_AlphaScale</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
 </code></pre></div></div> <hr /> <h4 id="5-shaderlab-blending-command">5. ShaderLab Blending Command</h4> <hr /> <table> <tbody> <tr> <td>Command</td> <td>         </td> <td>Description</td> </tr> <tr> <td>Blend SrcFactor DstFactor</td> <td> </td> <td>Open Blending, and Set Blending factor.Color in the Color Buffer = The object’s fragment color * SrcFactor + The color which is already in color buffer * DstFactor</td> </tr> <tr> <td>Blend SrcFactor DstFactor, SrcFactorA DstFactorA</td> <td> </td> <td>Same function as above, butbut using different factor for blending alpha channe</td> </tr> </tbody> </table> <hr /> <blockquote style="color: red"> <p>So, What are these factors?</p> </blockquote> <hr /> <table> <tbody> <tr> <td>Parameters</td> <td>       </td> <td>Description</td> </tr> <tr> <td>One</td> <td> </td> <td>Factor is 1</td> </tr> <tr> <td>Zero</td> <td> </td> <td>Factor is 0</td> </tr> <tr> <td>SrcColor</td> <td> </td> <td>Factor is the source color value</td> </tr> <tr> <td>SrcAlpha</td> <td> </td> <td>Factor is the source alpha value</td> </tr> <tr> <td>DstColor</td> <td> </td> <td>Factor is the target color value</td> </tr> <tr> <td>DstAlpha</td> <td> </td> <td>Factor is the target alpha value</td> </tr> <tr> <td>OneMinusSrcColor</td> <td> </td> <td>Factor is 1 - source color value</td> </tr> <tr> <td>OneMinusSrcAlpha</td> <td> </td> <td>Factor is 1 - source alpha value</td> </tr> <tr> <td>OneMinusDstColor</td> <td> </td> <td>Factor is 1 - target color value</td> </tr> <tr> <td>OneMinusDstAlpha</td> <td> </td> <td>Factor is 1 - target alpha value</td> </tr> </tbody> </table> <hr /> <blockquote style="color: red"> <p>We also can sue ShaderLab’s BlendOp Command to perform various blending operations</p> </blockquote> <hr /> <table> <tbody> <tr> <td>Operation</td> <td>         </td> <td>Description</td> </tr> <tr> <td>Add</td> <td> </td> <td>O = SrcFactor * SourceColor + DstFactor * TargetColor</td> </tr> <tr> <td>Sub</td> <td> </td> <td>O = SrcFactor * SourceColor - DstFactor * TargetColor</td> </tr> <tr> <td>RevSub</td> <td> </td> <td>O = DstFactor * TargetColor - SrcFactor * SourceColor</td> </tr> <tr> <td>Min</td> <td> </td> <td>O = (min(S.r, D.r), min(S.g, D.g), min(S.b, D.b), min(S.a, D.a))</td> </tr> <tr> <td>Max</td> <td> </td> <td>O = (max(S.r, D.r), max(S.g, D.g), max(S.b, D.b), max(S.a, D.a))</td> </tr> </tbody> </table> <hr /> <blockquote style="color: red"> <p>The Common Blending Type:</p> </blockquote> <p align="center"> <img src="/static/assets/img/blog/Blending Mode.png" width="70%" /> </p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Blend SrcAlpha OneMinusSrcAlpha  // Normal
 
 Blend OneMinusDstColor One  // Soft Additive

@@ -66,7 +66,7 @@ The dot product A ⋅ B may also be expressed as the **matrix product**
 
 (1) Get the Angle of two vectors: range [0, 180], whether the view of the game monster can be viewed to the player, and can be used to calculate whether the enemy is within the range of the character's attack.
 
-```
+```csharp
 Vector A,B;
 float dotValue = Vector3.Dot (A.normalized, B.normalized);
 float angle = Mathf.Acos(dotValue) * Mathf.Rad2Deg;  
@@ -76,7 +76,7 @@ float angle = Mathf.Acos(dotValue) * Mathf.Rad2Deg;
 
 (2) Determine if the target is in front of you, or behind you.
 
-```
+```csharp
 float dotValue=Vector3.Dot(transform.forward, target.position)
 if(dotValue>0)
 {
@@ -91,7 +91,7 @@ if(dotValue>0)
 
 (3) Simulate the flight status of the aircraft
 
-```
+```csharp
 float dotValue = Vector3.Dot(transform.forward, Vector3.up);
 if (dotValue < 0)
 {

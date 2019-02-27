@@ -19,7 +19,8 @@ In this post, I focus on reviewing the Lighting Models I learned these days whic
 * n · l：the radius of the angle between normal and light direction by using dot product to calculate.
 
 (1) ***Lambert Per-Vertex-Level (Low Cost, but less accurate)***
-```
+
+```csharp
 Shader "MyShader/Diffuse Vertex-Level" 
 {
     Properties 
@@ -86,7 +87,8 @@ Shader "MyShader/Diffuse Vertex-Level"
 ```
 
 (2) ***Lambert Per-Pixel-Level (higher Cost, but more accurate)***
-```
+
+```csharp
 Shader "MyShader/Diffuse Pixel-Level" {
     Properties 
     {
@@ -155,7 +157,7 @@ Shader "MyShader/Diffuse Pixel-Level" {
 
 (3) ***Lambert in Unity Surface Shader***
 
-```
+```csharp
 Shader "MyShader/SurfaceShader_Diffuse" 
 {
     Properties 
@@ -208,7 +210,7 @@ Shader "MyShader/SurfaceShader_Diffuse"
 
 (2) ***HalfLambert in Unity vertex/fragment Shader***
 
-```
+```csharp
 Shader "MyShader/Half Lambert-Pixel-Level" 
 {
     Properties 
@@ -281,7 +283,7 @@ Shader "MyShader/Half Lambert-Pixel-Level"
 
 (2) ***HalfLambert in Unity Surface Shader***
 
-```
+```csharp
 Shader "MyShader/SurfaceShader_HalfLambert" 
 {
     Properties 
@@ -343,7 +345,7 @@ In Specular lighting model, shouldn't use per-vertex-level because it is not acc
 
 (1) ***Phong in vertex&fragment Shader***
 
-```
+```csharp
 Shader "MyShader/Specular" 
 {
     Properties 
@@ -429,7 +431,7 @@ Shader "MyShader/Specular"
 
 (2) ***Phong in Unity Surface Shader***
 
-```
+```csharp
 Shader "MyShader/SurfaceShader_Phong" 
 {
     Properties 
@@ -497,7 +499,7 @@ Shader "MyShader/SurfaceShader_Phong"
 
 (1) ***Blinn-Phong in vertex&fragment Shader***
 
-```
+```csharp
 Shader "MyShader/Blinn-Phong"
 {
     Properties 
@@ -579,8 +581,7 @@ Shader "MyShader/Blinn-Phong"
 
 (2) ***Blinn-Phong in Unity Surface Shader***
 
-```
-
+```csharp
 Shader "MyShader/SurfaceShader_BilnnPhong" 
 {
     Properties 

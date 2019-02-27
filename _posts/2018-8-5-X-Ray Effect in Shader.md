@@ -21,7 +21,7 @@ A X-Ray is easy to achieve. basicly, just need to add an additional `Pass{}` in 
 
 >Code:
 
-```
+```csharp
 Shader "MyShader/Transparent2"
 {
 	Properties

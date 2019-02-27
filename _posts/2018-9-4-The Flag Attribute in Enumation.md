@@ -26,7 +26,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >(1) create a enumation
 
-```
+```csharp
     public enum PersonType
     {
         Tall,  
@@ -39,7 +39,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >(2) Declare the enum and use switch case to do condition statement:
 
-```
+```csharp
  public static PersonType person;
  {
         public static void Main(string[] args)
@@ -72,13 +72,13 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 > so far, it's fine. However if you want to have multiply choice such as 
 
-```
+```csharp
     case PersonType.White | PersonType.Beauty:
 ```
 
 > It is still fine. No error at all. Then we try one more choice:
 
-```
+```csharp
     case PersonType.White | PersonType.Handsome:
 ```
 
@@ -91,7 +91,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >Because when we create an enum the default value of it is 
 
-```
+```csharp
     public enum PersonType
     {
         Tall = 0,       // 000000
@@ -111,7 +111,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >The right way is add a `[Flag]` Attributes, And Change the value to 2^n, so that they will never meet each other
 
-```
+```csharp
     public enum PersonType
     {
         Tall = 1,       // 000001

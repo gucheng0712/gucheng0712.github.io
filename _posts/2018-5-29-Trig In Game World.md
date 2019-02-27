@@ -23,7 +23,7 @@ Due to in game development, the forward direction should be a start point. Just 
 
 eg: 
 
-```
+```csharp
  public float angleInDegrees;
 
     void Update()
@@ -33,7 +33,8 @@ eg:
     }
 ```
 Also, the difference between sin and cos is 90 degree, which shows that you can simply swap the ***sin*** and ***cos*** to convert from Trig Unit Circle to Game Development Unit Circle:
-```
+
+```csharp
     public float angleInDegrees;
 
     void Update()

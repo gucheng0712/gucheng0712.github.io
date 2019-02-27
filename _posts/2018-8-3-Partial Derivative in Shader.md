@@ -64,7 +64,7 @@ The interactive model below shows the link between screen pixels and fragmets ov
 </p>
 
 
-```
+```csharp
 void surf (Input IN, inout SurfaceOutput o)
 {
     o.Albedo = normalize(cross(ddy(IN.worldPos),ddx(IN.worldPos)));
@@ -79,7 +79,7 @@ void surf (Input IN, inout SurfaceOutput o)
 <img src="/static/assets/img/blog/es.png" width="70%">
 </p>
 
-```
+```csharp
 void surf (Input IN, inout SurfaceOutput o)
 {
     half4 c = tex2D(_MainTex, IN.uv_MainTex);
@@ -99,7 +99,7 @@ void surf (Input IN, inout SurfaceOutput o)
 <img src="/static/assets/img/blog/Blur.gif" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/SimpleBlur"
 {
 	Properties

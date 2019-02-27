@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Data Classification Approaches (ML)"
+title:  "Data Classification - Supervised Learning (ML)"
 date:   2019-1-30 1:00:05 +0000
 categories: [Python, Ai]
 tags: [Python, Ai]
 icon: fa-code
 ---
 
-## **1. Data Classification**
+# **What is Data Classification?**
 
 Machine learning involves building models of data based on features available in the data. In ***Supervised Learning***, features have some labels associated with them.
 
@@ -29,8 +29,9 @@ After trained ==>
 <img src="/static/assets/img/blog/DataClassification2.png" width="40%">
 </p>
 
+---
 
-## **2. Approaches of Data Classification**
+<h2 align="center">Approaches of Data Classification</h2>
 
 There are three different kinds of Data Classification Approaches, respectively ***Functional Approach (Logistic Regression)***, ***Statistical Approach (Naive Bayes)***, ***Geometrical Approach (Perceptron, SVM)***.
 
@@ -38,7 +39,7 @@ There are three different kinds of Data Classification Approaches, respectively 
 <img src="/static/assets/img/blog/DataClassificationApproaches.png" width="60%">
 </p>
 
-## **3. Logistic Regression**
+## **1. Logistic Regression**
 In functional approaches to data classification, such as logistic regression, the goal is to find a hypothetical function h(x) which can best describe the correlation between variables x and y. 
 
 <p align="center"> 
@@ -57,7 +58,7 @@ $$f(x) = \frac{1}{1+e^{-x}}$$
 
 >**Code Example:**
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt    
 from sklearn import linear_model
@@ -140,8 +141,9 @@ visualize_classifier(classifier, x, y)
 
 <img src="/static/assets/img/blog/LR_Output.png" width="30%">
 
+---
 
-## **4. Naive Bayes Classification**
+## **2. Naive Bayes Classification**
 
 Naive Bayes models are a group of extremely fast and simple classification algorithms that are often suitable for very **high-demensional dataset**. Therefore, it end up being very useful as a quick-and-dirty baseline for a **classification problem**.
 
@@ -186,7 +188,7 @@ probability**. It is a popular and powerful algorithm used for:
 
 >**Code Example:**
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
@@ -254,6 +256,177 @@ y_pred = classifier.predict(x)
 # Visualize the performance of the classifier
 visualize_classifier(classifier,x,y)
 ```
+
+>**Output:**
+
+<img src="/static/assets/img/blog/nbc.png" width="30%">
+
+
+
+---
+
+## **3.Confusion Matrix**
+
+Confusion Matrix is a table that is often used to describe the performance of a classification model on a set of test data for which the true values are already known.
+
+● True Positive (TP) - cases in which we predicted yes and the actual value was true.
+● True Negative (TN) - cases in which we predicted no and the actual value was false.
+● False Positive (FP) - cases which we predicted yes and the actual value was False.
+● False Negative (FN) - cases which we predicted No and the actual value was true.
+
+<p align="center"> 
+<img src="/static/assets/img/blog/confusionMatrix.png" width="50%">
+</p>
+
+>For this confusion matrix, to calculate the **accuracy** of the model:
+
+$$\frac{ TP + TN }{Total} = \frac{100 + 50} {165} = 0.91 = 91\% $$ (correct rate)
+
+>The confusion matrix is also used to measure the **error rate**:
+
+$$\frac{ FP + FN } {Total} = \frac{15}{165} = 0.09 = 9\% $$ (error rate) 
+
+> **Code Example:**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+
+# Define sample labels
+true_labels = [2, 0, 0, 2, 4, 4, 1, 0, 3, 3, 3]
+pred_labels = [2, 1, 0, 2, 4, 3, 1, 0, 1, 3, 3]
+
+# Create confusion matrix
+confusion_mat = confusion_matrix(true_labels, pred_labels)
+
+# Visualize confusion matrix
+plt.imshow(confusion_mat, interpolation='nearest', cmap=plt.cm.gray)
+plt.title('Confusion matrix')
+plt.ylabel('True labels')
+plt.xlabel('Predicted labels')
+plt.show()
+```
+
+>**Output:**
+
+<img src="/static/assets/img/blog/confusionMatrixOutPut.png" width="20%">
+
+---
+
+## **4.Perceptron**
+Perceptron is a computational model of a single neuron, consisting of one or more inputs, a processor, and a single output. Each input value x is multiplied by a weight-factor w. If the resulting sum is larger than zero, the perceptron is activated and ‘fires’ a signal.
+
+<p align="center"> 
+<img src="/static/assets/img/blog/perceptron.png" width="50%">
+<img src="/static/assets/img/blog/perceptron2.png" width="50%">
+</p>
+
+>Perceptron can be trained to find a line separating two classes inthe limited case of linearly separable datasets.
+<p align="center"> 
+<img src="/static/assets/img/blog/perceptron3.png" width="30%">
+</p>
+
+Perceptron is a computational model of a single neuron, consisting of one or more inputs, a processor, and a single output. Each input value x is multiplied by a weight-factor w. If the resulting sum is larger than zero, the perceptron is activated and ‘fires’ a signal. 
+
+#### **XOR Problem**
+
+**Inability of perceptrons to solve non-linear problems** led to the initial disillusionment in this area of research and a period known as “AI winter” in 1970s.
+
+<p align="center"> 
+<img src="/static/assets/img/blog/perceptron4.png" width="50%">
+</p>
+
+
+---
+
+## **5.Support Vector Machine (SVM)**
+
+Linear Classifier only will have a problem is when find a separating hyperplane, but **not** the **optimal** one, such as perceptron.
+
+***Support Vector Machine (SVM) finds an optimal solution***. It can **maximize the margin** around the separating hyperplane. The decision function is fully specified by a subset of training samples, the support vectors.(Solving SVMs is a ***quadratic*** programming problem)
+
+<p align="center"> <img src="/static/assets/img/blog/sv.png" width="30%"></p>
+
+As an example of this, consider the simple case of a classification task, in which the two classes of points are well separated:
+
+<p align="center"> <img src="/static/assets/img/blog/lc.png" width="40%"></p>
+
+A linear classifier is attempting to draw a straight line separating the two sets of data, and thereby create a model for classification. However, here we have **lots of possible solutions** to draw a separated line between two data sets.
+
+<p align="center"> <img src="/static/assets/img/blog/lc2.png" width="40%"></p>
+
+---
+
+SVM offers one way to improve on this. The intuition is this: rather than simply drawing a zero-width line between the classes, we can draw around each line a margin of some width, up to the nearest point. it looks like this:
+
+<p align="center"> <img src="/static/assets/img/blog/sv2.png" width="40%"></p>
+
+In support vector machines, the line that **maximizes this margin** is the one we will choose as the optimal model. 
+
+---
+
+>**Code Example:**
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+# use seaborn plotting defaults
+import seaborn as sns; sns.set()
+from sklearn.datasets.samples_generator import make_blobs
+from sklearn.svm import SVC # "Support vector classifier"
+
+X, y = make_blobs(n_samples=50, centers=2,
+                  random_state=0, cluster_std=0.60)
+
+model = SVC(kernel='linear', C=1E10)
+model.fit(X, y)
+
+"""Plot the decision function for a 2D SVC"""
+def plot_svc_decision_function(model, ax=None, plot_support=True):
+
+    if ax is None:
+        ax = plt.gca()
+    xlim = ax.get_xlim()
+    ylim = ax.get_ylim()
+    
+    # create grid to evaluate model
+    x = np.linspace(xlim[0], xlim[1], 30)
+    y = np.linspace(ylim[0], ylim[1], 30)
+    Y, X = np.meshgrid(y, x)
+    xy = np.vstack([X.ravel(), Y.ravel()]).T
+    P = model.decision_function(xy).reshape(X.shape)
+    
+    # plot decision boundary and margins
+    ax.contour(X, Y, P, colors='k',
+               levels=[-1, 0, 1], alpha=0.5,
+               linestyles=['--', '-', '--'])
+    
+    # plot support vectors
+    if plot_support:
+        ax.scatter(model.support_vectors_[:, 0],
+                   model.support_vectors_[:, 1],
+                   s=300, linewidth=1, facecolors='none');
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+
+# draw scatter plot
+plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
+
+# call the draw line function
+plot_svc_decision_function(model);
+```
+
+> **Output:**
+
+<img src="/static/assets/img/blog/sv3.png" width="40%">
+
+---
+
+Also, If 2D data can’t be separated by a line, SVM can classify data by adding an extra dimension to it to make it linearly separable and then projecting the resulting boundary back to original dimensions using a mathematical transformation(such as matrix transformation).
+<p align="center"> <img src="/static/assets/img/blog/svm.png" width="80%"></p>
 
 ---
 

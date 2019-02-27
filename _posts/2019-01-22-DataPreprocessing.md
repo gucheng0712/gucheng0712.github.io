@@ -18,7 +18,7 @@ Binarization is the process of convert the numerical values into boolean values 
 
 >For example:
 
-```
+```python
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -50,7 +50,7 @@ Removing the mean is commonly used in machine learning. It usually useful to rem
 
 >For example:
 
-```
+```python
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -79,7 +79,7 @@ Removing the mean is commonly used in machine learning. It usually useful to rem
 
 > Output:
 
-```
+```python
     DataBeforeMeanRemoval: 
      [[ 5.1 -2.9  3.3]
      [-1.2  7.8 -6.7]
@@ -115,7 +115,7 @@ There are 2 common normalization techniques:
 
 >For example:
 
-```
+```python
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs
@@ -147,7 +147,7 @@ In vector, the value of each feature can vary between many random values, so rer
 It is often rescaled into the range between 0 and 1. This is useful for optimization algorithms, such as like gradient descent, weight inputs.
 >For example:
 
-```
+```python
     import numpy as np  # numpy library
     from sklearn import preprocessing  # sklearn library
    	#inputs

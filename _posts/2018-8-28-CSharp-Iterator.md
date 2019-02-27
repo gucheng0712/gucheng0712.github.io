@@ -25,7 +25,7 @@ if we want to create a new List Type. Ignore all other details, only focus on th
 
 >Main Program:
 
-```
+```csharp
 class MainClass
     {
         public static void Main(string[] args)
@@ -42,7 +42,7 @@ class MainClass
 
 >IterationSample Class:
 
-```
+```csharp
  public class IterationSample : IEnumerable
     {
         public Object[] values;
@@ -64,7 +64,7 @@ class MainClass
 
 > In above code, we implemented IEnumerable Interface, but we haven't implement the GetEnumerator() method. We can use this ***IterationSample*** class to implement the Ienumerator Interface, and use different functions implements the Iterator's Logics, but this goes against the principle of single responsibility. So we use another class to implement this.
 
-```
+```csharp
  public class IterationSampleEnumerator : IEnumerator
     {
         IterationSample parent;//object to iterate
@@ -118,7 +118,7 @@ After C# 2.0, it introduced ***iterator***, and ***yield return*** statements. I
 
 >Main Program:
 
-```
+```csharp
 class MainClass
     {
         public static void Main(string[] args)
@@ -135,7 +135,7 @@ class MainClass
 
 >IterationSample Class:
 
-```
+```csharp
  public class IterationSample : IEnumerable
     {
         public Object[] values;

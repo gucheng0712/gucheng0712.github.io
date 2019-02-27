@@ -1,104 +1,104 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|C# Iterator </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/csharp">Csharp</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 28 Aug 2018</span> <h1> C# Iterator </h1> </div> <p>Iterator can make you get all the elements in a sequence without caring about its type is <strong><em>Array</em></strong>, <strong><em>List</em></strong>, or other sequence structure.</p> <p>In .Net, Iterator is encapsulated by <strong><em>IEnumerator</em></strong> and their corresponding generic interfaces<strong><em>IEnumerable</em></strong></p> <p>In C#1, it has already supported iterator, which is the <strong><em>foreach</em></strong> statement. Compared with using for loop to, many times using <strong><em>foreach</em></strong> will be more easy and strightforward. when doing <strong><em>foreach</em></strong>, the compiler will compile <strong><em>foreach</em></strong> to invoke the <strong><em>GetEnumerator</em></strong> and <strong><em>MoveNext</em></strong> methods, as well as the <strong><em>Current</em></strong> property.</p> <p align="center"> <img src="/static/assets/img/blog/iterator.png" width="80%" /> </p> <hr /> <h4 id="1-c-10-implementing-iterators-manually">1. C# 1.0: Implementing Iterators Manually</h4> <p>if we want to create a new List Type. Ignore all other details, only focus on the iterator. This List will store the values in array, and this list can set the start point of the iteration. For example, we have 5 elements. We can set start index is 2, the iteration order shoule be 2,3,4,0,1.</p> <blockquote> <p>Main Program:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MainClass
-    {
-        public static void Main(string[] args)
-        {
-            object[] values = { "a", "b", "c", "d", "e" };
-            IterationSample collection = new IterationSample(values, 2);
-            foreach (object x in collection)
-            {
-                Console.WriteLine(x);
-            }
-        }
-    }
-</code></pre></div></div> <blockquote> <p>IterationSample Class:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> public class IterationSample : IEnumerable
-    {
-        public Object[] values;
-        public Int32 startingPoint;
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|C# Iterator </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/csharp">Csharp</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 28 Aug 2018</span> <h1> C# Iterator </h1> </div> <p>Iterator can make you get all the elements in a sequence without caring about its type is <strong><em>Array</em></strong>, <strong><em>List</em></strong>, or other sequence structure.</p> <p>In .Net, Iterator is encapsulated by <strong><em>IEnumerator</em></strong> and their corresponding generic interfaces<strong><em>IEnumerable</em></strong></p> <p>In C#1, it has already supported iterator, which is the <strong><em>foreach</em></strong> statement. Compared with using for loop to, many times using <strong><em>foreach</em></strong> will be more easy and strightforward. when doing <strong><em>foreach</em></strong>, the compiler will compile <strong><em>foreach</em></strong> to invoke the <strong><em>GetEnumerator</em></strong> and <strong><em>MoveNext</em></strong> methods, as well as the <strong><em>Current</em></strong> property.</p> <p align="center"> <img src="/static/assets/img/blog/iterator.png" width="80%" /> </p> <hr /> <h4 id="1-c-10-implementing-iterators-manually">1. C# 1.0: Implementing Iterators Manually</h4> <p>if we want to create a new List Type. Ignore all other details, only focus on the iterator. This List will store the values in array, and this list can set the start point of the iteration. For example, we have 5 elements. We can set start index is 2, the iteration order shoule be 2,3,4,0,1.</p> <blockquote> <p>Main Program:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MainClass</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">object</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="p">{</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">,</span> <span class="s">"d"</span><span class="p">,</span> <span class="s">"e"</span> <span class="p">};</span>
+            <span class="n">IterationSample</span> <span class="n">collection</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">IterationSample</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">object</span> <span class="n">x</span> <span class="k">in</span> <span class="n">collection</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div> <blockquote> <p>IterationSample Class:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">class</span> <span class="nc">IterationSample</span> <span class="p">:</span> <span class="n">IEnumerable</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">Object</span><span class="p">[]</span> <span class="n">values</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">Int32</span> <span class="n">startingPoint</span><span class="p">;</span>
 
-        public IterationSample(Object[] values, Int32 startingPoint)
-        {
-            this.values = values;
-            this.startingPoint = startingPoint;
-        }
+        <span class="k">public</span> <span class="nf">IterationSample</span><span class="p">(</span><span class="n">Object</span><span class="p">[]</span> <span class="n">values</span><span class="p">,</span> <span class="n">Int32</span> <span class="n">startingPoint</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">values</span> <span class="p">=</span> <span class="n">values</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">startingPoint</span> <span class="p">=</span> <span class="n">startingPoint</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        // In order to use "foreach" statement, this method is necessary
-        public IEnumerator GetEnumerator()
-        {
-            return new IterationSampleEnumerator(this);
-        }
-    }
-</code></pre></div></div> <blockquote> <p>In above code, we implemented IEnumerable Interface, but we haven’t implement the GetEnumerator() method. We can use this <strong><em>IterationSample</em></strong> class to implement the Ienumerator Interface, and use different functions implements the Iterator’s Logics, but this goes against the principle of single responsibility. So we use another class to implement this.</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> public class IterationSampleEnumerator : IEnumerator
-    {
-        IterationSample parent;//object to iterate
-        Int32 position;// currentIndex Position
-        internal IterationSampleEnumerator(IterationSample parent)
-        {
-            this.parent = parent;
-            position = -1;
-        }
+        <span class="c1">// In order to use "foreach" statement, this method is necessary</span>
+        <span class="k">public</span> <span class="n">IEnumerator</span> <span class="nf">GetEnumerator</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">IterationSampleEnumerator</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div> <blockquote> <p>In above code, we implemented IEnumerable Interface, but we haven’t implement the GetEnumerator() method. We can use this <strong><em>IterationSample</em></strong> class to implement the Ienumerator Interface, and use different functions implements the Iterator’s Logics, but this goes against the principle of single responsibility. So we use another class to implement this.</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">class</span> <span class="nc">IterationSampleEnumerator</span> <span class="p">:</span> <span class="n">IEnumerator</span>
+    <span class="p">{</span>
+        <span class="n">IterationSample</span> <span class="n">parent</span><span class="p">;</span><span class="c1">//object to iterate</span>
+        <span class="n">Int32</span> <span class="n">position</span><span class="p">;</span><span class="c1">// currentIndex Position</span>
+        <span class="k">internal</span> <span class="nf">IterationSampleEnumerator</span><span class="p">(</span><span class="n">IterationSample</span> <span class="n">parent</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="n">parent</span><span class="p">;</span>
+            <span class="n">position</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        public bool MoveNext()
-        {
-            //determine the current position if the last index in the list
-            if (position != parent.values.Length) 
-            {
-                position++;
-            }
-            return position &lt; parent.values.Length;
-        }
+        <span class="k">public</span> <span class="kt">bool</span> <span class="nf">MoveNext</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">//determine the current position if the last index in the list</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">position</span> <span class="p">!=</span> <span class="n">parent</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span> 
+            <span class="p">{</span>
+                <span class="n">position</span><span class="p">++;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">position</span> <span class="p">&lt;</span> <span class="n">parent</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        public object Current
-        {
-            get
-            {
-                //not allow to access the first and the last value
-                if (position == -1 || position == parent.values.Length)
-                {
-                    throw new InvalidOperationException();
-                }
+        <span class="k">public</span> <span class="kt">object</span> <span class="n">Current</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="c1">//not allow to access the first and the last value</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">position</span> <span class="p">==</span> <span class="p">-</span><span class="m">1</span> <span class="p">||</span> <span class="n">position</span> <span class="p">==</span> <span class="n">parent</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidOperationException</span><span class="p">();</span>
+                <span class="p">}</span>
                 
-                // consider the case of custom start position 
-                Int32 index = position + parent.startingPoint;
-                index = index % parent.values.Length;
-                return parent.values[index];
-            }
-        }
+                <span class="c1">// consider the case of custom start position </span>
+                <span class="n">Int32</span> <span class="n">index</span> <span class="p">=</span> <span class="n">position</span> <span class="p">+</span> <span class="n">parent</span><span class="p">.</span><span class="n">startingPoint</span><span class="p">;</span>
+                <span class="n">index</span> <span class="p">=</span> <span class="n">index</span> <span class="p">%</span> <span class="n">parent</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">parent</span><span class="p">.</span><span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-        public void Reset()
-        {
-            position = -1;
-        }
-    }
-</code></pre></div></div> <hr /> <h4 id="2-c-20-implementing-iterators">2. C# 2.0: Implementing Iterators</h4> <p>After C# 2.0, it introduced <strong><em>iterator</em></strong>, and <strong><em>yield return</em></strong> statements. It becomes much more simplier.</p> <blockquote> <p>Main Program:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MainClass
-    {
-        public static void Main(string[] args)
-        {
-            object[] values = { "a", "b", "c", "d", "e" };
-            IterationSample collection = new IterationSample(values, 2);
-            foreach (object x in collection)
-            {
-                Console.WriteLine(x);
-            }
-        }
-    }
-</code></pre></div></div> <blockquote> <p>IterationSample Class:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> public class IterationSample : IEnumerable
-    {
-        public Object[] values;
-        public Int32 startingPoint;
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Reset</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">position</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div> <hr /> <h4 id="2-c-20-implementing-iterators">2. C# 2.0: Implementing Iterators</h4> <p>After C# 2.0, it introduced <strong><em>iterator</em></strong>, and <strong><em>yield return</em></strong> statements. It becomes much more simplier.</p> <blockquote> <p>Main Program:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MainClass</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">object</span><span class="p">[]</span> <span class="n">values</span> <span class="p">=</span> <span class="p">{</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">,</span> <span class="s">"d"</span><span class="p">,</span> <span class="s">"e"</span> <span class="p">};</span>
+            <span class="n">IterationSample</span> <span class="n">collection</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">IterationSample</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">object</span> <span class="n">x</span> <span class="k">in</span> <span class="n">collection</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div> <blockquote> <p>IterationSample Class:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">class</span> <span class="nc">IterationSample</span> <span class="p">:</span> <span class="n">IEnumerable</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="n">Object</span><span class="p">[]</span> <span class="n">values</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">Int32</span> <span class="n">startingPoint</span><span class="p">;</span>
 
-        public IterationSample(Object[] values, Int32 startingPoint)
-        {
-            this.values = values;
-            this.startingPoint = startingPoint;
-        }
+        <span class="k">public</span> <span class="nf">IterationSample</span><span class="p">(</span><span class="n">Object</span><span class="p">[]</span> <span class="n">values</span><span class="p">,</span> <span class="n">Int32</span> <span class="n">startingPoint</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">values</span> <span class="p">=</span> <span class="n">values</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">startingPoint</span> <span class="p">=</span> <span class="n">startingPoint</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        // In order to use "foreach" statement, this method is necessary
-        public IEnumerator GetEnumerator()
-        {
-            for (int index = 0; index &lt; this.values.Length; index++)
-            {
-                yield return values[(index + startingPoint) % values.Length];
-            }   
-        }
-    }
+        <span class="c1">// In order to use "foreach" statement, this method is necessary</span>
+        <span class="k">public</span> <span class="n">IEnumerator</span> <span class="nf">GetEnumerator</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">index</span> <span class="p">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">index</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="k">yield</span> <span class="k">return</span> <span class="n">values</span><span class="p">[(</span><span class="n">index</span> <span class="p">+</span> <span class="n">startingPoint</span><span class="p">)</span> <span class="p">%</span> <span class="n">values</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+            <span class="p">}</span>   
+        <span class="p">}</span>
+    <span class="p">}</span>
 </code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Csharp</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

@@ -19,7 +19,7 @@ If the elements inside the list are strings, it will sort by the first letter of
 
 > Code:
 
-```
+```csharp
    	List<string> strList = new List<string>() { "Tom", "Jerry", "Joab", "Edi", "Kane", "Hans" };
        strList.Sort();
        strList.ForEach(Console.WriteLine);
@@ -40,7 +40,7 @@ If the elements inside the list are integers, it will sort by the integer from s
 
 > Code:
 
-```
+```csharp
     List<int> nums = new List<int>() { 2, 33, 22, 1, 5, 8 };
     nums.Sort();
     nums.ForEach(Console.WriteLine);
@@ -61,7 +61,7 @@ However, if you create a `Human` class, and declare a variable called Name, you 
 
 >Code:
 
-```
+```csharp
     class Human
     {
         public string Name { get; set; }
@@ -105,7 +105,7 @@ So Only if you implement the `IComparable` Interface
 >So, lets sort Human by name
 > Code:
 
-```
+```csharp
     class Human : IComparable<Human>
     {
         public string Name { get; set; }
@@ -171,7 +171,7 @@ Now, The `IComparable` Interface solved the sorting error. There is another ques
 
 >Code:
 
-```
+```csharp
     class Human : IComparable<Human>
     {
         public string Name { get; set; }

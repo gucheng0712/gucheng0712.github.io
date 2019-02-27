@@ -1,122 +1,122 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|X-Ray Effect in Shader </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 5 Aug 2018</span> <h1> X-Ray Effect in Shader </h1> </div> <p>In many games, we can use special ability to see through the wall. So In this post I am going to make a X-ray effect.</p> <p>A X-Ray is easy to achieve. basicly, just need to add an additional <code class="highlighter-rouge">Pass{}</code> in shader which the <strong><em>ZTest</em></strong> should set to <strong><em>Greater</em></strong>, and the ZWrite should close.</p> <blockquote> <p>This is the result of the experiment:</p> </blockquote> <p align="center"> <img src="/static/assets/img/blog/X-Ray.gif" width="50%" /> </p> <hr /> <blockquote> <p>Code:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/Transparent2"
-{
-	Properties
-	{
-        _MainTex("MainTex",2D) = ""{}
-        _Color("Color", Color) = (1,1,1,1)
-        _OccPower("Occlusion Power", Range(0,2)) = 0.5 
-        _OccColor("Occlusion Color", Color) = (1,1,1,1)
-	}
-	SubShader
-	{
-        Tags{"RenderTyoe" = "Transparent" "Queue" = "Transparent"}
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|X-Ray Effect in Shader </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 5 Aug 2018</span> <h1> X-Ray Effect in Shader </h1> </div> <p>In many games, we can use special ability to see through the wall. So In this post I am going to make a X-ray effect.</p> <p>A X-Ray is easy to achieve. basicly, just need to add an additional <code class="highlighter-rouge">Pass{}</code> in shader which the <strong><em>ZTest</em></strong> should set to <strong><em>Greater</em></strong>, and the ZWrite should close.</p> <blockquote> <p>This is the result of the experiment:</p> </blockquote> <p align="center"> <img src="/static/assets/img/blog/X-Ray.gif" width="50%" /> </p> <hr /> <blockquote> <p>Code:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Shader</span> <span class="s">"MyShader/Transparent2"</span>
+<span class="p">{</span>
+	<span class="n">Properties</span>
+	<span class="p">{</span>
+        <span class="nf">_MainTex</span><span class="p">(</span><span class="s">"MainTex"</span><span class="p">,</span><span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">""</span><span class="p">{}</span>
+        <span class="nf">_Color</span><span class="p">(</span><span class="s">"Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+        <span class="nf">_OccPower</span><span class="p">(</span><span class="s">"Occlusion Power"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.5</span> 
+        <span class="nf">_OccColor</span><span class="p">(</span><span class="s">"Occlusion Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">SubShader</span>
+	<span class="p">{</span>
+        <span class="n">Tags</span><span class="p">{</span><span class="s">"RenderTyoe"</span> <span class="p">=</span> <span class="s">"Transparent"</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Transparent"</span><span class="p">}</span>
         
-		Pass //  This pass is for X-ray
-		{
-            Blend DstAlpha One 
+		<span class="n">Pass</span> <span class="c1">//  This pass is for X-ray</span>
+		<span class="p">{</span>
+            <span class="n">Blend</span> <span class="n">DstAlpha</span> <span class="n">One</span> 
 
-            // When the Z value of the object's pixel is greater 
-            //than the Z value of the current camera on the pixel, it will pass Ztest
-            ZTest Greater
+            <span class="c1">// When the Z value of the object's pixel is greater </span>
+            <span class="c1">//than the Z value of the current camera on the pixel, it will pass Ztest</span>
+            <span class="n">ZTest</span> <span class="n">Greater</span>
 
-            ZWrite Off
-			CGPROGRAM
-			#pragma vertex vert
-            #pragma fragment frag
+            <span class="n">ZWrite</span> <span class="n">Off</span>
+			<span class="n">CGPROGRAM</span>
+			<span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
 			
-			#include "UnityCG.cginc"
+			<span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
 
-            float _OccPower;
-            fixed4 _OccColor;
+            <span class="kt">float</span> <span class="n">_OccPower</span><span class="p">;</span>
+            <span class="n">fixed4</span> <span class="n">_OccColor</span><span class="p">;</span>
 
-			struct appdata
-			{
-				float4 vertex : POSITION;
-                float3 normal : NORMAL;
+			<span class="k">struct</span> <span class="nc">appdata</span>
+			<span class="p">{</span>
+				<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float3</span> <span class="n">normal</span> <span class="p">:</span> <span class="n">NORMAL</span><span class="p">;</span>
 
-			};
+			<span class="p">};</span>
 
-			struct v2f
-			{
-                float3 worldNormal : TEXCOORD0;
-                float4 pos : SV_POSITION;
-                float4 worldVertex : TEXCOORD1;
-			};
+			<span class="k">struct</span> <span class="nc">v2f</span>
+			<span class="p">{</span>
+                <span class="n">float3</span> <span class="n">worldNormal</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+                <span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+                <span class="n">float4</span> <span class="n">worldVertex</span> <span class="p">:</span> <span class="n">TEXCOORD1</span><span class="p">;</span>
+			<span class="p">};</span>
             
 
 
-			v2f vert (appdata v)
-			{
-				v2f o;
-				o.pos = UnityObjectToClipPos(v.vertex);
-                o.worldNormal = normalize(mul(v.normal,unity_WorldToObject));
-                o.worldVertex = normalize(mul(unity_ObjectToWorld, v.vertex));
+			<span class="n">v2f</span> <span class="nf">vert</span> <span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+				<span class="n">o</span><span class="p">.</span><span class="n">pos</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+                <span class="n">o</span><span class="p">.</span><span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">normal</span><span class="p">,</span><span class="n">unity_WorldToObject</span><span class="p">));</span>
+                <span class="n">o</span><span class="p">.</span><span class="n">worldVertex</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">unity_ObjectToWorld</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">));</span>
                 
-				return o;
-			}
+				<span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+			<span class="p">}</span>
 			
-			fixed4 frag (v2f i) : SV_Target
-			{
+			<span class="n">fixed4</span> <span class="nf">frag</span> <span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
+			<span class="p">{</span>
 
-                float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldVertex.xyz);
+                <span class="n">float3</span> <span class="n">viewDir</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">_WorldSpaceCameraPos</span><span class="p">.</span><span class="n">xyz</span> <span class="p">-</span> <span class="n">i</span><span class="p">.</span><span class="n">worldVertex</span><span class="p">.</span><span class="n">xyz</span><span class="p">);</span>
 
-                // rim effect
-                float rim = 1-saturate(dot(i.worldNormal,viewDir));
+                <span class="c1">// rim effect</span>
+                <span class="kt">float</span> <span class="n">rim</span> <span class="p">=</span> <span class="m">1</span><span class="p">-</span><span class="nf">saturate</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">worldNormal</span><span class="p">,</span><span class="n">viewDir</span><span class="p">));</span>
 
-				fixed3 col = pow(rim, _OccPower) * _OccColor.rgb;
+				<span class="n">fixed3</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">pow</span><span class="p">(</span><span class="n">rim</span><span class="p">,</span> <span class="n">_OccPower</span><span class="p">)</span> <span class="p">*</span> <span class="n">_OccColor</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
 
-				return fixed4(col,0.5f);
-			}
-			ENDCG
-		}
+				<span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="m">0.5f</span><span class="p">);</span>
+			<span class="p">}</span>
+			<span class="n">ENDCG</span>
+		<span class="p">}</span>
 
 
 
-        Pass // This pass is for the model itself
-        {
-            Blend SrcAlpha OneMinusSrcAlpha
-            ZWrite On
-            ZTest LEqual 
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+        <span class="n">Pass</span> <span class="c1">// This pass is for the model itself</span>
+        <span class="p">{</span>
+            <span class="n">Blend</span> <span class="n">SrcAlpha</span> <span class="n">OneMinusSrcAlpha</span>
+            <span class="n">ZWrite</span> <span class="n">On</span>
+            <span class="n">ZTest</span> <span class="n">LEqual</span> 
+            <span class="n">CGPROGRAM</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
             
-            #include "UnityCG.cginc"
+            <span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
 
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
+            <span class="k">struct</span> <span class="nc">appdata</span>
+            <span class="p">{</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+                <span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+            <span class="p">};</span>
 
-            struct v2f
-            {
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
-            };
+            <span class="k">struct</span> <span class="nc">v2f</span>
+            <span class="p">{</span>
+                <span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+            <span class="p">};</span>
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
-            fixed4 _Color;
+            <span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
+            <span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
+            <span class="n">fixed4</span> <span class="n">_Color</span><span class="p">;</span>
             
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                return o;
-            }
+            <span class="n">v2f</span> <span class="nf">vert</span> <span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+                <span class="n">o</span><span class="p">.</span><span class="n">vertex</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+                <span class="n">o</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="nf">TRANSFORM_TEX</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="n">_MainTex</span><span class="p">);</span>
+                <span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+            <span class="p">}</span>
             
-            fixed4 frag (v2f i) : SV_Target
-            {
-                // sample the texture
-                fixed3 col = tex2D(_MainTex, i.uv).rgb * _Color.rgb;
+            <span class="n">fixed4</span> <span class="nf">frag</span> <span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
+            <span class="p">{</span>
+                <span class="c1">// sample the texture</span>
+                <span class="n">fixed3</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">).</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">_Color</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
 
-                return fixed4(col,1);
-            }
-            ENDCG
-        }
-	}
-}
+                <span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="m">1</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">ENDCG</span>
+        <span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
 
 </code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Unity</button> <button class="btn btn-white btn-xs" type="button">Shader</button> <button class="btn btn-white btn-xs" type="button">Math</button> <button class="btn btn-white btn-xs" type="button">CG</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

@@ -1,95 +1,95 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Dynamic Discoloration Shader </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 29 Jul 2018</span> <h1> Dynamic Discoloration Shader </h1> </div> <p>An exercise of writing surface shader with vertex function to achieve dynamic discoloration of the model and cube map reflection.</p> <hr /> <p align="center"> <img src="/static/assets/img/blog/Model Dynamic Discoloration.gif" width="70%" /> </p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader "MyShader/CarPaint_SurfaceShader" 
-{
-	Properties 
-    {
-        _MainColor("MainColor",Color) = (1,1,1,1)
-        _SecondColor("SecondColor",Color) = (1,1,1,1)
-        _Center("Center",Range(-0.7,0.7)) = 0
-        _Radius("R", Range(0,0.5)) = 0.2
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
-        _MainTex("Main Texture",2D) = ""{}
-        _CubeMap("Cube Map",Cube)=""{}
-    }
-	SubShader {
-		Tags { "RenderType"="Opaque" }
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Dynamic Discoloration Shader </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src="/static/assets/img/search/cb-close.png" id="close-btn"/> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src="/static/assets/img/search/cb-search.png" id="search-btn" title="Double click Ctrl"/> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href="blog/"></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/cg">Cg</a> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 29 Jul 2018</span> <h1> Dynamic Discoloration Shader </h1> </div> <p>An exercise of writing surface shader with vertex function to achieve dynamic discoloration of the model and cube map reflection.</p> <hr /> <p align="center"> <img src="/static/assets/img/blog/Model Dynamic Discoloration.gif" width="70%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Shader</span> <span class="s">"MyShader/CarPaint_SurfaceShader"</span> 
+<span class="p">{</span>
+	<span class="n">Properties</span> 
+    <span class="p">{</span>
+        <span class="nf">_MainColor</span><span class="p">(</span><span class="s">"MainColor"</span><span class="p">,</span><span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+        <span class="nf">_SecondColor</span><span class="p">(</span><span class="s">"SecondColor"</span><span class="p">,</span><span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+        <span class="nf">_Center</span><span class="p">(</span><span class="s">"Center"</span><span class="p">,</span><span class="nf">Range</span><span class="p">(-</span><span class="m">0.7</span><span class="p">,</span><span class="m">0.7</span><span class="p">))</span> <span class="p">=</span> <span class="m">0</span>
+        <span class="nf">_Radius</span><span class="p">(</span><span class="s">"R"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.2</span>
+		<span class="nf">_Glossiness</span> <span class="p">(</span><span class="s">"Smoothness"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.5</span>
+		<span class="nf">_Metallic</span> <span class="p">(</span><span class="s">"Metallic"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.0</span>
+        <span class="nf">_MainTex</span><span class="p">(</span><span class="s">"Main Texture"</span><span class="p">,</span><span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">""</span><span class="p">{}</span>
+        <span class="nf">_CubeMap</span><span class="p">(</span><span class="s">"Cube Map"</span><span class="p">,</span><span class="n">Cube</span><span class="p">)=</span><span class="s">""</span><span class="p">{}</span>
+    <span class="p">}</span>
+	<span class="n">SubShader</span> <span class="p">{</span>
+		<span class="n">Tags</span> <span class="p">{</span> <span class="s">"RenderType"</span><span class="p">=</span><span class="s">"Opaque"</span> <span class="p">}</span>
 
-		CGPROGRAM
+		<span class="n">CGPROGRAM</span>
 
-		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows vertex:vert
+		<span class="c1">// Physically based Standard lighting model, and enable shadows on all light types</span>
+		<span class="err">#</span><span class="n">pragma</span> <span class="n">surface</span> <span class="n">surf</span> <span class="n">Standard</span> <span class="n">fullforwardshadows</span> <span class="n">vertex</span><span class="p">:</span><span class="n">vert</span>
         
-        #pragma target 3.5 // needs it for dx 11
+        <span class="err">#</span><span class="n">pragma</span> <span class="n">target</span> <span class="m">3.5</span> <span class="c1">// needs it for dx 11</span>
 
-        float4 _MainColor;
-        float4 _SecondColor;
-        float _Center;
-        float _Radius;
-        half _Glossiness;
-        half _Metallic;
-		sampler2D _MainTex;
-        samplerCUBE _CubeMap;
+        <span class="n">float4</span> <span class="n">_MainColor</span><span class="p">;</span>
+        <span class="n">float4</span> <span class="n">_SecondColor</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">_Center</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">_Radius</span><span class="p">;</span>
+        <span class="n">half</span> <span class="n">_Glossiness</span><span class="p">;</span>
+        <span class="n">half</span> <span class="n">_Metallic</span><span class="p">;</span>
+		<span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
+        <span class="n">samplerCUBE</span> <span class="n">_CubeMap</span><span class="p">;</span>
 
-		struct Input 
-        {
-			float2 uv_MainTex;
-            float3 R;
-            float z;
-		};
+		<span class="k">struct</span> <span class="nc">Input</span> 
+        <span class="p">{</span>
+			<span class="n">float2</span> <span class="n">uv_MainTex</span><span class="p">;</span>
+            <span class="n">float3</span> <span class="n">R</span><span class="p">;</span>
+            <span class="kt">float</span> <span class="n">z</span><span class="p">;</span>
+		<span class="p">};</span>
 
-        void vert(inout appdata_full v, out Input o)
-        {
-            // UNITY_INITIALIZE_OUTPUT(Input,o);
-            // or
-            o.uv_MainTex = v.texcoord.xy;
+        <span class="k">void</span> <span class="nf">vert</span><span class="p">(</span><span class="n">inout</span> <span class="n">appdata_full</span> <span class="n">v</span><span class="p">,</span> <span class="k">out</span> <span class="n">Input</span> <span class="n">o</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// UNITY_INITIALIZE_OUTPUT(Input,o);</span>
+            <span class="c1">// or</span>
+            <span class="n">o</span><span class="p">.</span><span class="n">uv_MainTex</span> <span class="p">=</span> <span class="n">v</span><span class="p">.</span><span class="n">texcoord</span><span class="p">.</span><span class="n">xy</span><span class="p">;</span>
 
-            float3 V = -WorldSpaceViewDir(v.vertex);
-            // float3 V = mul(_Object2World,v.vertex).xyz - _WorldSpaceCameraPos.xyz;
-            // or
-            float3 N = normalize(mul(v.normal,(float3x3)unity_WorldToObject));
+            <span class="n">float3</span> <span class="n">V</span> <span class="p">=</span> <span class="p">-</span><span class="nf">WorldSpaceViewDir</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+            <span class="c1">// float3 V = mul(_Object2World,v.vertex).xyz - _WorldSpaceCameraPos.xyz;</span>
+            <span class="c1">// or</span>
+            <span class="n">float3</span> <span class="n">N</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">normal</span><span class="p">,(</span><span class="n">float3x3</span><span class="p">)</span><span class="n">unity_WorldToObject</span><span class="p">));</span>
 
-            o.R = reflect(V,N);
-            o.z = v.vertex.z;// determine the direction the lerp
-        }
+            <span class="n">o</span><span class="p">.</span><span class="n">R</span> <span class="p">=</span> <span class="nf">reflect</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+            <span class="n">o</span><span class="p">.</span><span class="n">z</span> <span class="p">=</span> <span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">.</span><span class="n">z</span><span class="p">;</span><span class="c1">// determine the direction the lerp</span>
+        <span class="p">}</span>
         
 
-		void surf (Input IN, inout SurfaceOutputStandard o) {
-			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            fixed4 cubeMapCol = texCUBE(_CubeMap,IN.R);
+		<span class="k">void</span> <span class="nf">surf</span> <span class="p">(</span><span class="n">Input</span> <span class="n">IN</span><span class="p">,</span> <span class="n">inout</span> <span class="n">SurfaceOutputStandard</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+			<span class="c1">// Albedo comes from a texture tinted by color</span>
+			<span class="n">fixed4</span> <span class="n">c</span> <span class="p">=</span> <span class="nf">tex2D</span> <span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">IN</span><span class="p">.</span><span class="n">uv_MainTex</span><span class="p">);</span>
+            <span class="n">fixed4</span> <span class="n">cubeMapCol</span> <span class="p">=</span> <span class="nf">texCUBE</span><span class="p">(</span><span class="n">_CubeMap</span><span class="p">,</span><span class="n">IN</span><span class="p">.</span><span class="n">R</span><span class="p">);</span>
 
-            // Combine texture color and the cubemap reflection color
-			o.Albedo = c.rgb + cubeMapCol.rgb;
+            <span class="c1">// Combine texture color and the cubemap reflection color</span>
+			<span class="n">o</span><span class="p">.</span><span class="n">Albedo</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="n">rgb</span> <span class="p">+</span> <span class="n">cubeMapCol</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
 
-			// Metallic and smoothness come from slider variables
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
-			o.Alpha = c.a;
+			<span class="c1">// Metallic and smoothness come from slider variables</span>
+			<span class="n">o</span><span class="p">.</span><span class="n">Metallic</span> <span class="p">=</span> <span class="n">_Metallic</span><span class="p">;</span>
+			<span class="n">o</span><span class="p">.</span><span class="n">Smoothness</span> <span class="p">=</span> <span class="n">_Glossiness</span><span class="p">;</span>
+			<span class="n">o</span><span class="p">.</span><span class="n">Alpha</span> <span class="p">=</span> <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">;</span>
 
 
-            float d = IN.z - _Center;
-            float dLength = abs(d);
+            <span class="kt">float</span> <span class="n">d</span> <span class="p">=</span> <span class="n">IN</span><span class="p">.</span><span class="n">z</span> <span class="p">-</span> <span class="n">_Center</span><span class="p">;</span>
+            <span class="kt">float</span> <span class="n">dLength</span> <span class="p">=</span> <span class="nf">abs</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
             
-            // Get 1 or -1 to determine the color on two sides
-            // the vertices &gt; _Center, it will be 1
-            // the vertices &lt; _Center, it will be -1
-            d = d / dLength;
+            <span class="c1">// Get 1 or -1 to determine the color on two sides</span>
+            <span class="c1">// the vertices &gt; _Center, it will be 1</span>
+            <span class="c1">// the vertices &lt; _Center, it will be -1</span>
+            <span class="n">d</span> <span class="p">=</span> <span class="n">d</span> <span class="p">/</span> <span class="n">dLength</span><span class="p">;</span>
 
-            // The pure level represents the _MainColor and _SecondColor value
-            // when the pureLevel increase, the blending between two color will increase
-            float pureLevel = dLength /_Radius;
-            pureLevel = saturate(pureLevel);
+            <span class="c1">// The pure level represents the _MainColor and _SecondColor value</span>
+            <span class="c1">// when the pureLevel increase, the blending between two color will increase</span>
+            <span class="kt">float</span> <span class="n">pureLevel</span> <span class="p">=</span> <span class="n">dLength</span> <span class="p">/</span><span class="n">_Radius</span><span class="p">;</span>
+            <span class="n">pureLevel</span> <span class="p">=</span> <span class="nf">saturate</span><span class="p">(</span><span class="n">pureLevel</span><span class="p">);</span>
 
-            // This determine the negative or positive value
-            d *= pureLevel;
+            <span class="c1">// This determine the negative or positive value</span>
+            <span class="n">d</span> <span class="p">*=</span> <span class="n">pureLevel</span><span class="p">;</span>
 
-            d = d * 0.5+0.5;
+            <span class="n">d</span> <span class="p">=</span> <span class="n">d</span> <span class="p">*</span> <span class="m">0.5</span><span class="p">+</span><span class="m">0.5</span><span class="p">;</span>
 
-            o.Albedo *= lerp(_MainColor, _SecondColor, d);
+            <span class="n">o</span><span class="p">.</span><span class="n">Albedo</span> <span class="p">*=</span> <span class="nf">lerp</span><span class="p">(</span><span class="n">_MainColor</span><span class="p">,</span> <span class="n">_SecondColor</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
 
-		}
-		ENDCG
-	}
-	FallBack "Diffuse"
-}
+		<span class="p">}</span>
+		<span class="n">ENDCG</span>
+	<span class="p">}</span>
+	<span class="n">FallBack</span> <span class="s">"Diffuse"</span>
+<span class="p">}</span>
 </code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Unity</button> <button class="btn btn-white btn-xs" type="button">Shader</button> <button class="btn btn-white btn-xs" type="button">Math</button> <button class="btn btn-white btn-xs" type="button">CG</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

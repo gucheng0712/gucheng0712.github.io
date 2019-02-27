@@ -41,7 +41,7 @@ The basic idea is to determine the distance between the camera and the object ba
 <img src="/static/assets/img/blog/alpha_test.png" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/AlphaTest" 
 {
     Properties
@@ -126,7 +126,7 @@ Shader "MyShader/AlphaTest"
 <img src="/static/assets/img/blog/Alpha Blending.png" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/AlphaBlending" 
 {
     Properties

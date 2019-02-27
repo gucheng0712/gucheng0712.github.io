@@ -16,7 +16,7 @@ Ramp Texture allows us to control the diffuse light of an object. Mask Texture c
 <img src="/static/assets/img/blog/ramp.png" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/RampMap"
 {
     Properties {
@@ -100,7 +100,7 @@ Shader "MyShader/RampMap"
 <img src="/static/assets/img/blog/mask.png" width="70%">
 </p>
 
-```
+```csharp
 Shader "MyShader/7. MaskMap"
 {
     Properties
