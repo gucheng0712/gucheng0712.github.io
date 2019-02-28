@@ -9,7 +9,7 @@
   img: /static/assets/img/landing/P1.png
   desc: A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project. 
   
-- name: Suzuka Wants to Fly (Compatible with VR) -using Unity3D
+- name: Suzuka Wants to Fly (Compatible with VR) -using Unity & HTC Vive
   i18n: p2
   gh_user: gucheng0712
   repo: Suzuka-wants-to-fly
