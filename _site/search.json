@@ -3,6 +3,14 @@
     "data" : [
      
     {
+        "title" : "Clustering - Unsupervised Learning(ML) - 2019-02-15",
+        "url" : "/python/ai/2019/02/15/Clustering-UnsupervisedLearning.html"
+    }
+    
+    ,
+    
+    
+    {
         "title" : "Regression - Supervised Learning (ML) - 2019-02-15",
         "url" : "/python/ai/2019/02/15/Linear-Regression.html"
     }
@@ -187,8 +195,8 @@
     
     
     {
-        "title" : "Matrix TRS - 2018-05-25",
-        "url" : "/math/unity/csharp/2018/05/25/RTS-in-Matrix.html"
+        "title" : "Matrix SRT - 2018-05-25",
+        "url" : "/math/unity/csharp/2018/05/25/SRT-in-Matrix.html"
     }
     
     ,
