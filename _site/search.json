@@ -51,7 +51,7 @@
     
     
     {
-        "title" : "CubeMap - 2018-09-22",
+        "title" : "CubeMap (CG) - 2018-09-22",
         "url" : "/cg/unity/2018/09/22/CubeMap.html"
     }
     
@@ -67,7 +67,7 @@
     
     
     {
-        "title" : "Rendering Pipeline - 2018-09-14",
+        "title" : "Rendering Pipeline (CG) - 2018-09-14",
         "url" : "/cg/2018/09/14/Rendering-Pipeline.html"
     }
     
@@ -141,6 +141,14 @@
     {
         "title" : "OPP Design Principles - 2018-07-20",
         "url" : "/csharp/python/javascript/2018/07/20/OPP-Programming-Common-Design-Pattern.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "The Magic of Stencil Test - 2018-07-15",
+        "url" : "/cg/unity/2018/07/15/The-Magic-of-Stencil-Test.html"
     }
     
     ,

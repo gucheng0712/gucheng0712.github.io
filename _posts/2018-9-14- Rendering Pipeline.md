@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rendering Pipeline"
+title:  "Rendering Pipeline (CG)"
 date:   2018-09-14
 categories: [Cg]
 tags: [CG]

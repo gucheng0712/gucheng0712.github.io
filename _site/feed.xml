@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Mar 2019 19:16:03 -0700</pubDate>
-    <lastBuildDate>Fri, 15 Mar 2019 19:16:03 -0700</lastBuildDate>
+    <pubDate>Sat, 16 Mar 2019 05:10:25 -0700</pubDate>
+    <lastBuildDate>Sat, 16 Mar 2019 05:10:25 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -1487,7 +1487,7 @@ Code:&lt;/p&gt;
       </item>
     
       <item>
-        <title>CubeMap</title>
+        <title>CubeMap (CG)</title>
         <description>&lt;p&gt;In CG, CubeMap is the way to achieve Environment Mapping. it can simulate the environment around the object, make the object be able to reflect the environment around itself.&lt;/p&gt;
 
 &lt;p&gt;Cubemap includes 6 images. these images correspond to the six sides of a cube.&lt;/p&gt;
@@ -2074,7 +2074,7 @@ Code:&lt;/p&gt;
       </item>
     
       <item>
-        <title>Rendering Pipeline</title>
+        <title>Rendering Pipeline (CG)</title>
         <description>&lt;p&gt;The pipeline of Graphic Rendering includes 3 stages: Application Stage –&amp;gt; Geometry Stage –&amp;gt; Rasterization Stage.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
@@ -3663,6 +3663,269 @@ Responsibility for code performance is however shifted towards the programmer, t
         <category>Python</category>
         
         <category>Javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>The Magic of Stencil Test</title>
+        <description>&lt;p&gt;&lt;strong&gt;Stencil Test&lt;/strong&gt; is the test between &lt;strong&gt;Alpha Test&lt;/strong&gt; and &lt;strong&gt;Depth Test&lt;/strong&gt; in the Rendering Pipeline. The purpose is to set up the size of &lt;strong&gt;reference value&lt;/strong&gt; and the stencil buffer’s value based on the condition. If the condition is not satisifed, then discard this fragment/pixel.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pseudocode：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;referenceValue&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readMask&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comparisonFunction&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stencilBuffValue&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readMask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pass&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;discar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;stencil-test-syntax-in-unity-shaderlab&quot;&gt;Stencil Test Syntax in Unity Shaderlab&lt;/h4&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;stencil&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;referenceValue&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;ReadMask&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;readMaskValue&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;WriteMask&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;writeMaskValue&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comparisonFunction&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stencilOperation&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Fail&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stencilOperation&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;ZFail&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stencilOperation&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Ref&lt;/strong&gt;: Ref is used to set the &lt;em&gt;reference value(Range between 0~255)&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ReadMask&lt;/strong&gt;: ReadMask’s readMaskValue performs bitwise and(&amp;amp;) operations with the &lt;strong&gt;referenceValue&lt;/strong&gt; and &lt;strong&gt;stencilBufferValue&lt;/strong&gt;. readMaskValue is also an integer between 0~255, (By Default the value is 255, the binary bit is 11111111, which means, it will not effect the &lt;strong&gt;:refernceValue and stencilBufferValue&lt;/strong&gt;)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;WriteMask&lt;/strong&gt;: same as &lt;strong&gt;ReadMask&lt;/strong&gt;, but the writeMaskValue &lt;strong&gt;only&lt;/strong&gt; performs bitwise and(&amp;amp;) operations with &lt;strong&gt;stencilBufferValue&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Comp&lt;/strong&gt;: the comparisonFunction is the condition, the keywords includes:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Greater&lt;/strong&gt;: Only display pixels with reference values &amp;gt; buffer values.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;GEqual&lt;/strong&gt;: Only display pixels with reference values &amp;gt;= buffer values.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Less&lt;/strong&gt;: Only display pixels with reference values &amp;lt; buffer values.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;LEqual&lt;/strong&gt;: Only display pixels with reference values &amp;lt;= buffer values.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Equal&lt;/strong&gt;: Only display pixels with reference values = buffer values.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;NotEqual&lt;/strong&gt;: Only display pixels with reference values != buffer values.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Always&lt;/strong&gt;: Always display pixels.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Never&lt;/strong&gt;: Never display pixels.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pass&lt;/strong&gt;: Processing stencil operation after &lt;strong&gt;pass&lt;/strong&gt; the condition. (&lt;strong&gt;default&lt;/strong&gt;: Keep)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fail&lt;/strong&gt;: Processing stencil operation after &lt;strong&gt;fail&lt;/strong&gt; the condition. (&lt;strong&gt;default&lt;/strong&gt;: Keep)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ZFail&lt;/strong&gt;: Processing stencil operation after &lt;strong&gt;fail the ztest(depth test)&lt;/strong&gt; the condition.(&lt;strong&gt;default&lt;/strong&gt;: Keep)
+    &lt;ul&gt;
+      &lt;li&gt;stencilOperation’s &lt;strong&gt;type&lt;/strong&gt; and &lt;strong&gt;definition&lt;/strong&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;&lt;strong&gt;Keep&lt;/strong&gt;: keep the current buffer’s content, which means stencilBufferValue will not change.&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;Zero&lt;/strong&gt;: stencilBufferValue = 0&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;Replace&lt;/strong&gt;: stencilBufferValue = referenceValue&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;IncrSat&lt;/strong&gt;: stencilBufferValue += 1, min(stencilBufferValue,255)&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;DecrSat&lt;/strong&gt;: stencilBufferValue -= 1, max(stencilBufferValue,0)&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;Invert&lt;/strong&gt;: stencilBufferValue = ~stencilBufferValue&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;IncrWrap&lt;/strong&gt;: stencilBufferValue += 1, if stencilBufferValue&amp;gt;255, stencilBuffer=0&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;DecrWrap&lt;/strong&gt;: stencilBufferValue -= 1, if stencilBufferValue&amp;lt;0, stencilBuffer=255&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;With all that said, the main points are as follows:&lt;/strong&gt;&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;stencilBufferValue&lt;/strong&gt; and &lt;strong&gt;referenceValue&lt;/strong&gt; are the two most important value in stencil test.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Stencil Test&lt;/strong&gt; is all about the comparison between &lt;strong&gt;stencilBufferValue&lt;/strong&gt; and &lt;strong&gt;referenceValue&lt;/strong&gt;. Never, Always, Less, LEqual, Greater, Equal, NotEqual, Always, and Never.&lt;/li&gt;
+    &lt;li&gt;After Stencil Test, processing stencil operation to the stencilBufferValue, includes Keep, Zero, Replace, IncrSat, DecrSat, Invert, IncrWrap, and DecrWrap.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;an-simple-example-to-achieve-magic-gate-by-using-stencil-shader&quot;&gt;&lt;strong&gt;An Simple Example to Achieve Magic Gate by Using Stencil Shader&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;This example needs &lt;strong&gt;two shader&lt;/strong&gt;, one is a mask for the window(the frame is normal shader with out stencil), and another mask is for the character:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/stencilmask1.gif&quot; width=&quot;40%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;In the window mask shader, the core is:&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;ColorMask&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Off&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Always&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Replace&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this code, &lt;strong&gt;ColorMask 0&lt;/strong&gt; is used for masking the output of the color, which means don’t output any color onto screen. &lt;strong&gt;ZWrite Off&lt;/strong&gt; is to make sure the character’s pixels will not be discarded during the Depth Test (Ztest). Set &lt;strong&gt;Ref&lt;/strong&gt; as 1, and &lt;strong&gt;Comp Always&lt;/strong&gt; to make sure the stencil test always pass, &lt;strong&gt;Pass Replace&lt;/strong&gt; will update the stencilBufferValue to referenceValue, which is 1. The main function of this shader code is to update the stencil buffer value to 1 without output any color.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;In the character mask shader, the core is:&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;ColorMask&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Off&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Equal&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this code, &lt;strong&gt;Ref 1&lt;/strong&gt; is to set referenceValue as 1, then &lt;strong&gt;Comp Equal&lt;/strong&gt;, which means if referenceValue=stencilBufferValue, then stencil test pass, otherwise discard. In the scene the area that stencilBufferValue = 1 is the window mask area, so only this area can pass the stencil test, which means only within the windows, character will be shown onto the screen.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Full Code for Window Mask Shader&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Shader&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyShader/WindowMask&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mask ID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// The Rendering queue need to make sure the window mask is smaller than character mask&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;RenderType&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Opaque&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Geometry-1&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;ColorMask&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;off&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Always&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Replace&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;CGINCLUDE&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+			&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UnityObjectToClipPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;half4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;half4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Full Code for Character Mask Shader&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Shader&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyShader/CharacterMask&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nf&quot;&gt;_MainTex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Base (RGB)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;white&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Geometry&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;RenderType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Opaque&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Equal&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+
+        &lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+            &lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
+            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;sampler2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex_ST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata_t&lt;/span&gt; 
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt; 
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;half2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNITY_MATRIX_MVP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TRANSFORM_TEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tex2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;UNITY_OPAQUE_ALPHA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sun, 15 Jul 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/cg/unity/2018/07/15/The-Magic-of-Stencil-Test.html</link>
+        <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/07/15/The-Magic-of-Stencil-Test.html</guid>
+        
+        <category>Unity</category>
+        
+        <category>Shader</category>
+        
+        <category>Math</category>
+        
+        <category>CG</category>
+        
+        
+        <category>Cg</category>
+        
+        <category>Unity</category>
         
       </item>
     
