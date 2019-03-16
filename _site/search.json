@@ -3,8 +3,16 @@
     "data" : [
      
     {
-        "title" : "Clustering - Unsupervised Learning(ML) - 2019-02-15",
-        "url" : "/python/ai/2019/02/15/Clustering-UnsupervisedLearning.html"
+        "title" : "Dimensionality Reduction - Unsupervised Learning(ML) - 2019-03-01",
+        "url" : "/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "Clustering - Unsupervised Learning(ML) - 2019-02-20",
+        "url" : "/python/ai/2019/02/20/Clustering-UnsupervisedLearning.html"
     }
     
     ,

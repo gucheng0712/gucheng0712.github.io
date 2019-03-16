@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://localhost:4000/python/ai/2019/02/15/Clustering-UnsupervisedLearning.html</loc>
+        <loc>http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning.html</loc>
+    </url>
+
+    <url>
+        <loc>http://localhost:4000/python/ai/2019/02/20/Clustering-UnsupervisedLearning.html</loc>
     </url>
 
     <url>
