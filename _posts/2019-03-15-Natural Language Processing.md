@@ -14,21 +14,14 @@ It is widely used in information retrieval, sentiment analysis, information extr
 
 >**Operations of NLP include**:
 
-1. `Tokenization`
-2. `Stopword removal`
-3. `Stemming and Lemmatization`
-4. `Part-of-speech tagging`
-5. `Named entity recognition`
-
-
-<p align="center"> <img src="/static/assets/img/blog/nlp.jpg" width="70%"></p>
+<p align="center"> <img src="/static/assets/img/blog/nlpflow.jpg" width="50%"></p>
 
 ---
 ## **Tokenization**
 
 `Tokenization` is a process of understanding a sentence or a phrase by `splitting` them into substrings, words and punctuation.
 
-<p align="center"> <img src="/static/assets/img/blog/token.jpg" width="40%"></p>
+<p align="center"> <img src="/static/assets/img/blog/token.jpg" width="50%"></p>
 
 > **Code Example:**
 
@@ -40,17 +33,13 @@ string = "The science of today is the technology of tomorrow."
 # Split the sentence into words
 tokenized_words = word_tokenize(string)
 print("Word Tokenization: ", tokenized_words)
-
-# Back to the scentence from words
-print("Sentence Tokenization: ",sent_tokenize(string))
 ```
 
 > **Output**:
 
 ```
-Word Tokenization: ['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', 'tomorrow', '.']
+['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', 'tomorrow', '.']
 
-Sentence Tokenization: ['The science of today is the technology of tomorrow.']
 ```
 
 ---
@@ -58,7 +47,7 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
 
 `Stopword Removal` involves `filtering out` words which do not contain significant information. Mostly these are words that are often used as connective tissue such as `as, the, be, are` etc.
 
-<p align="center"> <img src="/static/assets/img/blog/swr.jpg" width="40%"></p>
+<p align="center"> <img src="/static/assets/img/blog/swr.jpg" width="50%"></p>
 
 > **Code Example:**
 
@@ -80,7 +69,7 @@ print('Nonstop Words: ', nonstop_words)
 > **Output**:
 
 ```
-Nonstop Words:  ['The', 'science', 'today', 'technology', 'tomorrow', '.']
+['The', 'science', 'today', 'technology', 'tomorrow', '.']
 ```
 
 
@@ -89,7 +78,7 @@ Nonstop Words:  ['The', 'science', 'today', 'technology', 'tomorrow', '.']
 
 `Stemming` reduces `inflection` in words to their root forms by `removing` the `suffixes or prefixes` used with a word. As a result, stemming a word or sentence may `result` in words that are `not actual words`.
 
-<p align="center"> <img src="/static/assets/img/blog/stemming.jpg" width="40%"></p>
+<p align="center"> <img src="/static/assets/img/blog/stemming.jpg" width="50%"></p>
 
 > **Code Example:**
 
@@ -111,7 +100,7 @@ porter = PorterStemmer()
 > **Output**:
 
 ```
-Words after Stemming:  ['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog', 'of', 'tomorrow', '.']
+['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog', 'of', 'tomorrow', '.']
 ```
 
 ---
@@ -119,7 +108,7 @@ Words after Stemming:  ['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog'
 
 `Lemmatization`, unlike Stemming, reduces the inflected words properly ensuring that the `root` word `belongs` to the language. For example, runs, running, ran are all forms of the word run, therefore run is the lemma (or dictionary form) of all these words.
 
-<p align="center"> <img src="/static/assets/img/blog/lemmatization.jpg" width="40%"></p>
+<p align="center"> <img src="/static/assets/img/blog/lemmatization.jpg" width="50%"></p>
 
 > **Code Example:**
 
@@ -141,8 +130,99 @@ lemmatizer = WordNetLemmatizer()
 > **Output**:
 
 ```
-Words after Lemmatization:  ['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', omorrow', '.']
+['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', omorrow', '.']
 ```
+
+---
+## **Part-of-Speech Tagging**(POS-tagging)
+
+`Chunking` is a set of techniques for `entity detection` used in text processing, which segments and `labels multi-token sequences`. For example, `noun` phrase chunking (NP-chunking) searches for chunks corresponding to individual `noun` phrases. The process of `classifying words` into their parts of speech and labeling them accordingly is known as `part-of-speech tagging (POS-tagging)`. 
+
+<p align="center"> <img src="/static/assets/img/blog/postagging.jpg" width="50%"></p>
+
+> **Code Example:**
+
+```python
+from nltk import pos_tag
+from nltk import word_tokenize
+
+string = "The science of today is the technology of tomorrow."
+
+# Apply speech tagging
+text_tagged = pos_tag(word_tokenize(string))
+
+print(text_tagged)
+
+```
+
+> **Output**:
+
+```
+[('The', 'DT'), ('science', 'NN'), ('of', 'IN'), ('today', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('technology', 'NN'), ('of', 'IN'), ('tomorrow', 'NN'), ('.', '.')]
+```
+
+---
+## ** Information Retrieval
+
+`The Information Retrieval` is  to extract relevant information from the source.
+
+One of the main goals of text analysis is to convert `text` into `numeric` form so that we can use machine learning on it.
+
+## **Bag of Words**
+
+One of primary methods of developing simple language models, is known as the `“Bag of Words” (BOW)` model, which `extracts a vocabulary` from `all the words` in the documents and builds a model using a `document term matrix`.
+<p align="center"> <img src="/static/assets/img/blog/bow.jpg" width="50%"></p>
+
+Using `BOW` approach, every document from a `corpus of texts` is represented as a `vector` whose length is equal to the vocabulary of the corpus. The computation is `simplified` by sorting token positions of the vector into `alphabetical` order.
+
+<p align="center"> <img src="/static/assets/img/blog/alphabeticalorder.jpg" width="50%"></p>
+
+
+## **Vector Encoding Methods**
+
+`The simplest vector encoding model` is to simply fill in the vector with the `frequency` of each word as it appears in the document.
+
+<p align="center"> <img src="/static/assets/img/blog/svem.jpg" width="50%"></p>
+
+`One-hot encoding` is another vector encoding method that marksa particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is `effective for very small documents (sentences, tweets)` that `don’t` contain very many repeated elements.
+
+<p align="center"> <img src="/static/assets/img/blog/ohe.jpg" width="50%"></p>
+
+`Term Frequency-Inverse Document Frequency (TF–IDF) encoding` normalizes the `frequency` of tokens in a document with respect to the rest of the corpus. This encoding approach `emphasis terms that have higher relevance to a document`.
+
+## Word Embeddings
+
+`Word Embeddings` represent words in the form of vectors such that `similar` words are `close to each other` while `antonyms` end up `far` apart in the vector space.
+
+<p align="center"> <img src="/static/assets/img/blog/we.jpg" width="50%"></p>
+
+`Word2vec` by Google is one of several existing models for `constructing word-embedding representations`, trained to `predict` a target word from the `context of neighboring words`. This method is referred to as `Continuous Bag Of Words (CBOW)`. 
+
+Going in the other direction, given a set of sentences (corpus) Word2vec analyses the words of each sentence and uses the current word to predict its neighbors, a method called `Skip-Gram`.
+
+<p align="center"> <img src="/static/assets/img/blog/cbow-vs-skipgram.jpg" width="70%"></p>
+
+> **Code Example:**
+
+```python
+from gensim.models import Word2Vec
+sentences = [[ 'data', 'science'],
+ ['science', 'data', 'analytics'],
+ ['machine', 'learning'],
+ ['Woodbury', 'computer', 'science'],
+ ['deep', 'learning']]
+# train the model on your corpus
+model = Word2Vec(sentences, min_count = 1)
+print(model.wv.similarity( 'data', 'science'))
+```
+
+> **Output**:
+
+```
+-0.09619948
+```
+
+
 
 ---
 

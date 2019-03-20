@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Mar 2019 00:13:24 -0700</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 00:13:24 -0700</lastBuildDate>
+    <pubDate>Wed, 20 Mar 2019 02:52:26 -0700</pubDate>
+    <lastBuildDate>Wed, 20 Mar 2019 02:52:26 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -21,22 +21,14 @@
   &lt;p&gt;&lt;strong&gt;Operations of NLP include&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tokenization&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stopword removal&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stemming and Lemmatization&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Part-of-speech tagging&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Named entity recognition&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/nlp.jpg&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/nlpflow.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;tokenization&quot;&gt;&lt;strong&gt;Tokenization&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tokenization&lt;/code&gt; is a process of understanding a sentence or a phrase by &lt;code class=&quot;highlighter-rouge&quot;&gt;splitting&lt;/code&gt; them into substrings, words and punctuation.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/token.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/token.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
@@ -49,18 +41,14 @@
 &lt;span class=&quot;c&quot;&gt;# Split the sentence into words&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Word Tokenization: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Back to the scentence from words&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Sentence Tokenization: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sent_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Word Tokenization: ['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', 'tomorrow', '.']
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', 'tomorrow', '.']
 
-Sentence Tokenization: ['The science of today is the technology of tomorrow.']
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
@@ -68,7 +56,7 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stopword Removal&lt;/code&gt; involves &lt;code class=&quot;highlighter-rouge&quot;&gt;filtering out&lt;/code&gt; words which do not contain significant information. Mostly these are words that are often used as connective tissue such as &lt;code class=&quot;highlighter-rouge&quot;&gt;as, the, be, are&lt;/code&gt; etc.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/swr.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/swr.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
@@ -92,7 +80,7 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
   &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nonstop Words:  ['The', 'science', 'today', 'technology', 'tomorrow', '.']
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['The', 'science', 'today', 'technology', 'tomorrow', '.']
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
@@ -100,7 +88,7 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stemming&lt;/code&gt; reduces &lt;code class=&quot;highlighter-rouge&quot;&gt;inflection&lt;/code&gt; in words to their root forms by &lt;code class=&quot;highlighter-rouge&quot;&gt;removing&lt;/code&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;suffixes or prefixes&lt;/code&gt; used with a word. As a result, stemming a word or sentence may &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; in words that are &lt;code class=&quot;highlighter-rouge&quot;&gt;not actual words&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/stemming.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/stemming.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
@@ -124,7 +112,7 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
   &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Words after Stemming:  ['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog', 'of', 'tomorrow', '.']
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog', 'of', 'tomorrow', '.']
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
@@ -132,7 +120,7 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lemmatization&lt;/code&gt;, unlike Stemming, reduces the inflected words properly ensuring that the &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; word &lt;code class=&quot;highlighter-rouge&quot;&gt;belongs&lt;/code&gt; to the language. For example, runs, running, ran are all forms of the word run, therefore run is the lemma (or dictionary form) of all these words.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/lemmatization.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/lemmatization.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
@@ -156,7 +144,99 @@ Sentence Tokenization: ['The science of today is the technology of tomorrow.']
   &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Words after Lemmatization:  ['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', omorrow', '.']
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', omorrow', '.']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;part-of-speech-taggingpos-tagging&quot;&gt;&lt;strong&gt;Part-of-Speech Tagging&lt;/strong&gt;(POS-tagging)&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Chunking&lt;/code&gt; is a set of techniques for &lt;code class=&quot;highlighter-rouge&quot;&gt;entity detection&lt;/code&gt; used in text processing, which segments and &lt;code class=&quot;highlighter-rouge&quot;&gt;labels multi-token sequences&lt;/code&gt;. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;noun&lt;/code&gt; phrase chunking (NP-chunking) searches for chunks corresponding to individual &lt;code class=&quot;highlighter-rouge&quot;&gt;noun&lt;/code&gt; phrases. The process of &lt;code class=&quot;highlighter-rouge&quot;&gt;classifying words&lt;/code&gt; into their parts of speech and labeling them accordingly is known as &lt;code class=&quot;highlighter-rouge&quot;&gt;part-of-speech tagging (POS-tagging)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/postagging.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos_tag&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Apply speech tagging&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;text_tagged&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text_tagged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[('The', 'DT'), ('science', 'NN'), ('of', 'IN'), ('today', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('technology', 'NN'), ('of', 'IN'), ('tomorrow', 'NN'), ('.', '.')]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;-information-retrieval&quot;&gt;** Information Retrieval&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The Information Retrieval&lt;/code&gt; is  to extract relevant information from the source.&lt;/p&gt;
+
+&lt;p&gt;One of the main goals of text analysis is to convert &lt;code class=&quot;highlighter-rouge&quot;&gt;text&lt;/code&gt; into &lt;code class=&quot;highlighter-rouge&quot;&gt;numeric&lt;/code&gt; form so that we can use machine learning on it.&lt;/p&gt;
+
+&lt;h2 id=&quot;bag-of-words&quot;&gt;&lt;strong&gt;Bag of Words&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;One of primary methods of developing simple language models, is known as the &lt;code class=&quot;highlighter-rouge&quot;&gt;“Bag of Words” (BOW)&lt;/code&gt; model, which &lt;code class=&quot;highlighter-rouge&quot;&gt;extracts a vocabulary&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;all the words&lt;/code&gt; in the documents and builds a model using a &lt;code class=&quot;highlighter-rouge&quot;&gt;document term matrix&lt;/code&gt;.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/bow.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;BOW&lt;/code&gt; approach, every document from a &lt;code class=&quot;highlighter-rouge&quot;&gt;corpus of texts&lt;/code&gt; is represented as a &lt;code class=&quot;highlighter-rouge&quot;&gt;vector&lt;/code&gt; whose length is equal to the vocabulary of the corpus. The computation is &lt;code class=&quot;highlighter-rouge&quot;&gt;simplified&lt;/code&gt; by sorting token positions of the vector into &lt;code class=&quot;highlighter-rouge&quot;&gt;alphabetical&lt;/code&gt; order.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/alphabeticalorder.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;vector-encoding-methods&quot;&gt;&lt;strong&gt;Vector Encoding Methods&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The simplest vector encoding model&lt;/code&gt; is to simply fill in the vector with the &lt;code class=&quot;highlighter-rouge&quot;&gt;frequency&lt;/code&gt; of each word as it appears in the document.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/svem.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;One-hot encoding&lt;/code&gt; is another vector encoding method that marksa particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is &lt;code class=&quot;highlighter-rouge&quot;&gt;effective for very small documents (sentences, tweets)&lt;/code&gt; that &lt;code class=&quot;highlighter-rouge&quot;&gt;don’t&lt;/code&gt; contain very many repeated elements.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ohe.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Term Frequency-Inverse Document Frequency (TF–IDF) encoding&lt;/code&gt; normalizes the &lt;code class=&quot;highlighter-rouge&quot;&gt;frequency&lt;/code&gt; of tokens in a document with respect to the rest of the corpus. This encoding approach &lt;code class=&quot;highlighter-rouge&quot;&gt;emphasis terms that have higher relevance to a document&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;word-embeddings&quot;&gt;Word Embeddings&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Word Embeddings&lt;/code&gt; represent words in the form of vectors such that &lt;code class=&quot;highlighter-rouge&quot;&gt;similar&lt;/code&gt; words are &lt;code class=&quot;highlighter-rouge&quot;&gt;close to each other&lt;/code&gt; while &lt;code class=&quot;highlighter-rouge&quot;&gt;antonyms&lt;/code&gt; end up &lt;code class=&quot;highlighter-rouge&quot;&gt;far&lt;/code&gt; apart in the vector space.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/we.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Word2vec&lt;/code&gt; by Google is one of several existing models for &lt;code class=&quot;highlighter-rouge&quot;&gt;constructing word-embedding representations&lt;/code&gt;, trained to &lt;code class=&quot;highlighter-rouge&quot;&gt;predict&lt;/code&gt; a target word from the &lt;code class=&quot;highlighter-rouge&quot;&gt;context of neighboring words&lt;/code&gt;. This method is referred to as &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Bag Of Words (CBOW)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Going in the other direction, given a set of sentences (corpus) Word2vec analyses the words of each sentence and uses the current word to predict its neighbors, a method called &lt;code class=&quot;highlighter-rouge&quot;&gt;Skip-Gram&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/cbow-vs-skipgram.jpg&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gensim.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Word2Vec&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sentences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'analytics'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'machine'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'learning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Woodbury'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'computer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'deep'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'learning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# train the model on your corpus&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Word2Vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;similarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-0.09619948
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
