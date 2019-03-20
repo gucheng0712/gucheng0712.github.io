@@ -10,7 +10,7 @@ icon: fa-code
 
 An **artificial neuron** is a mathematical function conceived as a model of biological neurons in our brains. Artificial neurons are elementary units in an artificial neural network (ANN). The artificial neuron receives one or more **inputs** and **sums** them to produce an **output**. Usually each input is separately **weighted**, and the sum is passed through a function known as an **activation function**.
 
-<p align="center"> <img src="/static/assets/img/blog/ann.PNG" width="40%"></p>
+<p align="center"> <img src="/static/assets/img/blog/ann.jpg" width="40%"></p>
 
 ---
 ## **Activation Functions**
@@ -21,7 +21,7 @@ An alternative to the sigmoid is the **hyperbolic tangent (Tan-h)** function. Li
 
 Most recent artificial neural networks use **rectified linear units (ReLU)** for the hidden layers. ReLU has output 0 if the input is less than 0, and raw output otherwise. That is, if the input is greater than 0, the output is equal to the input.**(output = max(0, input))**
 
-<p align="center"> <img src="/static/assets/img/blog/activatefunction.PNG" width="80%"></p>
+<p align="center"> <img src="/static/assets/img/blog/activatefunction.jpg" width="80%"></p>
 
 ## The XOR Problem
 
@@ -41,7 +41,7 @@ Therefore, duringing that time(1969- 1986), it was "AI Winter" until the MultiLa
 
 **Artificial Neural Networks(ANNs)** are collections of connected nodes made up of **artificial neurons(perceptron)**, providing a framework for different machine learning algorithms to work together and process complex data inputs. Such systems "learn" to perform tasks by considering examples, generally without being programmed with any task-specific rules.
 
-<p align="center"> <img src="/static/assets/img/blog/ArtificialNeuralNetwork.PNG" width="70%"></p>
+<p align="center"> <img src="/static/assets/img/blog/ArtificialNeuralNetwork.jpg" width="70%"></p>
 
 The biggest significance of this architecture is capable of achieving non-linear separation(shown as below):
 
@@ -64,7 +64,7 @@ The simplest type of ANN is considered a **Feedforward Neural Network**, such as
 
 **Recurrent Neural Networks (RNNs)** are structured in such a way as to take as their input not just the current input example they see, but also what they have perceived previously in time. Recurrent networks are distinguished from feedforward networks by that **feedback loop** connected to their past decisions. It is often said that recurrent networks have **memory**.
 
-<p align="center"> <img src="/static/assets/img/blog/fowardvsbackward.PNG" width="50%"></p>
+<p align="center"> <img src="/static/assets/img/blog/fowardvsbackward.jpg" width="50%"></p>
 
 # **Recurrent Neural Networks(RNN) vs. Long Short-Term Memory(LSTM)**
 
@@ -72,7 +72,7 @@ By the early 1990s, the **Vanishing Gradient Problem** emerged as a major **obst
 
 In the mid-90s, a variation of RNN called **Long Short-Term Memory (LSTM)**, was proposed as a **solution** to the **vanishing gradient problem**. LSTMs help preserve the error that can be backpropagated through time and layers, allowing RNNs to continue to learn **over** many time 
 steps (over 1000).
-<p align="center"> <img src="/static/assets/img/blog/rnn-vs-lstm.PNG" width="50%"></p>
+<p align="center"> <img src="/static/assets/img/blog/rnn-vs-lstm.jpg" width="50%"></p>
 
 ---
 

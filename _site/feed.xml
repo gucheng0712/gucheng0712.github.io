@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Mar 2019 23:02:35 -0700</pubDate>
-    <lastBuildDate>Tue, 19 Mar 2019 23:02:35 -0700</lastBuildDate>
+    <pubDate>Tue, 19 Mar 2019 23:04:05 -0700</pubDate>
+    <lastBuildDate>Tue, 19 Mar 2019 23:04:05 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -15,7 +15,7 @@
 
 &lt;p&gt;An &lt;strong&gt;artificial neuron&lt;/strong&gt; is a mathematical function conceived as a model of biological neurons in our brains. Artificial neurons are elementary units in an artificial neural network (ANN). The artificial neuron receives one or more &lt;strong&gt;inputs&lt;/strong&gt; and &lt;strong&gt;sums&lt;/strong&gt; them to produce an &lt;strong&gt;output&lt;/strong&gt;. Usually each input is separately &lt;strong&gt;weighted&lt;/strong&gt;, and the sum is passed through a function known as an &lt;strong&gt;activation function&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ann.PNG&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ann.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;activation-functions&quot;&gt;&lt;strong&gt;Activation Functions&lt;/strong&gt;&lt;/h2&gt;
@@ -26,7 +26,7 @@
 
 &lt;p&gt;Most recent artificial neural networks use &lt;strong&gt;rectified linear units (ReLU)&lt;/strong&gt; for the hidden layers. ReLU has output 0 if the input is less than 0, and raw output otherwise. That is, if the input is greater than 0, the output is equal to the input.&lt;strong&gt;(output = max(0, input))&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/activatefunction.PNG&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/activatefunction.jpg&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;the-xor-problem&quot;&gt;The XOR Problem&lt;/h2&gt;
 
@@ -45,7 +45,7 @@
 
 &lt;p&gt;&lt;strong&gt;Artificial Neural Networks(ANNs)&lt;/strong&gt; are collections of connected nodes made up of &lt;strong&gt;artificial neurons(perceptron)&lt;/strong&gt;, providing a framework for different machine learning algorithms to work together and process complex data inputs. Such systems “learn” to perform tasks by considering examples, generally without being programmed with any task-specific rules.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ArtificialNeuralNetwork.PNG&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ArtificialNeuralNetwork.jpg&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The biggest significance of this architecture is capable of achieving non-linear separation(shown as below):&lt;/p&gt;
 
