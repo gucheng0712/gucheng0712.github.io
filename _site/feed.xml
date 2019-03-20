@@ -5,9 +5,100 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 17 Mar 2019 17:26:21 -0700</pubDate>
-    <lastBuildDate>Sun, 17 Mar 2019 17:26:21 -0700</lastBuildDate>
+    <pubDate>Tue, 19 Mar 2019 22:35:13 -0700</pubDate>
+    <lastBuildDate>Tue, 19 Mar 2019 22:35:13 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Artificial Neural Network(ML)</title>
+        <description>&lt;h1 id=&quot;what-is-artificial-neuron&quot;&gt;&lt;strong&gt;What is Artificial Neuron?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;An &lt;strong&gt;artificial neuron&lt;/strong&gt; is a mathematical function conceived as a model of biological neurons in our brains. Artificial neurons are elementary units in an artificial neural network (ANN). The artificial neuron receives one or more &lt;strong&gt;inputs&lt;/strong&gt; and &lt;strong&gt;sums&lt;/strong&gt; them to produce an &lt;strong&gt;output&lt;/strong&gt;. Usually each input is separately &lt;strong&gt;weighted&lt;/strong&gt;, and the sum is passed through a function known as an &lt;strong&gt;activation function&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ann.png&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;activation-functions&quot;&gt;&lt;strong&gt;Activation Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;A &lt;strong&gt;sigmoid&lt;/strong&gt; function is a mathematical function having acharacteristic “S” -shaped curve or sigmoid curve and  generates outputs &lt;strong&gt;between 0 and 1&lt;/strong&gt;. The sigmoid activation function is widely used in &lt;strong&gt;binary classification&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;An alternative to the sigmoid is the &lt;strong&gt;hyperbolic tangent (Tan-h)&lt;/strong&gt; function. Like the sigmoid, the tan-h function is also sigmoidal (“S”-shaped), but instead outputs values that range &lt;strong&gt;-1 to 1&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Most recent artificial neural networks use &lt;strong&gt;rectified linear units (ReLU)&lt;/strong&gt; for the hidden layers. ReLU has output 0 if the input is less than 0, and raw output otherwise. That is, if the input is greater than 0, the output is equal to the input.&lt;strong&gt;(output = max(0, input))&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/activatefunction.png&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-xor-problem&quot;&gt;The XOR Problem&lt;/h2&gt;
+
+&lt;p&gt;An XOR function should return true if two inputs are not equal ,else return false(Shown as below image):&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/xor.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The XOR problem is a classic problem in ANN Research. It is the problem that there are no ways to  using perceptron to predict the &lt;strong&gt;right&lt;/strong&gt; outputs of XOR logic gate given two binary inputs, because XOR inputs are not linearly separable, and perceptron only works for linear separation.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/xorp.gif&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Therefore, duringing that time(1969- 1986), it was “AI Winter” until the MultiLayer Artificial Neural Networks appear(1986).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;what-is-artificial-neural-networks&quot;&gt;&lt;strong&gt;What is Artificial Neural Networks?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Artificial Neural Networks(ANNs)&lt;/strong&gt; are collections of connected nodes made up of &lt;strong&gt;artificial neurons(perceptron)&lt;/strong&gt;, providing a framework for different machine learning algorithms to work together and process complex data inputs. Such systems “learn” to perform tasks by considering examples, generally without being programmed with any task-specific rules.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/anns.png&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The biggest significance of this architecture is capable of achieving non-linear separation(shown as below):&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/annc.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;forward-propagation-vs-back-propagation&quot;&gt;&lt;strong&gt;Forward Propagation vs. Back Propagation&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Forward propagation&lt;/strong&gt; is process of feeding the Neural Network with a set of inputs and comparing the numerical value of the output to the expected output in order to compute the error function.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Back propagation&lt;/strong&gt; is a method used in ANNs to calculate the weights to be used in the network. It is the backward propagation of errors through the network layers, since an error function is
+computed at the output. This technique is commonly used to train deep neural networks.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/fbp.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;feedforward-networks-vs-recurrent-neural-networks&quot;&gt;&lt;strong&gt;Feedforward Networks vs. Recurrent Neural Networks&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;The simplest type of ANN is considered a &lt;strong&gt;Feedforward Neural Network&lt;/strong&gt;, such as perceptron. This means that the information moves only in &lt;strong&gt;forward direction&lt;/strong&gt; from the input nodes, through the hidden nodes to the outputs. A feedforward network has no notion of order in time, and the &lt;strong&gt;only&lt;/strong&gt; input it considers is the current example it has been exposed to.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recurrent Neural Networks (RNNs)&lt;/strong&gt; are structured in such a way as to take as their input not just the current input example they see, but also what they have perceived previously in time. Recurrent networks are distinguished from feedforward networks by that &lt;strong&gt;feedback loop&lt;/strong&gt; connected to their past decisions. It is often said that recurrent networks have &lt;strong&gt;memory&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ffvsrnn.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;recurrent-neural-networksrnn-vs-long-short-term-memorylstm&quot;&gt;&lt;strong&gt;Recurrent Neural Networks(RNN) vs. Long Short-Term Memory(LSTM)&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;By the early 1990s, the &lt;strong&gt;Vanishing Gradient Problem&lt;/strong&gt; emerged as a major &lt;strong&gt;obstacle&lt;/strong&gt; to &lt;strong&gt;RNN&lt;/strong&gt; performance. Because the information flowing through neural networks passes through many stages of multiplication, the outputs are susceptible to &lt;strong&gt;“Vanishing”&lt;/strong&gt; (gradually decreasing) or &lt;strong&gt;“Exploding”&lt;/strong&gt; (exponentially increasing).&lt;/p&gt;
+
+&lt;p&gt;In the mid-90s, a variation of RNN called &lt;strong&gt;Long Short-Term Memory (LSTM)&lt;/strong&gt;, was proposed as a &lt;strong&gt;solution&lt;/strong&gt; to the &lt;strong&gt;vanishing gradient problem&lt;/strong&gt;. LSTMs help preserve the error that can be backpropagated through time and layers, allowing RNNs to continue to learn &lt;strong&gt;over&lt;/strong&gt; many time 
+steps (over 1000).&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/rnnvslstm.png&quot; width=&quot;60%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Fri, 01 Mar 2019 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/python/ai/2019/03/01/Artificial-Neural-Network.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/01/Artificial-Neural-Network.html</guid>
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+      </item>
     
       <item>
         <title>Dimensionality Reduction - Unsupervised Learning(ML)</title>
@@ -103,8 +194,8 @@
 
 </description>
         <pubDate>Fri, 01 Mar 2019 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning.html</guid>
+        <link>http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning-Copy.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning-Copy.html</guid>
         
         <category>Python</category>
         
