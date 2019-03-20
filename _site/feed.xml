@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Mar 2019 23:04:05 -0700</pubDate>
-    <lastBuildDate>Tue, 19 Mar 2019 23:04:05 -0700</lastBuildDate>
+    <pubDate>Tue, 19 Mar 2019 23:04:10 -0700</pubDate>
+    <lastBuildDate>Tue, 19 Mar 2019 23:04:10 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -67,7 +67,7 @@ computed at the output. This technique is commonly used to train deep neural net
 
 &lt;p&gt;&lt;strong&gt;Recurrent Neural Networks (RNNs)&lt;/strong&gt; are structured in such a way as to take as their input not just the current input example they see, but also what they have perceived previously in time. Recurrent networks are distinguished from feedforward networks by that &lt;strong&gt;feedback loop&lt;/strong&gt; connected to their past decisions. It is often said that recurrent networks have &lt;strong&gt;memory&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/fowardvsbackward.PNG&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/fowardvsbackward.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;recurrent-neural-networksrnn-vs-long-short-term-memorylstm&quot;&gt;&lt;strong&gt;Recurrent Neural Networks(RNN) vs. Long Short-Term Memory(LSTM)&lt;/strong&gt;&lt;/h1&gt;
 
@@ -75,7 +75,7 @@ computed at the output. This technique is commonly used to train deep neural net
 
 &lt;p&gt;In the mid-90s, a variation of RNN called &lt;strong&gt;Long Short-Term Memory (LSTM)&lt;/strong&gt;, was proposed as a &lt;strong&gt;solution&lt;/strong&gt; to the &lt;strong&gt;vanishing gradient problem&lt;/strong&gt;. LSTMs help preserve the error that can be backpropagated through time and layers, allowing RNNs to continue to learn &lt;strong&gt;over&lt;/strong&gt; many time 
 steps (over 1000).&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/rnn-vs-lstm.PNG&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/rnn-vs-lstm.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
