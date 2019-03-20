@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Mar 2019 02:52:26 -0700</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 02:52:26 -0700</lastBuildDate>
+    <pubDate>Wed, 20 Mar 2019 02:57:10 -0700</pubDate>
+    <lastBuildDate>Wed, 20 Mar 2019 02:57:10 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -313,7 +313,7 @@ computed at the output. This technique is commonly used to train deep neural net
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/fbp.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;feedforward-networks-vs-recurrent-neural-networks&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Feedforward Networks vs. Recurrent Neural Networks&lt;/code&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;feedforward-networks-vs-recurrent-neural-networks&quot;&gt;&lt;strong&gt;Feedforward Networks vs. Recurrent Neural Networks&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;The simplest type of ANN is considered a &lt;code class=&quot;highlighter-rouge&quot;&gt;Feedforward Neural Network&lt;/code&gt;, such as perceptron. This means that the information moves only in &lt;code class=&quot;highlighter-rouge&quot;&gt;forward direction&lt;/code&gt; from the input nodes, through the hidden nodes to the outputs. A feedforward network has no notion of order in time, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;only&lt;/code&gt; input it considers is the current example it has been exposed to.&lt;/p&gt;
 

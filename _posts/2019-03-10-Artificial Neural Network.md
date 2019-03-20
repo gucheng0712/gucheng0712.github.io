@@ -58,7 +58,7 @@ computed at the output. This technique is commonly used to train deep neural net
 
 <p align="center"> <img src="/static/assets/img/blog/fbp.png" width="50%"></p>
 
-# `Feedforward Networks vs. Recurrent Neural Networks`
+# **Feedforward Networks vs. Recurrent Neural Networks**
 
 The simplest type of ANN is considered a `Feedforward Neural Network`, such as perceptron. This means that the information moves only in `forward direction` from the input nodes, through the hidden nodes to the outputs. A feedforward network has no notion of order in time, and the `only` input it considers is the current example it has been exposed to. 
 
