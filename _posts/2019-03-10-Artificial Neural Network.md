@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Artificial Neural Network(ML)"
-date:   2019-3-1
+date:   2019-3-10
 categories: [Python, Ai]
 tags: [Python, Ai]
 icon: fa-code
