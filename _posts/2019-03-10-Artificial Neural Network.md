@@ -41,7 +41,7 @@ Therefore, duringing that time(1969- 1986), it was "AI Winter" until the MultiLa
 
 **Artificial Neural Networks(ANNs)** are collections of connected nodes made up of **artificial neurons(perceptron)**, providing a framework for different machine learning algorithms to work together and process complex data inputs. Such systems "learn" to perform tasks by considering examples, generally without being programmed with any task-specific rules.
 
-<p align="center"> <img src="/static/assets/img/blog/anns.png" width="80%"></p>
+<p align="center"> <img src="/static/assets/img/blog/ArtificialNeuralNetwork.png" width="70%"></p>
 
 The biggest significance of this architecture is capable of achieving non-linear separation(shown as below):
 
@@ -64,7 +64,7 @@ The simplest type of ANN is considered a **Feedforward Neural Network**, such as
 
 **Recurrent Neural Networks (RNNs)** are structured in such a way as to take as their input not just the current input example they see, but also what they have perceived previously in time. Recurrent networks are distinguished from feedforward networks by that **feedback loop** connected to their past decisions. It is often said that recurrent networks have **memory**.
 
-<p align="center"> <img src="/static/assets/img/blog/ffvsrnn.png" width="50%"></p>
+<p align="center"> <img src="/static/assets/img/blog/fowardvsbackward.png" width="50%"></p>
 
 # **Recurrent Neural Networks(RNN) vs. Long Short-Term Memory(LSTM)**
 
@@ -72,8 +72,7 @@ By the early 1990s, the **Vanishing Gradient Problem** emerged as a major **obst
 
 In the mid-90s, a variation of RNN called **Long Short-Term Memory (LSTM)**, was proposed as a **solution** to the **vanishing gradient problem**. LSTMs help preserve the error that can be backpropagated through time and layers, allowing RNNs to continue to learn **over** many time 
 steps (over 1000).
-
-<p align="center"> <img src="/static/assets/img/blog/rnnvslstm.png" width="60%"></p>
+<p align="center"> <img src="/static/assets/img/blog/rnn-vs-lstm.png" width="50%"></p>
 
 ---
 
