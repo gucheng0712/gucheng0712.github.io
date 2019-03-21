@@ -48,12 +48,13 @@ $$\Large\frac{B}{\|B\|}$$, we can get the following formula:
 $$\Large proj_BA = \frac{A\cdot B}{\|B\|^2}B$$
 
 The position relation of two vectors can be determined by the sign of the dot product of these two vector.
-1. If the dot product = 0, these two vectors are perpendicular. Two Vector point `mostly same direction`.
-2. If the dot product <0, the angle between two Vector is 90 ~ 180. Two Vector `perpendicular`.
-3. If the dot product >0, the angle between two Vector is 0 ~ 90. Two Vector point `mostly opposite direction`.
+1. If the dot product = 0, these two vectors are `perpendicular`.
+2. If the dot product <0, the angle between two Vector is 90 ~ 180.  Two Vector point `mostly opposite direction`.
+3. If the dot product >0, the angle between two Vector is 0 ~ 90. Two Vector point `mostly same direction`.
      
+<p align="center">
 <img src="/static/assets/img/blog/dot product anim.gif" width="30%">
-
+</p>
 
 The dot product A ⋅ B may also be expressed as the `matrix product`
 

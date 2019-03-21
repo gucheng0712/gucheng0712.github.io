@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 Mar 2019 02:58:51 -0700</pubDate>
-    <lastBuildDate>Thu, 21 Mar 2019 02:58:51 -0700</lastBuildDate>
+    <pubDate>Thu, 21 Mar 2019 03:12:53 -0700</pubDate>
+    <lastBuildDate>Thu, 21 Mar 2019 03:12:53 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -6544,12 +6544,14 @@ The result of &lt;code class=&quot;highlighter-rouge&quot;&gt;cross product&lt;/
 
 &lt;p&gt;The position relation of two vectors can be determined by the sign of the dot product of these two vector.&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;If the dot product = 0, these two vectors are perpendicular. Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly same direction&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180. Two Vector &lt;code class=&quot;highlighter-rouge&quot;&gt;perpendicular&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly opposite direction&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product = 0, these two vectors are &lt;code class=&quot;highlighter-rouge&quot;&gt;perpendicular&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180.  Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly opposite direction&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly same direction&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/dot product anim.gif&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/static/assets/img/blog/dot product anim.gif&quot; width=&quot;30%&quot; /&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The dot product A ⋅ B may also be expressed as the &lt;code class=&quot;highlighter-rouge&quot;&gt;matrix product&lt;/code&gt;&lt;/p&gt;
 
