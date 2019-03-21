@@ -5,9 +5,351 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 17 Mar 2019 17:26:21 -0700</pubDate>
-    <lastBuildDate>Sun, 17 Mar 2019 17:26:21 -0700</lastBuildDate>
+    <pubDate>Wed, 20 Mar 2019 02:57:10 -0700</pubDate>
+    <lastBuildDate>Wed, 20 Mar 2019 02:57:10 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Natural Language Processing (ML)</title>
+        <description>&lt;h1 id=&quot;what-is-natural-language-processing&quot;&gt;&lt;strong&gt;What is Natural Language Processing?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Natural Language Processing (NLP)&lt;/code&gt; refers to the ability of &lt;code class=&quot;highlighter-rouge&quot;&gt;machines&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;understand&lt;/code&gt; and explain the way human &lt;code class=&quot;highlighter-rouge&quot;&gt;write and speak&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;It is widely used in information retrieval, sentiment analysis, information extraction, machine translation, and more.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Operations of NLP include&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/nlpflow.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;tokenization&quot;&gt;&lt;strong&gt;Tokenization&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tokenization&lt;/code&gt; is a process of understanding a sentence or a phrase by &lt;code class=&quot;highlighter-rouge&quot;&gt;splitting&lt;/code&gt; them into substrings, words and punctuation.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/token.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.tokenize&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sent_tokenize&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Split the sentence into words&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Word Tokenization: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', 'tomorrow', '.']
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;stopword-removal&quot;&gt;&lt;strong&gt;Stopword Removal&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stopword Removal&lt;/code&gt; involves &lt;code class=&quot;highlighter-rouge&quot;&gt;filtering out&lt;/code&gt; words which do not contain significant information. Mostly these are words that are often used as connective tissue such as &lt;code class=&quot;highlighter-rouge&quot;&gt;as, the, be, are&lt;/code&gt; etc.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/swr.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.corpus&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stopwords&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Load stop words&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;stop_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stopwords&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'english'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Remove stop words&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nonstop_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stop_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nonstop_words&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nonstop Words: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nonstop_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['The', 'science', 'today', 'technology', 'tomorrow', '.']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;stemming&quot;&gt;&lt;strong&gt;Stemming&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stemming&lt;/code&gt; reduces &lt;code class=&quot;highlighter-rouge&quot;&gt;inflection&lt;/code&gt; in words to their root forms by &lt;code class=&quot;highlighter-rouge&quot;&gt;removing&lt;/code&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;suffixes or prefixes&lt;/code&gt; used with a word. As a result, stemming a word or sentence may &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; in words that are &lt;code class=&quot;highlighter-rouge&quot;&gt;not actual words&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/stemming.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.tokenize&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.stem.porter&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PorterStemmer&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;input_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Create stemmer&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;porter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PorterStemmer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Apply stemmer to each word    &lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;porter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog', 'of', 'tomorrow', '.']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;lemmatization&quot;&gt;&lt;strong&gt;Lemmatization&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lemmatization&lt;/code&gt;, unlike Stemming, reduces the inflected words properly ensuring that the &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; word &lt;code class=&quot;highlighter-rouge&quot;&gt;belongs&lt;/code&gt; to the language. For example, runs, running, ran are all forms of the word run, therefore run is the lemma (or dictionary form) of all these words.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/lemmatization.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.tokenize&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.stem&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WordNetLemmatizer&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The sciences of today are tomorrow's technologies.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;input_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Create lemmatizer&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lemmatizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WordNetLemmatizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Apply lemmatizer to each word&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lemmatizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lemmatize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tokenized_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', omorrow', '.']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;part-of-speech-taggingpos-tagging&quot;&gt;&lt;strong&gt;Part-of-Speech Tagging&lt;/strong&gt;(POS-tagging)&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Chunking&lt;/code&gt; is a set of techniques for &lt;code class=&quot;highlighter-rouge&quot;&gt;entity detection&lt;/code&gt; used in text processing, which segments and &lt;code class=&quot;highlighter-rouge&quot;&gt;labels multi-token sequences&lt;/code&gt;. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;noun&lt;/code&gt; phrase chunking (NP-chunking) searches for chunks corresponding to individual &lt;code class=&quot;highlighter-rouge&quot;&gt;noun&lt;/code&gt; phrases. The process of &lt;code class=&quot;highlighter-rouge&quot;&gt;classifying words&lt;/code&gt; into their parts of speech and labeling them accordingly is known as &lt;code class=&quot;highlighter-rouge&quot;&gt;part-of-speech tagging (POS-tagging)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/postagging.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos_tag&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Apply speech tagging&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;text_tagged&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text_tagged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[('The', 'DT'), ('science', 'NN'), ('of', 'IN'), ('today', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('technology', 'NN'), ('of', 'IN'), ('tomorrow', 'NN'), ('.', '.')]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;-information-retrieval&quot;&gt;** Information Retrieval&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The Information Retrieval&lt;/code&gt; is  to extract relevant information from the source.&lt;/p&gt;
+
+&lt;p&gt;One of the main goals of text analysis is to convert &lt;code class=&quot;highlighter-rouge&quot;&gt;text&lt;/code&gt; into &lt;code class=&quot;highlighter-rouge&quot;&gt;numeric&lt;/code&gt; form so that we can use machine learning on it.&lt;/p&gt;
+
+&lt;h2 id=&quot;bag-of-words&quot;&gt;&lt;strong&gt;Bag of Words&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;One of primary methods of developing simple language models, is known as the &lt;code class=&quot;highlighter-rouge&quot;&gt;“Bag of Words” (BOW)&lt;/code&gt; model, which &lt;code class=&quot;highlighter-rouge&quot;&gt;extracts a vocabulary&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;all the words&lt;/code&gt; in the documents and builds a model using a &lt;code class=&quot;highlighter-rouge&quot;&gt;document term matrix&lt;/code&gt;.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/bow.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;BOW&lt;/code&gt; approach, every document from a &lt;code class=&quot;highlighter-rouge&quot;&gt;corpus of texts&lt;/code&gt; is represented as a &lt;code class=&quot;highlighter-rouge&quot;&gt;vector&lt;/code&gt; whose length is equal to the vocabulary of the corpus. The computation is &lt;code class=&quot;highlighter-rouge&quot;&gt;simplified&lt;/code&gt; by sorting token positions of the vector into &lt;code class=&quot;highlighter-rouge&quot;&gt;alphabetical&lt;/code&gt; order.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/alphabeticalorder.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;vector-encoding-methods&quot;&gt;&lt;strong&gt;Vector Encoding Methods&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The simplest vector encoding model&lt;/code&gt; is to simply fill in the vector with the &lt;code class=&quot;highlighter-rouge&quot;&gt;frequency&lt;/code&gt; of each word as it appears in the document.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/svem.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;One-hot encoding&lt;/code&gt; is another vector encoding method that marksa particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is &lt;code class=&quot;highlighter-rouge&quot;&gt;effective for very small documents (sentences, tweets)&lt;/code&gt; that &lt;code class=&quot;highlighter-rouge&quot;&gt;don’t&lt;/code&gt; contain very many repeated elements.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ohe.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Term Frequency-Inverse Document Frequency (TF–IDF) encoding&lt;/code&gt; normalizes the &lt;code class=&quot;highlighter-rouge&quot;&gt;frequency&lt;/code&gt; of tokens in a document with respect to the rest of the corpus. This encoding approach &lt;code class=&quot;highlighter-rouge&quot;&gt;emphasis terms that have higher relevance to a document&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;word-embeddings&quot;&gt;Word Embeddings&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Word Embeddings&lt;/code&gt; represent words in the form of vectors such that &lt;code class=&quot;highlighter-rouge&quot;&gt;similar&lt;/code&gt; words are &lt;code class=&quot;highlighter-rouge&quot;&gt;close to each other&lt;/code&gt; while &lt;code class=&quot;highlighter-rouge&quot;&gt;antonyms&lt;/code&gt; end up &lt;code class=&quot;highlighter-rouge&quot;&gt;far&lt;/code&gt; apart in the vector space.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/we.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Word2vec&lt;/code&gt; by Google is one of several existing models for &lt;code class=&quot;highlighter-rouge&quot;&gt;constructing word-embedding representations&lt;/code&gt;, trained to &lt;code class=&quot;highlighter-rouge&quot;&gt;predict&lt;/code&gt; a target word from the &lt;code class=&quot;highlighter-rouge&quot;&gt;context of neighboring words&lt;/code&gt;. This method is referred to as &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Bag Of Words (CBOW)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Going in the other direction, given a set of sentences (corpus) Word2vec analyses the words of each sentence and uses the current word to predict its neighbors, a method called &lt;code class=&quot;highlighter-rouge&quot;&gt;Skip-Gram&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/cbow-vs-skipgram.jpg&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gensim.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Word2Vec&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sentences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'analytics'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'machine'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'learning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Woodbury'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'computer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'deep'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'learning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# train the model on your corpus&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Word2Vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min_count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;similarity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'data'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'science'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-0.09619948
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Fri, 15 Mar 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</guid>
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+      </item>
+    
+      <item>
+        <title>Artificial Neural Network(ML)</title>
+        <description>&lt;h1 id=&quot;what-is-artificial-neuron&quot;&gt;&lt;strong&gt;What is Artificial Neuron?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;An &lt;code class=&quot;highlighter-rouge&quot;&gt;artificial neuron&lt;/code&gt; is a mathematical function conceived as a model of biological neurons in our brains. Artificial neurons are elementary units in an artificial neural network (ANN). The artificial neuron receives one or more &lt;code class=&quot;highlighter-rouge&quot;&gt;inputs&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;sums&lt;/code&gt; them to produce an &lt;code class=&quot;highlighter-rouge&quot;&gt;output&lt;/code&gt;.  Usually each input is separately &lt;code class=&quot;highlighter-rouge&quot;&gt;weighted&lt;/code&gt;, and the sum is passed through a function known as an &lt;code class=&quot;highlighter-rouge&quot;&gt;activation function&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ann.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;activation-functions&quot;&gt;&lt;strong&gt;Activation Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;sigmoid&lt;/code&gt; function is a mathematical function having acharacteristic “S” -shaped curve or sigmoid curve and  generates outputs &lt;code class=&quot;highlighter-rouge&quot;&gt;between 0 and 1&lt;/code&gt;. The sigmoid activation function is widely used in &lt;code class=&quot;highlighter-rouge&quot;&gt;binary classification&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An alternative to the sigmoid is the &lt;code class=&quot;highlighter-rouge&quot;&gt;hyperbolic tangent (Tan-h)&lt;/code&gt; function. Like the sigmoid, the tan-h function is also sigmoidal(“S”-shaped), but instead outputs values that range &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 to 1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Most recent artificial neural networks use &lt;code class=&quot;highlighter-rouge&quot;&gt;rectified linear units (ReLU)&lt;/code&gt; for the hidden layers. ReLU has output 0 if the input is less than 0, and raw output otherwise. That is, if the input is greater than 0, the output is equal to the input. &lt;code class=&quot;highlighter-rouge&quot;&gt;(output = max(0, input))&lt;/code&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/activatefunction.jpg&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-xor-problem&quot;&gt;&lt;strong&gt;The XOR Problem&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;An XOR function should return &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; if two inputs are &lt;code class=&quot;highlighter-rouge&quot;&gt;not&lt;/code&gt; equal ,else return &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;(Shown as below image):&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/xor.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;XOR&lt;/code&gt; problem is a classic problem in ANN Research. It is the problem that there are no ways to  using perceptron to predict the &lt;code class=&quot;highlighter-rouge&quot;&gt;True&lt;/code&gt; outputs of XOR logic gate given two binary inputs, because XOR inputs are &lt;code class=&quot;highlighter-rouge&quot;&gt;not linearly separable&lt;/code&gt;, and perceptron &lt;code class=&quot;highlighter-rouge&quot;&gt;only&lt;/code&gt; works for &lt;code class=&quot;highlighter-rouge&quot;&gt;linear separation&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/xorp.gif&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Therefore, duringing that time&lt;code class=&quot;highlighter-rouge&quot;&gt;(1969- 1986)&lt;/code&gt;, it was “AI Winter” until the &lt;code class=&quot;highlighter-rouge&quot;&gt;MultiLayer Artificial Neural Networks&lt;/code&gt; appear(1986).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;what-is-artificial-neural-networks&quot;&gt;&lt;strong&gt;What is Artificial Neural Networks?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Artificial Neural Networks(ANNs)&lt;/code&gt; are collections of connected nodes made up of &lt;code class=&quot;highlighter-rouge&quot;&gt;artificial neurons(perceptron)&lt;/code&gt;, providing a framework for different machine learning algorithms to work together and process complex data inputs. Such systems “learn” to perform tasks by considering examples, generally without being programmed with any task-specific rules.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ArtificialNeuralNetwork.jpg&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The biggest significance of this architecture is capable of achieving &lt;code class=&quot;highlighter-rouge&quot;&gt;non-linear separation&lt;/code&gt;(shown as below):&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/annc.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;forward-propagation-vs-back-propagation&quot;&gt;&lt;strong&gt;Forward Propagation vs. Back Propagation&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Forward propagation&lt;/code&gt; is process of &lt;code class=&quot;highlighter-rouge&quot;&gt;feeding&lt;/code&gt; the Neural Network with a set of inputs and comparing the numerical value of the output to the expected output in order to compute the error function.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Back propagation&lt;/code&gt; is a method used in ANNs to &lt;code class=&quot;highlighter-rouge&quot;&gt;calculate the weights&lt;/code&gt; to be used in the network. It is the backward propagation of errors through the network layers, since an error function is
+computed at the output. This technique is commonly used to train deep neural networks.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/fbp.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;feedforward-networks-vs-recurrent-neural-networks&quot;&gt;&lt;strong&gt;Feedforward Networks vs. Recurrent Neural Networks&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;The simplest type of ANN is considered a &lt;code class=&quot;highlighter-rouge&quot;&gt;Feedforward Neural Network&lt;/code&gt;, such as perceptron. This means that the information moves only in &lt;code class=&quot;highlighter-rouge&quot;&gt;forward direction&lt;/code&gt; from the input nodes, through the hidden nodes to the outputs. A feedforward network has no notion of order in time, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;only&lt;/code&gt; input it considers is the current example it has been exposed to.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recurrent Neural Networks (RNNs)&lt;/strong&gt; are structured in such a way as to take as their input not just the current input example they see, but also what they have perceived previously in time. Recurrent networks are distinguished from feedforward networks by that &lt;code class=&quot;highlighter-rouge&quot;&gt;feedback loop&lt;/code&gt; connected to their past decisions. It is often said that recurrent networks have &lt;code class=&quot;highlighter-rouge&quot;&gt;memory&lt;/code&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/fowardvsbackward.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;recurrent-neural-networksrnn-vs-long-short-term-memorylstm&quot;&gt;&lt;strong&gt;Recurrent Neural Networks(RNN) vs. Long Short-Term Memory(LSTM)&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;By the early 1990s, the &lt;code class=&quot;highlighter-rouge&quot;&gt;Vanishing Gradient Problem&lt;/code&gt; emerged as a major &lt;code class=&quot;highlighter-rouge&quot;&gt;obstacle&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;RNN&lt;/code&gt; performance. Because the information flowing through neural networks passes through many stages of multiplication, the outputs are susceptible to &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Vanishing&quot;&lt;/code&gt; (gradually decreasing) or &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;Exploding&quot;&lt;/code&gt; (exponentially increasing).&lt;/p&gt;
+
+&lt;p&gt;In the mid-90s, a variation of RNN called &lt;code class=&quot;highlighter-rouge&quot;&gt;Long Short-Term Memory (LSTM)&lt;/code&gt;, was proposed as a &lt;code class=&quot;highlighter-rouge&quot;&gt;solution&lt;/code&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;vanishing gradient problem&lt;/code&gt;. LSTMs help preserve the error that can be backpropagated through time and layers, allowing RNNs to continue to learn &lt;code class=&quot;highlighter-rouge&quot;&gt;over&lt;/code&gt; many time 
+steps (over 1000).&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/rnn-vs-lstm.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sun, 10 Mar 2019 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/python/ai/2019/03/10/Artificial-Neural-Network.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/10/Artificial-Neural-Network.html</guid>
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+      </item>
     
       <item>
         <title>Dimensionality Reduction - Unsupervised Learning(ML)</title>
@@ -103,8 +445,8 @@
 
 </description>
         <pubDate>Fri, 01 Mar 2019 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning.html</guid>
+        <link>http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning-Copy.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning-Copy.html</guid>
         
         <category>Python</category>
         
