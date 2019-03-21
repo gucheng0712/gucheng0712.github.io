@@ -91,7 +91,7 @@ Above Described the roation in matrix. These three are all similar except rotati
 
 So, when rotating along y-axis,
 
-it should transpose from **[x y z 1]** =>
+it should transpose from [x y z 1] =>
 <img src="/static/assets/img/blog/y_r_format.png" width="10%">
 
 eg: rotate along respectively x, y, z 30 degree:
