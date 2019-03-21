@@ -9,52 +9,53 @@ icon: fa-calculator
 
 The Cross Product and the Dot Product are the most common calculations of Vector. In the Game Development, it is necessary to understand both of them. The biggest difference between them is that:
 
-
-
->The result of **dot product** is a **value**
->The result of **cross product** is a **vector**
+>The result of `dot product` is a `value`
+>The result of `cross product` is a `vector`
 
 
 ---
 ## **1. Dot Product**
-The dot product of two n-dimensional vectors A and B, written as A ⋅ B, is the scalar quantity given by the formula:
+The `dot product` of two `n-dimensional vectors` A and B, written as A ⋅ B, it can calculate the length of the projection:
 
-$$\Huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}$$
+$$\huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}$$
 
 eg:
 
->**if:**  
+`if:`  
 $$\large \qquad Vector3\:\: v_1 = (x_1,y_1,z_1), Vector3\:\: v_2 = (x_2,y_2,z_2)$$
 
->**then:**  
+`then:`  
 $$\large \qquad v_1 \cdot v_2 = {x_1}{x_2}+{y_1}{y_2}+{z_1}{z_2} $$
 
->Follow the law of trig it can write as:  
+`Follow the law of trig it can write as:`  
 $$\large \qquad A\cdot B = \|A\|\|B\| cos\theta$$
 
->Follow up, it also can write as:  
+`Follow up, it also can write as:`  
 $$\large\qquad\theta = acos (\frac{A\cdot B}{\|A\|\|B\| })$$
 
-Dot Product also can calculate the **projection** of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
+Dot Product also can calculate the `projection` of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
 $$\|B\| cos\theta$$. Shown as below image:
 
 <p align="center">     
 <img src="/static/assets/img/blog/proj_ab.png" width="30%">
 </p>
 
-The length of the projection of the **Vector A onto the Vector B** is given by $$\large\frac{A⋅B}{\|B\|}$$, because $$A⋅B = \|A\| \|B\| cos\theta$$.
+The length of the projection of the `Vector A onto the Vector B` is given by $$\large\frac{A⋅B}{\|B\|}$$, because $$A⋅B = \|A\| \|B\| cos\theta$$.
 
-Therefore, in order to get the Vector of with this length, we can just multiply by the **unit vector of B**, which is 
+Therefore, in order to get the Vector of with this length, we can just multiply by the `unit vector of B`, which is 
 $$\Large\frac{B}{\|B\|}$$, we can get the following formula:
 
 $$\Large proj_BA = \frac{A\cdot B}{\|B\|^2}B$$
 
 The position relation of two vectors can be determined by the sign of the dot product of these two vector.
-1. If the dot product = 0, these two vectors are perpendicular. Two Vector point **mostly same direction**.
-2. If the dot product <0, the angle between two Vector is 90 ~ 180. Two Vector **perpendicular**.
-3. If the dot product >0, the angle between two Vector is 0 ~ 90. Two Vector point **mostly opposite direction**.
+1. If the dot product = 0, these two vectors are perpendicular. Two Vector point `mostly same direction`.
+2. If the dot product <0, the angle between two Vector is 90 ~ 180. Two Vector `perpendicular`.
+3. If the dot product >0, the angle between two Vector is 0 ~ 90. Two Vector point `mostly opposite direction`.
+     
+<img src="/static/assets/img/blog/dot product anim.gif" width="30%">
 
-The dot product A ⋅ B may also be expressed as the **matrix product**
+
+The dot product A ⋅ B may also be expressed as the `matrix product`
 
 \begin{equation} A_T B = \begin{bmatrix}A_1 & A_2 & \cdots & A_n\end{bmatrix} \begin{bmatrix}B_1 \\\ B_2 \\\ \vdots \\\ B_n\end{bmatrix} \end{equation}
 
@@ -128,29 +129,30 @@ $$\large \qquad \|A×B\|=\|A\|\|B\|sin\theta$$
 >Follow up, it also can write as:  
 $$\large \qquad \theta = asin (\frac{\|A×B\|}{\|A\|\|B\| })$$
 
-The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is ***perpendicular*** to the coordinate plane of these two vectors.
+The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is `perpendicular` to the coordinate plane of these two vectors.
 
 > In Math, it satisfy right hand rule, a x b = -b x a. So we can use the result of Cross product's value is positive or negative to determine a and b's relative position.
 
 <p align="center">    
 <img src="/static/assets/img/blog/right-hand.png" width="20%"><br>
 
-<b>Right-hand Cooridinate System</b>
+<b>`Right-hand Cooridinate System`</b>
 </p>
 
 <p align="center">   
 <img src="/static/assets/img/blog/left-hand.jpg" width="20%"><br>
 
-<b>Left-hand Cooridinate System**</b>
+<b>`Left-hand Cooridinate System`</b>
 </p>
 
 <p align="center">  
-<img src="/static/assets/img/blog/Cross2.jpg" width="20%"><br>
+<img src="/static/assets/img/blog/cross.gif" width="20%"><br>
 
-<b>Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.**</b>
+<b>`Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.`</b>
 </p>
 <br><br>
-#### ***Example in Game Development:***
+
+### **Example in Game Development:**
 
 (1) WallWalking:
 
@@ -178,13 +180,13 @@ float value = Vector3.Cross(a.normalized, b.normalized);
 float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
 ```
 
-(5) Can Determine if two vector is **Parallel** or **Intersecting**.
+(5) Can Determine if two vector is `Parallel` or `Intersecting`.
 
 
 ---
-In conclusion, ***Dot Product*** determine the angle of two Vectors, ***Cross Product*** determine the direction of two Vectors.
+In conclusion, `Dot Product` determine the angle of two Vectors, `Cross Product` determine the direction of two Vectors.
 
-For instance, when an enemy behind you, ***Cross Product*** determine whether you should turn left or turn right to face to the enemy quickly; the ***Dot Product*** can get the angle size you need to turn towards the enemy.
+For instance, when an enemy behind you, `Cross Product` determine whether you should turn left or turn right to face to the enemy quickly; the `Dot Product` can get the angle size you need to turn towards the enemy.
 
 ---
 >**End --Cheng Gu**

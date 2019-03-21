@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Mar 2019 02:57:10 -0700</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 02:57:10 -0700</lastBuildDate>
+    <pubDate>Thu, 21 Mar 2019 01:04:40 -0700</pubDate>
+    <lastBuildDate>Thu, 21 Mar 2019 01:04:40 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -3000,20 +3000,78 @@ Responsibility for code performance is however shifted towards the programmer, t
       </item>
     
       <item>
-        <title>Unity Rendering Path</title>
-        <description>&lt;p&gt;Unity support many kinds of rendering path. In Unity 5.0, there are three types of rendering path: forward, deferred, and vertex lit rendering path.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h4 id=&quot;1-forward-rendering-path&quot;&gt;1. Forward Rendering Path&lt;/h4&gt;
-
-&lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/fwdRendering.png&quot; width=&quot;80%&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;For each forward rendering, we need to render the rendering primitive of the object and calculate the data of two buffers (color buffer and depth buffer). We use the depth buffer to determine if a fragment is visible and update the color value of the color buffer if it is visible.&lt;/p&gt;
+        <title>Unity Rendering Path (CG)</title>
+        <description>&lt;p&gt;Unity support many kinds of rendering paths. For now there are &lt;code class=&quot;highlighter-rouge&quot;&gt;three&lt;/code&gt; types of rendering path in Unity: &lt;code class=&quot;highlighter-rouge&quot;&gt;forward&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;deferred&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;vertex lit (almost never use)&lt;/code&gt; rendering path.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;We can use pseudo code to describe the process of forward rendering:&lt;/p&gt;
+  &lt;p&gt;&lt;em&gt;An example of setting rendering path &lt;code class=&quot;highlighter-rouge&quot;&gt;in Unity Shader&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+  &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;LightMode&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ForwardBase&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The Below Table shows the &lt;code class=&quot;highlighter-rouge&quot;&gt;Common&lt;/code&gt; Rendering Path Option for LightMode Tag in Unity Shader&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Tag Name&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;       &lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Always&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;This Pass will be rendered in any rendering path, but it will not calculate any lighting&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;ForwardBase&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Used for forward rendering. The Pass will calculate the &lt;strong&gt;environmetal light, directional light, per-vertex /Spherical Harmonics(SH) light source&lt;/strong&gt;, and Lightmaps&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;ForwardAdd&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Used for forward rendering. The Pass will calculate &lt;strong&gt;additional per-pixel light source&lt;/strong&gt;, every Pass corresponding one light source&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Deferred&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Used for deferred rendering. This Pass will render &lt;strong&gt;G-Buffer(includes color, normal, Buffer in world space)&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;ShadowCaster&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Render the object’s depth info into the &lt;strong&gt;shaowmap or a depth map&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;1-forward-rendering-path&quot;&gt;&lt;strong&gt;1. Forward Rendering Path&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/fwdRendering.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;For each forward rendering, we need to &lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt; the rendering primitive of the object and &lt;code class=&quot;highlighter-rouge&quot;&gt;calculate&lt;/code&gt; the data of two buffers (&lt;code class=&quot;highlighter-rouge&quot;&gt;color&lt;/code&gt; buffer and &lt;code class=&quot;highlighter-rouge&quot;&gt;depth&lt;/code&gt; buffer). We use the &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;determine&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;if a fragment is visible&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;update&lt;/code&gt; the color value of the color buffer &lt;code class=&quot;highlighter-rouge&quot;&gt;if it is visible&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Pseudo code&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt;
@@ -3038,16 +3096,16 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-deferred-rendering-path&quot;&gt;2. Deferred Rendering Path&lt;/h4&gt;
+&lt;h2 id=&quot;2-deferred-rendering-path&quot;&gt;&lt;strong&gt;2. Deferred Rendering Path&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/deferredrendering.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/deferredrendering.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;Deferred Rendering mainly includes two Pass. The first Pass, we don’t do any lighting calculations, and only calculate which fragment in the screen is visible, by depth buffer. After finding a fragment is visible, it will store the data into the G-Buffer. Then, in the second Pass, it will use the data of fragment in the G-Buffer to do the lighting calculation.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Deferred Rendering&lt;/code&gt; mainly includes &lt;code class=&quot;highlighter-rouge&quot;&gt;two Pass&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;first&lt;/code&gt; Pass, we &lt;code class=&quot;highlighter-rouge&quot;&gt;don’t&lt;/code&gt; do any lighting calculations, and &lt;code class=&quot;highlighter-rouge&quot;&gt;only&lt;/code&gt; calculate which fragment in the screen is &lt;code class=&quot;highlighter-rouge&quot;&gt;visible&lt;/code&gt; through &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;After&lt;/code&gt; finding a fragment is visible, it will &lt;code class=&quot;highlighter-rouge&quot;&gt;store&lt;/code&gt; the data into the &lt;code class=&quot;highlighter-rouge&quot;&gt;G-Buffer&lt;/code&gt;. Then, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;second&lt;/code&gt; Pass, it will &lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt; the data of fragment in the G-Buffer to do the lighting calculation.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;We can use pseudo code to describe the process of the deferred rendering:&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Pseudo code&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;PassOne&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Store fragment data into G-Buffer&lt;/span&gt;
@@ -3082,18 +3140,18 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-why-use-deferred-rendering&quot;&gt;2. Why use Deferred Rendering&lt;/h4&gt;
+&lt;h3 id=&quot;2-forward-rendering-vs-deferred-rendering&quot;&gt;2. &lt;strong&gt;Forward Rendering vs Deferred Rendering&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Normally we will use Forward Rendering, but when the scene has too many light sources, the performance of Forward Rendering drops dramatically.&lt;/p&gt;
+  &lt;p&gt;Normally we will use &lt;code class=&quot;highlighter-rouge&quot;&gt;Forward Rendering&lt;/code&gt;, but when the scene has &lt;code class=&quot;highlighter-rouge&quot;&gt;too many light sources&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;performance&lt;/code&gt; of Forward Rendering &lt;code class=&quot;highlighter-rouge&quot;&gt;drops&lt;/code&gt; dramatically.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;For example, if we place multiple light sources in an area in the Unity Scene, and these light source areas overlap and influence with each other. In order to get the final lighting effects, we need to perform multiple Pass for each object in the area to calculate the lighting result of different light source to this object, finally, blend these results in the color buffer to get the final lighting. Therefore, every time when we call a Pass we need to render the object again, but many calculations actually is repeat.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote style=&quot;color: red&quot;&gt;
-  &lt;p&gt;Deferred Rendering can solve this problem because it not only uses color buffer, and depth buffer, it also use an additional buffer called G-Buffer (Geometry- Buffer). G-Buffer stores the information of the surface we care (normally it means the surface which is the closest to camera), such as the surface’s Normal, Position, Material Properties used for illumination calculation, etc.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Deferred Rendering can solve this problem because it &lt;code class=&quot;highlighter-rouge&quot;&gt;not only&lt;/code&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;color buffer&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;, it also use an additional buffer called &lt;code class=&quot;highlighter-rouge&quot;&gt;G-Buffer&lt;/code&gt; (Geometry- Buffer). G-Buffer &lt;code class=&quot;highlighter-rouge&quot;&gt;stores&lt;/code&gt; the information of the surface we care (normally it means the surface which is the closest to camera), such as the surface’s Normal, Position, Material Properties used for illumination calculation, etc.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
@@ -6446,60 +6504,54 @@ After scale:
         <description>&lt;p&gt;The Cross Product and the Dot Product are the most common calculations of Vector. In the Game Development, it is necessary to understand both of them. The biggest difference between them is that:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The result of &lt;strong&gt;dot product&lt;/strong&gt; is a &lt;strong&gt;value&lt;/strong&gt;
-The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vector&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;The result of &lt;code class=&quot;highlighter-rouge&quot;&gt;dot product&lt;/code&gt; is a &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt;
+The result of &lt;code class=&quot;highlighter-rouge&quot;&gt;cross product&lt;/code&gt; is a &lt;code class=&quot;highlighter-rouge&quot;&gt;vector&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;1-dot-product&quot;&gt;&lt;strong&gt;1. Dot Product&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;The dot product of two n-dimensional vectors A and B, written as A ⋅ B, is the scalar quantity given by the formula:&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;dot product&lt;/code&gt; of two &lt;code class=&quot;highlighter-rouge&quot;&gt;n-dimensional vectors&lt;/code&gt; A and B, written as A ⋅ B, it can calculate the length of the projection:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}&lt;/script&gt;
 
 &lt;p&gt;eg:&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;if:&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;if:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad Vector3\:\: v_1 = (x_1,y_1,z_1), Vector3\:\: v_2 = (x_2,y_2,z_2)&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;then:&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;then:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad v_1 \cdot v_2 = {x_1}{x_2}+{y_1}{y_2}+{z_1}{z_2}&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Follow the law of trig it can write as:&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Follow the law of trig it can write as:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad A\cdot B = \|A\|\|B\| cos\theta&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Follow up, it also can write as:&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Follow up, it also can write as:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large\qquad\theta = acos (\frac{A\cdot B}{\|A\|\|B\| })&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;p&gt;Dot Product also can calculate the &lt;strong&gt;projection&lt;/strong&gt; of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
+&lt;p&gt;Dot Product also can calculate the &lt;code class=&quot;highlighter-rouge&quot;&gt;projection&lt;/code&gt; of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
 &lt;script type=&quot;math/tex&quot;&gt;\|B\| cos\theta&lt;/script&gt;. Shown as below image:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/proj_ab.png&quot; width=&quot;30%&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;The length of the projection of the &lt;strong&gt;Vector A onto the Vector B&lt;/strong&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;\large\frac{A⋅B}{\|B\|}&lt;/script&gt;, because &lt;script type=&quot;math/tex&quot;&gt;A⋅B = \|A\| \|B\| cos\theta&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;The length of the projection of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Vector A onto the Vector B&lt;/code&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;\large\frac{A⋅B}{\|B\|}&lt;/script&gt;, because &lt;script type=&quot;math/tex&quot;&gt;A⋅B = \|A\| \|B\| cos\theta&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;Therefore, in order to get the Vector of with this length, we can just multiply by the &lt;strong&gt;unit vector of B&lt;/strong&gt;, which is 
+&lt;p&gt;Therefore, in order to get the Vector of with this length, we can just multiply by the &lt;code class=&quot;highlighter-rouge&quot;&gt;unit vector of B&lt;/code&gt;, which is 
 &lt;script type=&quot;math/tex&quot;&gt;\Large\frac{B}{\|B\|}&lt;/script&gt;, we can get the following formula:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large proj_BA = \frac{A\cdot B}{\|B\|^2}B&lt;/script&gt;
 
 &lt;p&gt;The position relation of two vectors can be determined by the sign of the dot product of these two vector.&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;If the dot product = 0, these two vectors are perpendicular. Two Vector point &lt;strong&gt;mostly same direction&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180. Two Vector &lt;strong&gt;perpendicular&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;strong&gt;mostly opposite direction&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product = 0, these two vectors are perpendicular. Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly same direction&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180. Two Vector &lt;code class=&quot;highlighter-rouge&quot;&gt;perpendicular&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly opposite direction&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The dot product A ⋅ B may also be expressed as the &lt;strong&gt;matrix product&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/dot product anim.gif&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The dot product A ⋅ B may also be expressed as the &lt;code class=&quot;highlighter-rouge&quot;&gt;matrix product&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;\begin{equation} A_T B = \begin{bmatrix}A_1 &amp;amp; A_2 &amp;amp; \cdots &amp;amp; A_n\end{bmatrix} \begin{bmatrix}B_1 \\ B_2 \\ \vdots \\ B_n\end{bmatrix} \end{equation}&lt;/p&gt;
 
@@ -6569,7 +6621,7 @@ The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vect
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad \theta = asin (\frac{\|A×B\|}{\|A\|\|B\| })&lt;/script&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is &lt;strong&gt;&lt;em&gt;perpendicular&lt;/em&gt;&lt;/strong&gt; to the coordinate plane of these two vectors.&lt;/p&gt;
+&lt;p&gt;The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is &lt;code class=&quot;highlighter-rouge&quot;&gt;perpendicular&lt;/code&gt; to the coordinate plane of these two vectors.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;In Math, it satisfy right hand rule, a x b = -b x a. So we can use the result of Cross product’s value is positive or negative to determine a and b’s relative position.&lt;/p&gt;
@@ -6578,22 +6630,23 @@ The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vect
 &lt;p align=&quot;center&quot;&gt;    
 &lt;img src=&quot;/static/assets/img/blog/right-hand.png&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;b&gt;Right-hand Cooridinate System&lt;/b&gt;
+&lt;b&gt;`Right-hand Cooridinate System`&lt;/b&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;   
 &lt;img src=&quot;/static/assets/img/blog/left-hand.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;b&gt;Left-hand Cooridinate System**&lt;/b&gt;
+&lt;b&gt;`Left-hand Cooridinate System`&lt;/b&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;  
-&lt;img src=&quot;/static/assets/img/blog/Cross2.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/static/assets/img/blog/cross.gif&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;b&gt;Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.**&lt;/b&gt;
+&lt;b&gt;`Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.`&lt;/b&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;example-in-game-development-1&quot;&gt;&lt;strong&gt;&lt;em&gt;Example in Game Development:&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;h3 id=&quot;example-in-game-development-1&quot;&gt;&lt;strong&gt;Example in Game Development:&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;p&gt;(1) WallWalking:&lt;/p&gt;
 
@@ -6622,12 +6675,12 @@ float value = Vector3.Cross(a.normalized, b.normalized);
 float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;(5) Can Determine if two vector is &lt;strong&gt;Parallel&lt;/strong&gt; or &lt;strong&gt;Intersecting&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;(5) Can Determine if two vector is &lt;code class=&quot;highlighter-rouge&quot;&gt;Parallel&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Intersecting&lt;/code&gt;.&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;In conclusion, &lt;strong&gt;&lt;em&gt;Dot Product&lt;/em&gt;&lt;/strong&gt; determine the angle of two Vectors, &lt;strong&gt;&lt;em&gt;Cross Product&lt;/em&gt;&lt;/strong&gt; determine the direction of two Vectors.&lt;/p&gt;
+&lt;p&gt;In conclusion, &lt;code class=&quot;highlighter-rouge&quot;&gt;Dot Product&lt;/code&gt; determine the angle of two Vectors, &lt;code class=&quot;highlighter-rouge&quot;&gt;Cross Product&lt;/code&gt; determine the direction of two Vectors.&lt;/p&gt;
 
-&lt;p&gt;For instance, when an enemy behind you, &lt;strong&gt;&lt;em&gt;Cross Product&lt;/em&gt;&lt;/strong&gt; determine whether you should turn left or turn right to face to the enemy quickly; the &lt;strong&gt;&lt;em&gt;Dot Product&lt;/em&gt;&lt;/strong&gt; can get the angle size you need to turn towards the enemy.&lt;/p&gt;
+&lt;p&gt;For instance, when an enemy behind you, &lt;code class=&quot;highlighter-rouge&quot;&gt;Cross Product&lt;/code&gt; determine whether you should turn left or turn right to face to the enemy quickly; the &lt;code class=&quot;highlighter-rouge&quot;&gt;Dot Product&lt;/code&gt; can get the angle size you need to turn towards the enemy.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
