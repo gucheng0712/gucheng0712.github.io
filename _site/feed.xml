@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Mar 2019 02:57:10 -0700</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 02:57:10 -0700</lastBuildDate>
+    <pubDate>Sun, 24 Mar 2019 00:50:06 -0700</pubDate>
+    <lastBuildDate>Sun, 24 Mar 2019 00:50:06 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -466,23 +466,25 @@ steps (over 1000).&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt; 
 &lt;img src=&quot;/static/assets/img/blog/Supervised Learning Vs Unsupervised Learning.jpeg&quot; width=&quot;30%&quot; /&gt;
 &lt;/p&gt;
-&lt;p&gt;To determine a machine learning whether is supervised learning or unsupervised learning, basicly depends on if the input data(features) has &lt;strong&gt;label&lt;/strong&gt;, such as regression and classification. &lt;strong&gt;Supervised Learning&lt;/strong&gt; is defined as input data(features) with labels. &lt;strong&gt;Unsupervised Learning&lt;/strong&gt; is defined as input data without labels, such as clustering, and dimensional reduction.&lt;/p&gt;
+
+&lt;p&gt;To &lt;code class=&quot;highlighter-rouge&quot;&gt;determine&lt;/code&gt; a machine learning whether is supervised learning &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; unsupervised learning, basicly depends on if the input data(features) has &lt;code class=&quot;highlighter-rouge&quot;&gt;label&lt;/code&gt;, such as regression and classification. &lt;code class=&quot;highlighter-rouge&quot;&gt;Supervised Learning&lt;/code&gt; is defined as input data(features) with labels. &lt;code class=&quot;highlighter-rouge&quot;&gt;Unsupervised Learning&lt;/code&gt; is defined as input data without labels, such as clustering, and dimensional reduction.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;“Because we don’t give it the answer, it’s unsupervised learning”&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;“Because we don't give it the answer, it's unsupervised learning”&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;what-is-clustering&quot;&gt;&lt;strong&gt;What is Clustering?&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/clustering.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;A common case of unsupervised learning is clustering, a process in which data is assigned to a number of discrete groups.Clustering is a little bit similiar to the classification but it doesn’t have label, which means, it doesn’t need to care about what a certain category is, the goal is just to gather similar things together. Therefore, clustering algorithm often only needs to know how to calculate the similarity to start working, so it normally doesn’t need to use training data for learning&lt;/p&gt;
+
+&lt;p&gt;A common case of unsupervised learning is &lt;code class=&quot;highlighter-rouge&quot;&gt;clustering&lt;/code&gt;, a process in which data is assigned to a number of discrete groups. Clustering is a little bit similiar to the classification but it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; have label, which means, it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to care about what a certain &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; is, the &lt;code class=&quot;highlighter-rouge&quot;&gt;goal&lt;/code&gt; is just to gather similar things together. Therefore, clustering algorithm often only needs to know&lt;code class=&quot;highlighter-rouge&quot;&gt; how to calculate the similarity&lt;/code&gt; to start working, so it normally &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to use training data for learning.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;k-means-algorithm&quot;&gt;&lt;strong&gt;K-Means Algorithm&lt;/strong&gt;&lt;/h2&gt;
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/Animation_of_k-means_clustering.gif&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;k-Means is a simple and popular algorithm that searches for a predetermined number of clusters within an unlabeled dataset by following the steps outlined below:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;k-Means&lt;/code&gt; is a simple and popular algorithm that searches for a &lt;code class=&quot;highlighter-rouge&quot;&gt;predetermined&lt;/code&gt; number of clusters within an &lt;code class=&quot;highlighter-rouge&quot;&gt;unlabeled dataset&lt;/code&gt; by following the steps outlined below:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Pseudocode:&lt;/strong&gt;&lt;/p&gt;
@@ -535,7 +537,7 @@ steps (over 1000).&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/meanshift.gif&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Meanshift looks very similiar to K-Means, they both move the point closer to the cluster centroids. However, the difference between them is that Meanshift &lt;strong&gt;doesn’t&lt;/strong&gt; require the programmer to specify the &lt;strong&gt;number of clusters&lt;/strong&gt;, but it is &lt;strong&gt;slower&lt;/strong&gt; than the K-Means in terms of runtime complexity!&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Meanshift&lt;/code&gt; looks very similiar to K-Means, they both move the point closer to the cluster &lt;code class=&quot;highlighter-rouge&quot;&gt;centroids&lt;/code&gt;. However, the difference between them is that Meanshift &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; require to specify the &lt;code class=&quot;highlighter-rouge&quot;&gt;number of clusters&lt;/code&gt;, but it is &lt;code class=&quot;highlighter-rouge&quot;&gt;slower&lt;/code&gt; than the K-Means in terms of runtime complexity!&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Pseudocode:&lt;/strong&gt;&lt;/p&gt;
@@ -605,7 +607,7 @@ Setting this option to True will speed up the algorithm because fewer seeds will
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/gmm.gif&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Due to the non-probabilistic nature of k-means and its use of simple distance-from-cluster-center to assign cluster membership leads to poor performance for many real-world situations. As we can see, the mode of clustering by using k-means must be a circle, and it doesn’t have built-in method to calculate oblong or elliptical clusters.  Hence, the gaussian mixture model is established. The gaussian mixture model (GMM) attempts to find a mixture of multidimensional gaussian probability distributions to simulate any input data set.&lt;/p&gt;
+&lt;p&gt;Due to the &lt;code class=&quot;highlighter-rouge&quot;&gt;non-probabilistic&lt;/code&gt; nature of k-means and its use of simple &lt;code class=&quot;highlighter-rouge&quot;&gt;distance-from-cluster-center&lt;/code&gt; to assign cluster membership leads to &lt;code class=&quot;highlighter-rouge&quot;&gt;poor&lt;/code&gt; performance for many &lt;code class=&quot;highlighter-rouge&quot;&gt;real-world&lt;/code&gt; situations. As we can see, the mode of clustering by using k-means &lt;code class=&quot;highlighter-rouge&quot;&gt;must&lt;/code&gt; be a &lt;code class=&quot;highlighter-rouge&quot;&gt;circle&lt;/code&gt;, and it doesn’t have built-in method to calculate oblong or elliptical clusters.  Hence, the &lt;code class=&quot;highlighter-rouge&quot;&gt;gaussian mixture model&lt;/code&gt; is established. The &lt;code class=&quot;highlighter-rouge&quot;&gt;gaussian mixture model (GMM)&lt;/code&gt; attempts to find a mixture of multidimensional &lt;code class=&quot;highlighter-rouge&quot;&gt;gaussian probability distributions&lt;/code&gt; to simulate any input data set.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Pseudocode:&lt;/strong&gt;&lt;/p&gt;
@@ -647,6 +649,96 @@ Setting this option to True will speed up the algorithm because fewer seeds will
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/gmmout.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;silhouette-analysis&quot;&gt;&lt;strong&gt;Silhouette Analysis&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;If the data is naturally organized into a number of distinct clusters, then it is easy to visually examine it and draw some inferences. But this is &lt;code class=&quot;highlighter-rouge&quot;&gt;rarely&lt;/code&gt; the case in the real world. The data in the real world is &lt;code class=&quot;highlighter-rouge&quot;&gt;huge and messy&lt;/code&gt;, so we need a way to quantify the &lt;code class=&quot;highlighter-rouge&quot;&gt;quality&lt;/code&gt; of the clustering.&lt;/p&gt;
+
+&lt;p&gt;Silhouette is a way to evaluate the &lt;code class=&quot;highlighter-rouge&quot;&gt;clustering quality&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;range&lt;/code&gt; of the Silhouette Score is between &lt;code class=&quot;highlighter-rouge&quot;&gt;-1 and 1&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Formula&lt;/code&gt;: $\Large\frac{silhouette score = (p - q)}{ max(p, q)}$&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;mean distance&lt;/code&gt; to the points in the &lt;code class=&quot;highlighter-rouge&quot;&gt;nearest&lt;/code&gt; cluster that the data point is not a part of&lt;/em&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;q&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;mean intra-cluster distance&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;all&lt;/code&gt; the points in its &lt;code class=&quot;highlighter-rouge&quot;&gt;own&lt;/code&gt; cluster.&lt;/em&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/silhouette_analysis.png&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example with Scrit-Learn&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.cluster&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KMeans&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.datasets.samples_generator&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_blobs&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# input data, containing 4 blobs&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_blobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_samples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;centers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cluster_std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Initialize variables&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Iterate through the defined range&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_clusters&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Train the KMeans clustering model&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;kmeans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KMeans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'k-means++'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_clusters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num_clusters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n_init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;kmeans&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;score&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;silhouette_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kmeans&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;labels_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                &lt;span class=&quot;n&quot;&gt;metric&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'euclidean'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sample_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Number of clusters =&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_clusters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Silhouette score =&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                    
+    &lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Plot silhouette scores&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'black'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;align&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'center'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Extract best score and optimal number of clusters&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;num_clusters&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Optimal number of clusters ='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_clusters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Number of clusters = 2
+Silhouette score = 0.5983028377054385
+
+Number of clusters = 3
+Silhouette score = 0.6735963463903952
+
+Number of clusters = 4
+Silhouette score = 0.7900520050938619
+
+Number of clusters = 5
+Silhouette score = 0.6829517395665077
+
+Number of clusters = 6
+Silhouette score = 0.563136216297564
+
+Number of clusters = 7
+Silhouette score = 0.4525060848311459
+
+Number of clusters = 8
+Silhouette score = 0.3264185389751767
+
+Number of clusters = 9
+Silhouette score = 0.3248083544292323
+
+Optimal number of clusters = 4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/sstable.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -3000,20 +3092,78 @@ Responsibility for code performance is however shifted towards the programmer, t
       </item>
     
       <item>
-        <title>Unity Rendering Path</title>
-        <description>&lt;p&gt;Unity support many kinds of rendering path. In Unity 5.0, there are three types of rendering path: forward, deferred, and vertex lit rendering path.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h4 id=&quot;1-forward-rendering-path&quot;&gt;1. Forward Rendering Path&lt;/h4&gt;
-
-&lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/fwdRendering.png&quot; width=&quot;80%&quot; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;For each forward rendering, we need to render the rendering primitive of the object and calculate the data of two buffers (color buffer and depth buffer). We use the depth buffer to determine if a fragment is visible and update the color value of the color buffer if it is visible.&lt;/p&gt;
+        <title>Unity Rendering Path (CG)</title>
+        <description>&lt;p&gt;Unity support many kinds of rendering paths. For now there are &lt;code class=&quot;highlighter-rouge&quot;&gt;three&lt;/code&gt; types of rendering path in Unity: &lt;code class=&quot;highlighter-rouge&quot;&gt;forward&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;deferred&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;vertex lit (almost never use)&lt;/code&gt; rendering path.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;We can use pseudo code to describe the process of forward rendering:&lt;/p&gt;
+  &lt;p&gt;&lt;em&gt;An example of setting rendering path &lt;code class=&quot;highlighter-rouge&quot;&gt;in Unity Shader&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+  &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;LightMode&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ForwardBase&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The Below Table shows the &lt;code class=&quot;highlighter-rouge&quot;&gt;Common&lt;/code&gt; Rendering Path Option for LightMode Tag in Unity Shader&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table rules=&quot;groups&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Tag Name&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;       &lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Always&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;This Pass will be rendered in any rendering path, but it will not calculate any lighting&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;ForwardBase&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Used for forward rendering. The Pass will calculate the &lt;strong&gt;environmetal light, directional light, per-vertex /Spherical Harmonics(SH) light source&lt;/strong&gt;, and Lightmaps&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;ForwardAdd&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Used for forward rendering. The Pass will calculate &lt;strong&gt;additional per-pixel light source&lt;/strong&gt;, every Pass corresponding one light source&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Deferred&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Used for deferred rendering. This Pass will render &lt;strong&gt;G-Buffer(includes color, normal, Buffer in world space)&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;ShadowCaster&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td&gt;Render the object’s depth info into the &lt;strong&gt;shaowmap or a depth map&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;1-forward-rendering-path&quot;&gt;&lt;strong&gt;1. Forward Rendering Path&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/fwdRendering.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;For each forward rendering, we need to &lt;code class=&quot;highlighter-rouge&quot;&gt;render&lt;/code&gt; the rendering primitive of the object and &lt;code class=&quot;highlighter-rouge&quot;&gt;calculate&lt;/code&gt; the data of two buffers (&lt;code class=&quot;highlighter-rouge&quot;&gt;color&lt;/code&gt; buffer and &lt;code class=&quot;highlighter-rouge&quot;&gt;depth&lt;/code&gt; buffer). We use the &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;determine&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;if a fragment is visible&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;update&lt;/code&gt; the color value of the color buffer &lt;code class=&quot;highlighter-rouge&quot;&gt;if it is visible&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Pseudo code&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt;
@@ -3038,16 +3188,16 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-deferred-rendering-path&quot;&gt;2. Deferred Rendering Path&lt;/h4&gt;
+&lt;h2 id=&quot;2-deferred-rendering-path&quot;&gt;&lt;strong&gt;2. Deferred Rendering Path&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/deferredrendering.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/deferredrendering.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;Deferred Rendering mainly includes two Pass. The first Pass, we don’t do any lighting calculations, and only calculate which fragment in the screen is visible, by depth buffer. After finding a fragment is visible, it will store the data into the G-Buffer. Then, in the second Pass, it will use the data of fragment in the G-Buffer to do the lighting calculation.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Deferred Rendering&lt;/code&gt; mainly includes &lt;code class=&quot;highlighter-rouge&quot;&gt;two Pass&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;first&lt;/code&gt; Pass, we &lt;code class=&quot;highlighter-rouge&quot;&gt;don’t&lt;/code&gt; do any lighting calculations, and &lt;code class=&quot;highlighter-rouge&quot;&gt;only&lt;/code&gt; calculate which fragment in the screen is &lt;code class=&quot;highlighter-rouge&quot;&gt;visible&lt;/code&gt; through &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;After&lt;/code&gt; finding a fragment is visible, it will &lt;code class=&quot;highlighter-rouge&quot;&gt;store&lt;/code&gt; the data into the &lt;code class=&quot;highlighter-rouge&quot;&gt;G-Buffer&lt;/code&gt;. Then, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;second&lt;/code&gt; Pass, it will &lt;code class=&quot;highlighter-rouge&quot;&gt;use&lt;/code&gt; the data of fragment in the G-Buffer to do the lighting calculation.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;We can use pseudo code to describe the process of the deferred rendering:&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Pseudo code&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;PassOne&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Store fragment data into G-Buffer&lt;/span&gt;
@@ -3082,18 +3232,18 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-why-use-deferred-rendering&quot;&gt;2. Why use Deferred Rendering&lt;/h4&gt;
+&lt;h3 id=&quot;2-forward-rendering-vs-deferred-rendering&quot;&gt;2. &lt;strong&gt;Forward Rendering vs Deferred Rendering&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Normally we will use Forward Rendering, but when the scene has too many light sources, the performance of Forward Rendering drops dramatically.&lt;/p&gt;
+  &lt;p&gt;Normally we will use &lt;code class=&quot;highlighter-rouge&quot;&gt;Forward Rendering&lt;/code&gt;, but when the scene has &lt;code class=&quot;highlighter-rouge&quot;&gt;too many light sources&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;performance&lt;/code&gt; of Forward Rendering &lt;code class=&quot;highlighter-rouge&quot;&gt;drops&lt;/code&gt; dramatically.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;For example, if we place multiple light sources in an area in the Unity Scene, and these light source areas overlap and influence with each other. In order to get the final lighting effects, we need to perform multiple Pass for each object in the area to calculate the lighting result of different light source to this object, finally, blend these results in the color buffer to get the final lighting. Therefore, every time when we call a Pass we need to render the object again, but many calculations actually is repeat.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;blockquote style=&quot;color: red&quot;&gt;
-  &lt;p&gt;Deferred Rendering can solve this problem because it not only uses color buffer, and depth buffer, it also use an additional buffer called G-Buffer (Geometry- Buffer). G-Buffer stores the information of the surface we care (normally it means the surface which is the closest to camera), such as the surface’s Normal, Position, Material Properties used for illumination calculation, etc.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Deferred Rendering can solve this problem because it &lt;code class=&quot;highlighter-rouge&quot;&gt;not only&lt;/code&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;color buffer&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;, it also use an additional buffer called &lt;code class=&quot;highlighter-rouge&quot;&gt;G-Buffer&lt;/code&gt; (Geometry- Buffer). G-Buffer &lt;code class=&quot;highlighter-rouge&quot;&gt;stores&lt;/code&gt; the information of the surface we care (normally it means the surface which is the closest to camera), such as the surface’s Normal, Position, Material Properties used for illumination calculation, etc.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
@@ -6279,7 +6429,7 @@ when P(x,y,z) rotate along the y-axis got P’(x’,y’,z’). y will not chang
 
 &lt;p&gt;So, when rotating along y-axis,&lt;/p&gt;
 
-&lt;p&gt;it should transpose from &lt;strong&gt;[x y z 1]&lt;/strong&gt; =&amp;gt;
+&lt;p&gt;it should transpose from [x y z 1] =&amp;gt;
 &lt;img src=&quot;/static/assets/img/blog/y_r_format.png&quot; width=&quot;10%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;eg: rotate along respectively x, y, z 30 degree:&lt;/p&gt;
@@ -6446,60 +6596,56 @@ After scale:
         <description>&lt;p&gt;The Cross Product and the Dot Product are the most common calculations of Vector. In the Game Development, it is necessary to understand both of them. The biggest difference between them is that:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The result of &lt;strong&gt;dot product&lt;/strong&gt; is a &lt;strong&gt;value&lt;/strong&gt;
-The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vector&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;The result of &lt;code class=&quot;highlighter-rouge&quot;&gt;dot product&lt;/code&gt; is a &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt;
+The result of &lt;code class=&quot;highlighter-rouge&quot;&gt;cross product&lt;/code&gt; is a &lt;code class=&quot;highlighter-rouge&quot;&gt;vector&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;1-dot-product&quot;&gt;&lt;strong&gt;1. Dot Product&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;The dot product of two n-dimensional vectors A and B, written as A ⋅ B, is the scalar quantity given by the formula:&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;dot product&lt;/code&gt; of two &lt;code class=&quot;highlighter-rouge&quot;&gt;n-dimensional vectors&lt;/code&gt; A and B, written as A ⋅ B, it can calculate the length of the projection:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\huge A\cdot B = \sum_{i=1}^{n}{A_i}{B_i}&lt;/script&gt;
 
 &lt;p&gt;eg:&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;if:&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;if:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad Vector3\:\: v_1 = (x_1,y_1,z_1), Vector3\:\: v_2 = (x_2,y_2,z_2)&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;then:&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;then:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad v_1 \cdot v_2 = {x_1}{x_2}+{y_1}{y_2}+{z_1}{z_2}&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Follow the law of trig it can write as:&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Follow the law of trig it can write as:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad A\cdot B = \|A\|\|B\| cos\theta&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Follow up, it also can write as:&lt;br /&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Follow up, it also can write as:&lt;/code&gt;&lt;br /&gt;
 &lt;script type=&quot;math/tex&quot;&gt;\large\qquad\theta = acos (\frac{A\cdot B}{\|A\|\|B\| })&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
-&lt;p&gt;Dot Product also can calculate the &lt;strong&gt;projection&lt;/strong&gt; of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
+&lt;p&gt;Dot Product also can calculate the &lt;code class=&quot;highlighter-rouge&quot;&gt;projection&lt;/code&gt; of a vector by giving A and B vectors. Basic trigonometry tells us that the length of the side adjacent to $\theta$ is given by 
 &lt;script type=&quot;math/tex&quot;&gt;\|B\| cos\theta&lt;/script&gt;. Shown as below image:&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/proj_ab.png&quot; width=&quot;30%&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;The length of the projection of the &lt;strong&gt;Vector A onto the Vector B&lt;/strong&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;\large\frac{A⋅B}{\|B\|}&lt;/script&gt;, because &lt;script type=&quot;math/tex&quot;&gt;A⋅B = \|A\| \|B\| cos\theta&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;The length of the projection of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Vector A onto the Vector B&lt;/code&gt; is given by &lt;script type=&quot;math/tex&quot;&gt;\large\frac{A⋅B}{\|B\|}&lt;/script&gt;, because &lt;script type=&quot;math/tex&quot;&gt;A⋅B = \|A\| \|B\| cos\theta&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;Therefore, in order to get the Vector of with this length, we can just multiply by the &lt;strong&gt;unit vector of B&lt;/strong&gt;, which is 
+&lt;p&gt;Therefore, in order to get the Vector of with this length, we can just multiply by the &lt;code class=&quot;highlighter-rouge&quot;&gt;unit vector of B&lt;/code&gt;, which is 
 &lt;script type=&quot;math/tex&quot;&gt;\Large\frac{B}{\|B\|}&lt;/script&gt;, we can get the following formula:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\Large proj_BA = \frac{A\cdot B}{\|B\|^2}B&lt;/script&gt;
 
 &lt;p&gt;The position relation of two vectors can be determined by the sign of the dot product of these two vector.&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;If the dot product = 0, these two vectors are perpendicular. Two Vector point &lt;strong&gt;mostly same direction&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180. Two Vector &lt;strong&gt;perpendicular&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;strong&gt;mostly opposite direction&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product = 0, these two vectors are &lt;code class=&quot;highlighter-rouge&quot;&gt;perpendicular&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;lt;0, the angle between two Vector is 90 ~ 180.  Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly opposite direction&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If the dot product &amp;gt;0, the angle between two Vector is 0 ~ 90. Two Vector point &lt;code class=&quot;highlighter-rouge&quot;&gt;mostly same direction&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The dot product A ⋅ B may also be expressed as the &lt;strong&gt;matrix product&lt;/strong&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/static/assets/img/blog/dot product anim.gif&quot; width=&quot;30%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The dot product A ⋅ B may also be expressed as the &lt;code class=&quot;highlighter-rouge&quot;&gt;matrix product&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;\begin{equation} A_T B = \begin{bmatrix}A_1 &amp;amp; A_2 &amp;amp; \cdots &amp;amp; A_n\end{bmatrix} \begin{bmatrix}B_1 \\ B_2 \\ \vdots \\ B_n\end{bmatrix} \end{equation}&lt;/p&gt;
 
@@ -6569,7 +6715,7 @@ The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vect
 &lt;script type=&quot;math/tex&quot;&gt;\large \qquad \theta = asin (\frac{\|A×B\|}{\|A\|\|B\| })&lt;/script&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is &lt;strong&gt;&lt;em&gt;perpendicular&lt;/em&gt;&lt;/strong&gt; to the coordinate plane of these two vectors.&lt;/p&gt;
+&lt;p&gt;The cross product of two vectors, the result of the cross product is a vector instead of a value. Also, the cross product of two vectors is &lt;code class=&quot;highlighter-rouge&quot;&gt;perpendicular&lt;/code&gt; to the coordinate plane of these two vectors.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;In Math, it satisfy right hand rule, a x b = -b x a. So we can use the result of Cross product’s value is positive or negative to determine a and b’s relative position.&lt;/p&gt;
@@ -6578,22 +6724,23 @@ The result of &lt;strong&gt;cross product&lt;/strong&gt; is a &lt;strong&gt;vect
 &lt;p align=&quot;center&quot;&gt;    
 &lt;img src=&quot;/static/assets/img/blog/right-hand.png&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;b&gt;Right-hand Cooridinate System&lt;/b&gt;
+&lt;b&gt;`Right-hand Cooridinate System`&lt;/b&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;   
 &lt;img src=&quot;/static/assets/img/blog/left-hand.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;b&gt;Left-hand Cooridinate System**&lt;/b&gt;
+&lt;b&gt;`Left-hand Cooridinate System`&lt;/b&gt;
 &lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;  
-&lt;img src=&quot;/static/assets/img/blog/Cross2.jpg&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/static/assets/img/blog/cross.gif&quot; width=&quot;20%&quot; /&gt;&lt;br /&gt;
 
-&lt;b&gt;Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.**&lt;/b&gt;
+&lt;b&gt;`Normal vector of a plane is the Cross Product of the coordinate plane of x and y vectors.`&lt;/b&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;example-in-game-development-1&quot;&gt;&lt;strong&gt;&lt;em&gt;Example in Game Development:&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;h3 id=&quot;example-in-game-development-1&quot;&gt;&lt;strong&gt;Example in Game Development:&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;p&gt;(1) WallWalking:&lt;/p&gt;
 
@@ -6622,12 +6769,12 @@ float value = Vector3.Cross(a.normalized, b.normalized);
 float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;(5) Can Determine if two vector is &lt;strong&gt;Parallel&lt;/strong&gt; or &lt;strong&gt;Intersecting&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;(5) Can Determine if two vector is &lt;code class=&quot;highlighter-rouge&quot;&gt;Parallel&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Intersecting&lt;/code&gt;.&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;In conclusion, &lt;strong&gt;&lt;em&gt;Dot Product&lt;/em&gt;&lt;/strong&gt; determine the angle of two Vectors, &lt;strong&gt;&lt;em&gt;Cross Product&lt;/em&gt;&lt;/strong&gt; determine the direction of two Vectors.&lt;/p&gt;
+&lt;p&gt;In conclusion, &lt;code class=&quot;highlighter-rouge&quot;&gt;Dot Product&lt;/code&gt; determine the angle of two Vectors, &lt;code class=&quot;highlighter-rouge&quot;&gt;Cross Product&lt;/code&gt; determine the direction of two Vectors.&lt;/p&gt;
 
-&lt;p&gt;For instance, when an enemy behind you, &lt;strong&gt;&lt;em&gt;Cross Product&lt;/em&gt;&lt;/strong&gt; determine whether you should turn left or turn right to face to the enemy quickly; the &lt;strong&gt;&lt;em&gt;Dot Product&lt;/em&gt;&lt;/strong&gt; can get the angle size you need to turn towards the enemy.&lt;/p&gt;
+&lt;p&gt;For instance, when an enemy behind you, &lt;code class=&quot;highlighter-rouge&quot;&gt;Cross Product&lt;/code&gt; determine whether you should turn left or turn right to face to the enemy quickly; the &lt;code class=&quot;highlighter-rouge&quot;&gt;Dot Product&lt;/code&gt; can get the angle size you need to turn towards the enemy.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;

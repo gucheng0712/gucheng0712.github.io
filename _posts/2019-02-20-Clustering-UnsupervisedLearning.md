@@ -11,21 +11,23 @@ icon: fa-code
 <p align="center"> 
 <img src="/static/assets/img/blog/Supervised Learning Vs Unsupervised Learning.jpeg" width="30%">
 </p>
-To determine a machine learning whether is supervised learning or unsupervised learning, basicly depends on if the input data(features) has **label**, such as regression and classification. **Supervised Learning** is defined as input data(features) with labels. **Unsupervised Learning** is defined as input data without labels, such as clustering, and dimensional reduction.
 
->**“Because we don't give it the answer, it's unsupervised learning”**
+To `determine` a machine learning whether is supervised learning `or` unsupervised learning, basicly depends on if the input data(features) has `label`, such as regression and classification. `Supervised Learning` is defined as input data(features) with labels. `Unsupervised Learning` is defined as input data without labels, such as clustering, and dimensional reduction.
+
+> `“Because we don't give it the answer, it's unsupervised learning”`
 
 ---
 ## **What is Clustering?**
 
 <p align="center"> <img src="/static/assets/img/blog/clustering.png" width="50%"></p>
-A common case of unsupervised learning is clustering, a process in which data is assigned to a number of discrete groups.Clustering is a little bit similiar to the classification but it doesn't have label, which means, it doesn't need to care about what a certain category is, the goal is just to gather similar things together. Therefore, clustering algorithm often only needs to know how to calculate the similarity to start working, so it normally doesn't need to use training data for learning
+
+A common case of unsupervised learning is `clustering`, a process in which data is assigned to a number of discrete groups. Clustering is a little bit similiar to the classification but it `doesn't` have label, which means, it `doesn't` need to care about what a certain `category` is, the `goal` is just to gather similar things together. Therefore, clustering algorithm often only needs to know` how to calculate the similarity` to start working, so it normally `doesn't` need to use training data for learning.
 
 ---
 ## **K-Means Algorithm**
 <p align="center"> <img src="/static/assets/img/blog/Animation_of_k-means_clustering.gif" width="50%"></p>
 
-k-Means is a simple and popular algorithm that searches for a predetermined number of clusters within an unlabeled dataset by following the steps outlined below:
+`k-Means` is a simple and popular algorithm that searches for a `predetermined` number of clusters within an `unlabeled dataset` by following the steps outlined below:
 
 > **Pseudocode:**
 
@@ -74,7 +76,7 @@ plt.show()
 
 <p align="center"> <img src="/static/assets/img/blog/meanshift.gif" width="50%"></p>
 
-Meanshift looks very similiar to K-Means, they both move the point closer to the cluster centroids. However, the difference between them is that Meanshift **doesn't** require the programmer to specify the **number of clusters**, but it is **slower** than the K-Means in terms of runtime complexity!
+`Meanshift` looks very similiar to K-Means, they both move the point closer to the cluster `centroids`. However, the difference between them is that Meanshift `doesn't` require to specify the `number of clusters`, but it is `slower` than the K-Means in terms of runtime complexity!
 
 > **Pseudocode:**
 
@@ -140,7 +142,7 @@ plt.show()
 
 <p align="center"> <img src="/static/assets/img/blog/gmm.gif" width="50%"></p>
 
-Due to the non-probabilistic nature of k-means and its use of simple distance-from-cluster-center to assign cluster membership leads to poor performance for many real-world situations. As we can see, the mode of clustering by using k-means must be a circle, and it doesn't have built-in method to calculate oblong or elliptical clusters.  Hence, the gaussian mixture model is established. The gaussian mixture model (GMM) attempts to find a mixture of multidimensional gaussian probability distributions to simulate any input data set.
+Due to the `non-probabilistic` nature of k-means and its use of simple `distance-from-cluster-center` to assign cluster membership leads to `poor` performance for many `real-world` situations. As we can see, the mode of clustering by using k-means `must` be a `circle`, and it doesn't have built-in method to calculate oblong or elliptical clusters.  Hence, the `gaussian mixture model` is established. The `gaussian mixture model (GMM)` attempts to find a mixture of multidimensional `gaussian probability distributions` to simulate any input data set.
 
 
 > **Pseudocode:**
@@ -179,6 +181,91 @@ plt.scatter(X[:, 0], X[:, 1], c=labels, s=40, cmap='viridis')
 > **Output:**
 
 <img src="/static/assets/img/blog/gmmout.png" width="30%">
+
+
+---
+## **Silhouette Analysis**
+
+If the data is naturally organized into a number of distinct clusters, then it is easy to visually examine it and draw some inferences. But this is `rarely` the case in the real world. The data in the real world is `huge and messy`, so we need a way to quantify the `quality` of the clustering. 
+
+Silhouette is a way to evaluate the `clustering quality`. The `range` of the Silhouette Score is between `-1 and 1`
+
+> `Formula`: $\Large\frac{silhouette score = (p - q)}{ max(p, q)}$ 
+* *`p` is the `mean distance` to the points in the `nearest` cluster that the data point is not a part of*
+* *`q` is the `mean intra-cluster distance` to `all` the points in its `own` cluster.*
+
+<p align="center"> <img src="/static/assets/img/blog/silhouette_analysis.png" width="70%"></p>
+
+> **Code Example with Scrit-Learn**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import metrics
+from sklearn.cluster import KMeans
+from sklearn.datasets.samples_generator import make_blobs
+
+# input data, containing 4 blobs
+X, y_true = make_blobs(n_samples=500, centers=4, cluster_std=0.40, random_state=0)
+
+# Initialize variables
+scores = []
+values = np.arange(2, 10)
+print(values)
+
+# Iterate through the defined range
+for num_clusters in values:
+    # Train the KMeans clustering model
+    kmeans = KMeans(init='k-means++', n_clusters=num_clusters, n_init=10)
+    kmeans.fit(X)
+    score = metrics.silhouette_score(X, kmeans.labels_, 
+                metric='euclidean', sample_size=len(X))
+
+    print("\nNumber of clusters =", num_clusters)
+    print("Silhouette score =", score)
+                    
+    scores.append(score)
+
+# Plot silhouette scores
+plt.bar(values, scores, width=0.7, color='black',
+align='center')
+
+# Extract best score and optimal number of clusters
+num_clusters = np.argmax(scores) + values[0]
+print('\nOptimal number of clusters =', num_clusters)
+```
+
+> **Output:**
+
+```
+Number of clusters = 2
+Silhouette score = 0.5983028377054385
+
+Number of clusters = 3
+Silhouette score = 0.6735963463903952
+
+Number of clusters = 4
+Silhouette score = 0.7900520050938619
+
+Number of clusters = 5
+Silhouette score = 0.6829517395665077
+
+Number of clusters = 6
+Silhouette score = 0.563136216297564
+
+Number of clusters = 7
+Silhouette score = 0.4525060848311459
+
+Number of clusters = 8
+Silhouette score = 0.3264185389751767
+
+Number of clusters = 9
+Silhouette score = 0.3248083544292323
+
+Optimal number of clusters = 4
+```
+
+<img src="/static/assets/img/blog/sstable.png" width="30%">
 
 ---
 
