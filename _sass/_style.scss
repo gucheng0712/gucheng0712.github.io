@@ -1350,6 +1350,11 @@ a {
     }
 }
 
+.ibox-postpadding {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
 .ibox-content {
     h1,
     h2,
@@ -2110,6 +2115,8 @@ body {
         background-color: #fff;
     }
 }
+
+
 
 @-webkit-keyframes sk-rotatePlane {
     0% {

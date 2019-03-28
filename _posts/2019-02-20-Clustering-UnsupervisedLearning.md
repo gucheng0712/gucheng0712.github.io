@@ -12,7 +12,7 @@ icon: fa-code
 <img src="/static/assets/img/blog/Supervised Learning Vs Unsupervised Learning.jpeg" width="30%">
 </p>
 
-To `determine` a machine learning whether is supervised learning `or` unsupervised learning, basicly depends on if the input data(features) has `label`, such as regression and classification. `Supervised Learning` is defined as input data(features) with labels. `Unsupervised Learning` is defined as input data without labels, such as clustering, and dimensional reduction.
+To `determine` a machine learning whether is supervised learning `or` unsupervised learning, basicly depends on if the input data(features) has `label`.`Supervised Learning` is defined as input data(features) with labels, such as regression and classification. `Unsupervised Learning` is defined as input data without labels, such as clustering, and dimensional reduction.
 
 > `“Because we don't give it the answer, it's unsupervised learning”`
 
@@ -21,7 +21,7 @@ To `determine` a machine learning whether is supervised learning `or` unsupervis
 
 <p align="center"> <img src="/static/assets/img/blog/clustering.png" width="50%"></p>
 
-A common case of unsupervised learning is `clustering`, a process in which data is assigned to a number of discrete groups. Clustering is a little bit similiar to the classification but it `doesn't` have label, which means, it `doesn't` need to care about what a certain `category` is, the `goal` is just to gather similar things together. Therefore, clustering algorithm often only needs to know` how to calculate the similarity` to start working, so it normally `doesn't` need to use training data for learning.
+A common case of unsupervised learning is `clustering`, the process of assigning data to multiple discrete groups. Clustering is a little bit similiar to the classification but it `doesn't` have label, which means, it `doesn't` need to care about what a certain `category` is, the `goal` is just to gather similar things together. Therefore, clustering algorithm often only needs to know` how to calculate the similarity` to start working, and it normally `doesn't` need to use training data for learning.
 
 ---
 ## **K-Means Algorithm**

@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 24 Mar 2019 00:50:06 -0700</pubDate>
-    <lastBuildDate>Sun, 24 Mar 2019 00:50:06 -0700</lastBuildDate>
+    <pubDate>Thu, 28 Mar 2019 01:47:14 -0700</pubDate>
+    <lastBuildDate>Thu, 28 Mar 2019 01:47:14 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -467,7 +467,7 @@ steps (over 1000).&lt;/p&gt;
 &lt;img src=&quot;/static/assets/img/blog/Supervised Learning Vs Unsupervised Learning.jpeg&quot; width=&quot;30%&quot; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;To &lt;code class=&quot;highlighter-rouge&quot;&gt;determine&lt;/code&gt; a machine learning whether is supervised learning &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; unsupervised learning, basicly depends on if the input data(features) has &lt;code class=&quot;highlighter-rouge&quot;&gt;label&lt;/code&gt;, such as regression and classification. &lt;code class=&quot;highlighter-rouge&quot;&gt;Supervised Learning&lt;/code&gt; is defined as input data(features) with labels. &lt;code class=&quot;highlighter-rouge&quot;&gt;Unsupervised Learning&lt;/code&gt; is defined as input data without labels, such as clustering, and dimensional reduction.&lt;/p&gt;
+&lt;p&gt;To &lt;code class=&quot;highlighter-rouge&quot;&gt;determine&lt;/code&gt; a machine learning whether is supervised learning &lt;code class=&quot;highlighter-rouge&quot;&gt;or&lt;/code&gt; unsupervised learning, basicly depends on if the input data(features) has &lt;code class=&quot;highlighter-rouge&quot;&gt;label&lt;/code&gt;.&lt;code class=&quot;highlighter-rouge&quot;&gt;Supervised Learning&lt;/code&gt; is defined as input data(features) with labels, such as regression and classification. &lt;code class=&quot;highlighter-rouge&quot;&gt;Unsupervised Learning&lt;/code&gt; is defined as input data without labels, such as clustering, and dimensional reduction.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;“Because we don't give it the answer, it's unsupervised learning”&lt;/code&gt;&lt;/p&gt;
@@ -478,7 +478,7 @@ steps (over 1000).&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/clustering.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;A common case of unsupervised learning is &lt;code class=&quot;highlighter-rouge&quot;&gt;clustering&lt;/code&gt;, a process in which data is assigned to a number of discrete groups. Clustering is a little bit similiar to the classification but it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; have label, which means, it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to care about what a certain &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; is, the &lt;code class=&quot;highlighter-rouge&quot;&gt;goal&lt;/code&gt; is just to gather similar things together. Therefore, clustering algorithm often only needs to know&lt;code class=&quot;highlighter-rouge&quot;&gt; how to calculate the similarity&lt;/code&gt; to start working, so it normally &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to use training data for learning.&lt;/p&gt;
+&lt;p&gt;A common case of unsupervised learning is &lt;code class=&quot;highlighter-rouge&quot;&gt;clustering&lt;/code&gt;, the process of assigning data to multiple discrete groups. Clustering is a little bit similiar to the classification but it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; have label, which means, it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to care about what a certain &lt;code class=&quot;highlighter-rouge&quot;&gt;category&lt;/code&gt; is, the &lt;code class=&quot;highlighter-rouge&quot;&gt;goal&lt;/code&gt; is just to gather similar things together. Therefore, clustering algorithm often only needs to know&lt;code class=&quot;highlighter-rouge&quot;&gt; how to calculate the similarity&lt;/code&gt; to start working, and it normally &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to use training data for learning.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;k-means-algorithm&quot;&gt;&lt;strong&gt;K-Means Algorithm&lt;/strong&gt;&lt;/h2&gt;
