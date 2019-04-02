@@ -162,7 +162,7 @@ print(text_tagged)
 ```
 
 ---
-## ** Information Retrieval
+## **Information Retrieval**
 
 `The Information Retrieval` is  to extract relevant information from the source.
 
