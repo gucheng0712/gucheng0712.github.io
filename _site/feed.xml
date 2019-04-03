@@ -5,9 +5,131 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Apr 2019 00:31:45 -0700</pubDate>
-    <lastBuildDate>Wed, 03 Apr 2019 00:31:45 -0700</lastBuildDate>
+    <pubDate>Wed, 03 Apr 2019 03:43:11 -0700</pubDate>
+    <lastBuildDate>Wed, 03 Apr 2019 03:43:11 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Convolution in Image Processing (CG)</title>
+        <description>&lt;h2 id=&quot;what-is-convolution&quot;&gt;&lt;strong&gt;What is Convolution?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Convolution&lt;/code&gt; is very useful in many areas, one of the most common application is the &lt;code class=&quot;highlighter-rouge&quot;&gt;image processing&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In image processing, there is a basic processing method: &lt;code class=&quot;highlighter-rouge&quot;&gt;linear filtering&lt;/code&gt;. The image to be processed can be think as a large matrix, and each pixel of the image corresponds to each element of the matrix. For example, assuming that the &lt;code class=&quot;highlighter-rouge&quot;&gt;resolution&lt;/code&gt; of our plane is &lt;code class=&quot;highlighter-rouge&quot;&gt;1024 * 768&lt;/code&gt;, then the corresponding large matrix’s number of &lt;code class=&quot;highlighter-rouge&quot;&gt;rows = 1024&lt;/code&gt;, the number of &lt;code class=&quot;highlighter-rouge&quot;&gt;columns = 768&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;What is used for filtering is a small filter matrix known as &lt;code class=&quot;highlighter-rouge&quot;&gt;convolution kernel&lt;/code&gt;, and the filter matrix is a &lt;code class=&quot;highlighter-rouge&quot;&gt;square matrix&lt;/code&gt; (such as 2X2, 3x3, 4x4).&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Filtering&lt;/code&gt; is to calculate the product of the &lt;code class=&quot;highlighter-rouge&quot;&gt;pixels&lt;/code&gt; around it and the corresponding position elements of the &lt;code class=&quot;highlighter-rouge&quot;&gt;filter matrix(kernel) for each pixel in the large matrix&lt;/code&gt;, and then &lt;code class=&quot;highlighter-rouge&quot;&gt;add&lt;/code&gt; the results together to get the &lt;code class=&quot;highlighter-rouge&quot;&gt;final value&lt;/code&gt; as the value of this pixel. Convolution need to filter &lt;code class=&quot;highlighter-rouge&quot;&gt;each pixel&lt;/code&gt; in the image.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Below is the schematic diagram of image convolution calculation:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/convolution.png&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;operation&lt;/code&gt; of multiplying and summing the corresponding elements of the &lt;code class=&quot;highlighter-rouge&quot;&gt;image (large matrix)&lt;/code&gt; and the &lt;code class=&quot;highlighter-rouge&quot;&gt;small filter matrix(kernel)&lt;/code&gt; is ​​called &lt;code class=&quot;highlighter-rouge&quot;&gt;Convolution&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Correlation&lt;/code&gt;. The only &lt;code class=&quot;highlighter-rouge&quot;&gt;difference&lt;/code&gt; between these two is that the convolution &lt;code class=&quot;highlighter-rouge&quot;&gt;needs&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;flip the convolution kernel&lt;/code&gt; before the calculation, and the correlation &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; need to be flipped.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;sobel-operatorsobel-filtering&quot;&gt;&lt;strong&gt;Sobel Operator(Sobel Filtering)&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sobel Operator&lt;/code&gt; (also called &lt;code class=&quot;highlighter-rouge&quot;&gt;Sobel Filtering&lt;/code&gt;), is a &lt;code class=&quot;highlighter-rouge&quot;&gt;two&lt;/code&gt; 3x3 matrix that is mainly used to calculate the &lt;code class=&quot;highlighter-rouge&quot;&gt;gradient&lt;/code&gt; of a point in the image in the &lt;code class=&quot;highlighter-rouge&quot;&gt;horizontal/vertical&lt;/code&gt; direction.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Sobel Operator&lt;/code&gt; has two filter matrix(kernel): &lt;code class=&quot;highlighter-rouge&quot;&gt;Gx&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Gy&lt;/code&gt;. Gx is used to calculate horizontal gradient, Gy is used to calculate vertical gradient.&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+G_x = \begin{bmatrix} -1 &amp;amp; 0 &amp;amp; +1 \\
+                      -2 &amp;amp; 0 &amp;amp; +2 \\
+                      -1 &amp;amp; 0 &amp;amp; +1 \end{bmatrix}
+                      G_y = \begin{bmatrix} -1 &amp;amp; -2 &amp;amp; -1 \\
+                       0 &amp;amp;  0 &amp;amp;  0 \\
+                      +1 &amp;amp; +2 &amp;amp; +1 \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: the two gradient matrices listed here correspond to the horizontal axis from left to right and the vertical axis from top to bottom, which looks like this:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/flip2dcoordinate.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;the-usage-of-the-sobel-operator&quot;&gt;&lt;strong&gt;The Usage of the Sobel Operator&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;It can be used to &lt;code class=&quot;highlighter-rouge&quot;&gt;detect the edge&lt;/code&gt; of an image, or to calculate the &lt;code class=&quot;highlighter-rouge&quot;&gt;normal vector&lt;/code&gt; of a pixel point.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When doing edge detection, Gx is used to detect vertical edges, Gy is used to detect horizontal edges.&lt;/li&gt;
+  &lt;li&gt;When calculation normal vector, Gx is used to calculate the horizontal offset of the normal, Gy is used to caluclate the vertical offset of the normal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;calculation&quot;&gt;&lt;strong&gt;Calculation:&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Suppose the pixels around a pixel of the image to be processed are as follows:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{bmatrix} up left &amp;amp; up &amp;amp; up right \\
+                 left &amp;amp; center &amp;amp; right \\
+                 down left &amp;amp; down &amp;amp; down rights \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Then:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;new value of horizontal pixel&lt;/code&gt; = &lt;script type=&quot;math/tex&quot;&gt;(-1)*up left + (-2)*left + (-1)*down left + 1*up right + 2*right + 1*down right&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;new value of vertical pixel&lt;/code&gt; = &lt;script type=&quot;math/tex&quot;&gt;(-1)*up left + (-2)*up + (-1)*up right + 1*down left + 2*down + 1*down  right&lt;/script&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note: Normally when we are doing image convolution, we need to &lt;code class=&quot;highlighter-rouge&quot;&gt;flip&lt;/code&gt; to convolution &lt;code class=&quot;highlighter-rouge&quot;&gt;kernel&lt;/code&gt;, but Sobel operator will get the &lt;code class=&quot;highlighter-rouge&quot;&gt;same result&lt;/code&gt; after flipping the convolution, so we don’t have to flip it when using Sobel Operator.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;flipping-the-kernel&quot;&gt;&lt;strong&gt;Flipping the Kernel:&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;\begin{equation}
+Original Kernel = \begin{bmatrix} a &amp;amp; b &amp;amp; c \\
+                d &amp;amp; e &amp;amp; f \\
+                g &amp;amp; h &amp;amp; i \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
+                f &amp;amp; e &amp;amp; d \\
+                c &amp;amp; b &amp;amp; a \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;convolution-animation-representation&quot;&gt;&lt;strong&gt;Convolution Animation Representation:&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/conv.gif&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Wed, 03 Apr 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing-(CG&ML).html</link>
+        <guid isPermaLink="true">http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing-(CG&ML).html</guid>
+        
+        <category>Cg</category>
+        
+        <category>Ai</category>
+        
+        
+        <category>Cg</category>
+        
+        <category>Ai</category>
+        
+        <category>Math</category>
+        
+        <category>Unity</category>
+        
+      </item>
     
       <item>
         <title>Natural Language Processing (ML)</title>
@@ -247,8 +369,8 @@
 
 </description>
         <pubDate>Fri, 15 Mar 2019 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</guid>
+        <link>http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing-Copy.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing-Copy.html</guid>
         
         <category>Python</category>
         
