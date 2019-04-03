@@ -38,6 +38,7 @@
   i18n: p7
   gh_user: gucheng0712
   repo: Animated-LED-Sign
+  demo_url: https://www.bilibili.com/video/av48173868
   img: /static/assets/img/landing/P7.png
   desc: An Animated Led Sign built for my Major, be able to send msg to Adafruit and change the Led Animation and the Motor movement states.
   
