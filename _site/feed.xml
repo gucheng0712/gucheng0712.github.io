@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Apr 2019 03:43:11 -0700</pubDate>
-    <lastBuildDate>Wed, 03 Apr 2019 03:43:11 -0700</lastBuildDate>
+    <pubDate>Sun, 07 Apr 2019 21:11:17 -0700</pubDate>
+    <lastBuildDate>Sun, 07 Apr 2019 21:11:17 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -2080,7 +2080,7 @@ Code:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;1-reflection&quot;&gt;1. Reflection&lt;/h4&gt;
+&lt;h2 id=&quot;1-reflection&quot;&gt;&lt;strong&gt;1. Reflection&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;To simulate the reflection effect, we simply need to calculate the direction of the reflection by the direction of the incident ray(which is the negative view direction) and the normal direction of the surface. Finally, the reflection direction is used to sample the Cubemap texture.&lt;/p&gt;
 
@@ -2088,6 +2088,7 @@ Code:&lt;/p&gt;
 &lt;img src=&quot;/static/assets/img/blog/reflection.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
 
+&lt;h3 id=&quot;code-example&quot;&gt;Code Example:&lt;/h3&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Properties:&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2141,7 +2142,7 @@ Code:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-refraction&quot;&gt;2. Refraction&lt;/h4&gt;
+&lt;h2 id=&quot;2-refraction&quot;&gt;&lt;strong&gt;2. Refraction&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;Refraction: When light rays from one medium, such as air, are deflected into another, such as glass, the direction of propagation generally changes, this phenomenon is called refraction.&lt;/p&gt;
 
@@ -2161,11 +2162,11 @@ Code:&lt;/p&gt;
   &lt;p&gt;Result:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;/assets/images/PostImages/refraction.png&quot; alt=&quot;dot&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
-
 &lt;p align=&quot;center&quot;&gt;  
 &lt;img src=&quot;/static/assets/img/blog/refraction.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
+
+&lt;h3 id=&quot;code-example-1&quot;&gt;Code Example:&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Properties:&lt;/p&gt;
@@ -2221,7 +2222,7 @@ Code:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;3-fresnel-reflection&quot;&gt;3. Fresnel Reflection&lt;/h4&gt;
+&lt;h2 id=&quot;3-fresnel-reflection&quot;&gt;&lt;strong&gt;3. Fresnel Reflection&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;Fresnel Reflection Represents a Optical Phenomenon. When light hits the surface of an object, some parts occur reflection, some parts goes into the inside of the object, or occur refraction or scattering.&lt;/p&gt;
 
@@ -2239,6 +2240,7 @@ Code:&lt;/p&gt;
 &lt;img src=&quot;/static/assets/img/blog/schlickPP.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
 
+&lt;h3 id=&quot;code-example-2&quot;&gt;Code Example:&lt;/h3&gt;
 &lt;blockquote&gt;
   &lt;p&gt;Properties:&lt;/p&gt;
 &lt;/blockquote&gt;
