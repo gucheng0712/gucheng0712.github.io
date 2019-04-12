@@ -5,9 +5,570 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Apr 2019 16:34:44 -0700</pubDate>
-    <lastBuildDate>Thu, 11 Apr 2019 16:34:44 -0700</lastBuildDate>
+    <pubDate>Fri, 12 Apr 2019 01:56:04 -0700</pubDate>
+    <lastBuildDate>Fri, 12 Apr 2019 01:56:04 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Cg Standard Library Functions (CG)</title>
+        <description>&lt;h2 id=&quot;1-math-functions&quot;&gt;&lt;strong&gt;1. Math Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;absx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/abs.html&quot;&gt;&lt;strong&gt;abs(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Return the absolute value of the input parameter x.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/abs.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;acosx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/acos.html&quot;&gt;&lt;strong&gt;acos(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Input parameter x value range is [-1,1], returns the angle value range is [0, π]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/acos.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;allx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/all.html&quot;&gt;&lt;strong&gt;all(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns true if input parameter x is not 0; otherwise returns false.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;anyx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/any.html&quot;&gt;&lt;strong&gt;any(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns true if a boolean scalar or any component of a boolean vector is true; otherwise return false.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;asinx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/asin.html&quot;&gt;&lt;strong&gt;asin(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Input parameter x value range is [-1, 1], return angle value range is [–π/2, π/2]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/asin.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;atanx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/atan.html&quot;&gt;&lt;strong&gt;atan(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The inverse tangent function, the return angle value range is [–π/2, π/2]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/atan.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;atan2x&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/atan2.html&quot;&gt;&lt;strong&gt;atan2(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Calculate the arctangent of y/x. In fact, it has almost exactly the same function as the atan(x) function, and the input parameters are different (used to prevent the error case where the division denominator is 0). Atan(x) = atan2(x, float(1)).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/atan.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ceilx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ceil.html&quot;&gt;&lt;strong&gt;ceil(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Round up the input parameter x. For example: ceil(float(1.3)) with a return value of 2.0&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/ceil.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;clampxab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/clamp.html&quot;&gt;&lt;strong&gt;clamp(x,a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns x clamped to the range [a,b]&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Returns a if x is less than a; else&lt;/li&gt;
+    &lt;li&gt;Returns b if x is greater than b; else&lt;/li&gt;
+    &lt;li&gt;Returns x otherwise.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/clamp.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;cosx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/cos.html&quot;&gt;&lt;strong&gt;cos(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the cosine of a in radians. The return value range is [-1,1]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/cos.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;coshx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/cosh.html&quot;&gt;&lt;strong&gt;cosh(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The hyperbolic cosine function calculates the hyperbolic cosine of x&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/cosh.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;crossab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/cross.html&quot;&gt;&lt;strong&gt;cross(a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the cross product of two vectors.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Note&lt;/code&gt; that the input parameter must be a ternary vector!&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;degreesx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/degree.html&quot;&gt;&lt;strong&gt;degrees(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Input parameter x is radians, return degree.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;determinantm&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/determinant.html&quot;&gt;&lt;strong&gt;determinant(m)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;return the determinant factor of the matrix.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;dotab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/dot.html&quot;&gt;&lt;strong&gt;dot(a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Return the dot product of a and b&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;expx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/exp.html&quot;&gt;&lt;strong&gt;exp(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Return the result of  $e^x$  (e = 2.71828182845904523536)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/exp.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;exp2x&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/exp2.html&quot;&gt;&lt;strong&gt;exp2(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Return the result of  $2^x$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/exp2.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;floorx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/floor.html&quot;&gt;&lt;strong&gt;floor(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Round down the input parameters.For example, floor(float(1.3)) returns a value of 1.0&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/floor.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fmodx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/fmod.html&quot;&gt;&lt;strong&gt;fmod(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns the remainder of x/y with the same sign as x&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fracx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/frac.html&quot;&gt;&lt;strong&gt;frac(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the decimal of a value or vector&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;frexp-x-out-e&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/frexp.html&quot;&gt;&lt;strong&gt;frexp (x, out e)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Splits scalars and vectors into normalized fraction and a power of 2&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;: Vector or scalar of which to split.&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt;: Vector or scalar where the exponent of x is output.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;inversex&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/inverse.html&quot;&gt;&lt;strong&gt;inverse(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;return the inverse matrix of a matrix&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;isfinitex&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/isfinite.html&quot;&gt;&lt;strong&gt;isfinite(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns whether or not a scalar or each vector component is a finite value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;isinfx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/isinf.html&quot;&gt;&lt;strong&gt;isinf(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns whether or not a scalar or each vector component is a (negative or positive) infinite value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;isnanx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/isnan.html&quot;&gt;&lt;strong&gt;isnan(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns whether or not a scalar or each vector component is not-a-number (NaN) Finite and infinite values are not NaN.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ldexpxn&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ldexp.html&quot;&gt;&lt;strong&gt;ldexp(x,n)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns x times 2 raised to the power n. $x * 2^n$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;lerpabf&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/lerp.html&quot;&gt;&lt;strong&gt;lerp(a,b,f)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Interpolate between lower limit a and upper limit b, and f represents the weight. $(1 – f )* a + b * f$&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Note&lt;/code&gt;: that if a and b are vectors, the weight f must be a scalar or a vector of equal length.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;litndotl-ndoth-m&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/lit.html&quot;&gt;&lt;strong&gt;lit(NdotL, NdotH, m)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The lit function is a helper function useful to compute lighting coefficients for ambient, diffuse, and specular lighting contributions. The function efficiently maps to a native instruction for most GPUs.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Input parameters&lt;/strong&gt;:
+      &lt;ul&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NdotL&lt;/code&gt;: The dot product of a normalized surface normal and a normalized light vector.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NdotH&lt;/code&gt;: The dot product of a normalized surface normal and a normalized half-angle vector.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt;: A specular exponent, typically described as a measure of shininess. The larger the exponent, the shinier the specular highlight, the smaller the exponent, the duller the specular highlight.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Returns a 4D vector&lt;/strong&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;: The ambient coefficient that is always 1.0.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;: The diffuse coefficient that is zero if NdotL is less than zero, and NdotL otherwise.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;: The specular coefficient that is zero if either NdotL or NdotH are less than zero, and otherwise NdotH raised to the power m.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;: Always 1.0.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;logx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/log.html&quot;&gt;&lt;strong&gt;log(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the natural logarithm a (ln(x)).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/log.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;log2x&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/log2.html&quot;&gt;&lt;strong&gt;log2(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the base-2 logarithm a.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/log.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;log10x&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/log10.html&quot;&gt;&lt;strong&gt;log10(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the base-10 logarithm a.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/log10.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;maxab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/max.html&quot;&gt;&lt;strong&gt;max(a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns the maximum of two scalars or each respective component of two vectors.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;minab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/min.html&quot;&gt;&lt;strong&gt;min(a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns the minimum of two scalars or each respective component of two vectors.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;modfx-out-ip&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/min.html&quot;&gt;&lt;strong&gt;modf(x, out ip)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Decompose x into two parts, an integer and a fraction. Each part has the same sign as x, the integer part is stored in ip, and the fractional part is returned by the function.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;mulmn&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/mul.html&quot;&gt;&lt;strong&gt;mul(M,N)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the product of matrix M and matrix N.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/mul.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;mulmv&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/mul.html&quot;&gt;&lt;strong&gt;mul(M,v)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the product of Matrix M and Vertical Vector v.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/mul2.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;mulvm&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/mul.html&quot;&gt;&lt;strong&gt;mul(v,M)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the product of Horizontal Vector v and Matrix M.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/mul3.jpg&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-geometric-functions&quot;&gt;&lt;strong&gt;2. Geometric Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;distanceab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/distance.html&quot;&gt;&lt;strong&gt;distance(a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns the distance between a and b&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;faceforwardning&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/faceforward.html&quot;&gt;&lt;strong&gt;faceforward(N,I,Ng)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns a normal as-is if a vertex’s eye-space position vector points in the opposite direction of a geometric normal, otherwise return the negated version of the normal.&lt;/p&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Ng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;lengthv&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/length.html&quot;&gt;&lt;strong&gt;length(v)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns the magnitude of a vector;&lt;/p&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;normalizev&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/normalize.html&quot;&gt;&lt;strong&gt;normalize(v)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns a normalized vector  $ V_n = \frac{\overrightarrow{V}}{|\overrightarrow{V}|}$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;lengthv-1&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/length.html&quot;&gt;&lt;strong&gt;length(v)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;returns the magnitude of a vector;&lt;/p&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;reflectin&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/reflect.html&quot;&gt;&lt;strong&gt;reflect(I,N)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The reflection vector is calculated according to the incident ray direction I and the surface normal vector N&lt;/p&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reflect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;refractineta&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/refract.html&quot;&gt;&lt;strong&gt;refract(I,N,eta)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The refraction vector is calculated from the incident ray direction I, the surface normal vector N and the refraction relative coefficient eta. If the angle between I and N is too large for a given eta, return (0,0,0). (Only valid for ternary vectors)&lt;/p&gt;
+  &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;refract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N_dot_I&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N_dot_I&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N_dot_I&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N_dot_I&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;4-derivative-functions&quot;&gt;&lt;strong&gt;4. Derivative Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;ddxa&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ddx.html&quot;&gt;&lt;strong&gt;ddx(a)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns approximate partial derivative with respect to window-space X&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ddya&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ddy.html&quot;&gt;&lt;strong&gt;ddy(a)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns approximate partial derivative with respect to window-space Y&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fwidtha&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/fwidth.html&quot;&gt;&lt;strong&gt;fwidth(a)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns sum of approximate window-space partial derivatives magnitudes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;5-debugging-function&quot;&gt;&lt;strong&gt;5. Debugging Function&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;void-debugfloat4-x&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ddy.html&quot;&gt;&lt;strong&gt;void debug(float4 x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If DEBUG is set at compile time, calling this function in the fragment coloring program can use the value x as the final output of the COLOR semantics; otherwise the function does nothing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Mon, 08 Apr 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/unity/cg/2019/04/08/Cg-Standard-Library-Functions.html</link>
+        <guid isPermaLink="true">http://localhost:4000/unity/cg/2019/04/08/Cg-Standard-Library-Functions.html</guid>
+        
+        <category>Unity</category>
+        
+        <category>CG</category>
+        
+        
+        <category>Unity</category>
+        
+        <category>Cg</category>
+        
+      </item>
     
       <item>
         <title>Convolution in Image Processing (CG)</title>
@@ -2633,48 +3194,55 @@ Code:&lt;/p&gt;
     
       <item>
         <title>Rendering Pipeline (CG)</title>
-        <description>&lt;p&gt;The pipeline of Graphic Rendering includes 3 stages: Application Stage –&amp;gt; Geometry Stage –&amp;gt; Rasterization Stage.&lt;/p&gt;
+        <description>&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#example&quot;&gt;Example&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#example2&quot;&gt;Example2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#third-example&quot;&gt;Third Example&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The pipeline of Graphic Rendering includes &lt;code class=&quot;highlighter-rouge&quot;&gt;3&lt;/code&gt; stages: &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Application Stage&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; –&amp;gt; &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Geometry Stage&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; –&amp;gt; &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rasterization Stage&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/RenderingPipeline.png&quot; width=&quot;50%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/RenderingPipeline.png&quot; width=&quot;70%&quot; /&gt;
 &lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;1-application-stage&quot;&gt;1. Application Stage&lt;/h4&gt;
+&lt;h2 id=&quot;1-application-stage&quot;&gt;&lt;strong&gt;1. Application Stage&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;The start point of the rendering pipeline is CPU. In the Application Stage, the most important output is the geometry infomation which need to be rendered, called &lt;strong&gt;&lt;em&gt;Rendering Primitives.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The start point of the rendering pipeline is CPU. In the &lt;code class=&quot;highlighter-rouge&quot;&gt;Application Stage&lt;/code&gt;, the most important &lt;code class=&quot;highlighter-rouge&quot;&gt;output&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;geometry infomation&lt;/code&gt; which need to be rendered, called &lt;code class=&quot;highlighter-rouge&quot;&gt;Rendering Primitives&lt;/code&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;In this Stage, the developer has 3 Tasks:&lt;/p&gt;
+  &lt;p&gt;In this Stage, the developer has &lt;code class=&quot;highlighter-rouge&quot;&gt;3 Tasks&lt;/code&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;prepare the environment and camera’s position. how many models are used in the environment, and which kinds of light sources are used in the scene.&lt;/p&gt;
+    &lt;p&gt;Prepare the &lt;code class=&quot;highlighter-rouge&quot;&gt;environment and camera's position&lt;/code&gt;. How many &lt;code class=&quot;highlighter-rouge&quot;&gt;models&lt;/code&gt; are used in the environment, and which kinds of &lt;code class=&quot;highlighter-rouge&quot;&gt;light&lt;/code&gt; sources are used in the scene.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;In order to improve the performance of rendering, need to do the work of &lt;strong&gt;&lt;em&gt;Culling&lt;/em&gt;&lt;/strong&gt;, to get rid of unnecessary rendering process.&lt;/p&gt;
+    &lt;p&gt;In order to improve the performance of rendering, need to do the work of &lt;code class=&quot;highlighter-rouge&quot;&gt;Culling&lt;/code&gt;, to get rid of unnecessary rendering process.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Need to set up the rendering state of each model, such as the materials , textures, shaders.&lt;/p&gt;
+    &lt;p&gt;Need to &lt;code class=&quot;highlighter-rouge&quot;&gt;set up the rendering state&lt;/code&gt; of each model, such as the materials , textures, shaders.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;CPU will call &lt;strong&gt;&lt;em&gt;DrawCall()&lt;/em&gt;&lt;/strong&gt; to make GPU draw stuff on screen.&lt;/p&gt;
+    &lt;p&gt;CPU will call &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DrawCall()&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; to make GPU draw stuff on screen.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;For example.&lt;/p&gt;
+  &lt;p&gt;For example:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/applicationStage.png&quot; width=&quot;50%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/applicationStage.png&quot; width=&quot;70%&quot; /&gt;
 &lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;2-geometry-stage&quot;&gt;2. Geometry Stage&lt;/h4&gt;
+&lt;h2 id=&quot;2-geometry-stage&quot;&gt;&lt;strong&gt;2. Geometry Stage&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;In Geometry Stage, the GPU will do the vertex operation through the received vertex data from the CPU.&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Geometry Stage&lt;/code&gt;, the GPU will do the &lt;code class=&quot;highlighter-rouge&quot;&gt;vertex operation&lt;/code&gt; through the received vertex data from the CPU.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/GeometryStage.png&quot; width=&quot;70%&quot; /&gt;
@@ -2686,80 +3254,82 @@ Code:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;Vertex Shader: programmable , it is usually used to implement vertex space transformation, vertex shading and other functions.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Vertex Shader&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;programmable&lt;/code&gt; , it is usually used to &lt;strong&gt;implement vertex space transformation, vertex shading and other functions.&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Tesselation Shader: An optional shader for subdividing primitives (primitives are the basic units that make up an image, such as points, lines, surfaces, etc.).&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tesselation Shader&lt;/code&gt;: An &lt;code class=&quot;highlighter-rouge&quot;&gt;optional&lt;/code&gt; shader for &lt;strong&gt;subdividing primitives (primitives are the basic units that make up an image, such as points, lines, surfaces, etc.).&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Geometry Shader: An optional shader for polygon shading operations.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Geometry Shader&lt;/code&gt;: An &lt;code class=&quot;highlighter-rouge&quot;&gt;optional&lt;/code&gt; shader for &lt;strong&gt;polygon shading operations&lt;/strong&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Clipping: this phase is configurable. The goal of this phase is to trim away the vertices that are not in the camera’s field of view and to remove the facets of certain trig elements.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Clipping&lt;/code&gt;: this phase is &lt;code class=&quot;highlighter-rouge&quot;&gt;configurable&lt;/code&gt;. The goal of this phase is to &lt;strong&gt;trim away the vertices that are not in the camera’s field of view and to remove the facets of certain trig elements.&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Screen Mapping: This stage is not configurable and is not programmatic; it is responsible for converting the coordinates of each pixel to the screen coordinate system.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Screen Mapping&lt;/code&gt;: This stage is &lt;code class=&quot;highlighter-rouge&quot;&gt;not configurable&lt;/code&gt; and is &lt;code class=&quot;highlighter-rouge&quot;&gt;not programmatic&lt;/code&gt;; it is responsible for &lt;strong&gt;converting the coordinates of each pixel to the screen coordinate system.&lt;/strong&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Meaning of_MVP (Model View Projection):&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Meaning of_MVP (Model View Projection):&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;vertices&lt;/em&gt;&lt;/strong&gt; of a model are stored in the &lt;strong&gt;&lt;em&gt;Object Space&lt;/em&gt;&lt;/strong&gt;. The &lt;strong&gt;&lt;em&gt;position&lt;/em&gt;&lt;/strong&gt; and the &lt;strong&gt;&lt;em&gt;orientation&lt;/em&gt;&lt;/strong&gt; of each model are stored in world space.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vertices&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; of a model are stored in the &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Object Space&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;. The &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;position&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; and the &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orientation&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; of each model are stored in &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;World Space&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Before an object can be rendered, its vertices must be transformed into the &lt;strong&gt;&lt;em&gt;Camera Space&lt;/em&gt;&lt;/strong&gt; (also called View Space).&lt;/p&gt;
+&lt;p&gt;Before an object can be rendered, its vertices must be transformed into the &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Camera Space&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; (also called View Space).&lt;/p&gt;
 
-&lt;p&gt;It is possible to transform vertices from object space directly into camera space by concatenating the matrices representing the transformations from object space to world space and from world space to camera space. The product of these transformations is called the &lt;strong&gt;&lt;em&gt;Model-View Trasnformation&lt;/em&gt;&lt;/strong&gt;.
-Once a model’s vertices have been transformed into camera space, they will also do a projection transformation to apply &lt;strong&gt;&lt;em&gt;Perspective&lt;/em&gt;&lt;/strong&gt; (the geometry becomes smaller as the distance from the camera increases).&lt;/p&gt;
+&lt;p&gt;It is possible to transform vertices from object space directly into camera space by concatenating the matrices representing the transformations from object space to world space and from world space to camera space. The product of these transformations is called the &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Model-View Trasnformation&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;.
+Once a model’s vertices have been transformed into camera space, they will also do a projection transformation to apply &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Perspective&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;(the geometry becomes smaller as the distance from the camera increases).&lt;/em&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;3-rasterization-stage&quot;&gt;3. Rasterization Stage&lt;/h4&gt;
+&lt;h2 id=&quot;3-rasterization-stage&quot;&gt;&lt;strong&gt;3. Rasterization Stage&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;In this stage, will use the data passed in the previous stage(Geometry stage) to produce pixels on the screen and render the final image.&lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Rasterization Stage&lt;/code&gt;, GPU will use the data passed in the previous stage(Geometry stage) to &lt;code class=&quot;highlighter-rouge&quot;&gt;produce pixels&lt;/code&gt; on the screen and render the final image.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
-&lt;img src=&quot;/static/assets/img/blog/RasterizationStage.png&quot; width=&quot;70%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/RasterizationStage.png&quot; width=&quot;100%&quot; /&gt;
 &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;The Process:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;1) &lt;strong&gt;&lt;em&gt;Triangle Setup&lt;/em&gt;&lt;/strong&gt;: Differences in triangular surfaces and other relevant data are calculated. Fixed hardware operations to complete.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Triangle Setup&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: Calculating the &lt;strong&gt;Differences&lt;/strong&gt; in triangular surfaces and other relevant data. complete fixed &lt;strong&gt;hardware operations&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Triangle Traversal&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: This stage &lt;strong&gt;checks&lt;/strong&gt; whether each pixel is inside a triangle, and fragment is generated at this stage. &lt;strong&gt;Interpolation&lt;/strong&gt; is usually used.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Fragment Shader&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: Fully &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;programmable&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;. Use interpolated shading data as input and output one or more color values for the next phase. At this stage, GPU execution can be controlled by programming. The most commonly used technology in this stage is texture technology.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Per-Fragment Operation&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: The &lt;code class=&quot;highlighter-rouge&quot;&gt;Color value&lt;/code&gt; for each pixel is &lt;code class=&quot;highlighter-rouge&quot;&gt;stored&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Color Buffer&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;merged&lt;/code&gt; at this stage. This stage is &lt;code class=&quot;highlighter-rouge&quot;&gt;not completely programmable&lt;/code&gt;, but can be configured to produce different effects. In detail includes:&lt;/p&gt;
 
-&lt;p&gt;2) &lt;strong&gt;&lt;em&gt;Triangle Traversal&lt;/em&gt;&lt;/strong&gt;: This stage checks whether each pixel is inside a triangle, and fragment is generated at this stage. Interpolation is usually used.&lt;/p&gt;
-
-&lt;p&gt;3) &lt;strong&gt;&lt;em&gt;Fragment Shader&lt;/em&gt;&lt;/strong&gt;: Fully programmable. Use interpolated shading data as input and output one or more color values for the next phase. At this stage, GPU execution can be controlled by programming. The most commonly used technology in this stage is texture technology.&lt;/p&gt;
-
-&lt;p&gt;4) &lt;strong&gt;&lt;em&gt;Per-Fragment Operation&lt;/em&gt;&lt;/strong&gt;: The Color value for each pixel is stored in the Color Buffer and merged at this stage. This stage is not completely programmable, but can be configured to produce different effects. In detail includes:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;a) &lt;strong&gt;&lt;em&gt;The pixel ownership&lt;/em&gt;&lt;/strong&gt; (the only one cannot be disabled): it simply determines whether a fragment lies in the region of the viewport that is currently visible on the display.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;b) &lt;strong&gt;&lt;em&gt;Scissor Test&lt;/em&gt;&lt;/strong&gt;: An application may specify a rectangle in the viewport, called the scissor rectangle, to which rendering should be restricted. Any fragments falling outside the scissor rectangle are discarded.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;c) &lt;strong&gt;&lt;em&gt;Alpha Test&lt;/em&gt;&lt;/strong&gt;: When the final color of a fragment is calculated, an application may also calculate an alpha value that usually represents the degree of transparency associated with the fragment. The alpha test compares the final alpha value of a fragment to a constant value that is preset by the application. The application can specifies what relationship between the two values (such as less than, greater than, or equal to) causes the test to pass. If the relationship is not satisfied, then the fragment is discarded.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;d) &lt;strong&gt;&lt;em&gt;Stencil Test&lt;/em&gt;&lt;/strong&gt;:  The stencil test reads the value stored in the stencil buffer at a fragment’s location and compares it to a value previously specified by the application. 
-The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;e) &lt;strong&gt;&lt;em&gt;Depth Test&lt;/em&gt;&lt;/strong&gt;: The depth Test compares the final depth associated with a fragment to the value currently residing in the depth buffer.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;f) &lt;strong&gt;&lt;em&gt;Blending&lt;/em&gt;&lt;/strong&gt;: Once the pixel ownership test, scissor test, alpha test, stencil test, and depth test have all passed, a fragment’s final color is blended into the &lt;strong&gt;&lt;em&gt;image buffer&lt;/em&gt;&lt;/strong&gt;. 
-The blending operation calculates a new color by combining the fragment’s final color and the color already stored in the image buffer at the fragment’s location. The fragment’s alpha value and the alpha value stored in the image buffer may also be used to determine the color that ultimately appears in the viewport. 
-The blending operation may be configured to simply replace the previous color in the image buffer, or it may produce special visual effects such as transparency.&lt;/p&gt;
-&lt;/blockquote&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The pixel ownership&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; (the only one &lt;code class=&quot;highlighter-rouge&quot;&gt;can't be disabled&lt;/code&gt;): it simply determines whether a fragment lies in the region of the viewport that is currently visible on the display.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Scissor Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: An application may &lt;code class=&quot;highlighter-rouge&quot;&gt;specify a rectangle in the viewport&lt;/code&gt;, called the scissor rectangle, to which rendering should be restricted. Any fragments falling outside the scissor rectangle are discarded.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Alpha Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: When the final color of a fragment is calculated, an application may also calculate an alpha value that usually represents the degree of transparency associated with the fragment. &lt;strong&gt;&lt;em&gt;The alpha test compares the final alpha value of a fragment to a constant value that is preset by the application.&lt;/em&gt;&lt;/strong&gt; The application can specifies what relationship between the two values (such as less than, greater than, or equal to) causes the test to pass. If the relationship is not satisfied, then the fragment is discarded.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stencil Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;:  The stencil test reads the value &lt;code class=&quot;highlighter-rouge&quot;&gt;stored in the stencil buffer&lt;/code&gt; at a fragment’s location and compares it to a value previously specified by the application. &lt;strong&gt;&lt;em&gt;The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Depth Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: The depth Test compares the &lt;code class=&quot;highlighter-rouge&quot;&gt;final depth&lt;/code&gt; associated with a fragment to the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; currently &lt;code class=&quot;highlighter-rouge&quot;&gt;stored&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Blending&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: Once the pixel ownership test, scissor test, alpha test, stencil test, and depth test have all passed, a fragment’s final color is blended into the &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;image buffer&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;. 
+ &lt;strong&gt;&lt;em&gt;The blending operation calculates a new color by combining the fragment’s final color and the color already stored in the image buffer at the fragment’s location.&lt;/em&gt;&lt;/strong&gt; The fragment’s alpha value and the alpha value stored in the image buffer may also be used to determine the color that ultimately appears in the viewport. &lt;em&gt;(The blending operation may be configured to simply replace the previous color in the image buffer, or it may produce special visual effects such as transparency.)&lt;/em&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;hr /&gt;
 
