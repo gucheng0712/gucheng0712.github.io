@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Apr 2019 01:56:04 -0700</pubDate>
-    <lastBuildDate>Fri, 12 Apr 2019 01:56:04 -0700</lastBuildDate>
+    <pubDate>Fri, 12 Apr 2019 14:19:36 -0700</pubDate>
+    <lastBuildDate>Fri, 12 Apr 2019 14:19:36 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -316,19 +316,16 @@
         &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt;: A specular exponent, typically described as a measure of shininess. The larger the exponent, the shinier the specular highlight, the smaller the exponent, the duller the specular highlight.&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Returns a 4D vector&lt;/strong&gt;:
+      &lt;ul&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;: The ambient coefficient that is always 1.0.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;: The diffuse coefficient that is zero if NdotL is less than zero, and NdotL otherwise.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;: The specular coefficient that is zero if either NdotL or NdotH are less than zero, and otherwise NdotH raised to the power m.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;: Always 1.0.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Returns a 4D vector&lt;/strong&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;: The ambient coefficient that is always 1.0.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;: The diffuse coefficient that is zero if NdotL is less than zero, and NdotL otherwise.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;: The specular coefficient that is zero if either NdotL or NdotH are less than zero, and otherwise NdotH raised to the power m.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;: Always 1.0.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;hr /&gt;
 
@@ -431,6 +428,173 @@
 
 &lt;hr /&gt;
 
+&lt;h2 id=&quot;powxy&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/pow.html&quot;&gt;&lt;strong&gt;pow(x,y)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;return the result of $x^y$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;radiansx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/radians.html&quot;&gt;&lt;strong&gt;radians(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Degree to Radian&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;roundx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/round.html&quot;&gt;&lt;strong&gt;round(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns a rounded value&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;rsqrtx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/rsqrt.html&quot;&gt;&lt;strong&gt;rsqrt(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The inverse of the square root of x(x has to be greater than 0)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;saturatex&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/saturate.html&quot;&gt;&lt;strong&gt;saturate(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Limit x to [0,1]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;signx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sign.html&quot;&gt;&lt;strong&gt;sign(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns positive one, zero, or negative one for each of the components of x based on the component’s sign.&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Returns -1 component if the respective component of x is negative.&lt;/li&gt;
+    &lt;li&gt;Returns 0 component if the respective component of x is zero.&lt;/li&gt;
+    &lt;li&gt;Returns 1 component if the respective component of x is positive.&lt;/li&gt;
+    &lt;li&gt;Ideally, NaN returns NaN.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/sign.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;saturatex-1&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/saturate.html&quot;&gt;&lt;strong&gt;saturate(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Limit x to [0,1]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sinx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sin.html&quot;&gt;&lt;strong&gt;sin(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;输入参数为弧度,计算正弦值,返回值范围 为[-1,1]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/sin.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sincosx-out-s-out-c&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sincos.html&quot;&gt;&lt;strong&gt;sincos(x, out s, out c)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Calculate the sine and cosine at the same time, where s = sin(x) and c = cos(x). (faster than doing them separately)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sinhx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sinh.html&quot;&gt;&lt;strong&gt;sinh(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;计算x的双曲正弦&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/sinh.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;smoothstepminmaxx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/smoothstep.html&quot;&gt;&lt;strong&gt;smoothstep(min,max,x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;值x位于min、max区间中。如果x=min,返回0；如果x=max,返回1；如果x在两者之间,按照下列公式返回数据：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/smoothstep.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;stepax&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/step.html&quot;&gt;&lt;strong&gt;step(a,x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果x&amp;lt;a,返回0；x&amp;gt;=a,返回&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/step.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sqrtx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sqrt.html&quot;&gt;&lt;strong&gt;sqrt(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;求x的平方根,x必须大于0&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tanx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tan.html&quot;&gt;&lt;strong&gt;tan(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;计算x正切值&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/tan.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tanhx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tanh.html&quot;&gt;&lt;strong&gt;tanh(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;计算x的双曲线切线&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/tanh.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;transposem&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/transpose.html&quot;&gt;&lt;strong&gt;transpose(M)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;矩阵M的转置矩阵	如果M是一个AxB矩阵,M的转置是一个BxA矩阵,它的第一列是M的第一行,第二列是M的第二行,第三列是M的第三行,等等&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;2-geometric-functions&quot;&gt;&lt;strong&gt;2. Geometric Functions&lt;/strong&gt;&lt;/h2&gt;
@@ -514,6 +678,72 @@
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
+
+&lt;h2 id=&quot;4-texture-mapping-functions&quot;&gt;&lt;strong&gt;4. Texture Mapping Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;tex1d&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1D.html&quot;&gt;&lt;strong&gt;tex1D&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2d&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2D.html&quot;&gt;&lt;strong&gt;tex2D&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex3d&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex3D.html&quot;&gt;&lt;strong&gt;tex3D&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcube&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBE.html&quot;&gt;&lt;strong&gt;texCUBE&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup in sampler samp using coordinates s, may use and derivatives dx and dy, also may perform shadow comparison and use texel offset texelOff to compute final texel.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1dlod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1Dlod.html&quot;&gt;&lt;strong&gt;tex1Dlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2dlod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2Dlod.html&quot;&gt;&lt;strong&gt;tex2Dlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex3dlod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex3Dlod.html&quot;&gt;&lt;strong&gt;tex3Dlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubelod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBElod.html&quot;&gt;&lt;strong&gt;texCUBElod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup with specified level of detail and optional texel offset.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1dproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1Dproj.html&quot;&gt;&lt;strong&gt;tex1Dproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2dproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2Dproj.html&quot;&gt;&lt;strong&gt;tex2Dproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex3dproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex3Dproj.html&quot;&gt;&lt;strong&gt;tex3Dproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubeproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEproj.html&quot;&gt;&lt;strong&gt;texCUBEproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup with projection in a given sampler. May perform a shadow comparison if argument for shadow comparison is provided.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1darray&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1DARRAY.html&quot;&gt;&lt;strong&gt;tex1DARRAY&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2darray&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2DARRAY.html&quot;&gt;&lt;strong&gt;tex2DARRAY&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubearray&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEARRAY.html&quot;&gt;&lt;strong&gt;texCUBEARRAY&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup in a given sampler array may use pre computed derivatives and, in some cases, perform a shadow comparison.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1darraylod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1DARRAYlod.html&quot;&gt;&lt;strong&gt;tex1DARRAYlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2darraylod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2DARRAYlod.html&quot;&gt;&lt;strong&gt;tex2DARRAYlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubearraylod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEARRAYlod.html&quot;&gt;&lt;strong&gt;texCUBEARRAYlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture array lookup with specified level of detail and optional texel offset.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1darrayproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1DARRAYproj.html&quot;&gt;&lt;strong&gt;tex1DARRAYproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2darrayproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2DARRAYproj.html&quot;&gt;&lt;strong&gt;tex2DARRAYproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubearrayproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEARRAYproj.html&quot;&gt;&lt;strong&gt;texCUBEARRAYproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup with projection in a given sampler array. May perform a shadow comparison if argument for shadow comparison is provided.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;4-derivative-functions&quot;&gt;&lt;strong&gt;4. Derivative Functions&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;h2 id=&quot;ddxa&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ddx.html&quot;&gt;&lt;strong&gt;ddx(a)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;

@@ -245,7 +245,6 @@ icon: icon-splatter
     * `NdotL`: The dot product of a normalized surface normal and a normalized light vector.
     * `NdotH`: The dot product of a normalized surface normal and a normalized half-angle vector.
     * `m`: A specular exponent, typically described as a measure of shininess. The larger the exponent, the shinier the specular highlight, the smaller the exponent, the duller the specular highlight.
-
 * **Returns a 4D vector**: 
     * `x`: The ambient coefficient that is always 1.0.
     * `y`: The diffuse coefficient that is zero if NdotL is less than zero, and NdotL otherwise.
@@ -335,7 +334,138 @@ icon: icon-splatter
 
 ---
 
+## [**pow(x,y)**](http://developer.download.nvidia.com/cg/pow.html)
 
+>  return the result of $x^y$
+
+---
+
+## [**radians(x)**](http://developer.download.nvidia.com/cg/radians.html)
+
+>  Degree to Radian
+
+---
+
+## [**round(x)**](http://developer.download.nvidia.com/cg/round.html)
+
+>  Returns a rounded value
+
+---
+
+## [**rsqrt(x)**](http://developer.download.nvidia.com/cg/rsqrt.html)
+
+>  The inverse of the square root of x(x has to be greater than 0)
+
+---
+
+## [**saturate(x)**](http://developer.download.nvidia.com/cg/saturate.html)
+
+>  Limit x to [0,1]
+
+---
+
+## [**sign(x)**](http://developer.download.nvidia.com/cg/sign.html)
+
+>  Returns positive one, zero, or negative one for each of the components of x based on the component's sign.
+1. Returns -1 component if the respective component of x is negative.
+2. Returns 0 component if the respective component of x is zero.
+3. Returns 1 component if the respective component of x is positive.
+4. Ideally, NaN returns NaN.
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/sign.png" width="40%">
+</details>
+
+---
+
+## [**saturate(x)**](http://developer.download.nvidia.com/cg/saturate.html)
+
+>  Limit x to [0,1]
+
+---
+
+## [**sin(x)**](http://developer.download.nvidia.com/cg/sin.html)
+
+>  输入参数为弧度,计算正弦值,返回值范围 为[-1,1]
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/sin.png" width="40%">
+</details>
+
+---
+
+## [**sincos(x, out s, out c)**](http://developer.download.nvidia.com/cg/sincos.html)
+
+>  Calculate the sine and cosine at the same time, where s = sin(x) and c = cos(x). (faster than doing them separately)
+
+---
+
+## [**sinh(x)**](http://developer.download.nvidia.com/cg/sinh.html)
+
+>  计算x的双曲正弦
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/sinh.png" width="40%">
+</details>
+
+---
+
+## [**smoothstep(min,max,x)**](http://developer.download.nvidia.com/cg/smoothstep.html)
+
+>  值x位于min、max区间中。如果x=min,返回0；如果x=max,返回1；如果x在两者之间,按照下列公式返回数据：
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/smoothstep.png" width="40%">
+</details>
+
+---
+
+## [**step(a,x)**](http://developer.download.nvidia.com/cg/step.html)
+
+> 如果x<a,返回0；x>=a,返回
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/step.png" width="40%">
+</details>
+
+---
+
+## [**sqrt(x)**](http://developer.download.nvidia.com/cg/sqrt.html)
+
+> 求x的平方根,x必须大于0
+
+---
+
+## [**tan(x)**](http://developer.download.nvidia.com/cg/tan.html)
+
+> 计算x正切值
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/tan.png" width="40%">
+</details>
+
+---
+
+## [**tanh(x)**](http://developer.download.nvidia.com/cg/tanh.html)
+
+> 计算x的双曲线切线
+
+<details>
+<summary><b>Click to Show Graph</b></summary>
+<img src="/static/assets/img/blog/tanh.png" width="40%">
+</details>
+
+---
+
+## [**transpose(M)**](http://developer.download.nvidia.com/cg/transpose.html)
+
+> 矩阵M的转置矩阵	如果M是一个AxB矩阵,M的转置是一个BxA矩阵,它的第一列是M的第一行,第二列是M的第二行,第三列是M的第三行,等等
 
 ---
 
@@ -410,8 +540,62 @@ function refract(I, N, eta)
 }
 ```
 
+---
+
+## **4. Texture Mapping Functions**
+
+## [**tex1D**](http://developer.download.nvidia.com/cg/tex1D.html)
+## [**tex2D**](http://developer.download.nvidia.com/cg/tex2D.html)
+## [**tex3D**](http://developer.download.nvidia.com/cg/tex3D.html)
+## [**texCUBE**](http://developer.download.nvidia.com/cg/texCUBE.html)
+
+> Performs a texture lookup in sampler samp using coordinates s, may use and derivatives dx and dy, also may perform shadow comparison and use texel offset texelOff to compute final texel.
 
 ---
+
+## [**tex1Dlod**](http://developer.download.nvidia.com/cg/tex1Dlod.html)
+## [**tex2Dlod**](http://developer.download.nvidia.com/cg/tex2Dlod.html)
+## [**tex3Dlod**](http://developer.download.nvidia.com/cg/tex3Dlod.html)
+## [**texCUBElod**](http://developer.download.nvidia.com/cg/texCUBElod.html)
+
+> Performs a texture lookup with specified level of detail and optional texel offset.
+
+---
+
+## [**tex1Dproj**](http://developer.download.nvidia.com/cg/tex1Dproj.html)
+## [**tex2Dproj**](http://developer.download.nvidia.com/cg/tex2Dproj.html)
+## [**tex3Dproj**](http://developer.download.nvidia.com/cg/tex3Dproj.html)
+## [**texCUBEproj**](http://developer.download.nvidia.com/cg/texCUBEproj.html)
+
+> Performs a texture lookup with projection in a given sampler. May perform a shadow comparison if argument for shadow comparison is provided.
+
+---
+
+## [**tex1DARRAY**](http://developer.download.nvidia.com/cg/tex1DARRAY.html)
+## [**tex2DARRAY**](http://developer.download.nvidia.com/cg/tex2DARRAY.html)
+## [**texCUBEARRAY**](http://developer.download.nvidia.com/cg/texCUBEARRAY.html)
+
+> Performs a texture lookup in a given sampler array may use pre computed derivatives and, in some cases, perform a shadow comparison.
+
+---
+
+## [**tex1DARRAYlod**](http://developer.download.nvidia.com/cg/tex1DARRAYlod.html)
+## [**tex2DARRAYlod**](http://developer.download.nvidia.com/cg/tex2DARRAYlod.html)
+## [**texCUBEARRAYlod**](http://developer.download.nvidia.com/cg/texCUBEARRAYlod.html)
+
+> Performs a texture array lookup with specified level of detail and optional texel offset.
+
+---
+
+## [**tex1DARRAYproj**](http://developer.download.nvidia.com/cg/tex1DARRAYproj.html)
+## [**tex2DARRAYproj**](http://developer.download.nvidia.com/cg/tex2DARRAYproj.html)
+## [**texCUBEARRAYproj**](http://developer.download.nvidia.com/cg/texCUBEARRAYproj.html)
+
+> Performs a texture lookup with projection in a given sampler array. May perform a shadow comparison if argument for shadow comparison is provided.
+
+---
+
+
 ## **4. Derivative Functions**
 
 ## [**ddx(a)**](http://developer.download.nvidia.com/cg/ddx.html)
