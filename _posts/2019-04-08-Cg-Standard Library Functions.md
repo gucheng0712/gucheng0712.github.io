@@ -9,6 +9,8 @@ icon: icon-splatter
 
 ## **1. Math Functions**
 
+---
+
 ## [**abs(x)**](http://developer.download.nvidia.com/cg/abs.html)
 
 >Return the absolute value of the input parameter x.
@@ -387,7 +389,7 @@ icon: icon-splatter
 
 ## [**sin(x)**](http://developer.download.nvidia.com/cg/sin.html)
 
->  输入参数为弧度,计算正弦值,返回值范围 为[-1,1]
+>  Returns the sine of a in radians. The return value is in the range [-1, 1].
 
 <details>
 <summary><b>Click to Show Graph</b></summary>
@@ -404,7 +406,7 @@ icon: icon-splatter
 
 ## [**sinh(x)**](http://developer.download.nvidia.com/cg/sinh.html)
 
->  计算x的双曲正弦
+>  Returns the hyperbolic sine of x
 
 <details>
 <summary><b>Click to Show Graph</b></summary>
@@ -415,7 +417,10 @@ icon: icon-splatter
 
 ## [**smoothstep(min,max,x)**](http://developer.download.nvidia.com/cg/smoothstep.html)
 
->  值x位于min、max区间中。如果x=min,返回0；如果x=max,返回1；如果x在两者之间,按照下列公式返回数据：
+>  Interpolates smoothly from 0 to 1 based on x compared to a and b.
+1. Returns 0 if x < a < b or x > a > b
+2. Returns 1 if x < b < a or x > b > a
+3. Returns a value in the range [0,1] for the domain [a,b].
 
 <details>
 <summary><b>Click to Show Graph</b></summary>
@@ -426,7 +431,14 @@ icon: icon-splatter
 
 ## [**step(a,x)**](http://developer.download.nvidia.com/cg/step.html)
 
-> 如果x<a,返回0；x>=a,返回
+> Implement a step function returning either zero or one for each component of x
+
+``` python
+if x<a:
+  return 0
+else:
+  return 1
+```
 
 <details>
 <summary><b>Click to Show Graph</b></summary>
@@ -437,13 +449,13 @@ icon: icon-splatter
 
 ## [**sqrt(x)**](http://developer.download.nvidia.com/cg/sqrt.html)
 
-> 求x的平方根,x必须大于0
+> Find the square root of x, $\sqrt{x}$  (x must be greater than 0) 
 
 ---
 
 ## [**tan(x)**](http://developer.download.nvidia.com/cg/tan.html)
 
-> 计算x正切值
+> Returns the tangent of x in radians.
 
 <details>
 <summary><b>Click to Show Graph</b></summary>
@@ -454,7 +466,7 @@ icon: icon-splatter
 
 ## [**tanh(x)**](http://developer.download.nvidia.com/cg/tanh.html)
 
-> 计算x的双曲线切线
+> Returns the hyperbolic tangent of x.
 
 <details>
 <summary><b>Click to Show Graph</b></summary>
@@ -465,11 +477,14 @@ icon: icon-splatter
 
 ## [**transpose(M)**](http://developer.download.nvidia.com/cg/transpose.html)
 
-> 矩阵M的转置矩阵	如果M是一个AxB矩阵,M的转置是一个BxA矩阵,它的第一列是M的第一行,第二列是M的第二行,第三列是M的第三行,等等
+> Returns the transpose of the matrix M.
 
 ---
 
+
 ## **2. Geometric Functions**
+
+---
 
 ## [**distance(a,b)**](http://developer.download.nvidia.com/cg/distance.html)
 
@@ -544,6 +559,8 @@ function refract(I, N, eta)
 
 ## **4. Texture Mapping Functions**
 
+---
+
 ## [**tex1D**](http://developer.download.nvidia.com/cg/tex1D.html)
 ## [**tex2D**](http://developer.download.nvidia.com/cg/tex2D.html)
 ## [**tex3D**](http://developer.download.nvidia.com/cg/tex3D.html)
@@ -598,6 +615,8 @@ function refract(I, N, eta)
 
 ## **4. Derivative Functions**
 
+---
+
 ## [**ddx(a)**](http://developer.download.nvidia.com/cg/ddx.html)
 
 > Returns approximate partial derivative with respect to window-space X 
@@ -618,11 +637,18 @@ function refract(I, N, eta)
 
 ## **5. Debugging Function**
 
+---
+
 ## [**void debug(float4 x)**](http://developer.download.nvidia.com/cg/ddy.html)
 
 > If DEBUG is set at compile time, calling this function in the fragment coloring program can use the value x as the final output of the COLOR semantics; otherwise the function does nothing.
 
+
 ---
+
+---
+
+> [Reference Link](http://developer.download.nvidia.com/cg/index_stdlib.html)
 
 >**End --Cheng Gu**
 

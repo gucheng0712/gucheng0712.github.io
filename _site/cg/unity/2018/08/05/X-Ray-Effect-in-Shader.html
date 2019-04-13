@@ -2,121 +2,120 @@
 <span class="p">{</span>
 	<span class="n">Properties</span>
 	<span class="p">{</span>
-        <span class="nf">_MainTex</span><span class="p">(</span><span class="s">"MainTex"</span><span class="p">,</span><span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">""</span><span class="p">{}</span>
-        <span class="nf">_Color</span><span class="p">(</span><span class="s">"Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
-        <span class="nf">_OccPower</span><span class="p">(</span><span class="s">"Occlusion Power"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.5</span> 
-        <span class="nf">_OccColor</span><span class="p">(</span><span class="s">"Occlusion Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+		<span class="nf">_MainTex</span><span class="p">(</span><span class="s">"MainTex"</span><span class="p">,</span><span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">""</span><span class="p">{}</span>
+		<span class="nf">_Color</span><span class="p">(</span><span class="s">"Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+		<span class="nf">_OccPower</span><span class="p">(</span><span class="s">"Occlusion Power"</span><span class="p">,</span> <span class="nf">Range</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">))</span> <span class="p">=</span> <span class="m">0.5</span>
+		<span class="nf">_OccColor</span><span class="p">(</span><span class="s">"Occlusion Color"</span><span class="p">,</span> <span class="n">Color</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 	<span class="p">}</span>
-	<span class="n">SubShader</span>
-	<span class="p">{</span>
-        <span class="n">Tags</span><span class="p">{</span><span class="s">"RenderTyoe"</span> <span class="p">=</span> <span class="s">"Transparent"</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Transparent"</span><span class="p">}</span>
-        
-		<span class="n">Pass</span> <span class="c1">//  This pass is for X-ray</span>
+		<span class="n">SubShader</span>
 		<span class="p">{</span>
-            <span class="n">Blend</span> <span class="n">DstAlpha</span> <span class="n">One</span> 
+			<span class="n">Tags</span><span class="p">{</span><span class="s">"RenderTyoe"</span> <span class="p">=</span> <span class="s">"Transparent"</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Transparent"</span><span class="p">}</span>
 
-            <span class="c1">// When the Z value of the object's pixel is greater </span>
-            <span class="c1">//than the Z value of the current camera on the pixel, it will pass Ztest</span>
-            <span class="n">ZTest</span> <span class="n">Greater</span>
-
-            <span class="n">ZWrite</span> <span class="n">Off</span>
-			<span class="n">CGPROGRAM</span>
-			<span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
-            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
-			
-			<span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
-
-            <span class="kt">float</span> <span class="n">_OccPower</span><span class="p">;</span>
-            <span class="n">fixed4</span> <span class="n">_OccColor</span><span class="p">;</span>
-
-			<span class="k">struct</span> <span class="nc">appdata</span>
+			<span class="n">Pass</span> <span class="c1">//  This pass is for X-ray</span>
 			<span class="p">{</span>
-				<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
-                <span class="n">float3</span> <span class="n">normal</span> <span class="p">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+				<span class="n">Blend</span> <span class="n">DstAlpha</span> <span class="n">One</span>
 
-			<span class="p">};</span>
+				<span class="c1">// When the Z value of the object's pixel is greater </span>
+				<span class="c1">//than the Z value of the current camera on the pixel, it will pass Ztest</span>
+				<span class="n">ZTest</span> <span class="n">Greater</span>
 
-			<span class="k">struct</span> <span class="nc">v2f</span>
-			<span class="p">{</span>
-                <span class="n">float3</span> <span class="n">worldNormal</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
-                <span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
-                <span class="n">float4</span> <span class="n">worldVertex</span> <span class="p">:</span> <span class="n">TEXCOORD1</span><span class="p">;</span>
-			<span class="p">};</span>
-            
+				<span class="n">ZWrite</span> <span class="n">Off</span>
+				<span class="n">CGPROGRAM</span>
+				<span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+				<span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
+
+				<span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
+
+				<span class="kt">float</span> <span class="n">_OccPower</span><span class="p">;</span>
+				<span class="n">fixed4</span> <span class="n">_OccColor</span><span class="p">;</span>
+
+				<span class="k">struct</span> <span class="nc">appdata</span>
+				<span class="p">{</span>
+					<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+					<span class="n">float3</span> <span class="n">normal</span> <span class="p">:</span> <span class="n">NORMAL</span><span class="p">;</span>
+
+				<span class="p">};</span>
+
+				<span class="k">struct</span> <span class="nc">v2f</span>
+				<span class="p">{</span>
+					<span class="n">float3</span> <span class="n">worldNormal</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+					<span class="n">float4</span> <span class="n">pos</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+					<span class="n">float4</span> <span class="n">worldVertex</span> <span class="p">:</span> <span class="n">TEXCOORD1</span><span class="p">;</span>
+				<span class="p">};</span>
 
 
-			<span class="n">v2f</span> <span class="nf">vert</span> <span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
-			<span class="p">{</span>
-				<span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
-				<span class="n">o</span><span class="p">.</span><span class="n">pos</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
-                <span class="n">o</span><span class="p">.</span><span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">normal</span><span class="p">,</span><span class="n">unity_WorldToObject</span><span class="p">));</span>
-                <span class="n">o</span><span class="p">.</span><span class="n">worldVertex</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">unity_ObjectToWorld</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">));</span>
-                
-				<span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+
+				<span class="n">v2f</span> <span class="nf">vert</span><span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+					<span class="n">o</span><span class="p">.</span><span class="n">pos</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+					<span class="n">o</span><span class="p">.</span><span class="n">worldNormal</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">normal</span><span class="p">,</span><span class="n">unity_WorldToObject</span><span class="p">));</span>
+					<span class="n">o</span><span class="p">.</span><span class="n">worldVertex</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="nf">mul</span><span class="p">(</span><span class="n">unity_ObjectToWorld</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">));</span>
+
+					<span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+				<span class="p">}</span>
+
+				<span class="n">fixed4</span> <span class="nf">frag</span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
+				<span class="p">{</span>
+
+					<span class="n">float3</span> <span class="n">viewDir</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">_WorldSpaceCameraPos</span><span class="p">.</span><span class="n">xyz</span> <span class="p">-</span> <span class="n">i</span><span class="p">.</span><span class="n">worldVertex</span><span class="p">.</span><span class="n">xyz</span><span class="p">);</span>
+
+					<span class="c1">// rim effect</span>
+					<span class="kt">float</span> <span class="n">rim</span> <span class="p">=</span> <span class="m">1</span> <span class="p">-</span> <span class="nf">saturate</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">worldNormal</span><span class="p">,</span><span class="n">viewDir</span><span class="p">));</span>
+
+					<span class="n">fixed3</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">pow</span><span class="p">(</span><span class="n">rim</span><span class="p">,</span> <span class="n">_OccPower</span><span class="p">)</span> <span class="p">*</span> <span class="n">_OccColor</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
+
+					<span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="m">0.5f</span><span class="p">);</span>
+				<span class="p">}</span>
+				<span class="n">ENDCG</span>
 			<span class="p">}</span>
-			
-			<span class="n">fixed4</span> <span class="nf">frag</span> <span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
+
+
+
+			<span class="n">Pass</span> <span class="c1">// This pass is for the model itself</span>
 			<span class="p">{</span>
+				<span class="n">Blend</span> <span class="n">SrcAlpha</span> <span class="n">OneMinusSrcAlpha</span>
+				<span class="n">ZWrite</span> <span class="n">On</span>
+				<span class="n">ZTest</span> <span class="n">LEqual</span>
+				<span class="n">CGPROGRAM</span>
+				<span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+				<span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
 
-                <span class="n">float3</span> <span class="n">viewDir</span> <span class="p">=</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">_WorldSpaceCameraPos</span><span class="p">.</span><span class="n">xyz</span> <span class="p">-</span> <span class="n">i</span><span class="p">.</span><span class="n">worldVertex</span><span class="p">.</span><span class="n">xyz</span><span class="p">);</span>
+				<span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
 
-                <span class="c1">// rim effect</span>
-                <span class="kt">float</span> <span class="n">rim</span> <span class="p">=</span> <span class="m">1</span><span class="p">-</span><span class="nf">saturate</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">worldNormal</span><span class="p">,</span><span class="n">viewDir</span><span class="p">));</span>
+				<span class="k">struct</span> <span class="nc">appdata</span>
+				<span class="p">{</span>
+					<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+					<span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+				<span class="p">};</span>
 
-				<span class="n">fixed3</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">pow</span><span class="p">(</span><span class="n">rim</span><span class="p">,</span> <span class="n">_OccPower</span><span class="p">)</span> <span class="p">*</span> <span class="n">_OccColor</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
+				<span class="k">struct</span> <span class="nc">v2f</span>
+				<span class="p">{</span>
+					<span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+					<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+				<span class="p">};</span>
 
-				<span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="m">0.5f</span><span class="p">);</span>
+				<span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
+				<span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
+				<span class="n">fixed4</span> <span class="n">_Color</span><span class="p">;</span>
+
+				<span class="n">v2f</span> <span class="nf">vert</span><span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
+				<span class="p">{</span>
+					<span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+					<span class="n">o</span><span class="p">.</span><span class="n">vertex</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+					<span class="n">o</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="nf">TRANSFORM_TEX</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="n">_MainTex</span><span class="p">);</span>
+					<span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+				<span class="p">}</span>
+
+				<span class="n">fixed4</span> <span class="nf">frag</span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
+				<span class="p">{</span>
+					<span class="c1">// sample the texture</span>
+					<span class="n">fixed3</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">).</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">_Color</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
+
+					<span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="m">1</span><span class="p">);</span>
+				<span class="p">}</span>
+				<span class="n">ENDCG</span>
 			<span class="p">}</span>
-			<span class="n">ENDCG</span>
 		<span class="p">}</span>
-
-
-
-        <span class="n">Pass</span> <span class="c1">// This pass is for the model itself</span>
-        <span class="p">{</span>
-            <span class="n">Blend</span> <span class="n">SrcAlpha</span> <span class="n">OneMinusSrcAlpha</span>
-            <span class="n">ZWrite</span> <span class="n">On</span>
-            <span class="n">ZTest</span> <span class="n">LEqual</span> 
-            <span class="n">CGPROGRAM</span>
-            <span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
-            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
-            
-            <span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
-
-            <span class="k">struct</span> <span class="nc">appdata</span>
-            <span class="p">{</span>
-                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
-                <span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
-            <span class="p">};</span>
-
-            <span class="k">struct</span> <span class="nc">v2f</span>
-            <span class="p">{</span>
-                <span class="n">float2</span> <span class="n">uv</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
-                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
-            <span class="p">};</span>
-
-            <span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
-            <span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
-            <span class="n">fixed4</span> <span class="n">_Color</span><span class="p">;</span>
-            
-            <span class="n">v2f</span> <span class="nf">vert</span> <span class="p">(</span><span class="n">appdata</span> <span class="n">v</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
-                <span class="n">o</span><span class="p">.</span><span class="n">vertex</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
-                <span class="n">o</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="nf">TRANSFORM_TEX</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">uv</span><span class="p">,</span> <span class="n">_MainTex</span><span class="p">);</span>
-                <span class="k">return</span> <span class="n">o</span><span class="p">;</span>
-            <span class="p">}</span>
-            
-            <span class="n">fixed4</span> <span class="nf">frag</span> <span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
-            <span class="p">{</span>
-                <span class="c1">// sample the texture</span>
-                <span class="n">fixed3</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">uv</span><span class="p">).</span><span class="n">rgb</span> <span class="p">*</span> <span class="n">_Color</span><span class="p">.</span><span class="n">rgb</span><span class="p">;</span>
-
-                <span class="k">return</span> <span class="nf">fixed4</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="m">1</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="n">ENDCG</span>
-        <span class="p">}</span>
-	<span class="p">}</span>
 <span class="p">}</span>
-
 </code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Unity</button> <button class="btn btn-white btn-xs" type="button">Shader</button> <button class="btn btn-white btn-xs" type="button">Math</button> <button class="btn btn-white btn-xs" type="button">CG</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

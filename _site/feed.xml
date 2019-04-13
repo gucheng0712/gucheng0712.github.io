@@ -5,13 +5,145 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 12 Apr 2019 18:36:23 -0700</pubDate>
-    <lastBuildDate>Fri, 12 Apr 2019 18:36:23 -0700</lastBuildDate>
+    <pubDate>Fri, 12 Apr 2019 21:56:31 -0700</pubDate>
+    <lastBuildDate>Fri, 12 Apr 2019 21:56:31 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Access the Depth and Normal Textures in Unity(CG)</title>
+        <description>&lt;h2 id=&quot;1-what-is-depth-texture&quot;&gt;&lt;strong&gt;1. What is Depth Texture?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Depth Texture&lt;/code&gt; is a RenderTexture that stores the &lt;code class=&quot;highlighter-rouge&quot;&gt;depth value&lt;/code&gt;, range is [0,1]. The depth value is calculated from the &lt;code class=&quot;highlighter-rouge&quot;&gt;normalized device coordinates(NDC)&lt;/code&gt; obtained after the vertex transformation. The depth value refers to the distance in the &lt;code class=&quot;highlighter-rouge&quot;&gt;z axis&lt;/code&gt; and it &lt;code class=&quot;highlighter-rouge&quot;&gt;doesn't&lt;/code&gt; represent the distance from the point to the camera. (shown as below image)&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/depthlength.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;As we all know, in order to render the model on the screen, we have to use this model’s vertix position multiply &lt;code class=&quot;highlighter-rouge&quot;&gt;MVP Matrix&lt;/code&gt; to transform the model’s vertices from &lt;code class=&quot;highlighter-rouge&quot;&gt;object space&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;perspective space&lt;/code&gt;. (The process is shown as below image)&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/projection_matrix.png&quot; width=&quot;100%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;first&lt;/code&gt; part shows that before the projection transformation, the structure of the frustum and the corresponding vertex position in the view space.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;second&lt;/code&gt; part of the image shows that the transformation result of applying perspective matrix.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;last&lt;/code&gt; part shows that the normailized Device Coordinates.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The depth value is just the &lt;code class=&quot;highlighter-rouge&quot;&gt;remapped value of NPC's z-axis&lt;/code&gt;. The reason that needs to remap the depth value is because the range of NPC’s z-axis is [-1,1]. The formula $ 0.5*Z_ndc+0.5 $ can map it from [-1,1] to [0,1].&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;2-what-is-normal-texture&quot;&gt;&lt;strong&gt;2. What is Normal Texture?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;Similar to the depth texture, this will be a screen-size texture. However, instead of storing the depth of each pixel, it’ll store its &lt;code class=&quot;highlighter-rouge&quot;&gt;normal&lt;/code&gt; info in &lt;code class=&quot;highlighter-rouge&quot;&gt;view space&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Below Image shows the differences between depth and normal texture:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p align=&quot;center&quot;&gt;     
+&lt;img src=&quot;/static/assets/img/blog/check_texture_code.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;3-how-to-get-the-depth-texture-and-normal-texture&quot;&gt;&lt;strong&gt;3. How to Get the Depth Texture and Normal Texture?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;In Unity, there are two major rendering path which are forward rendering and deferred rendering. When we are &lt;code class=&quot;highlighter-rouge&quot;&gt;using deferred rendering path&lt;/code&gt;, we can get the depth texture &lt;code class=&quot;highlighter-rouge&quot;&gt;directly&lt;/code&gt;, because deferred rendering will store these info into the &lt;code class=&quot;highlighter-rouge&quot;&gt;G-Buffer&lt;/code&gt;. However, when we are &lt;code class=&quot;highlighter-rouge&quot;&gt;using forward rendering path&lt;/code&gt;, we have to use an &lt;code class=&quot;highlighter-rouge&quot;&gt;additional Pass&lt;/code&gt; to get, which is the&lt;code class=&quot;highlighter-rouge&quot;&gt; Pass (LightMode = &quot;ShadowCaster&quot;) &lt;/code&gt;that casts the shadow.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Note&lt;/code&gt;: Unity uses the &lt;code class=&quot;highlighter-rouge&quot;&gt;shader replacement technique&lt;/code&gt; to render objects with a &lt;code class=&quot;highlighter-rouge&quot;&gt;RenderType&lt;/code&gt; of Opauqe and a queue of &lt;code class=&quot;highlighter-rouge&quot;&gt;less than 2500&lt;/code&gt; (Background, Geometry, Alphatest, opaque queues) into deep textures and normal textures.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Method of access and use:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Setting up the &lt;code class=&quot;highlighter-rouge&quot;&gt;depthTextureMode&lt;/code&gt; of Camera: &lt;code class=&quot;highlighter-rouge&quot;&gt;camera.depthTextureMode = DepthTextureMode.Depth;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Declaring the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;_CameraDepthTexture&lt;/code&gt; access in Shdaer: &lt;code class=&quot;highlighter-rouge&quot;&gt;float d = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Code example to get Linear depth value:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SAMPLE_DEPTH_TEXTURE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_CameraDepthTexture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linearDepth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Linear01Depth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linearDepth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linearDepth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linearDepth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Another option is to create &lt;code class=&quot;highlighter-rouge&quot;&gt;both&lt;/code&gt; Depth Texture and Normal Texture. &lt;code class=&quot;highlighter-rouge&quot;&gt;In deferred rendering path&lt;/code&gt;, normral info is easy to get acess as well. But&lt;code class=&quot;highlighter-rouge&quot;&gt; in forward rendering path&lt;/code&gt;, unity uses a Pass to render the whole scene one more time to get the normal info.(Source Code is in the Internal-&lt;code class=&quot;highlighter-rouge&quot;&gt;DepthNormalsTexture.shader&lt;/code&gt;)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Method of access and use:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Setting up the &lt;code class=&quot;highlighter-rouge&quot;&gt;depthTextureMode&lt;/code&gt; of Camera: &lt;code class=&quot;highlighter-rouge&quot;&gt;camera.depthTexureMode = DepthTextureMode.DepthNormals;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Declaring the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;_CameraDepthNormalsTexture&lt;/code&gt; access in shader: &lt;code class=&quot;highlighter-rouge&quot;&gt;float3 nt = tex2D(_CameraDepthNormalsTexture, i.uv);&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Unity has a function called &lt;code class=&quot;highlighter-rouge&quot;&gt;DecodeDepthNormal&lt;/code&gt; which can get the depth in &lt;code class=&quot;highlighter-rouge&quot;&gt;zw&lt;/code&gt; component and normal in &lt;code class=&quot;highlighter-rouge&quot;&gt;xy&lt;/code&gt; component.
+    &lt;ul&gt;
+      &lt;li&gt;In UnityCG.cginc it looks like this:
+        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DecodeDepthNormal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DecodeFloatRG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DecodeViewNormalStereo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Code example to get normal direction:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fixed3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DecodeViewNormalStereo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tex2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_CameraDepthNormalsTexture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Relative Functions:&lt;/strong&gt;&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LinearEyeDepth&lt;/code&gt;：The depth sampling results are converted to the perspective space. z value in view space&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Linear01Depth&lt;/code&gt;：Returns the linear depth value in the range [0, 1].&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DecodeDepthNormal&lt;/code&gt;：decoded to get depth and normal information from the sampling results.&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DecodeFloatRG&lt;/code&gt;：decode to get depth info.&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DecodeViewNormalStereo&lt;/code&gt;：decode to get normal info.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Fri, 12 Apr 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/cg/unity/2019/04/12/Access-the-Depth-and-Normal-Textures-in-Unity.html</link>
+        <guid isPermaLink="true">http://localhost:4000/cg/unity/2019/04/12/Access-the-Depth-and-Normal-Textures-in-Unity.html</guid>
+        
+        <category>Unity</category>
+        
+        <category>Shader</category>
+        
+        <category>CG</category>
+        
+        
+        <category>Cg</category>
+        
+        <category>Unity</category>
+        
+      </item>
     
       <item>
         <title>Cg Standard Library Functions (CG)</title>
         <description>&lt;h2 id=&quot;1-math-functions&quot;&gt;&lt;strong&gt;1. Math Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;absx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/abs.html&quot;&gt;&lt;strong&gt;abs(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
@@ -316,19 +448,16 @@
         &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt;: A specular exponent, typically described as a measure of shininess. The larger the exponent, the shinier the specular highlight, the smaller the exponent, the duller the specular highlight.&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Returns a 4D vector&lt;/strong&gt;:
+      &lt;ul&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;: The ambient coefficient that is always 1.0.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;: The diffuse coefficient that is zero if NdotL is less than zero, and NdotL otherwise.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;: The specular coefficient that is zero if either NdotL or NdotH are less than zero, and otherwise NdotH raised to the power m.&lt;/li&gt;
+        &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;: Always 1.0.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Returns a 4D vector&lt;/strong&gt;:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;: The ambient coefficient that is always 1.0.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y&lt;/code&gt;: The diffuse coefficient that is zero if NdotL is less than zero, and NdotL otherwise.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;: The specular coefficient that is zero if either NdotL or NdotH are less than zero, and otherwise NdotH raised to the power m.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;: Always 1.0.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;hr /&gt;
 
@@ -431,9 +560,189 @@
 
 &lt;hr /&gt;
 
+&lt;h2 id=&quot;powxy&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/pow.html&quot;&gt;&lt;strong&gt;pow(x,y)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;return the result of $x^y$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;radiansx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/radians.html&quot;&gt;&lt;strong&gt;radians(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Degree to Radian&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;roundx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/round.html&quot;&gt;&lt;strong&gt;round(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns a rounded value&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;rsqrtx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/rsqrt.html&quot;&gt;&lt;strong&gt;rsqrt(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The inverse of the square root of x(x has to be greater than 0)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;saturatex&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/saturate.html&quot;&gt;&lt;strong&gt;saturate(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Limit x to [0,1]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;signx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sign.html&quot;&gt;&lt;strong&gt;sign(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns positive one, zero, or negative one for each of the components of x based on the component’s sign.&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Returns -1 component if the respective component of x is negative.&lt;/li&gt;
+    &lt;li&gt;Returns 0 component if the respective component of x is zero.&lt;/li&gt;
+    &lt;li&gt;Returns 1 component if the respective component of x is positive.&lt;/li&gt;
+    &lt;li&gt;Ideally, NaN returns NaN.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/sign.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;saturatex-1&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/saturate.html&quot;&gt;&lt;strong&gt;saturate(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Limit x to [0,1]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sinx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sin.html&quot;&gt;&lt;strong&gt;sin(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the sine of a in radians. The return value is in the range [-1, 1].&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/sin.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sincosx-out-s-out-c&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sincos.html&quot;&gt;&lt;strong&gt;sincos(x, out s, out c)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Calculate the sine and cosine at the same time, where s = sin(x) and c = cos(x). (faster than doing them separately)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sinhx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sinh.html&quot;&gt;&lt;strong&gt;sinh(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the hyperbolic sine of x&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/sinh.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;smoothstepminmaxx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/smoothstep.html&quot;&gt;&lt;strong&gt;smoothstep(min,max,x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Interpolates smoothly from 0 to 1 based on x compared to a and b.&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Returns 0 if x &amp;lt; a &amp;lt; b or x &amp;gt; a &amp;gt; b&lt;/li&gt;
+    &lt;li&gt;Returns 1 if x &amp;lt; b &amp;lt; a or x &amp;gt; b &amp;gt; a&lt;/li&gt;
+    &lt;li&gt;Returns a value in the range [0,1] for the domain [a,b].&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/smoothstep.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;stepax&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/step.html&quot;&gt;&lt;strong&gt;step(a,x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Implement a step function returning either zero or one for each component of x&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/step.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;sqrtx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/sqrt.html&quot;&gt;&lt;strong&gt;sqrt(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Find the square root of x, $\sqrt{x}$  (x must be greater than 0)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tanx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tan.html&quot;&gt;&lt;strong&gt;tan(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the tangent of x in radians.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/tan.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tanhx&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tanh.html&quot;&gt;&lt;strong&gt;tanh(x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the hyperbolic tangent of x.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt;Click to Show Graph&lt;/b&gt;&lt;/summary&gt;
+&lt;img src=&quot;/static/assets/img/blog/tanh.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/details&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;transposem&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/transpose.html&quot;&gt;&lt;strong&gt;transpose(M)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Returns the transpose of the matrix M.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;2-geometric-functions&quot;&gt;&lt;strong&gt;2. Geometric Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;distanceab&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/distance.html&quot;&gt;&lt;strong&gt;distance(a,b)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
@@ -514,7 +823,77 @@
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
+
+&lt;h2 id=&quot;4-texture-mapping-functions&quot;&gt;&lt;strong&gt;4. Texture Mapping Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1d&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1D.html&quot;&gt;&lt;strong&gt;tex1D&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2d&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2D.html&quot;&gt;&lt;strong&gt;tex2D&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex3d&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex3D.html&quot;&gt;&lt;strong&gt;tex3D&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcube&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBE.html&quot;&gt;&lt;strong&gt;texCUBE&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup in sampler samp using coordinates s, may use and derivatives dx and dy, also may perform shadow comparison and use texel offset texelOff to compute final texel.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1dlod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1Dlod.html&quot;&gt;&lt;strong&gt;tex1Dlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2dlod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2Dlod.html&quot;&gt;&lt;strong&gt;tex2Dlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex3dlod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex3Dlod.html&quot;&gt;&lt;strong&gt;tex3Dlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubelod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBElod.html&quot;&gt;&lt;strong&gt;texCUBElod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup with specified level of detail and optional texel offset.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1dproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1Dproj.html&quot;&gt;&lt;strong&gt;tex1Dproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2dproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2Dproj.html&quot;&gt;&lt;strong&gt;tex2Dproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex3dproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex3Dproj.html&quot;&gt;&lt;strong&gt;tex3Dproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubeproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEproj.html&quot;&gt;&lt;strong&gt;texCUBEproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup with projection in a given sampler. May perform a shadow comparison if argument for shadow comparison is provided.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1darray&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1DARRAY.html&quot;&gt;&lt;strong&gt;tex1DARRAY&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2darray&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2DARRAY.html&quot;&gt;&lt;strong&gt;tex2DARRAY&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubearray&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEARRAY.html&quot;&gt;&lt;strong&gt;texCUBEARRAY&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup in a given sampler array may use pre computed derivatives and, in some cases, perform a shadow comparison.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1darraylod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1DARRAYlod.html&quot;&gt;&lt;strong&gt;tex1DARRAYlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2darraylod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2DARRAYlod.html&quot;&gt;&lt;strong&gt;tex2DARRAYlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubearraylod&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEARRAYlod.html&quot;&gt;&lt;strong&gt;texCUBEARRAYlod&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture array lookup with specified level of detail and optional texel offset.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;tex1darrayproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex1DARRAYproj.html&quot;&gt;&lt;strong&gt;tex1DARRAYproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;tex2darrayproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/tex2DARRAYproj.html&quot;&gt;&lt;strong&gt;tex2DARRAYproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;texcubearrayproj&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/texCUBEARRAYproj.html&quot;&gt;&lt;strong&gt;texCUBEARRAYproj&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Performs a texture lookup with projection in a given sampler array. May perform a shadow comparison if argument for shadow comparison is provided.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;4-derivative-functions&quot;&gt;&lt;strong&gt;4. Derivative Functions&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;ddxa&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ddx.html&quot;&gt;&lt;strong&gt;ddx(a)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
@@ -542,6 +921,8 @@
 
 &lt;h2 id=&quot;5-debugging-function&quot;&gt;&lt;strong&gt;5. Debugging Function&lt;/strong&gt;&lt;/h2&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;void-debugfloat4-x&quot;&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/ddy.html&quot;&gt;&lt;strong&gt;void debug(float4 x)&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -549,6 +930,12 @@
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://developer.download.nvidia.com/cg/index_stdlib.html&quot;&gt;Reference Link&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
@@ -4254,123 +4641,122 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MainTex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;_Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;_OccPower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Occlusion Power&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt; 
-        &lt;span class=&quot;nf&quot;&gt;_OccColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Occlusion Color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MainTex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;_Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;_OccPower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Occlusion Power&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;_OccColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Occlusion Color&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RenderTyoe&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Transparent&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Transparent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        
-		&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//  This pass is for X-ray&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt;
 		&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Blend&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DstAlpha&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;One&lt;/span&gt; 
+			&lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RenderTyoe&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Transparent&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Transparent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-            &lt;span class=&quot;c1&quot;&gt;// When the Z value of the object's pixel is greater &lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;//than the Z value of the current camera on the pixel, it will pass Ztest&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ZTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Greater&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Off&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
-			&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
-			
-			&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccPower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-			&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//  This pass is for X-ray&lt;/span&gt;
 			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NORMAL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;Blend&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DstAlpha&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;One&lt;/span&gt;
 
-			&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+				&lt;span class=&quot;c1&quot;&gt;// When the Z value of the object's pixel is greater &lt;/span&gt;
+				&lt;span class=&quot;c1&quot;&gt;//than the Z value of the current camera on the pixel, it will pass Ztest&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;ZTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Greater&lt;/span&gt;
 
-			&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;worldNormal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;worldVertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-            
+				&lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Off&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
+				&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
+				&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
+
+				&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
+
+				&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccPower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+				&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NORMAL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+				&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+				&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;worldNormal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;worldVertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
 
-			&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UnityObjectToClipPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldNormal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unity_WorldToObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldVertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unity_ObjectToWorld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-                
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+				&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UnityObjectToClipPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldNormal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unity_WorldToObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldVertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unity_ObjectToWorld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+					&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+				&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+					&lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewDir&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_WorldSpaceCameraPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xyz&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldVertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xyz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+					&lt;span class=&quot;c1&quot;&gt;// rim effect&lt;/span&gt;
+					&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rim&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;saturate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldNormal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;viewDir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+					&lt;span class=&quot;n&quot;&gt;fixed3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccPower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+					&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fixed4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
 			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			
-			&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
+
+
+
+			&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// This pass is for the model itself&lt;/span&gt;
 			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;Blend&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SrcAlpha&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OneMinusSrcAlpha&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;On&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;ZTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LEqual&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
+				&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
+				&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
 
-                &lt;span class=&quot;n&quot;&gt;float3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewDir&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;normalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_WorldSpaceCameraPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xyz&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldVertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xyz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
 
-                &lt;span class=&quot;c1&quot;&gt;// rim effect&lt;/span&gt;
-                &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rim&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;saturate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;worldNormal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;viewDir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
-				&lt;span class=&quot;n&quot;&gt;fixed3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccPower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_OccColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fixed4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;sampler2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex_ST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+				&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UnityObjectToClipPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TRANSFORM_TEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+					&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+				&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+					&lt;span class=&quot;c1&quot;&gt;// sample the texture&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;fixed3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tex2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+					&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fixed4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
 			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
 		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-
-        &lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// This pass is for the model itself&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Blend&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SrcAlpha&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OneMinusSrcAlpha&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;On&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ZTest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LEqual&lt;/span&gt; 
-            &lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
-            
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;sampler2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex_ST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            
-            &lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UnityObjectToClipPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TRANSFORM_TEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            
-            &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;c1&quot;&gt;// sample the texture&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;fixed3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tex2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fixed4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
