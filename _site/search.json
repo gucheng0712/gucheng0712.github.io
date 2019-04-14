@@ -3,6 +3,14 @@
     "data" : [
      
     {
+        "title" : "Refactor If Statement By using Delegate - 2019-04-14",
+        "url" : "/csharp/2019/04/14/Refactor-If-Statement-By-using-Delegate.html"
+    }
+    
+    ,
+    
+    
+    {
         "title" : "Access the Depth and Normal Textures in Unity(CG) - 2019-04-12",
         "url" : "/cg/unity/2019/04/12/Access-the-Depth-and-Normal-Textures-in-Unity.html"
     }
