@@ -20,9 +20,7 @@
         <span class="n">Comp</span> <span class="n">Always</span>
         <span class="n">Pass</span> <span class="n">Replace</span>
     <span class="p">}</span>
-</code></pre></div></div> <p>In this code, <strong>ColorMask 0</strong> is used for masking the output of the color, which means don’t output any color onto screen. <strong>ZWrite Off</strong> is to make sure the character’s pixels will not be discarded during the Depth Test (Ztest). Set <strong>Ref</strong> as 1, and <strong>Comp Always</strong> to make sure the stencil test always pass, <strong>Pass Replace</strong> will update the stencilBufferValue to referenceValue, which is 1. The main function of this shader code is to update the stencil buffer value to 1 without output any color.</p> <blockquote> <ol> <li><strong>In the character mask shader, the core is:</strong></li> </ol> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">ColorMask</span> <span class="m">0</span>
-    <span class="n">ZWrite</span> <span class="n">Off</span>
-    <span class="n">Stencil</span>
+</code></pre></div></div> <p>In this code, <strong>ColorMask 0</strong> is used for masking the output of the color, which means don’t output any color onto screen. <strong>ZWrite Off</strong> is to make sure the character’s pixels will not be discarded during the Depth Test (Ztest). Set <strong>Ref</strong> as 1, and <strong>Comp Always</strong> to make sure the stencil test always pass, <strong>Pass Replace</strong> will update the stencilBufferValue to referenceValue, which is 1. The main function of this shader code is to update the stencil buffer value to 1 without output any color.</p> <blockquote> <ol> <li><strong>In the character mask shader, the core is:</strong></li> </ol> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Stencil</span>
     <span class="p">{</span>
         <span class="n">Ref</span> <span class="m">1</span>
         <span class="n">Comp</span> <span class="n">Equal</span>
@@ -31,9 +29,9 @@
 <span class="p">{</span>
 	<span class="n">Properties</span>
 	<span class="p">{</span>
-        <span class="nf">_ID</span><span class="p">(</span><span class="s">"Mask ID"</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span>
+		<span class="nf">_ID</span><span class="p">(</span><span class="s">"Mask ID"</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span>
 	<span class="p">}</span>
-		<span class="n">SubShader</span>
+	<span class="n">SubShader</span>
 	<span class="p">{</span>
 		<span class="c1">// The Rendering queue need to make sure the window mask is smaller than character mask</span>
 		<span class="n">Tags</span><span class="p">{</span> <span class="s">"RenderType"</span> <span class="p">=</span> <span class="s">"Opaque"</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Geometry-1"</span> <span class="p">}</span>
@@ -73,59 +71,61 @@
 		<span class="p">}</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div> <blockquote> <p><strong>Full Code for Character Mask Shader</strong>:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Shader</span> <span class="s">"MyShader/CharacterMask"</span> 
+</code></pre></div></div> <blockquote> <p><strong>Full Code for Character Mask Shader</strong>:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Shader</span> <span class="s">"MyShader/CharacterMask"</span>
 <span class="p">{</span>
-	<span class="n">Properties</span> 
-    <span class="p">{</span>
-	<span class="nf">_MainTex</span> <span class="p">(</span><span class="s">"Base (RGB)"</span><span class="p">,</span> <span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">"white"</span> <span class="p">{}</span>
-    <span class="p">}</span>
-    <span class="n">SubShader</span> 
-    <span class="p">{</span>
-        <span class="n">Tags</span> <span class="p">{</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Geometry"</span> <span class="s">"RenderType"</span><span class="p">=</span><span class="s">"Opaque"</span> <span class="p">}</span>
+	<span class="n">Properties</span>
+	<span class="p">{</span>
+		<span class="nf">_MainTex</span><span class="p">(</span><span class="s">"Base (RGB)"</span><span class="p">,</span> <span class="m">2D</span><span class="p">)</span> <span class="p">=</span> <span class="s">"white"</span> <span class="p">{}</span>
+        <span class="nf">_ID</span><span class="p">(</span><span class="s">"Mask ID"</span><span class="p">,</span> <span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="m">1</span>
+	<span class="p">}</span>
+	
+	<span class="n">SubShader</span>
+	<span class="p">{</span>
+		<span class="n">Tags</span> <span class="p">{</span> <span class="s">"Queue"</span> <span class="p">=</span> <span class="s">"Geometry"</span> <span class="s">"RenderType"</span> <span class="p">=</span> <span class="s">"Opaque"</span> <span class="p">}</span>
 
-        <span class="n">Stencil</span>
-        <span class="p">{</span>
-            <span class="n">Ref</span> <span class="m">1</span>
-            <span class="n">Comp</span> <span class="n">Equal</span>
-        <span class="p">}</span> 
+		<span class="n">Stencil</span>
+		<span class="p">{</span>
+			<span class="n">Ref</span> <span class="p">[</span><span class="n">_ID</span><span class="p">]</span>
+			<span class="n">Comp</span> <span class="n">Equal</span>
+		<span class="p">}</span>
 
-        <span class="n">Pass</span> 
-        <span class="p">{</span> 
-            <span class="n">CGPROGRAM</span>
-            <span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
-            <span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
-            <span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
+		<span class="n">Pass</span>
+		<span class="p">{</span>
+			<span class="n">CGPROGRAM</span>
+			<span class="err">#</span><span class="n">pragma</span> <span class="n">vertex</span> <span class="n">vert</span>
+			<span class="err">#</span><span class="n">pragma</span> <span class="n">fragment</span> <span class="n">frag</span>
+			<span class="err">#</span><span class="n">include</span> <span class="s">"UnityCG.cginc"</span>
 
-            <span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
-            <span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
+			<span class="n">sampler2D</span> <span class="n">_MainTex</span><span class="p">;</span>
+			<span class="n">float4</span> <span class="n">_MainTex_ST</span><span class="p">;</span>
 
-            <span class="k">struct</span> <span class="nc">appdata_t</span> 
-            <span class="p">{</span>
-                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
-                <span class="n">float2</span> <span class="n">texcoord</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
-            <span class="p">};</span>
-            <span class="k">struct</span> <span class="nc">v2f</span> 
-            <span class="p">{</span>
-                <span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
-                <span class="n">half2</span> <span class="n">texcoord</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
-            <span class="p">};</span>
+			<span class="k">struct</span> <span class="nc">appdata_t</span>
+			<span class="p">{</span>
+				<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">POSITION</span><span class="p">;</span>
+				<span class="n">float2</span> <span class="n">texcoord</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+			<span class="p">};</span>
+			<span class="k">struct</span> <span class="nc">v2f</span>
+			<span class="p">{</span>
+				<span class="n">float4</span> <span class="n">vertex</span> <span class="p">:</span> <span class="n">SV_POSITION</span><span class="p">;</span>
+				<span class="n">half2</span> <span class="n">texcoord</span> <span class="p">:</span> <span class="n">TEXCOORD0</span><span class="p">;</span>
+			<span class="p">};</span>
 
-            <span class="n">v2f</span> <span class="nf">vert</span> <span class="p">(</span><span class="n">appdata_t</span> <span class="n">v</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
-                <span class="n">o</span><span class="p">.</span><span class="n">vertex</span> <span class="p">=</span> <span class="nf">mul</span><span class="p">(</span><span class="n">UNITY_MATRIX_MVP</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
-                <span class="n">o</span><span class="p">.</span><span class="n">texcoord</span> <span class="p">=</span> <span class="nf">TRANSFORM_TEX</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">texcoord</span><span class="p">,</span> <span class="n">_MainTex</span><span class="p">);</span>
-                <span class="k">return</span> <span class="n">o</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">fixed4</span> <span class="nf">frag</span> <span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
-            <span class="p">{</span>
-                <span class="n">fixed4</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">texcoord</span><span class="p">);</span>
-                <span class="nf">UNITY_OPAQUE_ALPHA</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">a</span><span class="p">);</span>
-                <span class="k">return</span> <span class="n">col</span><span class="p">;</span>
-            <span class="p">}</span>
-            <span class="n">ENDCG</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+			<span class="n">v2f</span> <span class="nf">vert</span><span class="p">(</span><span class="n">appdata_t</span> <span class="n">v</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">v2f</span> <span class="n">o</span><span class="p">;</span>
+				<span class="n">o</span><span class="p">.</span><span class="n">vertex</span> <span class="p">=</span> <span class="nf">UnityObjectToClipPos</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">vertex</span><span class="p">);</span>
+				<span class="n">o</span><span class="p">.</span><span class="n">texcoord</span> <span class="p">=</span> <span class="nf">TRANSFORM_TEX</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">texcoord</span><span class="p">,</span> <span class="n">_MainTex</span><span class="p">);</span>
+				<span class="k">return</span> <span class="n">o</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">fixed4</span> <span class="nf">frag</span><span class="p">(</span><span class="n">v2f</span> <span class="n">i</span><span class="p">)</span> <span class="p">:</span> <span class="n">SV_Target</span>
+			<span class="p">{</span>
+				<span class="n">fixed4</span> <span class="n">col</span> <span class="p">=</span> <span class="nf">tex2D</span><span class="p">(</span><span class="n">_MainTex</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">texcoord</span><span class="p">);</span>
+				<span class="nf">UNITY_OPAQUE_ALPHA</span><span class="p">(</span><span class="n">col</span><span class="p">.</span><span class="n">a</span><span class="p">);</span>
+				<span class="k">return</span> <span class="n">col</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="n">ENDCG</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 
 </code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Unity</button> <button class="btn btn-white btn-xs" type="button">Shader</button> <button class="btn btn-white btn-xs" type="button">Math</button> <button class="btn btn-white btn-xs" type="button">CG</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

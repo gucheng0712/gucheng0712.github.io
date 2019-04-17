@@ -1,0 +1,161 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Natural Language Processing (ML) </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src=" /static/assets/img/search/cb-close.png " id="close-btn" /> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src=" /static/assets/img/search/cb-search.png " id="search-btn" title="Double click Ctrl" /> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href=" / ">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href=" blog/ "></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/python">Python</a> <a class="btn btn-white btn-xs" href="/ai">Ai</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 Mar 2019</span> <h1> Natural Language Processing (ML) </h1> </div> <div class="ibox-postpadding"> <h1 id="what-is-natural-language-processing"><strong>What is Natural Language Processing?</strong></h1> <p><code class="highlighter-rouge">Natural Language Processing (NLP)</code> refers to the ability of <code class="highlighter-rouge">machines</code> to <code class="highlighter-rouge">understand</code> and explain the way human <code class="highlighter-rouge">write and speak</code>.</p> <p>It is widely used in information retrieval, sentiment analysis, information extraction, machine translation, and more.</p> <blockquote> <p><strong>Operations of NLP include</strong>:</p> </blockquote> <p align="center"> <img src="/static/assets/img/blog/nlpflow.jpg" width="50%" /></p> <hr /> <h1 id="tokenization"><strong>Tokenization</strong></h1> <p><code class="highlighter-rouge">Tokenization</code> is a process of understanding a sentence or a phrase by <code class="highlighter-rouge">splitting</code> them into substrings, words and punctuation.</p> <p align="center"> <img src="/static/assets/img/blog/token.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span><span class="p">,</span> <span class="n">sent_tokenize</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+
+<span class="c"># Split the sentence into words</span>
+<span class="n">tokenized_words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Word Tokenization: "</span><span class="p">,</span> <span class="n">tokenized_words</span><span class="p">)</span>
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', 'tomorrow', '.']
+
+</code></pre></div></div> <hr /> <h1 id="stopword-removal"><strong>Stopword Removal</strong></h1> <p><code class="highlighter-rouge">Stopword Removal</code> involves <code class="highlighter-rouge">filtering out</code> words which do not contain significant information. Mostly these are words that are often used as connective tissue such as <code class="highlighter-rouge">as, the, be, are</code> etc.</p> <p align="center"> <img src="/static/assets/img/blog/swr.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+<span class="c"># Load stop words</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span> <span class="s">'english'</span><span class="p">)</span>
+<span class="c"># Remove stop words</span>
+<span class="n">nonstop_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokenized_words</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">:</span>
+        <span class="n">nonstop_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Nonstop Words: '</span><span class="p">,</span> <span class="n">nonstop_words</span><span class="p">)</span> 
+
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['The', 'science', 'today', 'technology', 'tomorrow', '.']
+</code></pre></div></div> <hr /> <h1 id="stemming"><strong>Stemming</strong></h1> <p><code class="highlighter-rouge">Stemming</code> reduces <code class="highlighter-rouge">inflection</code> in words to their root forms by <code class="highlighter-rouge">removing</code> the <code class="highlighter-rouge">suffixes or prefixes</code> used with a word. As a result, stemming a word or sentence may <code class="highlighter-rouge">result</code> in words that are <code class="highlighter-rouge">not actual words</code>.</p> <p align="center"> <img src="/static/assets/img/blog/stemming.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+<span class="n">input_words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="c"># Create stemmer</span>
+<span class="n">porter</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+
+<span class="c"># Apply stemmer to each word    </span>
+<span class="p">[</span><span class="n">porter</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokenized_words</span><span class="p">]</span>
+
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['the', 'scienc', 'of', 'today', 'is', 'the', 'technolog', 'of', 'tomorrow', '.']
+</code></pre></div></div> <hr /> <h1 id="lemmatization"><strong>Lemmatization</strong></h1> <p><code class="highlighter-rouge">Lemmatization</code>, unlike Stemming, reduces the inflected words properly ensuring that the <code class="highlighter-rouge">root</code> word <code class="highlighter-rouge">belongs</code> to the language. For example, runs, running, ran are all forms of the word run, therefore run is the lemma (or dictionary form) of all these words.</p> <p align="center"> <img src="/static/assets/img/blog/lemmatization.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The sciences of today are tomorrow's technologies."</span>
+<span class="n">input_words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="c"># Create lemmatizer</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+
+<span class="c"># Apply lemmatizer to each word</span>
+<span class="p">[</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokenized_words</span><span class="p">]</span>
+
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['The', 'science', 'of', 'today', 'is', 'the', 'technology', 'of', omorrow', '.']
+</code></pre></div></div> <hr /> <h1 id="part-of-speech-taggingpos-tagging"><strong>Part-of-Speech Tagging</strong>(POS-tagging)</h1> <p><code class="highlighter-rouge">Chunking</code> is a set of techniques for <code class="highlighter-rouge">entity detection</code> used in text processing, which segments and <code class="highlighter-rouge">labels multi-token sequences</code>. For example, <code class="highlighter-rouge">noun</code> phrase chunking (NP-chunking) searches for chunks corresponding to individual <code class="highlighter-rouge">noun</code> phrases. The process of <code class="highlighter-rouge">classifying words</code> into their parts of speech and labeling them accordingly is known as <code class="highlighter-rouge">part-of-speech tagging (POS-tagging)</code>.</p> <p align="center"> <img src="/static/assets/img/blog/postagging.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">pos_tag</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+
+<span class="c"># Apply speech tagging</span>
+<span class="n">text_tagged</span> <span class="o">=</span> <span class="n">pos_tag</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">text_tagged</span><span class="p">)</span>
+
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[('The', 'DT'), ('science', 'NN'), ('of', 'IN'), ('today', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('technology', 'NN'), ('of', 'IN'), ('tomorrow', 'NN'), ('.', '.')]
+</code></pre></div></div> <hr /> <h1 id="information-retrieval"><strong>Information Retrieval</strong></h1> <p><code class="highlighter-rouge">The Information Retrieval</code> is to extract relevant information from the source.</p> <p>One of the main goals of text analysis is to convert <code class="highlighter-rouge">text</code> into <code class="highlighter-rouge">numeric</code> form so that we can use machine learning on it.</p> <hr /> <h2 id="bag-of-words"><strong>Bag of Words</strong></h2> <p>One of primary methods of developing simple language models, is known as the <code class="highlighter-rouge">“Bag of Words” (BOW)</code> model, which <code class="highlighter-rouge">extracts a vocabulary</code> from <code class="highlighter-rouge">all the words</code> in the documents and builds a model using a <code class="highlighter-rouge">document term matrix</code>.</p> <p align="center"> <img src="/static/assets/img/blog/bow.jpg" width="50%" /></p> <p>Using <code class="highlighter-rouge">BOW</code> approach, every document from a <code class="highlighter-rouge">corpus of texts</code> is represented as a <code class="highlighter-rouge">vector</code> whose length is equal to the vocabulary of the corpus. The computation is <code class="highlighter-rouge">simplified</code> by sorting token positions of the vector into <code class="highlighter-rouge">alphabetical</code> order.</p> <p align="center"> <img src="/static/assets/img/blog/alphabeticalorder.jpg" width="50%" /></p> <hr /> <h2 id="vector-encoding-methods"><strong>Vector Encoding Methods</strong></h2> <h3 id="frequency-vectors"><strong>Frequency Vectors</strong></h3> <p><code class="highlighter-rouge">The simplest vector encoding model</code> is to simply fill in the vector with the <code class="highlighter-rouge">frequency</code> of each word as it appears in the document.</p> <p align="center"> <img src="/static/assets/img/blog/svem.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+
+<span class="n">vectorizer</span>  <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">document_term_matrix</span><span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+
+<span class="n">bag_of_words</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">BagOfWords:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bag_of_words</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Document term matrix:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">document_term_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BagOfWords:
+['is' 'of' 'science' 'technology' 'the' 'today' 'tomorrow']
+
+Document term matrix:
+[[0 0 0 0 1 0 0]
+ [0 0 1 0 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 1 0 0]
+ [0 0 0 1 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 0]]
+</code></pre></div></div> <hr /> <h3 id="one-hot-encoding"><strong>One-Hot Encoding</strong></h3> <p><code class="highlighter-rouge">One-hot encoding</code> is another vector encoding method that marksa particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is <code class="highlighter-rouge">effective for very small documents (sentences, tweets)</code> that <code class="highlighter-rouge">don’t</code> contain very many repeated elements.</p> <p align="center"> <img src="/static/assets/img/blog/ohe.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Binarizer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+<span class="n">tokenized_word</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">document_term_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tokenized_word</span><span class="p">)</span>
+<span class="n">onehot</span> <span class="o">=</span> <span class="n">Binarizer</span><span class="p">()</span>
+<span class="n">document_term_matrix</span> <span class="o">=</span> <span class="n">onehot</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">document_term_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+
+<span class="n">bag_of_words</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">BagOfWords:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bag_of_words</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Document term matrix:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">document_term_matrix</span><span class="p">)</span>
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BagOfWords:
+['is' 'of' 'science' 'technology' 'the' 'today' 'tomorrow']
+
+Document term matrix:
+[[0 0 0 0 1 0 0]
+ [0 0 1 0 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 1 0 0]
+ [0 0 0 1 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 0]]
+</code></pre></div></div> <hr /> <h3 id="term-frequencyinverse-document-frequency"><strong>Term Frequency–Inverse Document Frequency</strong></h3> <p><code class="highlighter-rouge">Term Frequency-Inverse Document Frequency (TF–IDF) encoding</code> normalizes the <code class="highlighter-rouge">frequency</code> of tokens in a document with respect to the rest of the corpus. This encoding approach <code class="highlighter-rouge">emphasis terms that have higher relevance to a document</code>.</p> <p align="center"> <img src="/static/assets/img/blog/tfidf.jpg" width="50%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+
+<span class="n">string</span> <span class="o">=</span> <span class="s">"The science of today is the technology of tomorrow."</span>
+<span class="n">tokenized_word</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">document_term_matrix</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tokenized_word</span><span class="p">)</span>
+
+
+<span class="n">bag_of_words</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">BagOfWords:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bag_of_words</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Document term matrix:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">document_term_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BagOfWords:
+['is' 'of' 'science' 'technology' 'the' 'today' 'tomorrow']
+
+Document term matrix:
+[[0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0.]
+ [1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 1.]
+ [0. 0. 0. 0. 0. 0. 0.]]
+</code></pre></div></div> <hr /> <h2 id="word-embeddings"><strong>Word Embeddings</strong></h2> <p><code class="highlighter-rouge">Word Embeddings</code> represent words in the form of vectors such that <code class="highlighter-rouge">similar</code> words are <code class="highlighter-rouge">close to each other</code> while <code class="highlighter-rouge">antonyms</code> end up <code class="highlighter-rouge">far</code> apart in the vector space.</p> <p align="center"> <img src="/static/assets/img/blog/we.jpg" width="50%" /></p> <p><code class="highlighter-rouge">Word2vec</code> by Google is one of several existing models for <code class="highlighter-rouge">constructing word-embedding representations</code>, trained to <code class="highlighter-rouge">predict</code> a target word from the <code class="highlighter-rouge">context of neighboring words</code>. This method is referred to as <code class="highlighter-rouge">Continuous Bag Of Words (CBOW)</code>.</p> <p>Going in the other direction, given a set of sentences (corpus) Word2vec analyses the words of each sentence and uses the current word to predict its neighbors, a method called <code class="highlighter-rouge">Skip-Gram</code>.</p> <p align="center"> <img src="/static/assets/img/blog/cbow-vs-skipgram.jpg" width="70%" /></p> <blockquote> <p><strong>Code Example:</strong></p> </blockquote> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[[</span> <span class="s">'data'</span><span class="p">,</span> <span class="s">'science'</span><span class="p">],</span>
+ <span class="p">[</span><span class="s">'science'</span><span class="p">,</span> <span class="s">'data'</span><span class="p">,</span> <span class="s">'analytics'</span><span class="p">],</span>
+ <span class="p">[</span><span class="s">'machine'</span><span class="p">,</span> <span class="s">'learning'</span><span class="p">],</span>
+ <span class="p">[</span><span class="s">'Woodbury'</span><span class="p">,</span> <span class="s">'computer'</span><span class="p">,</span> <span class="s">'science'</span><span class="p">],</span>
+ <span class="p">[</span><span class="s">'deep'</span><span class="p">,</span> <span class="s">'learning'</span><span class="p">]]</span>
+<span class="c"># train the model on your corpus</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">min_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span> <span class="s">'data'</span><span class="p">,</span> <span class="s">'science'</span><span class="p">))</span>
+</code></pre></div></div> <blockquote> <p><strong>Output</strong>:</p> </blockquote> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-0.09619948
+</code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Python</button> <button class="btn btn-white btn-xs" type="button">Ai</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

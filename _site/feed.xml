@@ -5,9 +5,274 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Apr 2019 02:40:35 -0700</pubDate>
-    <lastBuildDate>Sun, 14 Apr 2019 02:40:35 -0700</lastBuildDate>
+    <pubDate>Wed, 17 Apr 2019 01:09:22 -0700</pubDate>
+    <lastBuildDate>Wed, 17 Apr 2019 01:09:22 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Convolutional Neuron Network (ML)</title>
+        <description>&lt;h1 id=&quot;what-is-convolutional-neuron-network&quot;&gt;&lt;strong&gt;What is Convolutional Neuron Network?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Convolutional Neural Networks (CNNs)&lt;/code&gt; are also known as &lt;code class=&quot;highlighter-rouge&quot;&gt;convnets&lt;/code&gt;. These types of deep learning models are widely used in &lt;code class=&quot;highlighter-rouge&quot;&gt;computer vision&lt;/code&gt; applications.&lt;/p&gt;
+
+&lt;p&gt;In mathematics &lt;code class=&quot;highlighter-rouge&quot;&gt;convolution&lt;/code&gt; is an operation on two functions to produce a third function that expresses how the shape of one is modified by the other.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;image processing convolution&lt;/code&gt; involves a kernel (small matrix) that is used for operations like blurring, sharpening, edge detection, etc. &lt;a href=&quot;https://gucheng0712.github.io/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing-(CG&amp;amp;ML).html&quot;&gt;(Details about convolution in Image Processing)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/cnnbg.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;densely-connected-layer-vs-concolution-layer&quot;&gt;&lt;strong&gt;Densely Connected Layer vs. Concolution Layer&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Dense layers&lt;/code&gt; learn &lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt; patterns in their inputs.
+For example, densely connected deep learning model trained on the handwritten digit dataset learns patterns on 28 x 28 pixels. This can result it prediction errors for similar inputs, as shown below image.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/denselayer.jpg&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;By contrast, from the below image, we can see &lt;code class=&quot;highlighter-rouge&quot;&gt;convolution layers&lt;/code&gt; learn &lt;code class=&quot;highlighter-rouge&quot;&gt;local&lt;/code&gt; patterns found in small windows (the dimension of convolution kernel).
+For the handwritten digits dataset, using this technique results in prediction accuracy above 99%.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/clayer.jpg&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;how-does-cnn-works&quot;&gt;&lt;strong&gt;How does CNN Works?&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-convolution-operation&quot;&gt;&lt;strong&gt;The convolution operation&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The patterns learned by CNNs are &lt;code class=&quot;highlighter-rouge&quot;&gt;translation invariant&lt;/code&gt;. After learning a certain pattern in one part of an input image, a convnet can recognize it &lt;code class=&quot;highlighter-rouge&quot;&gt;anywhere&lt;/code&gt;. This makes convnets data efficient when processing images.&lt;/p&gt;
+
+&lt;p&gt;CNNs can learn &lt;code class=&quot;highlighter-rouge&quot;&gt;spatial hierarchies&lt;/code&gt; of patterns. A &lt;code class=&quot;highlighter-rouge&quot;&gt;first&lt;/code&gt; convolution layer will learn &lt;code class=&quot;highlighter-rouge&quot;&gt;small&lt;/code&gt; local patterns such as edges, a &lt;code class=&quot;highlighter-rouge&quot;&gt;second&lt;/code&gt; convolution layer will learn &lt;code class=&quot;highlighter-rouge&quot;&gt;larger&lt;/code&gt; patterns made of the features of the first layers, and so on. This allows convnets to efficiently learn increasingly complex and abstract visual concepts. The below Image details how this process works&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/cnn.jpg&quot; width=&quot;60%&quot; /&gt;&lt;br /&gt;
+&lt;i&gt;The visual world forms a spatial hierarchy of visual modules: &lt;br /&gt;hyperlocal edges combine into local objects such as eyes or ears, &lt;br /&gt;which combine into high-level concepts such as “cat.”&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Convolutions operate on 3D tensor, called &lt;code class=&quot;highlighter-rouge&quot;&gt;feature maps&lt;/code&gt;, with &lt;code class=&quot;highlighter-rouge&quot;&gt;two spatial axis&lt;/code&gt; (height and width) as well as &lt;code class=&quot;highlighter-rouge&quot;&gt;a depth axis&lt;/code&gt;(also called channels axis). For an RGB image, the dimension of the depth axis is 3, because the image has three color channels: red, green, and blue. For a black-and-white picture, like the MNIST digits, the depth is 1 (levels of gray).&lt;/p&gt;
+
+&lt;p&gt;Then the convolution operation extracts patches from its input feature map and applies the same transformation to all of these patches, producing an &lt;code class=&quot;highlighter-rouge&quot;&gt;output feature map&lt;/code&gt; (aka response map).&lt;/p&gt;
+
+&lt;p&gt;In the MNIST example, the first convolution layer takes a feature map of size &lt;code class=&quot;highlighter-rouge&quot;&gt;(28, 28, 1)&lt;/code&gt; and outputs a feature map of size&lt;code class=&quot;highlighter-rouge&quot;&gt; (26, 26, 32)&lt;/code&gt;. It computes &lt;code class=&quot;highlighter-rouge&quot;&gt;32 filters&lt;/code&gt; over its input. Each of these &lt;code class=&quot;highlighter-rouge&quot;&gt;32&lt;/code&gt; output channels contains a&lt;code class=&quot;highlighter-rouge&quot;&gt; 26 × 26&lt;/code&gt; grid of values, which is a response map of the filter over the input, indicating the response of that filter pattern at different locations in the input. (shown as below image)&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/filteringcnn.jpg&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Convolution works by &lt;code class=&quot;highlighter-rouge&quot;&gt;sliding windows&lt;/code&gt; of size 3 × 3 on the 3D input feature map, extracting 3D patches. Each such 3D patch is then &lt;code class=&quot;highlighter-rouge&quot;&gt;transformed into a 1D vector of shape&lt;/code&gt;. All of these vectors are then spatially reassembled into a 3D output feature map.(shown as below image)&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/hccnw.jpg&quot; width=&quot;60%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Note&lt;/code&gt; that the output width and height may differ from the input width and height.
+They may differ for two reasons:&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Border effects&lt;/code&gt;, which can be countered by padding the input feature map&lt;/li&gt;
+    &lt;li&gt;The use of &lt;code class=&quot;highlighter-rouge&quot;&gt;strides&lt;/code&gt;, which I’ll represents how many steps for each filtering.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;the-border-effects-and-padding-in-convolution-operation&quot;&gt;&lt;strong&gt;The Border Effects and Padding in Convolution Operation&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;One factor that can influence output size is Border effects. Convolution typically results in an output feature map that is 2 units smaller in width and height. For example, given a 5 × 5 input feature map above, there are 9 tiles overlapping tiles that can fit inside the area, resulting in output feature map that is 3 × 3 tiles. Similarly, starting with a input feature map of 28 × 28, the output feature map will be 26 × 26 after the first convolution layer.(see figure below)&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/bordereffects.jpg&quot; width=&quot;60%&quot; /&gt;&lt;br /&gt;
+&lt;i&gt;Valid locations of 3 × 3 patches in a 5 × 5 input feature map&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;In order to get an output feature map with the same spatial dimensions as the
+input, using &lt;code class=&quot;highlighter-rouge&quot;&gt;padding&lt;/code&gt; is a solution for this. Padding consists of adding an appropriate number of rows and columns on each side of the input feature map so as to make it possible to fit center
+convolution windows around every input tile. For a 3 × 3 window, you add one column
+on the right, one column on the left, one row at the top, and one row at the
+bottom. For a 5 × 5 window, you add two rows (see figure below).&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/padding.jpg&quot; width=&quot;60%&quot; /&gt;&lt;br /&gt;
+&lt;i&gt;Padding a 5 × 5 input in order to be able to extract 25 3 × 3 patches&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Conv2D&lt;/code&gt; layers, padding is configurable via the padding argument, which takes two values: &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;valid&quot;&lt;/code&gt;, which means no padding (only valid window locations will be used); and &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;same&quot;&lt;/code&gt;, which means pad in such a way as to have an output with the same width and height as the input. The padding argument defaults to &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;valid&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;convolution-strides&quot;&gt;&lt;strong&gt;Convolution Strides&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Another factor is the notion of &lt;code class=&quot;highlighter-rouge&quot;&gt;strides&lt;/code&gt;. The description of convolution so far has assumed that the center tiles of the convolution windows are all &lt;code class=&quot;highlighter-rouge&quot;&gt;contiguous&lt;/code&gt;. But the &lt;code class=&quot;highlighter-rouge&quot;&gt;distance&lt;/code&gt; between two successive windows is a parameter of the convolution, called its &lt;code class=&quot;highlighter-rouge&quot;&gt;stride&lt;/code&gt;, which &lt;code class=&quot;highlighter-rouge&quot;&gt;defaults to 1&lt;/code&gt;. It’s possible to have strided convolutions: convolutions with a stride higher than 1. In below image, you can see the patches extracted by a &lt;code class=&quot;highlighter-rouge&quot;&gt;3 × 3&lt;/code&gt; convolution with &lt;code class=&quot;highlighter-rouge&quot;&gt;stride 2&lt;/code&gt; on a &lt;code class=&quot;highlighter-rouge&quot;&gt;5 × 5&lt;/code&gt; input (without padding).&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/strides.jpg&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
+&lt;i&gt;3 × 3 convolution patches with 2 × 2 strides&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Note&lt;/code&gt;: Using stride 2 means the width and height of the feature map are downsampled by a factor of 2 (in addition to any changes induced by border effects). Strided convolutions are rarely used in practice, although they can come in handy for some types of models; it’s good to be familiar with the concept. To downsample feature maps, instead of strides, we tend to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;max-pooling&lt;/code&gt; operation, which you saw in action in the first convnet example. Let’s look at it in more depth.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;the-max-pooling-operation&quot;&gt;&lt;strong&gt;The Max-Pooling Operation&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Max pooling layers&lt;/code&gt; are similar to convolutions with a &lt;code class=&quot;highlighter-rouge&quot;&gt;2 x 2&lt;/code&gt; windows and &lt;code class=&quot;highlighter-rouge&quot;&gt;stride of 2&lt;/code&gt;, resulting in output feature maps that are &lt;code class=&quot;highlighter-rouge&quot;&gt;half&lt;/code&gt; of input width and height.&lt;/p&gt;
+
+&lt;p&gt;For instance, before the first MaxPooling2D layers, the feature map is &lt;code class=&quot;highlighter-rouge&quot;&gt;26 × 26&lt;/code&gt;, but the max-pooling operation halves it to &lt;code class=&quot;highlighter-rouge&quot;&gt;13 × 13&lt;/code&gt;. That’s the role of max pooling: to aggressively downsample feature maps, much like strided convolutions.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/MaxPooling.png&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;mnist-digits-code-example&quot;&gt;&lt;strong&gt;MNIST Digits Code Example&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The following lines of code show that what a basic convnet looks like. It’s a stack of
+Conv2D and MaxPooling2D layers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input_shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MaxPooling2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MaxPooling2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Conv2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Importantly, a convnet takes as input tensors of shape &lt;code class=&quot;highlighter-rouge&quot;&gt;(image_height, image_width,
+image_channels)&lt;/code&gt; (not including the batch dimension). In this case, we’ll configure
+the convnet to process inputs of size &lt;code class=&quot;highlighter-rouge&quot;&gt;(28, 28, 1)&lt;/code&gt;, which is the format of MNIST
+images. It can be done by passing the argument &lt;code class=&quot;highlighter-rouge&quot;&gt;input_shape=(28, 28, 1)&lt;/code&gt; to the first
+layer.
+Displaying the architecture of the convnet so far by calling &lt;code class=&quot;highlighter-rouge&quot;&gt;model.summary()&lt;/code&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;________________________________________________________________
+Layer (type) Output Shape Param #
+================================================================
+conv2d_1 (Conv2D) (None, 26, 26, 32) 320
+________________________________________________________________
+maxpooling2d_1 (MaxPooling2D) (None, 13, 13, 32) 0
+________________________________________________________________
+conv2d_2 (Conv2D) (None, 11, 11, 64) 18496
+________________________________________________________________
+maxpooling2d_2 (MaxPooling2D) (None, 5, 5, 64) 0
+________________________________________________________________
+conv2d_3 (Conv2D) (None, 3, 3, 64) 36928
+================================================================
+Total params: 55,744
+Trainable params: 55,744
+Non-trainable params: 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The output of every &lt;code class=&quot;highlighter-rouge&quot;&gt;Conv2D&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;MaxPooling2D&lt;/code&gt; layer is a &lt;code class=&quot;highlighter-rouge&quot;&gt;3D tensor&lt;/code&gt; of shape&lt;code class=&quot;highlighter-rouge&quot;&gt; (height, width, channels)&lt;/code&gt;. The width and height dimensions tend to shrink as going deeper in the network. The number of channels is controlled by the first argument passed to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Conv2D&lt;/code&gt; layers (32 or 64).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The next step is to feed the last output tensor (of shape &lt;code class=&quot;highlighter-rouge&quot;&gt;(3, 3, 64)&lt;/code&gt;) into a densely connected classifier network: a stack of &lt;code class=&quot;highlighter-rouge&quot;&gt;Dense layers&lt;/code&gt;. These classifiers process vectors, which are &lt;code class=&quot;highlighter-rouge&quot;&gt;1D&lt;/code&gt;, whereas the current output is a &lt;code class=&quot;highlighter-rouge&quot;&gt;3D tensor&lt;/code&gt;. First is to &lt;code class=&quot;highlighter-rouge&quot;&gt;flatten&lt;/code&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;3D&lt;/code&gt; outputs to &lt;code class=&quot;highlighter-rouge&quot;&gt;1D&lt;/code&gt;, and then add a few Dense layers on top.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Flatten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'relu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Dense&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'softmax'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Doing a 10-way classification by using a final layer with 10 outputs and a softmax activation.Displaying the architecture of the convnet so far by calling &lt;code class=&quot;highlighter-rouge&quot;&gt;model.summary()&lt;/code&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Layer (type) Output Shape Param #
+================================================================
+conv2d_1 (Conv2D) (None, 26, 26, 32) 320
+________________________________________________________________
+maxpooling2d_1 (MaxPooling2D) (None, 13, 13, 32) 0
+________________________________________________________________
+conv2d_2 (Conv2D) (None, 11, 11, 64) 18496
+________________________________________________________________
+maxpooling2d_2 (MaxPooling2D) (None, 5, 5, 64) 0
+________________________________________________________________
+conv2d_3 (Conv2D) (None, 3, 3, 64) 36928
+________________________________________________________________
+flatten_1 (Flatten) (None, 576) 0
+________________________________________________________________
+dense_1 (Dense) (None, 64) 36928
+________________________________________________________________
+dense_2 (Dense) (None, 10) 650
+================================================================
+Total params: 93,322
+Trainable params: 93,322
+Non-trainable params: 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;(3, 3, 64) &lt;/code&gt;outputs are flattened into vectors of shape &lt;code class=&quot;highlighter-rouge&quot;&gt;(576,)&lt;/code&gt; before going through two Dense layers.
+Next is to train the CNNs on the MNIST digits.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.datasets&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mnist&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;keras.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_categorical&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mnist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;train_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;train_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'float32'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test_images&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'float32'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;train_labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_categorical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;test_labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to_categorical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;compile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optimizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'rmsprop'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;loss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'categorical_crossentropy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'accuracy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batch_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Evaluate the model on the test data:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;test_loss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_acc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;evaluate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Output:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.99080000000000001
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p align=&quot;center&quot;&gt; 
+&lt;img src=&quot;/static/assets/img/blog/cnnoverall.jpeg&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Tue, 16 Apr 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/python/ai/2019/04/16/Convolutional-Neuron-Network.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/04/16/Convolutional-Neuron-Network.html</guid>
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+      </item>
     
       <item>
         <title>Refactor If Statement By using Delegate</title>
@@ -1171,8 +1436,8 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 
 </description>
         <pubDate>Wed, 03 Apr 2019 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing-(CG&ML).html</link>
-        <guid isPermaLink="true">http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing-(CG&ML).html</guid>
+        <link>http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing.html</link>
+        <guid isPermaLink="true">http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing.html</guid>
         
         <category>Cg</category>
         
@@ -1204,7 +1469,7 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/nlpflow.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;tokenization&quot;&gt;&lt;strong&gt;Tokenization&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;tokenization&quot;&gt;&lt;strong&gt;Tokenization&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Tokenization&lt;/code&gt; is a process of understanding a sentence or a phrase by &lt;code class=&quot;highlighter-rouge&quot;&gt;splitting&lt;/code&gt; them into substrings, words and punctuation.&lt;/p&gt;
 
@@ -1232,7 +1497,7 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;stopword-removal&quot;&gt;&lt;strong&gt;Stopword Removal&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;stopword-removal&quot;&gt;&lt;strong&gt;Stopword Removal&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stopword Removal&lt;/code&gt; involves &lt;code class=&quot;highlighter-rouge&quot;&gt;filtering out&lt;/code&gt; words which do not contain significant information. Mostly these are words that are often used as connective tissue such as &lt;code class=&quot;highlighter-rouge&quot;&gt;as, the, be, are&lt;/code&gt; etc.&lt;/p&gt;
 
@@ -1264,7 +1529,7 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;stemming&quot;&gt;&lt;strong&gt;Stemming&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;stemming&quot;&gt;&lt;strong&gt;Stemming&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stemming&lt;/code&gt; reduces &lt;code class=&quot;highlighter-rouge&quot;&gt;inflection&lt;/code&gt; in words to their root forms by &lt;code class=&quot;highlighter-rouge&quot;&gt;removing&lt;/code&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;suffixes or prefixes&lt;/code&gt; used with a word. As a result, stemming a word or sentence may &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; in words that are &lt;code class=&quot;highlighter-rouge&quot;&gt;not actual words&lt;/code&gt;.&lt;/p&gt;
 
@@ -1296,7 +1561,7 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;lemmatization&quot;&gt;&lt;strong&gt;Lemmatization&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;lemmatization&quot;&gt;&lt;strong&gt;Lemmatization&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Lemmatization&lt;/code&gt;, unlike Stemming, reduces the inflected words properly ensuring that the &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; word &lt;code class=&quot;highlighter-rouge&quot;&gt;belongs&lt;/code&gt; to the language. For example, runs, running, ran are all forms of the word run, therefore run is the lemma (or dictionary form) of all these words.&lt;/p&gt;
 
@@ -1328,7 +1593,7 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;part-of-speech-taggingpos-tagging&quot;&gt;&lt;strong&gt;Part-of-Speech Tagging&lt;/strong&gt;(POS-tagging)&lt;/h2&gt;
+&lt;h1 id=&quot;part-of-speech-taggingpos-tagging&quot;&gt;&lt;strong&gt;Part-of-Speech Tagging&lt;/strong&gt;(POS-tagging)&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Chunking&lt;/code&gt; is a set of techniques for &lt;code class=&quot;highlighter-rouge&quot;&gt;entity detection&lt;/code&gt; used in text processing, which segments and &lt;code class=&quot;highlighter-rouge&quot;&gt;labels multi-token sequences&lt;/code&gt;. For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;noun&lt;/code&gt; phrase chunking (NP-chunking) searches for chunks corresponding to individual &lt;code class=&quot;highlighter-rouge&quot;&gt;noun&lt;/code&gt; phrases. The process of &lt;code class=&quot;highlighter-rouge&quot;&gt;classifying words&lt;/code&gt; into their parts of speech and labeling them accordingly is known as &lt;code class=&quot;highlighter-rouge&quot;&gt;part-of-speech tagging (POS-tagging)&lt;/code&gt;.&lt;/p&gt;
 
@@ -1358,11 +1623,13 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;information-retrieval&quot;&gt;&lt;strong&gt;Information Retrieval&lt;/strong&gt;&lt;/h2&gt;
+&lt;h1 id=&quot;information-retrieval&quot;&gt;&lt;strong&gt;Information Retrieval&lt;/strong&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The Information Retrieval&lt;/code&gt; is  to extract relevant information from the source.&lt;/p&gt;
 
 &lt;p&gt;One of the main goals of text analysis is to convert &lt;code class=&quot;highlighter-rouge&quot;&gt;text&lt;/code&gt; into &lt;code class=&quot;highlighter-rouge&quot;&gt;numeric&lt;/code&gt; form so that we can use machine learning on it.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&quot;bag-of-words&quot;&gt;&lt;strong&gt;Bag of Words&lt;/strong&gt;&lt;/h2&gt;
 
@@ -1373,19 +1640,162 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/alphabeticalorder.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;vector-encoding-methods&quot;&gt;&lt;strong&gt;Vector Encoding Methods&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;frequency-vectors&quot;&gt;&lt;strong&gt;Frequency Vectors&lt;/strong&gt;&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The simplest vector encoding model&lt;/code&gt; is to simply fill in the vector with the &lt;code class=&quot;highlighter-rouge&quot;&gt;frequency&lt;/code&gt; of each word as it appears in the document.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/svem.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CountVectorizer&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vectorizer&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CountVectorizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vectorizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bag_of_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vectorizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_feature_names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;BagOfWords:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bag_of_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Document term matrix:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BagOfWords:
+['is' 'of' 'science' 'technology' 'the' 'today' 'tomorrow']
+
+Document term matrix:
+[[0 0 0 0 1 0 0]
+ [0 0 1 0 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 1 0 0]
+ [0 0 0 1 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 0]]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;one-hot-encoding&quot;&gt;&lt;strong&gt;One-Hot Encoding&lt;/strong&gt;&lt;/h3&gt;
+
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;One-hot encoding&lt;/code&gt; is another vector encoding method that marksa particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is &lt;code class=&quot;highlighter-rouge&quot;&gt;effective for very small documents (sentences, tweets)&lt;/code&gt; that &lt;code class=&quot;highlighter-rouge&quot;&gt;don’t&lt;/code&gt; contain very many repeated elements.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/ohe.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Binarizer&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tokenized_word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vectorizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CountVectorizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vectorizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tokenized_word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;onehot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Binarizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onehot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bag_of_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vectorizer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_feature_names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;BagOfWords:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bag_of_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Document term matrix:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BagOfWords:
+['is' 'of' 'science' 'technology' 'the' 'today' 'tomorrow']
+
+Document term matrix:
+[[0 0 0 0 1 0 0]
+ [0 0 1 0 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 1 0 0]
+ [0 0 0 1 0 0 0]
+ [0 1 0 0 0 0 0]
+ [0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 0]]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;term-frequencyinverse-document-frequency&quot;&gt;&lt;strong&gt;Term Frequency–Inverse Document Frequency&lt;/strong&gt;&lt;/h3&gt;
+
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Term Frequency-Inverse Document Frequency (TF–IDF) encoding&lt;/code&gt; normalizes the &lt;code class=&quot;highlighter-rouge&quot;&gt;frequency&lt;/code&gt; of tokens in a document with respect to the rest of the corpus. This encoding approach &lt;code class=&quot;highlighter-rouge&quot;&gt;emphasis terms that have higher relevance to a document&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;word-embeddings&quot;&gt;Word Embeddings&lt;/h2&gt;
+&lt;p align=&quot;center&quot;&gt; &lt;img src=&quot;/static/assets/img/blog/tfidf.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Code Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.feature_extraction.text&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TfidfVectorizer&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The science of today is the technology of tomorrow.&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tokenized_word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;tfidf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TfidfVectorizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tfidf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tokenized_word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;bag_of_words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tfidf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_feature_names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;BagOfWords:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bag_of_words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Document term matrix:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document_term_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BagOfWords:
+['is' 'of' 'science' 'technology' 'the' 'today' 'tomorrow']
+
+Document term matrix:
+[[0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0.]
+ [1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 1.]
+ [0. 0. 0. 0. 0. 0. 0.]]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;word-embeddings&quot;&gt;&lt;strong&gt;Word Embeddings&lt;/strong&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Word Embeddings&lt;/code&gt; represent words in the form of vectors such that &lt;code class=&quot;highlighter-rouge&quot;&gt;similar&lt;/code&gt; words are &lt;code class=&quot;highlighter-rouge&quot;&gt;close to each other&lt;/code&gt; while &lt;code class=&quot;highlighter-rouge&quot;&gt;antonyms&lt;/code&gt; end up &lt;code class=&quot;highlighter-rouge&quot;&gt;far&lt;/code&gt; apart in the vector space.&lt;/p&gt;
 
@@ -1427,8 +1837,8 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 
 </description>
         <pubDate>Fri, 15 Mar 2019 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing-Copy.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing-Copy.html</guid>
+        <link>http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</guid>
         
         <category>Python</category>
         
@@ -5461,9 +5871,7 @@ Responsibility for code performance is however shifted towards the programmer, t
   &lt;/ol&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;ColorMask&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ZWrite&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Off&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Equal&lt;/span&gt;
@@ -5480,9 +5888,9 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nf&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mask ID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mask ID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;c1&quot;&gt;// The Rendering queue need to make sure the window mask is smaller than character mask&lt;/span&gt;
 		&lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;RenderType&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Opaque&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Geometry-1&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -5528,59 +5936,61 @@ Responsibility for code performance is however shifted towards the programmer, t
   &lt;p&gt;&lt;strong&gt;Full Code for Character Mask Shader&lt;/strong&gt;:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Shader&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyShader/CharacterMask&quot;&lt;/span&gt; 
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Shader&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyShader/CharacterMask&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt; 
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nf&quot;&gt;_MainTex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Base (RGB)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;white&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt; 
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Geometry&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;RenderType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Opaque&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Properties&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nf&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Base (RGB)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;white&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mask ID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;n&quot;&gt;SubShader&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Tags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Queue&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Geometry&quot;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;RenderType&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Opaque&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-        &lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Equal&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+		&lt;span class=&quot;n&quot;&gt;Stencil&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Ref&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Comp&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Equal&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-        &lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt; 
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-            &lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
-            &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Pass&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;CGPROGRAM&lt;/span&gt;
+			&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vert&lt;/span&gt;
+			&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frag&lt;/span&gt;
+			&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;UnityCG.cginc&quot;&lt;/span&gt;
 
-            &lt;span class=&quot;n&quot;&gt;sampler2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex_ST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;sampler2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex_ST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-            &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata_t&lt;/span&gt; 
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt; 
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;half2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appdata_t&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;float2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;v2f&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;float4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_POSITION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;half2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEXCOORD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 
-            &lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mul&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UNITY_MATRIX_MVP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TRANSFORM_TEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tex2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;nf&quot;&gt;UNITY_OPAQUE_ALPHA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appdata_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;UnityObjectToClipPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TRANSFORM_TEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;frag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SV_Target&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;fixed4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tex2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_MainTex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texcoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;nf&quot;&gt;UNITY_OPAQUE_ALPHA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;ENDCG&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
