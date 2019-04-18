@@ -13,10 +13,11 @@ When we are doing UI interation with code, we will use events. Here we have a Pa
 <img src="/static/assets/img/blog/uibtns.jpg" width="50%">
 </p>
 
+---
 
-## 1. Stupid Way to Bind UI Events
+## **1. Stupid Way to Bind UI Events**
 
-Normally, what we do is to bind each button's listener to each event.
+Normally, what we do is to bind `each` button's listener to `each` event.
 
 >Code:
 
@@ -64,14 +65,15 @@ public class MyPanel : MonoBehaviour
 }
 ```
 
-However, We all should know when doing programming, we have a DRY Principle (Don't Repeat Yourself). 
+However, We all should know when doing programming, we have a `DRY` Principle (Don't Repeat Yourself). 
 
 ---
-#### 2. Smart Way to Bind UI Events using(Lambda)
 
-> Any problem in computer science can be solved by adding a neat middle layer
+## **2. Smart Way to Bind UI Events using(Lambda)**
 
-We can use Lambda as middle layer and OnBtnClick will just simply become a function with one parameter. 
+> `Any problem in computer science can be solved by adding a neat middle layer`
+
+We can use Lambda as `middle layer` and `OnBtnClick` will just simply become a function with one parameter. 
 
 >Code:
 
