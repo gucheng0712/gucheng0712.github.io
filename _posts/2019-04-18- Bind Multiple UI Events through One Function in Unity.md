@@ -2,8 +2,8 @@
 layout: post
 title:  "A Smart Way to Bind UI Events in Unity"
 date:   2019-04-18
-categories: [Csharp]
-tags: [Csharp]
+categories: [Unity,Csharp]
+tags: [Unity,Csharp]
 icon: fa-code
 ---
 
@@ -69,7 +69,7 @@ However, We all should know when doing programming, we have a `DRY` Principle (D
 
 ---
 
-## **2. Smart Way to Bind UI Events using(Lambda)**
+## **2. Smart Way to Bind UI Events (Lambda)**
 
 > `Any problem in computer science can be solved by adding a neat middle layer`
 
