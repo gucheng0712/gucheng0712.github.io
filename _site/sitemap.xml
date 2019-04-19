@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://localhost:4000/unity/csharp/2019/04/18/C-Reflection-in-Unity.html</loc>
+    </url>
+
+    <url>
+        <loc>http://localhost:4000/unity/csharp/2019/04/18/Bind-Multiple-UI-Events-through-One-Function-in-Unity-Copy.html</loc>
+    </url>
+
+    <url>
         <loc>http://localhost:4000/python/ai/2019/04/16/Convolutional-Neuron-Network.html</loc>
     </url>
 
