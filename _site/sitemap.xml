@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://localhost:4000/data%20structure/unity/2019/04/21/PathFindingAlgorithm.html</loc>
+    </url>
+
+    <url>
         <loc>http://localhost:4000/unity/csharp/2019/04/19/C-Reflection-in-Unity.html</loc>
     </url>
 
