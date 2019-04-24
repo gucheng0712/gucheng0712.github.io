@@ -434,17 +434,32 @@ Dijkstra Algorithm is the improvement of BFS, because BFS doesn't really find th
 </p>
 
 ```csharp
-DFS(G, u)
-    u.visited = true
-    for each v ∈ G.Adj[u]
-        if v.visited == false
-            DFS(G,v)
-     
-init()
-    For each u ∈ G
-        u.visited = false
-     For each u ∈ G
-       DFS(G, u)
+    public HashSet<T> DFS<T>(Graph<T> graph, T start)
+    {
+        var visited = new HashSet<T>();
+
+        if (!graph.AdjacencyList.ContainsKey(start))
+            return visited;
+
+        var stack = new Stack<T>();
+        stack.Push(start);
+
+        while (stack.Count > 0)
+        {
+            var vertex = stack.Pop();
+
+            if (visited.Contains(vertex))
+                continue;
+
+            visited.Add(vertex);
+
+            foreach (var neighbor in graph.AdjacencyList[vertex])
+                if (!visited.Contains(neighbor))
+                    stack.Push(neighbor);
+        }
+
+        return visited;
+    }
 ```
 
 
