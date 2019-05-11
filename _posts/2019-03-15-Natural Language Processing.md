@@ -232,7 +232,7 @@ Document term matrix:
 
 ### **One-Hot Encoding**
 
-`One-hot encoding` is another vector encoding method that marksa particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is `effective for very small documents (sentences, tweets)` that `don’t` contain very many repeated elements.
+`One-hot encoding` is another vector encoding method that marks a particular vector index with a value of true (1), if the token exists in the document; with a value of false (0), if it does not exist. This method is `effective for very small documents (sentences, tweets)` that `don’t` contain very many repeated elements.
 
 <p align="center"> <img src="/static/assets/img/blog/ohe.jpg" width="50%"></p>
 
