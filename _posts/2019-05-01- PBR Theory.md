@@ -14,6 +14,8 @@ icon: icon-splatter
 ### 4. [**渲染方程**](#4)
 ### 5. [**精确光源**](#5)
 ### 6. [**双向反射分布函数(BRDF)**](#6)
+### 6.1. [**漫反射项(Diffuse Term)**](#6.1)
+### 6.2. [**高光反射项(Specular Term)**](#6.2)
 
 <a name="1"></a>
 
@@ -29,7 +31,7 @@ icon: icon-splatter
 
 > 使用PBR的**原因**主要有两种:
 1. 渲染出更真实的画面.
-2. 更方便于美术人员调整参数以得到满意的效果.
+2. 更方便于美术人员调整参数以得到满意的效果,加快工作流.
 
 <br/><br/>
 
@@ -61,14 +63,33 @@ icon: icon-splatter
 # 2. 光的原理
 
 **光线**是由光源发射出来的,与物体相交后一部分会被吸收(absorption),另一部分会被散射(scattering).
-**菲涅尔等式**描述的是有多少百分比的光会被反射,剩余百分比的光则会被散射.
-**次表面散射光():** 非金属材质会出现吸收和散射两种现象, 背散射出去的光被称为次表面散射光(Subsurface-Scattered Light). (而金属材质具有很高的吸收系数,所有被折射的光会被立即吸收,被金属内部的自由电子转化成其他形式的能量.所以几乎没有散射)
 
 <p align="center">
-<img src="/static/assets/img/blog/flat_surface.png" width="40%">
-<img src="/static/assets/img/blog/v2-non-flat_surface.jpg" width="40%">
+<img src="/static/assets/img/blog/flat_surface.png" width="50%">
 </p>
 
+光在与**非光学平坦表面（Non-Optically-Flat Surfaces）**的交互时，非光学平坦表面表现得像一个微小的光学平面表面的大集合。表面上的每个点都会以略微不同的方向对入射光反射，而最终的表面外观是许多具有不同表面取向的点的聚合结果。在微观尺度上，**表面越粗糙，反射越模糊**，因为表面取向与整个宏观表面取向的偏离更强。如下图:
+
+<p align="center">
+<img src="/static/assets/img/blog/v2-non-flat_surface.jpg" width="60%">
+</p>
+
+**菲涅尔等式(Fresnel Equation)**描述的是有多少百分比的光会被反射,剩余百分比的光则会被散射.
+
+**金属(Metal)和非金属(Non-Metal):** 金属材质具有很高的吸收系数,所有被折射的光会被立即吸收,被金属内部的自由电子转化成其他形式的能量.所以几乎没有散射. 而非金属材质会出现吸收和散射两种现象, 背面散射出去的光被称为次表面散射光(Subsurface-Scattered Light). 
+<p align="center">
+<img src="/static/assets/img/blog/metal.jpg" width="40%">
+<img src="/static/assets/img/blog/non-metal.jpg" width="40%">
+</p>
+
+**次表面散射光(Subsurface-Scattered Light):** 次表面散射其实和漫反射的物理现象本质是相同的,都是折射光的次表面散射的结果. 唯一的区别是相对与观察尺度的散射距离.光的折射现象，建模为漫反射还是次表面散射，取决于观察的尺度. 如下图: 
+
+<p align="center">
+<img src="/static/assets/img/blog/sss.jpg" width="70%">
+</p>
+
+在左上图,像素（带有红色边框的绿色圆形）大于光线离开表面之前所经过的距离。 在这种情况下，可以假设出射光从入口点（右上）射出，可以当做漫反射，用局部着色模型处理.
+然而在底部的图片中, 像素小于散射距离; 如果需要更真实的着色效果，则不能忽略这些距离的存在，需当做次表面散射现象进行处理。
 
 <a name="3"></a>
 
@@ -112,11 +133,11 @@ icon: icon-splatter
 $$L = \frac{d\phi}{dw*dA*cos\theta}$$
 
 <p align="center">
-<img src="/static/assets/img/blog/radiance.png" width="60%">
+<img src="/static/assets/img/blog/radiance.png" width="80%">
 </p>
 
 <p align="center">
-<img src="/static/assets/img/blog/radiance2.png" width="60%">
+<img src="/static/assets/img/blog/radiance2.png" width="80%">
 </p>
 
 <a name="4"></a>
@@ -126,9 +147,9 @@ $$L = \frac{d\phi}{dw*dA*cos\theta}$$
 
 <br/><br/>
 
-# 4. 渲染方程
+# 4. 渲染方程和反射方程
 
-​渲染方程是计算机图形学的核心公式，当去掉其中的自发光项 *$L_e(v)$*后，剩余的部分就是著名的反射等式(**ReflectanceEquation**)。
+​**渲染方程(Rendering Equation)**是计算机图形学的核心公式，当去掉其中的自发光项 *$L_e(v)$*后，剩余的部分就是著名的反射等式(**ReflectanceEquation**)。
 
 ​想象我们现在要计算表面上某点的出射辐射率，我们已知到该点的观察方向，该点的出射辐射率是由从许多不同方向的入射辐射率叠加后的结果。其中，$f(w_i, v)$表示了不同方向的入射光在该观察方向上的权重分布。我们把这些不同方向的光辐射率$L_i(w_i)$部分)乘以观察方向上所占的权重部分$f(w_i,v)$，再乘以它们在该表面的投影结果($n \cdot w_i$)部分，最后再把这些值加起来(即做积分)就是最后的出射辐射率。
 
@@ -144,7 +165,6 @@ $$L_o(v) = L_e(v)+\int_{\Omega}{f(w_i,v)L_i(w_i)(n\cdot w_i)dw_i}$$
 <br/>$L_i(w_i)$: 从某个方向出发,到达当前点的光照.
 <br/>($n\cdot w_i$): 由于入射角度二队从该方向出发的光照亮度所造成的衰减.
 <br/>$dw_i$: 入射方向位于以当前点为球心的半球内的某个入射光照.  
-```
 
 <p align="center">     
 <img src="/static/assets/img/blog/rendering equation.png" width="50%">
@@ -159,7 +179,7 @@ $$L_o(v) = L_e(v)+\int_{\Omega}{f(w_i,v)L_i(w_i)(n\cdot w_i)dw_i}$$
 
 <br/><br/>
 
-# 4. 精确光源
+# 5. 精确光源
 
 在真实的物理世界中,所有的光源都是有面积概念的,即所谓的**面光源**. 由于面光源的光照计算通常要耗费大量的时间,因此在实时渲染中, 我们通常会使用精确光源(punctual light sources). 图形学中常见的精确光源有点光源, 平行光, 和聚光灯等. 这些精确光源被认为是大小无限小而且方向是确定的. 尽管这不符合真实的物理意义,但是它们在大多是情况下都能得到较好的渲染效果.
 
@@ -184,7 +204,7 @@ $c_{light}$:表示了它的颜色6
 
 <br/><br/>
 
-# 4. 双向反射分布函数(BRDF)
+# 6. 双向反射分布函数(BRDF)
 
 **BRDF(Bidirectional Reflectance Distribution Function)**描述了物体表面一点是如何和光进行交互的. 大多数情况下,BRDF可以用$f(l,v)$ 来表示,其中 $l$ 为入社方向, $v$ 为观察方向(双向的含义). 分为**各向同性(isotropic)**的BRDF, 和**各项异性(Anisotropic)**的BRDF. 
 
@@ -215,6 +235,42 @@ $$\int_{\pi}f(l,v)(n\cdot l)dw_o\le1$$
 <img src="/static/assets/img/blog/brdf.png" width="50%">
 </p>
 
+<a name="6.1"></a>
+<br/><br/>
+
+--- 
+
+<br/><br/>
+
+# 6.1. 漫反射项(Diffuse Term)
+
+## **1. Lambertian BRDF:** 
+
+$$f_{Lambert}(l,v) = \frac{c_diff}{\pi}$$
+
+> $c_{diff}$:表示漫反射的颜色. 比起普通的漫反射,BRDF要除以$\pi$, 因为我们假设漫反射在所有方向上的强度都是相同的,而BRDF要求在半球内的积分为1. 因此,给定入射方向$l$的光源在表面某点的出射漫反射辐射率(辐射亮度)的公式: 
+
+$$L_o(v) = \pi f_{Lambert}(l,v)c_{light}(n\cdot l) = c_{diff} \times c_{light}(n\cdot l)$$
+
+> 使用Lambert模型作为PBS模型的的优点**,计算量小,性能比较好**. 而缺点就是在**真实世界中很少有材质符合Lambert的数学描述,即具有完美均匀的散射效果**.
+
+## **2. Disney BRDF:** 
+
+$$f_diff(l,v) = \frac{baseColor}{\pi}(1+(F_{D90}-1)(1-n\cdot l)^5)(1+(F_{D90}-1)(1-n\cdot v)^5)$$
+
+> 其中, $F_{D90} = 0.5 + 2roughness(h\cdot l)^2$, baseColor是表面颜色, 通常有纹理采样得到,roughness是表面的粗糙度. 
+
+> 上面的漫反射项既考虑了在掠射角漫反射项的能量变化，还考虑了表面的粗糙度对漫反射的影响. Disney使用了 Schlick 菲涅耳近似等式[7]来模拟在掠射角的反射变化，同时使用表面粗糙度来进一步修改它，这使得光滑材质可以在掠射角具有更为明显的阴影边，而又使得粗糙材质在掠射角具有亮边。而上面的式子也正是 Unity 5 内部使用的漫反射项.
+
+
+<a name="6.2"></a>
+<br/><br/>
+
+--- 
+
+<br/><br/>
+
+# 6.2. 高光反射项(Specular Term)
 
 ---
 
@@ -222,9 +278,10 @@ $$\int_{\pi}f(l,v)(n\cdot l)dw_o\le1$$
  - Unity Shader入门精要 by 冯乐乐
  - 东拼西凑PBR：PBR基础 by 杨超
  - 基于物理的渲染通识课 by Razor Yhang
- - Physically based rendering - Wikipedia
- - PBR浅析 - Bob Blog
- - 浅墨的游戏编程 - 毛星云
+ - Physically based rendering by Wikipedia
+ - PBR浅析 by Bob Blog
+ - 浅墨的游戏编程 by 毛星云
+ - 各向异性和各向同性 by 百度百科
 
 >**End --Cheng Gu**
 
