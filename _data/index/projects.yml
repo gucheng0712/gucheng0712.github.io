@@ -56,16 +56,22 @@
   img: /static/assets/img/landing/P9.png
   desc: An AR basketball shooting game, shoot methods include swap screen and voice command by using Watson API.
 
+- name: NeverLand - Using Unity & Blender
+  i18n: p5
+  url: https://www.bilibili.com/video/av37152972
+  demo_url: https://www.bilibili.com/video/av37152972
+  img: /static/assets/img/landing/P5.png
+  desc: A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.
+- name: WISWYG - using TouchDesigner & Keras & Nltk & Open AI-GPT
+  i18n: p10
+  gh_user: gucheng0712
+  repo: WISIWIG
+  demo_url: https://www.bilibili.com/video/av52461636
+  img: /static/assets/img/landing/P10.png
+  desc: An immersive interactive installation technology project that combines visual art and AI to analyzes facial expressions and behaviors for creating interactive works of art and text descriptions.
+
 - name: 3D Props Modelling & Texturing - using Maya & Quixel & Photoshop
   i18n: p6
   url:
   img: /static/assets/img/landing/P6.png
   desc: Modeled and Textured some props for the 3D game art fundmental class.
-
-- name: NeverLand
-  i18n: p5
-  url: https://www.bilibili.com/video/av37152972
-  demo_url: https://www.bilibili.com/video/av37152972
-  img: /static/assets/img/landing/P5.png
-  desc: A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment  
-
