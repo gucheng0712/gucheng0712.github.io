@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://localhost:4000/unity/2019/05/15/Unity-Editor-Scripting-References.html</loc>
+    </url>
+
+    <url>
         <loc>http://localhost:4000/cg/2019/05/01/PBR-Theory.html</loc>
     </url>
 
@@ -10,7 +14,7 @@
     </url>
 
     <url>
-        <loc>http://localhost:4000/unity/csharp/2019/04/19/C-Reflection-in-Unity.html</loc>
+        <loc>http://localhost:4000/unity/csharp/2019/04/19/C-Reflection-in-Unity-copy.html</loc>
     </url>
 
     <url>
@@ -118,7 +122,7 @@
     </url>
 
     <url>
-        <loc>http://localhost:4000/cg/unity/2018/07/15/The-Magic-of-Stencil-Test.html</loc>
+        <loc>http://localhost:4000/cg/unity/2018/07/15/The-Magic-of-Stencil-Shader.html</loc>
     </url>
 
     <url>

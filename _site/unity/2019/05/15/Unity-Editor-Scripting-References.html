@@ -1,0 +1,336 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1; minimum-scale=1; user-scalable=no;"> <meta name="author" content="ChengGu"> <meta name="baseurl" content=""> <title> Suzuka Site|Unity Editor Scripting References </title> <!-- favicon --> <link rel="shortcut icon" href="/static/assets/img/favicon.ico"> <!-- Main CSS --> <link href="/static/assets/app-20180125.min.css" rel="stylesheet"> <link href="/static/css/custom.css" rel="stylesheet"> <!-- Main Scripts --> <script src="/static/assets/app-20180125.min.js"></script> <script src="/static/assets/blog-20180125.min.js"></script> <!-- Google AdSense --> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6196184668650108", enable_page_level_ads: true }); </script> </head> <body id="page-top" class="landing-page"> <div class="search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right: 0px; opacity: 0.95; background-color: #111111; z-index: 9999; display: none;"> <input type="text" class="form-control search-content" id="search-content" style="position: fixed; top: 60px" placeholder="Search Blog"> <div style="position: fixed; top: 16px; right: 16px; z-index: 9999;"> <img src=" /static/assets/img/search/cb-close.png " id="close-btn" /> </div> </div> <div style="position: fixed; right: 16px; bottom: 20px; z-index: 9999;"> <img src=" /static/assets/img/search/cb-search.png " id="search-btn" title="Double click Ctrl" /> </div> <div class="navbar-wrapper"> <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <div class="container"> <div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href=" / ">Suzuka Site</a> </div> <div id="navbar" class="navbar-collapse collapse"> <ul class="nav navbar-nav navbar-right"> <li><a class="page-scroll" href=" blog/ "></a></li> <li> <a class="page-scroll" href="/blog/">Blog</a></li> <li> <a class="page-scroll" href="/unity/">Unity</a></li> <li> <a class="page-scroll" href="/ai/">AI</a></li> <li> <a class="page-scroll" href="/cg/">CG</a></li> <li> <a class="page-scroll" href="/math/">Math</a></li> <li> <a class="page-scroll" href="/data structure/">Data Structure</a></li> <li> <a class="page-scroll" href="/csharp/">C#</a></li> <li> <a class="page-scroll" href="/python/">Python</a></li> <li> <a class="page-scroll" href="/javascript/">JavaScript</a></li> <li> <a class="page-scroll" href="/game dev/">Game Dev</a></li> </ul> </div> </div> </nav> </div> <!--<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>--> <!--<link rel="stylesheet" href="static/css/carousel_style.css">--> <!--<script src="static/js/carousel.js"></script>--> <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel"> <div class="carousel-inner" role="listbox"> <div class="item active"> <!-- Set background for slide in css --> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_1.jpg);" title="first banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_2.jpg);" title=""> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_3.jpg);" title="third banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_4.jpg);" title="fourth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_5.jpg);" title="fifth banner image"> </div> </div> <div class="item"> <div class="header-back" style="background-image: url(/static/assets/img/landing/header_6.jpg);" title="sixth banner image"> </div> </div> </div> <!-- Controls --> <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true } }); </script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <div class="wrapper wrapper-content animated fadeInRight article"> <div class="row"> <div class="col-lg-10 col-lg-offset-1"> <div class="ibox"> <div class="ibox-content"> <div class="pull-right"> <a class="btn btn-white btn-xs" href="/unity">Unity</a> </div> <div class="text-center article-title"> <span class="text-muted"><i class="fa fa-clock-o"></i> 15 May 2019</span> <h1> Unity Editor Scripting References </h1> </div> <div class="ibox-postpadding"> <hr /> <h2 id="1-unity-built-in-attributes">1. Unity Built-in Attributes</h2> <table> <thead> <tr> <th><strong>Usage</strong></th> <th>       </th> <th><strong>Attribute</strong></th> <th> </th> </tr> </thead> <tbody> <tr> <td>Add items to Unity’s menus</td> <td> </td> <td><a href="http://docs.unity3d.com/ScriptReference/MenuItem.html">MenuItem</a>, <a href="http://docs.unity3d.com/ScriptReference/AddComponentMenu.html">AddComponentMenu</a>, <a href="http://docs.unity3d.com/ScriptReference/ContextMenu.html">ContextMenu</a>, <a href="http://docs.unity3d.com/ScriptReference/ContextMenuItemAttribute.html">ContextMenuItem</a>, <a href="http://docs.unity3d.com/ScriptReference/CreateAssetMenuAttribute-menuName.html">CreateAssetMenu</a></td> <td> </td> </tr> <tr> <td>Show or hide information</td> <td> </td> <td><a href="http://docs.unity3d.com/ScriptReference/HeaderAttribute.html">Header</a>, <a href="http://docs.unity3d.com/ScriptReference/HelpURLAttribute.html">HelpURL</a>, <a href="http://docs.unity3d.com/ScriptReference/TooltipAttribute.html">Tooltip</a>, <a href="http://docs.unity3d.com/ScriptReference/HideInInspector.html">HideInInspector</a></td> <td> </td> </tr> <tr> <td>Layout display in Inspector</td> <td> </td> <td><a href="http://docs.unity3d.com/ScriptReference/MultilineAttribute.html">Multiline</a>, <a href="http://docs.unity3d.com/ScriptReference/RangeAttribute.html">Range</a>, <a href="http://docs.unity3d.com/ScriptReference/Space.html">Space</a>, <a href="http://docs.unity3d.com/ScriptReference/TextAreaAttribute.html">TextArea</a></td> <td> </td> </tr> <tr> <td>Define constraints for component usage</td> <td> </td> <td><a href="http://docs.unity3d.com/ScriptReference/RequireComponent.html">RequireComponent</a>, <a href="http://docs.unity3d.com/ScriptReference/DisallowMultipleComponent.html">DisallowMultipleComponent</a></td> <td> </td> </tr> <tr> <td>Specify whether to remember the value of a field or not</td> <td> </td> <td><a href="http://docs.unity3d.com/Manual/JSONSerialization.html">NonSerialized</a>, <a href="http://docs.unity3d.com/Manual/script-Serialization.html">Serializable</a></td> <td> </td> </tr> <tr> <td>Execute callback functions even when Editor isn’t in playmode</td> <td> </td> <td><a href="http://docs.unity3d.com/ScriptReference/ExecuteInEditMode.html">ExecuteInEditMode</a></td> <td> </td> </tr> <tr> <td>Configure the usage of the ColorPicker</td> <td> </td> <td><a href="http://docs.unity3d.com/ScriptReference/ColorUsageAttribute.html">ColorUsage</a></td> <td> </td> </tr> </tbody> </table> <h2 id="code-implementation-for-priority-queue">Code Implementation for Priority Queue</h2> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">PriorityQueue</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IComparable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">data</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Count</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="p">}}</span>
+
+    <span class="k">public</span> <span class="nf">PriorityQueue</span><span class="p">()</span> <span class="c1">// Constructor</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">data</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Add an item to the queue and sort using a min binary heap</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Enqueue</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Add the item to the end of the data List</span>
+        <span class="n">data</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+
+        <span class="c1">// Start at the last position in the heap</span>
+        <span class="kt">int</span> <span class="n">childindex</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+
+        <span class="c1">// Sort using a min binary heap</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">childindex</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Find the parent position in the heap</span>
+            <span class="kt">int</span> <span class="n">parentindex</span> <span class="p">=</span> <span class="p">(</span><span class="n">childindex</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+
+            <span class="c1">// If parent and child are already sorted, stop sorting</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">].</span><span class="nf">CompareTo</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">parentindex</span><span class="p">])</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+                <span class="k">break</span><span class="p">;</span>
+ 
+            <span class="c1">// Otherwise, swap parent and child</span>
+            <span class="n">T</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">];</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">]</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="n">parentindex</span><span class="p">];</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">parentindex</span><span class="p">]</span> <span class="p">=</span> <span class="n">tmp</span><span class="p">;</span>
+
+            <span class="c1">// Move up one level in the heap and repeat until sorted</span>
+            <span class="n">childindex</span> <span class="p">=</span> <span class="n">parentindex</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Remove an item from queue and keep it sorted using a min binary heap</span>
+    <span class="k">public</span> <span class="n">T</span> <span class="nf">Dequeue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Get the index for the last item</span>
+        <span class="kt">int</span> <span class="n">lastindex</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+
+        <span class="c1">// Store the first item in the List in a variable</span>
+        <span class="n">T</span> <span class="n">frontItem</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+
+        <span class="c1">// Replace the first item with the last item</span>
+        <span class="n">data</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="n">lastindex</span><span class="p">];</span>
+
+        <span class="c1">// Shorten the queue and remove the last position </span>
+        <span class="n">data</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="n">lastindex</span><span class="p">);</span>
+
+        <span class="c1">// Decrement our item count</span>
+        <span class="n">lastindex</span><span class="p">--;</span>
+
+        <span class="c1">// Start at the beginning of the queue to sort the binary heap</span>
+        <span class="kt">int</span> <span class="n">parentindex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+        <span class="c1">// Sort using min binary heap</span>
+        <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// Choose the left child</span>
+            <span class="kt">int</span> <span class="n">childindex</span> <span class="p">=</span> <span class="n">parentindex</span> <span class="p">*</span> <span class="m">2</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+
+            <span class="c1">// If there is no left child, stop sorting</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">childindex</span> <span class="p">&gt;</span> <span class="n">lastindex</span><span class="p">)</span>
+                <span class="k">break</span><span class="p">;</span>
+            
+
+            <span class="c1">// The right child</span>
+            <span class="kt">int</span> <span class="n">rightchild</span> <span class="p">=</span> <span class="n">childindex</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+
+            <span class="c1">// If the value of the right child is less than the left child, switch to the right branch of the heap</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">rightchild</span> <span class="p">&lt;=</span> <span class="n">lastindex</span> <span class="p">&amp;&amp;</span> <span class="n">data</span><span class="p">[</span><span class="n">rightchild</span><span class="p">].</span><span class="nf">CompareTo</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">])</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">childindex</span> <span class="p">=</span> <span class="n">rightchild</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// If the parent and child are already sorted, then stop sorting</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">parentindex</span><span class="p">].</span><span class="nf">CompareTo</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">])</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="c1">// If not, then swap the parent and child</span>
+            <span class="n">T</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="n">parentindex</span><span class="p">];</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">parentindex</span><span class="p">]</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">];</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">childindex</span><span class="p">]</span> <span class="p">=</span> <span class="n">tmp</span><span class="p">;</span>
+
+            <span class="c1">// Move down the heap onto the child's level and repeat until sorted</span>
+            <span class="n">parentindex</span> <span class="p">=</span> <span class="n">childindex</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Return the original first item</span>
+        <span class="k">return</span> <span class="n">frontItem</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Look at the first item without dequeuing </span>
+    <span class="k">public</span> <span class="n">T</span> <span class="nf">Peek</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">T</span> <span class="n">frontItem</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+        <span class="k">return</span> <span class="n">frontItem</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Is the item contained in the data List?</span>
+    <span class="k">public</span> <span class="kt">bool</span> <span class="nf">Contains</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Return the data as a generic List</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="nf">ToList</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <hr /> <h1 id="2-pathfinding-algorithms"><strong>2. PathFinding Algorithms</strong></h1> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// while we have not reached the goal node... (note that are missing a null reference check in the videos)</span>
+        <span class="k">while</span> <span class="p">(!</span><span class="n">isComplete</span> <span class="p">&amp;&amp;</span> <span class="n">m_frontierNodes</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// if there are still open Nodes to explore...</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">m_frontierNodes</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="c1">// get the next available Node from the priority queue</span>
+                <span class="n">Node</span> <span class="n">currentNode</span> <span class="p">=</span> <span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Dequeue</span><span class="p">();</span>
+
+                <span class="c1">// mark this Node as explored</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">m_exploredNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">currentNode</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">m_exploredNodes</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">currentNode</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="c1">// expand the frontier based on our search mode</span>
+
+                <span class="k">switch</span> <span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">case</span> <span class="n">Mode</span><span class="p">.</span><span class="n">BreadthFirstSearch</span><span class="p">:</span>
+                        <span class="nf">ExpandFrontierBreadthFirst</span><span class="p">(</span><span class="n">currentNode</span><span class="p">);</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="n">Mode</span><span class="p">.</span><span class="n">Dijkstra</span><span class="p">:</span>
+                        <span class="nf">ExpandFrontierDijkstra</span><span class="p">(</span><span class="n">currentNode</span><span class="p">);</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="n">Mode</span><span class="p">.</span><span class="n">GreedyBestFirst</span><span class="p">:</span>
+                        <span class="nf">ExpandFrontierGreedyBestFirst</span><span class="p">(</span><span class="n">currentNode</span><span class="p">);</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="n">Mode</span><span class="p">.</span><span class="n">AStar</span><span class="p">:</span>
+                        <span class="nf">ExpandFrontierAStar</span><span class="p">(</span><span class="n">currentNode</span><span class="p">);</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="k">default</span><span class="p">:</span>
+                        <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+           
+                <span class="c1">// if the goal node is in the frontier</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">m_goalNode</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="c1">// set the path Nodes</span>
+                    <span class="n">m_pathNodes</span> <span class="p">=</span> <span class="nf">GetPathNodes</span><span class="p">(</span><span class="n">m_goalNode</span><span class="p">);</span>
+
+                    <span class="c1">// if exitOnGoal is checked, mark the search complete</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">exitOnGoal</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">isComplete</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// ...else we have explored the entire available graph</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">isComplete</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</code></pre></div></div> <hr /> <h2 id="breadth-first-search">Breadth-First Search</h2> <p>This most basic pathfinding algorithm is <code class="highlighter-rouge">Breadth-first search (BFS)</code>, which is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a ‘search key’) and <code class="highlighter-rouge">explores the neighbor</code> nodes first, before moving to the next level neighbours.</p> <p align="center"> <img src="/static/assets/img/blog/bfs.gif" width="50%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Expand the frontier nodes using Breadth First Search from a single node</span>
+	<span class="k">void</span> <span class="nf">ExpandFrontierBreadthFirst</span><span class="p">(</span><span class="n">Node</span> <span class="n">node</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+			<span class="c1">// Loop through the neighbors</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+				<span class="c1">// If the current neighbor has not been explored and is not already part of the frontier</span>
+				<span class="k">if</span> <span class="p">(!</span><span class="n">m_exploredNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="p">{</span>
+					<span class="c1">// Calculate distance to current neighbor</span>
+					<span class="kt">float</span> <span class="n">distanceToNeighbor</span> <span class="p">=</span> <span class="n">m_graph</span><span class="p">.</span><span class="nf">GetNodeDistance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+					<span class="c1">// Calculate cumulative distance if we travel to neighbor via the current node</span>
+					<span class="kt">float</span> <span class="n">newDistanceTraveled</span> <span class="p">=</span> <span class="n">distanceToNeighbor</span> <span class="p">+</span> <span class="n">node</span><span class="p">.</span><span class="n">distanceTraveled</span> <span class="p">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">node</span><span class="p">.</span><span class="n">nodeType</span><span class="p">;</span>
+
+					<span class="c1">// Create breadcrumb trail to neighbor node and set cumulative distance traveled</span>
+					<span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span> <span class="p">=</span> <span class="n">newDistanceTraveled</span><span class="p">;</span>
+                    <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">previous</span> <span class="p">=</span> <span class="n">node</span><span class="p">;</span>
+
+                    <span class="c1">// Add neighbor to explored Nodes, treat queue as if it were a first in-first out queue</span>
+                    <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">priority</span> <span class="p">=</span> <span class="n">m_exploredNodes</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+                    <span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div> <hr /> <h2 id="dijkstra-algorithm">Dijkstra Algorithm</h2> <p>Dijkstra Algorithm is the improvement of BFS, because BFS doesn’t really find the shortest path. So what do we need to change:</p> <ol> <li>The Graph needs to know the cost of movement</li> <li>The queue needs to return nodes in a different order</li> <li>The search needs to keep track of the costs from the graph and give them to the queue</li> </ol> <p align="center"> <img src="/static/assets/img/blog/dijkstra.gif" width="50%" /> </p> <blockquote> <p>Code Implementation:</p> </blockquote> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">// expand the frontier nodes using Dijkstra's algorithm from a single node</span>
+	<span class="k">void</span> <span class="nf">ExpandFrontierDijkstra</span><span class="p">(</span><span class="n">Node</span> <span class="n">node</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+			<span class="c1">// loop through the neighbors</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+				<span class="c1">// if the current neighbor has not been explored </span>
+				<span class="k">if</span> <span class="p">(!</span><span class="n">m_exploredNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                <span class="p">{</span>
+                    <span class="kt">float</span> <span class="n">distanceToNeighbor</span> <span class="p">=</span> <span class="n">m_graph</span><span class="p">.</span><span class="nf">GetNodeDistance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                    <span class="kt">float</span> <span class="n">newDistanceTraveled</span> <span class="p">=</span> <span class="n">distanceToNeighbor</span> <span class="p">+</span> <span class="n">node</span><span class="p">.</span><span class="n">distanceTraveled</span> <span class="p">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">node</span><span class="p">.</span><span class="n">nodeType</span><span class="p">;</span>
+
+					<span class="c1">// if a shorter path exists to the neighbor via this node, re-route</span>
+					<span class="k">if</span> <span class="p">(</span><span class="kt">float</span><span class="p">.</span><span class="nf">IsPositiveInfinity</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span><span class="p">)</span> <span class="p">||</span> <span class="n">newDistanceTraveled</span> <span class="p">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">previous</span> <span class="p">=</span> <span class="n">node</span><span class="p">;</span>
+                        <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span> <span class="p">=</span> <span class="n">newDistanceTraveled</span><span class="p">;</span>
+                    <span class="p">}</span>
+
+                    <span class="c1">// if the current neighbor is not already part of the frontier...</span>
+                    <span class="k">if</span> <span class="p">(!</span><span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+                    <span class="p">{</span>
+						<span class="c1">// set the priority based on distance traveled from start Node and add to frontier</span>
+						<span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">priority</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span><span class="p">;</span>
+                        <span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+</code></pre></div></div> <hr /> <h2 id="greedy-best-first-search">Greedy Best-First Search</h2> <p><code class="highlighter-rouge">Greedy Best-First Search</code> are always looking for the shortest distance between start and goal node. Therefore it is often not the shortest path even worse than BFS, but it is the fastest way to find the goal.</p> <blockquote> <p>The algorithm works as follows:</p> <ol> <li>Start by putting any one of the graph’s vertices at the back of a queue.</li> <li>Take the front item of the queue and add it to the visited list.</li> <li>Create a list of that vertex’s adjacent nodes. Add the ones which aren’t in the visited list to the back of the queue.</li> <li>Keep repeating steps 2 and 3 until the queue is empty.</li> </ol> </blockquote> <p align="center"> <img src="/static/assets/img/blog/gbfs.gif" width="70%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+	<span class="c1">// expand the frontier nodes using Greedy Best-First search from a single node</span>
+	<span class="k">void</span> <span class="nf">ExpandFrontierGreedyBestFirst</span><span class="p">(</span><span class="n">Node</span> <span class="n">node</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+		<span class="p">{</span>
+            <span class="c1">// loop through the neighbors</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+			<span class="p">{</span>
+				<span class="c1">// if the current neighbor has not been explored and is not already part of the frontier</span>
+				<span class="k">if</span> <span class="p">(!</span><span class="n">m_exploredNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+				<span class="p">{</span>
+					<span class="c1">// calculate distance to current neighbor</span>
+					<span class="kt">float</span> <span class="n">distanceToNeighbor</span> <span class="p">=</span> <span class="n">m_graph</span><span class="p">.</span><span class="nf">GetNodeDistance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+					<span class="c1">// calculate cumulative distance if we travel to neighbor via the current node</span>
+					<span class="kt">float</span> <span class="n">newDistanceTraveled</span> <span class="p">=</span> <span class="n">distanceToNeighbor</span> <span class="p">+</span> <span class="n">node</span><span class="p">.</span><span class="n">distanceTraveled</span> <span class="p">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">node</span><span class="p">.</span><span class="n">nodeType</span><span class="p">;</span>
+
+                    <span class="c1">// create breadcrumb trail to neighbor node and set cumulative distance traveled</span>
+					<span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span> <span class="p">=</span> <span class="n">newDistanceTraveled</span><span class="p">;</span>
+					<span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">previous</span> <span class="p">=</span> <span class="n">node</span><span class="p">;</span>
+
+                    <span class="c1">// set the priority based on estimated distance to goal Node...</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">m_graph</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">priority</span> <span class="p">=</span> <span class="n">m_graph</span><span class="p">.</span><span class="nf">GetNodeDistance</span><span class="p">(</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m_goalNode</span><span class="p">);</span>
+                    <span class="p">}</span>
+					
+                    <span class="c1">// ... and add to frontier</span>
+					<span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+</code></pre></div></div> <hr /> <h2 id="a-algorithm">A* Algorithm</h2> <p><code class="highlighter-rouge">A*</code> algorithm is actually a <code class="highlighter-rouge">combination</code> of <code class="highlighter-rouge">Dijkstra Algorithm</code> and <code class="highlighter-rouge">Greedy Best-First Search Algorithm</code>. For example, in Dijkstra algorithm, it calculates the distance from current node to start node. In the Greedy Best-First Search, it is to calculate the distance from current node to target node. A* algorithm is a combination of these two algorithms to get the best priority: * Distance from current node to start node = <code class="highlighter-rouge">G</code> * Distance from current node to target node = <code class="highlighter-rouge">H</code> * A*: <code class="highlighter-rouge">F = G+H</code></p> <p align="center"> <img src="/static/assets/img/blog/astar.gif" width="50%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1">// expand the frontier nodes using AStar search from a single node</span>
+	<span class="k">void</span> <span class="nf">ExpandFrontierAStar</span><span class="p">(</span><span class="n">Node</span> <span class="n">node</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">node</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+		<span class="p">{</span>
+            <span class="c1">// loop through the neighbors</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+			<span class="p">{</span>
+                <span class="c1">// if the current neighbor has not been explored...</span>
+				<span class="k">if</span> <span class="p">(!</span><span class="n">m_exploredNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+				<span class="p">{</span>
+                    <span class="c1">// calculate distance to current neighbor</span>
+					<span class="kt">float</span> <span class="n">distanceToNeighbor</span> <span class="p">=</span> <span class="n">m_graph</span><span class="p">.</span><span class="nf">GetNodeDistance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+                    <span class="c1">// calculate cumulative distance if we travel to neighbor via the current node</span>
+					<span class="kt">float</span> <span class="n">newDistanceTraveled</span> <span class="p">=</span> <span class="n">distanceToNeighbor</span> <span class="p">+</span> <span class="n">node</span><span class="p">.</span><span class="n">distanceTraveled</span> <span class="p">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">node</span><span class="p">.</span><span class="n">nodeType</span><span class="p">;</span>
+
+                    <span class="c1">// if a shorter path exists to the neighbor via this node, re-route</span>
+					<span class="k">if</span> <span class="p">(</span><span class="kt">float</span><span class="p">.</span><span class="nf">IsPositiveInfinity</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span><span class="p">)</span> <span class="p">||</span> <span class="n">newDistanceTraveled</span> <span class="p">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span><span class="p">)</span>
+					<span class="p">{</span>
+						<span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">previous</span> <span class="p">=</span> <span class="n">node</span><span class="p">;</span>
+						<span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span> <span class="p">=</span> <span class="n">newDistanceTraveled</span><span class="p">;</span>
+					<span class="p">}</span>
+
+                    <span class="c1">// if the neighbor is not part of the frontier, add this to the priority queue</span>
+                    <span class="k">if</span> <span class="p">(!</span><span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">&amp;&amp;</span> <span class="n">m_graph</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+					<span class="p">{</span>
+                        <span class="c1">// base priority, F score,  on G score (distance from start) + H score (estimated distance to goal)</span>
+                        <span class="kt">float</span> <span class="n">distanceToGoal</span> <span class="p">=</span> <span class="n">m_graph</span><span class="p">.</span><span class="nf">GetNodeDistance</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">m_goalNode</span><span class="p">);</span>
+                        <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">priority</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">distanceTraveled</span> <span class="p">+</span> <span class="n">distanceToGoal</span><span class="p">;</span>
+
+                        <span class="c1">// add to priority queue using the F score</span>
+						<span class="n">m_frontierNodes</span><span class="p">.</span><span class="nf">Enqueue</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">neighbors</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+</code></pre></div></div> <hr /> <h2 id="depth-first-search">Depth-First Search</h2> <p><code class="highlighter-rouge">Depth-First Search</code> is a recursive algorithm for searching all the vertices of a graph or tree data. structure.</p> <blockquote> <p>The algorithm works as follows:</p> <ol> <li>Start by putting any one of the graph’s vertices at the back of a queue.</li> <li>Take the front item of the queue and add it to the visited list.</li> <li>Create a list of that vertex’s adjacent nodes. Add the ones which aren’t in the visited list to the back of the queue.</li> <li>Keep repeating steps 2 and 3 until the queue is empty.</li> </ol> </blockquote> <p align="center"> <img src="/static/assets/img/blog/DFS.gif" width="50%" /> </p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">public</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">DFS</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">Graph</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">graph</span><span class="p">,</span> <span class="n">T</span> <span class="n">start</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">visited</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;();</span>
+
+        <span class="k">if</span> <span class="p">(!</span><span class="n">graph</span><span class="p">.</span><span class="n">AdjacencyList</span><span class="p">.</span><span class="nf">ContainsKey</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">visited</span><span class="p">;</span>
+
+        <span class="kt">var</span> <span class="n">stack</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;();</span>
+        <span class="n">stack</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="n">start</span><span class="p">);</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">vertex</span> <span class="p">=</span> <span class="n">stack</span><span class="p">.</span><span class="nf">Pop</span><span class="p">();</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">visited</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">vertex</span><span class="p">))</span>
+                <span class="k">continue</span><span class="p">;</span>
+
+            <span class="n">visited</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">vertex</span><span class="p">);</span>
+
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">neighbor</span> <span class="k">in</span> <span class="n">graph</span><span class="p">.</span><span class="n">AdjacencyList</span><span class="p">[</span><span class="n">vertex</span><span class="p">])</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">visited</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">neighbor</span><span class="p">))</span>
+                    <span class="n">stack</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="n">neighbor</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">visited</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div> <hr /> <blockquote> <p><strong>End –Cheng Gu</strong></p> </blockquote> </div> <hr> <div class="row"> <div class="col-md-6"> <h5 style="display: inline;">Tags:</h5> <button class="btn btn-white btn-xs" type="button">Unity</button> </div> <div class="col-md-6"> <div class="small text-right"> <div> </div> </div> </div> </div> <br> <div class="row"> <div class="col-lg-12"> <!-- donate --> <br> <!-- share --> <div class="a2a_kit a2a_kit_size_32 a2a_default_style"> <a class="a2a_dd" href="https://www.addtoany.com/share"></a> <a class="a2a_button_facebook"></a> <a class="a2a_button_twitter"></a> <a class="a2a_button_google_plus"></a> <a class="a2a_button_linkedin"></a> <a class="a2a_button_email"></a> <a class="a2a_button_wechat"></a> <a class="a2a_button_sina_weibo"></a> <a class="a2a_button_pocket"></a> </div> <script> var a2a_config = a2a_config || {}; a2a_config.color_main = "D7E5ED"; a2a_config.color_border = "AECADB"; a2a_config.color_link_text = "333333"; a2a_config.color_link_text_hover = "333333"; </script> <script async src="https://static.addtoany.com/menu/page.js"></script> <br> <!-- comment --> </div> </div> </div> </div> </div> </div> </div> <!-- Google analytics --> <!-- GrowingIO --> </body> </html>

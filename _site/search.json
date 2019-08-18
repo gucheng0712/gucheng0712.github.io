@@ -3,6 +3,14 @@
     "data" : [
      
     {
+        "title" : "Unity Editor Scripting References - 2019-05-15",
+        "url" : "/unity/2019/05/15/Unity-Editor-Scripting-References.html"
+    }
+    
+    ,
+    
+    
+    {
         "title" : "PBR Theory (CG) - 2019-05-01",
         "url" : "/cg/2019/05/01/PBR-Theory.html"
     }
@@ -20,7 +28,7 @@
     
     {
         "title" : "C# Reflection in Unity - 2019-04-19",
-        "url" : "/unity/csharp/2019/04/19/C-Reflection-in-Unity.html"
+        "url" : "/unity/csharp/2019/04/19/C-Reflection-in-Unity-copy.html"
     }
     
     ,
@@ -235,8 +243,8 @@
     
     
     {
-        "title" : "The Magic of Stencil Test - 2018-07-15",
-        "url" : "/cg/unity/2018/07/15/The-Magic-of-Stencil-Test.html"
+        "title" : "The Magic of Stencil Shader - 2018-07-15",
+        "url" : "/cg/unity/2018/07/15/The-Magic-of-Stencil-Shader.html"
     }
     
     ,

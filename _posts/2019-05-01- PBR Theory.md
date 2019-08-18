@@ -104,19 +104,27 @@ icon: icon-splatter
 
 <br/><br/>
 
-# 3. 辐射测量学物理量
+# 3. 辐射测量学(Radiometry)物理量
 
 <br/><br/>
 
-**立体角(solid angle):** 立体角是以圆锥体的顶点为心,半径为1的球面被锥面所截得的面积来度量的,度量单位称为“立体弧度”.和平面角的定义类似.在平面上我们定义一段弧微分S与其矢量半径r的比值为其对应的圆心角记作 $ dθ=\frac{ds}{r} $, 所以整个圆周对应的圆心角就是2π；与此类似,定义立体角为曲面上面积微元ds与其矢量半径的二次方的比值为此面微元对应的立体角记作$dw=\frac{ds}{r^2}$. 由此可得,闭合球面的立体角都是4π. (球面度(sr)是立体角的国际单位)
+**立体角(Solid Angle):** 立体角描述了从原点向一个球面区域张成的视野大小,也可以理解为是一个形状在球面上的投影.球面度(Steradian,简写为sr)是立体角的国际单位.
+
+> 弧度是用于度量二维角度的量,等于角度在单位元上对应的弧长,单位圆的周长是$2\pi$,所以整个圆的对应弧度也就是$2\pi$. 立体角则是度量三维角度的量,等于立体角在单位求上对应的区域的面积(实际上也就是在任意半径的球上的面积除以半径的平方 $w=\frac{s}{r^2}$),微分形式为如下:
+
+$$dw=\frac{ds}{r^2}$$
 
 <p align="center">     
-<img src="/static/assets/img/blog/solidangle.png" width="20%">
+<img src="/static/assets/img/blog/solidangle.png" width="40%">
 </p>
 
 <br/>
 
-**光通量(luminous flux):** 指人眼所能感觉到的辐射功率，它等于单位时间内某一波段的辐射能量和该波段的相对视见率的乘积。(单位:$W$).用 $\phi$ 表示
+**光通量(luminous flux):** 也被称之为能量(Power)指人眼所能感觉到的辐射功率，它等于单位时间内某一波段的辐射能量和该波段的相对视见率的乘积。(单位:$W$).用 $\phi$ 表示
+
+<p align="center">     
+<img src="/static/assets/img/blog/luminousflux.png" width="40%">
+</p>
 
 ```
 光通量计算：
@@ -130,9 +138,14 @@ icon: icon-splatter
 
 **辐射照度(irradiance):** 单位面积的光通(单位:$W/m^2$). $E = \frac{d\phi}{dA}$ (dA表示接收面)
 
+<p align="center">     
+<img src="/static/assets/img/blog/irradiance.png" width="40%">
+</p>
+
 <br/>
 
 **光强(intensity):** 单位立体角光通(单位$W/sr$). $I =\frac{d\phi}{dw}$ 
+
 
 <br/>
 
@@ -177,7 +190,7 @@ $$L_o(v) = L_e(v)+\int_{\Omega}{f(w_i,v)L_i(w_i)(n\cdot w_i)dw_i}$$
 <img src="/static/assets/img/blog/rendering equation.png" width="50%">
 </p>
 
-在实时渲染中，自发光项通常就是直接加上某个自发光值。除此之外，积分累加部分在实时渲染中也基本无法实现，因此积分部分通常会被若干***精确光源***的叠加所代替，而不需要计算所有入射光线在半球面上的积分。
+> 然而渲染方程并**不能用于实时渲染中**. 因为在实时渲染中，自发光项通常就是直接加上某个自发光值。除此之外，积分累加部分在实时渲染中也基本无法实现，因此积分部分通常会被若干***精确光源***的叠加所代替，而不需要计算所有入射光线在半球面上的积分。
 
 <a name="5"></a>
 <br/><br/>
@@ -316,7 +329,7 @@ $$f_{spec}(l,v) = \frac{F(l,h)G(l,v,h)D(h)}{4(n\cdot l)(n\cdot v)}$$
 > 这些不同的部分又可以衍生出很多不同的 BRDF 模型.
 
 <br/>
-## a. 菲涅尔反射函数 (Fresnel Reflectance Function)
+## a. 菲涅尔反射函数 (Fresnel Reflectance Function)(F)
 <br/>
 菲涅尔反射函数计算了光学表面反射光线所占的部分,它表明了当光照方向和观察方向夹角逐渐增大时高光反射强度增大的现象.
 
@@ -327,7 +340,7 @@ $$F_{Schlick}(l,h) = c_{spec} + (1 - c_{spec})(1-(l\cdot h))^5$$
 > **$c_{spec}:$** 高光反射的颜色. 金属材质的高光反射颜色值比较大,非金属材质的反射颜色值比较小.
 
 <br/>
-## b. 法线分布函数 (Normal Distribution Function)
+## b. 法线分布函数 (Normal Distribution Function) (D)
 <br/>
 法线分布函数$D(h)$表示了对于当前表面来说有多少比例的微面元的法线满足 $m=h$, 这意味着只有这些微面元才会把光线从 $l$ 方向反射到 $v$ 上. 
 
@@ -359,7 +372,7 @@ $$F_{Schlick}(l,h) = c_{spec} + (1 - c_{spec})(1-(l\cdot h))^5$$
 > 插值出来的材质总是偏粗糙的。
 
 <br/>
-## c. 阴影-遮挡函数 (Masking and Shadowing)
+## c. 阴影-遮挡函数 (Masking and Shadowing) (G)
 <br/>
 
 阴影遮挡函数 $G(l,v,h)$也被称为几何函数(geometry function). 它表明了具有给定面法线$m$ 的微面元在沿着入射方向 $l$和观察方向 $v$ 上不会被其他微元面挡住的概率. 公式如下:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Magic of Stencil Test"
+title:  "The Magic of Stencil Shader"
 date:   2018-07-15 
 categories: [Cg, Unity]
 tags: [Unity, Shader, Math,CG]
@@ -115,10 +115,10 @@ Shader "MyShader/WindowMask"
 	}
 	SubShader
 	{
-		// The Rendering queue need to make sure the window mask is smaller than character mask
+		// The Rendering queue need to make sure the window mask is smaller than character(geomety) mask
 		Tags{ "RenderType" = "Opaque" "Queue" = "Geometry-1" }
-		ColorMask 0
-		ZWrite off
+		ColorMask 0 // discard color
+		ZWrite off 
 
 		Stencil
 		{
