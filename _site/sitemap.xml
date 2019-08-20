@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://localhost:4000/python/2019/05/30/Maya-Scripting-Basics.html</loc>
+    </url>
+
+    <url>
         <loc>http://localhost:4000/unity/2019/05/15/Unity-Editor-Scripting-References.html</loc>
     </url>
 
