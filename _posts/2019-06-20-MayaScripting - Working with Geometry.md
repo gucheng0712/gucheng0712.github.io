@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MayaScripting: Working with Geometry"
-date:   2019-06-01
+date:   2019-06-20
 categories: [Python]
 tags: [Python]
 icon: fa-code
