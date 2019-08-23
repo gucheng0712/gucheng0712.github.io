@@ -1,6 +1,6 @@
   ---
 layout: post
-title:  "Creating User Interface in Maya"
+title:  "MayaScripting: Working with Geometry"
 date:   2019-06-01
 categories: [Python]
 tags: [Python]
