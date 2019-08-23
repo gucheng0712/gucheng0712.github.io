@@ -1,4 +1,4 @@
-  ---
+---
 layout: post
 title:  "MayaScripting: Working with Geometry"
 date:   2019-06-01
