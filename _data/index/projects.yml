@@ -20,7 +20,7 @@
   
 - name: Beyond Atlantis -using TouchDesigner & Arduino
   i18n: p3
-  gh_user: d
+  gh_user: gucheng0712
   repo: Beyond-Atlantis
   demo_url: https://www.bilibili.com/video/av37162148
   img: /static/assets/img/landing/P3.png
