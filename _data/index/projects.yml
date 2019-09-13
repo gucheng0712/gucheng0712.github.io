@@ -70,6 +70,13 @@
   img: /static/assets/img/landing/P6.png
   desc: Modeled and Textured some props for the 3D game art fundmental class.
 
+- name: Fancy House Modelling & Texturing & Rendering - using Maya & Substance Designer & Substance Painter
+  i18n: p11
+  url:
+  img: /static/assets/img/landing/P11.png
+  desc: A Fancy House 3D Creation by using Maya, Substance Deisnger, and Substance Painter. The Reference image is created by an Environmental Artist,OKU in Artstation.  
+
+
 - name: A Tragedy of Little Chicks -using P5.js
   i18n: p1
   gh_user: gucheng0712
