@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Sep 2019 09:15:35 -0700</pubDate>
-    <lastBuildDate>Mon, 16 Sep 2019 09:15:35 -0700</lastBuildDate>
+    <pubDate>Mon, 23 Sep 2019 09:36:14 -0700</pubDate>
+    <lastBuildDate>Mon, 23 Sep 2019 09:36:14 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -599,6 +599,29 @@
         <pubDate>Mon, 10 Jun 2019 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/python/2019/06/10/Setting-up-QtDesigner-for-Maya-Development.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2019/06/10/Setting-up-QtDesigner-for-Maya-Development.html</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>Gif test</title>
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;https://gfycat.com/ifr/AbsoluteTidyAmurminnow&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;iframe src=&quot;https://gfycat.com/ifr/AbsoluteTidyAmurminnow&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;404&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Wed, 05 Jun 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/python/2019/06/05/Test-GIF.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2019/06/05/Test-GIF.html</guid>
         
         <category>Python</category>
         
