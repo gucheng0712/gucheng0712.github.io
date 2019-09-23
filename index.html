@@ -51,18 +51,47 @@ permalink: /
   {% include sections/{{section.tpl}} %}
 </section>
 {% endfor %}
+
+
 <style>
-iframe {
-  -moz-transform: scale(0.25, 0.25);
-  -webkit-transform: scale(0.25, 0.25);
-  -o-transform: scale(0.25, 0.25);
-  -ms-transform: scale(0.25, 0.25);
-  transform: scale(0.25, 0.25);
-  -moz-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  -o-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#center_popup{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
 }
 </style>
-<!-- <iframe src="https://gfycat.com/ifr/absolutefamousfieldmouse" frameborder="0" scrolling="no" width="100%" height="100%" style="position:absolute;top:0;left:0;" allowfullscreen=""></iframe> -->
+
+
+
+<div >
+  <h2>Overlay with Text</h2>
+  <button onclick="overlay_on()">Turn on overlay effect</button>
+</div>
+
+<script>
+function overlay_on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function overlay_off() {
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+

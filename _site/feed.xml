@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Sep 2019 09:36:14 -0700</pubDate>
-    <lastBuildDate>Mon, 23 Sep 2019 09:36:14 -0700</lastBuildDate>
+    <pubDate>Mon, 23 Sep 2019 12:05:11 -0700</pubDate>
+    <lastBuildDate>Mon, 23 Sep 2019 12:05:11 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -608,10 +608,13 @@
       </item>
     
       <item>
-        <title>Gif test</title>
+        <title>Embeded Link Test</title>
         <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;https://gfycat.com/ifr/AbsoluteTidyAmurminnow&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;iframe src=&quot;https://gfycat.com/ifr/AbsoluteTidyAmurminnow&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;404&quot;&gt;&lt;/iframe&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=52461636&amp;amp;cid=91813340&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
 &lt;hr /&gt;
 
 &lt;blockquote&gt;
