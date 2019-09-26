@@ -52,7 +52,7 @@
   gh_user: gucheng0712
   url:
   repo: Animated-LED-Sign
-  demo_url:
+  demo_url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html
   img: /static/assets/img/landing/P7.png
   desc: A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states by using the P5.js with Arduino, as well as doing a lot of fabrication works. It was exhibited at 2018 Annual Showcase.
 
@@ -102,7 +102,7 @@
   demo_url: temp
   img: /static/assets/img/landing/PlaceHolder.png
   desc: Some Character Concepts I created on my free time, for creating 3D models later.
-
+q
 
 - name: Rina Character Creation
   i18n: p12
