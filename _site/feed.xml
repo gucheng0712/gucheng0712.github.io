@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 Sep 2019 15:59:30 -0700</pubDate>
-    <lastBuildDate>Tue, 24 Sep 2019 15:59:30 -0700</lastBuildDate>
+    <pubDate>Wed, 25 Sep 2019 20:36:17 -0700</pubDate>
+    <lastBuildDate>Wed, 25 Sep 2019 20:36:17 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -12056,6 +12056,36 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
       </item>
     
       <item>
+        <title>Animated LED Sign -Dev Journal</title>
+        <description>&lt;p&gt;A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states. It was exhibited at 2018 Annual Showcase.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=48173868&amp;amp;cid=84382509&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html</guid>
+        
+        <category>Unity</category>
+        
+        
+        <category>Dev journal</category>
+        
+        <category>Unity</category>
+        
+        <category>Csharp</category>
+        
+      </item>
+    
+      <item>
         <title>A Tragedy of Little Chicks - Dev Journal</title>
         <description>&lt;p&gt;A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project.&lt;/p&gt;
 
@@ -12065,7 +12095,7 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;also-can-play-it-here-httpsgucheng0712githubioa-tragedy-of-little-chicks-p5js-&quot;&gt;[Also can Play it Here] (https://gucheng0712.github.io/A-Tragedy-of-Little-Chicks-P5.js-/)&lt;/h1&gt;
+&lt;h1 id=&quot;play-it-here&quot;&gt;&lt;a href=&quot;https://gucheng0712.github.io/A-Tragedy-of-Little-Chicks-P5.js-/&quot;&gt;Play it Here&lt;/a&gt;&lt;/h1&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -12075,40 +12105,6 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
         <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Little-Chicks-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Little-Chicks-Dev-Journal.html</guid>
-        
-        <category>AI</category>
-        
-        <category>Python</category>
-        
-        <category>Journal</category>
-        
-        
-        <category>Dev journal</category>
-        
-        <category>Python</category>
-        
-        <category>Ai</category>
-        
-      </item>
-    
-      <item>
-        <title>WISIWYG Dev Journal</title>
-        <description>&lt;p&gt;An immersive interactive installation project that combines visual arts and artificial intelligence.The installation creates interactive artwork and written descriptions by analyzing facial expressions and behavior.Finally, the color and shape of a flowing curve are used to represent the information of the interactor, and then saved into the whole scene.&lt;/p&gt;
-
-&lt;p&gt;As the number of interactions increases, the scene will become a beautiful scene, called weiss’s wig.In this project, we used machine learning algorithms to train artificial neural network models based on the Getty museum’s art collection.In addition, we use data from emotions, age, gender, and how they interact with the screen to create real-time generated graphics. (exhibit at Getty College Night )&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=52461636&amp;amp;cid=91813340&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Lettle-Chicks-Dev-Journal.html</link>
-        <guid isPermaLink="true">http://localhost:4000/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Lettle-Chicks-Dev-Journal.html</guid>
         
         <category>AI</category>
         

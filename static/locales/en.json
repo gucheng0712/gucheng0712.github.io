@@ -20,15 +20,7 @@
     },
     "projects": {
         "my_projects": "Portfolio",
-        "p1": "A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project. ",
-        "p2": "A VR Demo Aimed to reduce the problem of motion sickness, used a third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence. In this Project, I create everything by myself, such as the building blocks, character model, particles, animations, and many game mechanics such as swinging moving, battle system, and wall walking. Also, I created an infinite city generator instead of spending time on level design.",
-        "p3": "A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.",
-        "p4": "An RPG Rhythm Game Demo that collaborated with Game Design & Art Students in the Game Prototype class. Functions Includes Inventory System, Data Saving and Loading, Dialogue, Social Media, Rhythm Gameplay, UI framework, and Storyline, Shopping, Evolving, and so on",
-        "p5": "A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment. ",
-        "p6": "Modeled and Textured some props for the 3D game art fundmental class. Include 'Old Well', 'Lamp', 'Hidden Blade', and 'Roscoe' ",
-        "p7": "An Animated Led Sign built for my Major, be able to send msg to Adafruit and change the Led Animation and the Motor movement states.",
-        "p8": "A Multiplayer AR Game, aimed to create an interactive game which will be like a combination of a marker based “Poké mon Go” Game and Flag Capturing style game. A competitive game that makes players choose a team and try their best to collect the markers around the campus for better score. ",
-        "p9": "An AR basketball shooting game, shoot methods include swap screen and voice command by using Watson API."
+
     },
     "career": {
         "my_career": "My Career",

@@ -17,7 +17,7 @@ A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs
 
 <br/><br/>
 
-# [Also can Play it Here] (https://gucheng0712.github.io/A-Tragedy-of-Little-Chicks-P5.js-/)
+# [Play it Here](https://gucheng0712.github.io/A-Tragedy-of-Little-Chicks-P5.js-/)
 
 
 

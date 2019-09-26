@@ -6,8 +6,8 @@
   i18n: p10
   gh_user: gucheng0712
   repo: WISIWIG
-  url: 
-  demo_url: https://www.bilibili.com/video/av52461636
+  url: https://gucheng0712.github.io/dev%20journal/python/ai/2019/05/12/WISIWYG-Dev-Journal.html
+  demo_url: https://gucheng0712.github.io/dev%20journal/python/ai/2019/05/12/WISIWYG-Dev-Journal.html
   img: /static/assets/img/landing/P10.png
   desc: An immersive interactive installation technology project that combines visual art and AI to analyzes facial expressions and behaviors for creating interactive works of art and text descriptions.
 
@@ -15,8 +15,8 @@
   i18n: p4
   gh_user: gucheng0712
   repo: RhythmRPG
-  url: 
-  demo_url: https://www.bilibili.com/video/av37156808
+  url: https://gucheng0712.github.io/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html
+  demo_url: https://gucheng0712.github.io/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html
   img: /static/assets/img/landing/P4.png
   desc: An RPG Rhythm Game Demo that collaborated with Game Design & Art Students in the Game Prototype class. Functions Includes Inventory System, Data Saving and Loading, Dialogue, Social Media, Rhythm Gameplay, UI framework, and Storyline, Shopping, Evolving, and so on.
   
@@ -24,8 +24,8 @@
   i18n: p3
   gh_user: gucheng0712
   repo: Beyond-Atlantis
-  url:
-  demo_url: https://www.bilibili.com/video/av37162148
+  url: https://gucheng0712.github.io/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html
+  demo_url: https://gucheng0712.github.io/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html
   img: /static/assets/img/landing/P3.png
   desc: A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.
 
@@ -33,24 +33,16 @@
   i18n: p2
   gh_user: gucheng0712
   repo: Suzuka-wants-to-fly
-  url:
-  demo_url: https://www.bilibili.com/video/av37162427
+  url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html
+  demo_url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html
   img: /static/assets/img/landing/P2.png
   desc: A VR Demo Aimed to reduce the problem of motion sickness, used a third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence. In this Project, I create everything by myself, such as the building blocks, character model, particles, animations, and many game mechanics such as swinging moving, wall walking, battle system, and wall walking. Also, I created an infinite city generator instead of spending time on level design.
-  
-- name: NeverLand - Using Unity & Blender
-  i18n: p5
-  url: https://www.bilibili.com/video/av37152972
-  url:
-  demo_url: https://www.bilibili.com/video/av37152972
-  img: /static/assets/img/landing/P5.png
-  desc: A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.
 
 - name: CatBox - using Unity & Node.js & Vuforia
   i18n: p8
   gh_user: gucheng0712
   url:
-  demo_url:
+  demo_url: temp
   repo: CatBox-MultiPlayerAR
   img: /static/assets/img/landing/P8.png
   desc: A Multiplayer AR Game, aimed to create an interactive game which will be like a combination of a marker based “Poké mon Go” Game and Flag Capturing style game. A competitive game that makes players choose a team and try their best to collect the markers around the campus for better score. 
@@ -60,41 +52,64 @@
   gh_user: gucheng0712
   url:
   repo: Animated-LED-Sign
-  demo_url: https://www.bilibili.com/video/av48173868
+  demo_url:
   img: /static/assets/img/landing/P7.png
-  desc: An Animated Led Sign built for my Major, be able to send msg to Adafruit and change the Led Animation and the Motor movement states.
-  
+  desc: A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states by using the P5.js with Arduino, as well as doing a lot of fabrication works. It was exhibited at 2018 Annual Showcase.
+
+
 - name: Voice Basketball Machine - using Unity & Waston & Vuforia
   i18n: p9
   gh_user: gucheng0712
   url:
-  demo_url:
+  demo_url: temp
   repo: AR-BasketballMachine
   img: /static/assets/img/landing/P9.png
   desc: An AR basketball shooting game, shoot methods include swap screen and voice command by using Watson API.
 
-
-- name: 3D Props Modelling & Texturing - using Maya & Quixel & Photoshop
-  i18n: p6
-  url:
-  demo_url:
-  img: /static/assets/img/landing/P6.png
-  desc: Modeled and Textured some props for the 3D game art fundmental class.
-
-- name: Fancy House Modelling & Texturing & Rendering - using Maya & Substance Designer
-  i18n: p11
-  url:
-  demo_url:
-  img: /static/assets/img/landing/P11.png
-  desc: A Fancy House 3D Creation by using Maya, and Substance Deisnger. The Reference image is created by an Environmental Artist,OKU in Artstation.  
-
-
 - name: A Tragedy of Little Chicks -using P5.js
   i18n: p1
   gh_user: gucheng0712
-  url:
+  url: https://gucheng0712.github.io/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Little-Chicks-Dev-Journal.html
   repo: A-Tragedy-of-Little-Chicks-P5.js-
   demo_url: https://gucheng0712.github.io/A-Tragedy-of-Little-Chicks-P5.js-/
   img: /static/assets/img/landing/P1.png
   desc: A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project. 
+
+- name: NeverLand - Using Unity & Blender
+  i18n: p5
+  url: https://gucheng0712.github.io/dev%20journal/unity/2019/05/12/NeverLand-Dev-Journal.html
+  demo_url: https://gucheng0712.github.io/dev%20journal/unity/2019/05/12/NeverLand-Dev-Journal.html 
+  img: /static/assets/img/landing/P5.png
+  desc: A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.
+
+- name: 3D Props Modelling & Texturing - using Maya & Quixel & Photoshop
+  i18n: p6
+  url:
+  demo_url: temp
+  img: /static/assets/img/landing/P6.png
+  desc: 3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.
+
+- name: Fancy House Modelling & Texturing & Rendering - using Maya & Substance Designer
+  i18n: p11
+  url:
+  demo_url: temp
+  img: /static/assets/img/landing/P11.png
+  desc: A Fancy House 3D Creation by using Maya, and Substance Deisnger. The Reference image is created by an Environmental Artist,OKU in Artstation.  
+
+- name: Character Concepts
+  i18n: p11
+  url:
+  demo_url: temp
+  img: /static/assets/img/landing/PlaceHolder.png
+  desc: Some Character Concepts I created on my free time, for creating 3D models later.
+
+
+- name: Rina Character Creation
+  i18n: p12
+  url:
+  demo_url: temp
+  img: /static/assets/img/landing/PlaceHolder.png
+  desc: 3D Character Creation in Development.
+
+
   
