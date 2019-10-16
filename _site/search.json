@@ -3,6 +3,14 @@
     "data" : [
      
     {
+        "title" : "Fancy House Modeling & Texturing & Rendering- Dev Journal - 2019-10-01",
+        "url" : "/dev%20journal/2019/10/01/Fancy-House-Modeling.html"
+    }
+    
+    ,
+    
+    
+    {
         "title" : "MayaScripting: Working with Geometry - 2019-06-20",
         "url" : "/python/2019/06/20/MayaScripting-Working-with-Geometry.html"
     }
@@ -411,8 +419,16 @@
     
     
     {
-        "title" : "A Tragedy of Little Chicks - Dev Journal - 2018-05-12",
-        "url" : "/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Little-Chicks-Dev-Journal.html"
+        "title" : "A Tragedy of Little Chicks - Dev Journal - 2017-12-01",
+        "url" : "/dev%20journal/2017/12/01/A-Tragedy-of-Little-Chicks-Dev-Journal.html"
+    }
+    
+    ,
+    
+    
+    {
+        "title" : "3D Props Modeling&Texturing - Dev Journal - 2017-12-01",
+        "url" : "/dev%20journal/2017/12/01/3D-Props-Modeling.html"
     }
     
     

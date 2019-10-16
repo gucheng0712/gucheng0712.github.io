@@ -5,9 +5,64 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 Sep 2019 01:18:24 -0700</pubDate>
-    <lastBuildDate>Sun, 15 Sep 2019 01:18:24 -0700</lastBuildDate>
+    <pubDate>Tue, 15 Oct 2019 21:12:22 -0700</pubDate>
+    <lastBuildDate>Tue, 15 Oct 2019 21:12:22 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Fancy House Modeling &amp; Texturing &amp; Rendering- Dev Journal</title>
+        <description>&lt;p&gt;A Fancy House 3D Creation by using Maya, and Substance Deisnger. The Reference image is created by an Environmental Artist,OKU in Artstation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;rendered-images&quot;&gt;Rendered Images&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/fancy_house_1.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/fancy_house_2.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/fancy_house_3.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;sketchfab-viewer&quot;&gt;Sketchfab Viewer&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
+    &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/7ea4a9fbd1ae4fea99d43761128c4280/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+&lt;p style=&quot;font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;&quot;&gt;
+    &lt;a href=&quot;https://sketchfab.com/3d-models/fancy-house-model-7ea4a9fbd1ae4fea99d43761128c4280?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Fancy House Model&lt;/a&gt;
+    by &lt;a href=&quot;https://sketchfab.com/q358971933?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Suzuka Chan&lt;/a&gt;
+    on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 01 Oct 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/2019/10/01/Fancy-House-Modeling.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2019/10/01/Fancy-House-Modeling.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+      </item>
     
       <item>
         <title>MayaScripting: Working with Geometry</title>
@@ -599,6 +654,32 @@
         <pubDate>Mon, 10 Jun 2019 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/python/2019/06/10/Setting-up-QtDesigner-for-Maya-Development.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2019/06/10/Setting-up-QtDesigner-for-Maya-Development.html</guid>
+        
+        <category>Python</category>
+        
+        
+        <category>Python</category>
+        
+      </item>
+    
+      <item>
+        <title>Embeded Link Test</title>
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;https://gfycat.com/ifr/AbsoluteTidyAmurminnow&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;iframe src=&quot;https://gfycat.com/ifr/AbsoluteTidyAmurminnow&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;404&quot;&gt;&lt;/iframe&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=52461636&amp;amp;cid=91813340&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Wed, 05 Jun 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/python/2019/06/05/Test-GIF.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/2019/06/05/Test-GIF.html</guid>
         
         <category>Python</category>
         
@@ -1679,6 +1760,68 @@ reload(runMEL)
         
         <category>Unity</category>
         
+        
+        <category>Unity</category>
+        
+      </item>
+    
+      <item>
+        <title>WISIWYG - Dev Journal</title>
+        <description>&lt;p&gt;An immersive interactive installation project that combines visual arts and artificial intelligence.The installation creates interactive artwork and written descriptions by analyzing facial expressions and behavior.Finally, the color and shape of a flowing curve are used to represent the information of the interactor, and then saved into the whole scene.&lt;/p&gt;
+
+&lt;p&gt;As the number of interactions increases, the scene will become a beautiful scene, called weiss’s wig.In this project, we used machine learning algorithms to train artificial neural network models based on the Getty museum’s art collection.In addition, we use data from emotions, age, gender, and how they interact with the screen to create real-time generated graphics. (exhibit at Getty College Night )&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=52461636&amp;amp;cid=91813340&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 12 May 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/python/ai/2019/05/12/WISIWYG-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/python/ai/2019/05/12/WISIWYG-Dev-Journal.html</guid>
+        
+        <category>AI</category>
+        
+        <category>Python</category>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+        <category>Python</category>
+        
+        <category>Ai</category>
+        
+      </item>
+    
+      <item>
+        <title>NeverLand - Dev Journal</title>
+        <description>&lt;p&gt;A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37152972&amp;amp;cid=65290329&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 12 May 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/unity/2019/05/12/NeverLand-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/2019/05/12/NeverLand-Dev-Journal.html</guid>
+        
+        <category>Unity</category>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
         
         <category>Unity</category>
         
@@ -6685,6 +6828,39 @@ It is often rescaled into the range between 0 and 1. This is useful for optimiza
         <category>Python</category>
         
         <category>Ai</category>
+        
+      </item>
+    
+      <item>
+        <title>Troubadour - Dev Journal</title>
+        <description>&lt;p&gt;An RPG rhythm game demo, a game that works with game design and art students in my junior semester game prototype class. A complete game development process from idea and prototype design to completion of Demo development, features include backpacking system, data saving and loading, dialogue, social media, rhythm gameplay, UI framework, storyline, shopping, evolution, etc. And the overall structure of the game.
+ght )&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37156808&amp;amp;cid=65297452&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;detail-journal-link&quot;&gt;&lt;a href=&quot;https://troubadourprototyping.wordpress.com/&quot;&gt;Detail Journal Link&lt;/a&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 05 Dec 2018 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html</guid>
+        
+        <category>Unity</category>
+        
+        <category>Dev journal</category>
+        
+        
+        <category>Unity</category>
+        
+        <category>Dev journal</category>
         
       </item>
     
@@ -11838,14 +12014,42 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
       </item>
     
       <item>
-        <title>Suzuka Wants to Fly Game Development Journal</title>
+        <title>Beyond Atlantis - Dev Journal</title>
+        <description>&lt;p&gt;A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37162148&amp;amp;cid=65307318&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+      </item>
+    
+      <item>
+        <title>Suzuka Wants to Fly Game - Dev Journal</title>
         <description>&lt;p&gt;This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality.&lt;/p&gt;
 
 &lt;p&gt;I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That’s the goal for me to create this project.&lt;/p&gt;
 
 &lt;p&gt;In this Project, I my own third person controling system for my first anime Character called Suzuka, with swinging moving, wall walking, battle system, and wallwalking machanics (compatible with HTC Vive). Also, I created a infinite city generator instead of wasting time on level design.&lt;/p&gt;
 
-&lt;iframe width=&quot;800&quot; height=&quot;600&quot; src=&quot;https://www.bilibili.com/video/av37162427&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37162427&amp;amp;cid=65307506&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h4 id=&quot;1-normal-state-movement&quot;&gt;1. Normal State Movement&lt;/h4&gt;
@@ -11857,13 +12061,19 @@ When player jump or isn’t grounded, he will always look at the camera’s look
   &lt;li&gt;&lt;strong&gt;WallWalking&lt;/strong&gt;: Done with Raycasting and Cross Product.&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;h4 id=&quot;2-battle-state-movement&quot;&gt;2. Battle State Movement&lt;/h4&gt;
 &lt;p&gt;When the player encounter an Enemy, player’s state will change to battle state, and the only way to change state back to normal state is to beat the enemy. Of course, player will not be able to jump, which means he also can’t swing, burst,or walk onto the wall, but he gains weapons from WeaponManager(so far only a hidden blade and a pistol) . Switch weapon can gain different abilities to against enemy.&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;h4 id=&quot;3-infinity-city-generator&quot;&gt;3. Infinity City Generator&lt;/h4&gt;
 &lt;p&gt;Also, I created a infinite city generator instead of using a lot of time on level design. (because Level design is a pain) Done by Raycast from each city to detect if there is another city in the front, right, left, back. and based on the player’s distance between the cities to determine “destroy” or “instantiate” Done by object pool.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h4 id=&quot;4-enemy-ai-behavior-tree&quot;&gt;4. Enemy AI Behavior Tree&lt;/h4&gt;
@@ -11875,6 +12085,8 @@ When player jump or isn’t grounded, he will always look at the camera’s look
   &lt;li&gt;&lt;strong&gt;Die&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;p&gt;Due to the limition of unity’s NavMeshAgent, it cannot support the procedural generating map. I used waypoints as the Enemy’s movement (in the future maybe using A* Pathfinding Algorithm to achieve this challange). 
 I used a Spot light’s angle as the enemy’s detecting range. When the enemy discover the player, he will chase the player. Attacking while being close to the player. Also, in order to prevent enemy go through the wall, I also used LineCast() method to detect if there is something between the player and the enemy when the enemy is chasing the player.&lt;/p&gt;
 
@@ -11884,17 +12096,140 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/game%20dev/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html</link>
-        <guid isPermaLink="true">http://localhost:4000/game%20dev/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html</guid>
+        <link>http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html</guid>
         
         <category>Unity</category>
         
         
-        <category>Game dev</category>
+        <category>Dev journal</category>
         
         <category>Unity</category>
         
         <category>Csharp</category>
+        
+      </item>
+    
+      <item>
+        <title>Animated LED Sign -Dev Journal</title>
+        <description>&lt;p&gt;A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states. It was exhibited at 2018 Annual Showcase.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=48173868&amp;amp;cid=84382509&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html</guid>
+        
+        <category>Unity</category>
+        
+        
+        <category>Dev journal</category>
+        
+        <category>Unity</category>
+        
+        <category>Csharp</category>
+        
+      </item>
+    
+      <item>
+        <title>A Tragedy of Little Chicks - Dev Journal</title>
+        <description>&lt;p&gt;A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37404661&amp;amp;cid=65747228&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;play-it-here&quot;&gt;&lt;a href=&quot;https://gucheng0712.github.io/A-Tragedy-of-Little-Chicks-P5.js-/&quot;&gt;Play it Here&lt;/a&gt;&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 01 Dec 2017 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/dev%20journal/2017/12/01/A-Tragedy-of-Little-Chicks-Dev-Journal.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2017/12/01/A-Tragedy-of-Little-Chicks-Dev-Journal.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+      </item>
+    
+      <item>
+        <title>3D Props Modeling&amp;Texturing - Dev Journal</title>
+        <description>&lt;p&gt;3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
+    &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/f044310ff65243f9b90fa0904025c034/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+&lt;p style=&quot;font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;&quot;&gt;
+    &lt;a href=&quot;https://sketchfab.com/3d-models/well-obj-f044310ff65243f9b90fa0904025c034?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Well Obj&lt;/a&gt;
+    by &lt;a href=&quot;https://sketchfab.com/q358971933?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Suzuka Chan&lt;/a&gt;
+    on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
+    &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/850d5d6a60d84c73bc4f92671a58311b/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+&lt;p style=&quot;font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;&quot;&gt;
+    &lt;a href=&quot;https://sketchfab.com/3d-models/pistol-obj-850d5d6a60d84c73bc4f92671a58311b?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Pistol Obj&lt;/a&gt;
+    by &lt;a href=&quot;https://sketchfab.com/q358971933?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Suzuka Chan&lt;/a&gt;
+    on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
+    &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/306f4873f81640018ef470355901457a/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+&lt;p style=&quot;font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;&quot;&gt;
+    &lt;a href=&quot;https://sketchfab.com/3d-models/hidden-blade-306f4873f81640018ef470355901457a?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Hidden Blade&lt;/a&gt;
+    by &lt;a href=&quot;https://sketchfab.com/q358971933?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Suzuka Chan&lt;/a&gt;
+    on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
+    &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/67cac456308d4999924c0df1e1acc22f/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
+
+&lt;p style=&quot;font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;&quot;&gt;
+    &lt;a href=&quot;https://sketchfab.com/3d-models/lamp-obj-67cac456308d4999924c0df1e1acc22f?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Lamp Obj&lt;/a&gt;
+    by &lt;a href=&quot;https://sketchfab.com/q358971933?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Suzuka Chan&lt;/a&gt;
+    on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 01 Dec 2017 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/dev%20journal/2017/12/01/3D-Props-Modeling.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2017/12/01/3D-Props-Modeling.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
         
       </item>
     

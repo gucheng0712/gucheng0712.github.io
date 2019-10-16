@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://localhost:4000/dev%20journal/2019/10/01/Fancy-House-Modeling.html</loc>
+    </url>
+
+    <url>
         <loc>http://localhost:4000/python/2019/06/20/MayaScripting-Working-with-Geometry.html</loc>
     </url>
 
@@ -206,7 +210,11 @@
     </url>
 
     <url>
-        <loc>http://localhost:4000/dev%20journal/python/ai/2018/05/12/A-Tragedy-of-Little-Chicks-Dev-Journal.html</loc>
+        <loc>http://localhost:4000/dev%20journal/2017/12/01/A-Tragedy-of-Little-Chicks-Dev-Journal.html</loc>
+    </url>
+
+    <url>
+        <loc>http://localhost:4000/dev%20journal/2017/12/01/3D-Props-Modeling.html</loc>
     </url>
 
 

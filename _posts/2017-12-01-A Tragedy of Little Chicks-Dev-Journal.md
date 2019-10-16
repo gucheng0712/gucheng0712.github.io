@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "A Tragedy of Little Chicks - Dev Journal"
-date:   2018-05-12
+date:   2017-12-1
 desc: "A web game Inspired by Snake VS Block."
-keywords: "Python, Ai"
-categories: [Dev journal, Python, Ai]
-tags: [AI, Python, Journal]
-icon: icon-unity
+keywords: "Javascript"
+categories: [Dev journal]
+tags: [Journal]
+icon: icon-JavaScript
 ---
 
 A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project.

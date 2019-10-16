@@ -42,7 +42,7 @@
   i18n: p8
   gh_user: gucheng0712
   url:
-  demo_url: temp
+  #demo_url: temp
   repo: CatBox-MultiPlayerAR
   img: /static/assets/img/landing/P8.png
   desc: A Multiplayer AR Game, aimed to create an interactive game which will be like a combination of a marker based “Poké mon Go” Game and Flag Capturing style game. A competitive game that makes players choose a team and try their best to collect the markers around the campus for better score. 
@@ -61,7 +61,7 @@
   i18n: p9
   gh_user: gucheng0712
   url:
-  demo_url: temp
+  #demo_url: temp
   repo: AR-BasketballMachine
   img: /static/assets/img/landing/P9.png
   desc: An AR basketball shooting game, shoot methods include swap screen and voice command by using Watson API.
@@ -82,33 +82,46 @@
   img: /static/assets/img/landing/P5.png
   desc: A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.
 
-- name: 3D Props Modelling & Texturing - using Maya & Quixel & Photoshop
+- name: 3D Props - using Maya & Quixel & Photoshop
   i18n: p6
   url:
-  demo_url: temp
+  demo_url: https://gucheng0712.github.io/dev%20journal/2017/12/01/3D-Props-Modeling.html
   img: /static/assets/img/landing/P6.png
   desc: 3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.
 
-- name: Fancy House Modelling & Texturing & Rendering - using Maya & Substance Designer
+- name: Fancy House - using Maya & Arnold & Substance
   i18n: p11
   url:
-  demo_url: temp
+  demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/01/Fancy-House-Modeling.html
   img: /static/assets/img/landing/P11.png
   desc: A Fancy House 3D Creation by using Maya, and Substance Deisnger. The Reference image is created by an Environmental Artist,OKU in Artstation.  
 
-- name: Character Concepts
-  i18n: p11
+- name: Kinki Restaurant - Maya & Arnold & Substance
+  i18n: p12
   url:
   demo_url: temp
   img: /static/assets/img/landing/PlaceHolder.png
-  desc: Some Character Concepts I created on my free time, for creating 3D models later.
+  desc: An Interior Modeling, Texturing and Rendering for a Japanese Restaurant Kinki in Maya and Arnold.  
 
-- name: Rina Character Creation
-  i18n: p12
+- name: Character Concepts - Photoshop
+  i18n: p13
+  url:
+  demo_url: temp
+  img: /static/assets/img/landing/PlaceHolder.png
+  desc: Some Character Reference Images I created with Tablet in Photoshop.
+
+- name: Rina -using Maya & Zbrush & MarvelousDesigner & Substance
+  i18n: p14
   url:
   demo_url: temp
   img: /static/assets/img/landing/PlaceHolder.png
   desc: 3D Character Creation in Development.
 
+- name: Combat-Behavior System - Unity & Odin
+  i18n: p15
+  url:
+  demo_url: temp
+  img: /static/assets/img/landing/PlaceHolder.png
+  desc: An Action Game Creation tool will be created as my final year project.
 
   
