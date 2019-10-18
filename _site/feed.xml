@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Oct 2019 21:12:22 -0700</pubDate>
-    <lastBuildDate>Tue, 15 Oct 2019 21:12:22 -0700</lastBuildDate>
+    <pubDate>Thu, 17 Oct 2019 23:29:45 -0700</pubDate>
+    <lastBuildDate>Thu, 17 Oct 2019 23:29:45 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -12019,7 +12019,12 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37162148&amp;amp;cid=65307318&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;iframe src=&quot;https://gfycat.com/ifr/LeafyImpressiveAurochs&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;320&quot; height=&quot;590&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;iframe src=&quot;https://gfycat.com/ifr/TensePalatableChuckwalla&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;472&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt; &lt;a href=&quot;https://gfycat.com/tensepalatablechuckwalla&quot;&gt;via Gfycat&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -12173,6 +12178,14 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
         <description>&lt;p&gt;3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;old-well&quot;&gt;Old Well&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/Well.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
     &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/f044310ff65243f9b90fa0904025c034/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
 
@@ -12182,6 +12195,14 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
     on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;revolve-pistol&quot;&gt;Revolve Pistol&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/Revolve Pistol.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
@@ -12195,6 +12216,14 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
 &lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;hidden-blade&quot;&gt;Hidden Blade&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/HiddenBlade.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
     &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/306f4873f81640018ef470355901457a/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
 
@@ -12205,6 +12234,14 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;lamp&quot;&gt;Lamp&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;   
+&lt;img src=&quot;/static/assets/img/blog/Lamp.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
 
 &lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;
     &lt;iframe title=&quot;A 3D model&quot; width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/67cac456308d4999924c0df1e1acc22f/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;

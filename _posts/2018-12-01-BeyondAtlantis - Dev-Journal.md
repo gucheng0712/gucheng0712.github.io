@@ -13,7 +13,14 @@ A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this projec
 
 <br/><br/>
 
-<div style='position:relative; padding-bottom:calc(56.25% + 44px)'><iframe src="//player.bilibili.com/player.html?aid=37162148&cid=65307318&page=1"  frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div> 
+<iframe src='https://gfycat.com/ifr/LeafyImpressiveAurochs' frameborder='0' scrolling='no' allowfullscreen width='320' height='590'></iframe>
+
+
+<br/><br/>
+
+
+<iframe src='https://gfycat.com/ifr/TensePalatableChuckwalla' frameborder='0' scrolling='no' allowfullscreen width='640' height='472'></iframe><p> <a href="https://gfycat.com/tensepalatablechuckwalla">via Gfycat</a></p>
+
 
 ---
 >**End --Cheng Gu**

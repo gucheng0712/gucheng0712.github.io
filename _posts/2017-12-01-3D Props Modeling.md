@@ -12,6 +12,14 @@ icon: icon-maya
 3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.
 
 <br/><br/>
+
+## Old Well
+
+<p align="center">   
+<img src="/static/assets/img/blog/Well.png" width="80%">
+</p>
+
+<br/><br/>
 <div class="sketchfab-embed-wrapper">
     <iframe title="A 3D model" width="640" height="480" src="https://sketchfab.com/models/f044310ff65243f9b90fa0904025c034/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
@@ -21,6 +29,15 @@ icon: icon-maya
     on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
 </p>
 </div>
+
+
+<br/><br/>
+
+## Revolve Pistol
+
+<p align="center">   
+<img src="/static/assets/img/blog/Revolve Pistol.png" width="80%">
+</p>
 
 <br/><br/>
 <div class="sketchfab-embed-wrapper">
@@ -33,6 +50,16 @@ icon: icon-maya
 </p>
 </div>
 
+
+<br/><br/>
+
+## Hidden Blade
+
+<p align="center">   
+<img src="/static/assets/img/blog/HiddenBlade.png" width="80%">
+</p>
+
+
 <br/><br/>
 <div class="sketchfab-embed-wrapper">
     <iframe title="A 3D model" width="640" height="480" src="https://sketchfab.com/models/306f4873f81640018ef470355901457a/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -44,6 +71,16 @@ icon: icon-maya
 </p>
 </div>
 <br/><br/>
+
+
+
+<br/><br/>
+
+## Lamp
+
+<p align="center">   
+<img src="/static/assets/img/blog/Lamp.png" width="80%">
+</p>
 
 
 <div class="sketchfab-embed-wrapper">
