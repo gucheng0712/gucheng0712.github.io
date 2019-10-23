@@ -19,7 +19,7 @@
   demo_url: https://gucheng0712.github.io/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html
   img: /static/assets/img/landing/P4.png
   desc: An RPG Rhythm Game Demo that collaborated with Game Design & Art Students in the Game Prototype class. Functions Includes Inventory System, Data Saving and Loading, Dialogue, Social Media, Rhythm Gameplay, UI framework, and Storyline, Shopping, Evolving, and so on.
-  
+
 - name: (2017 Fall) Beyond Atlantis -using TouchDesigner & Arduino
   i18n: p3
   gh_user: gucheng0712
@@ -117,11 +117,21 @@
   img: /static/assets/img/landing/PlaceHolder.png
   desc: 3D Character Creation in Development.
 
-- name: (2019) Combat-Behavior System - Unity & Odin
+- name: (2019-2020) FancyToon - using Unity
+  i18n: p16s
+  gh_user: gucheng0712
+  repo: FancyToon
+  url: https://gucheng0712.github.io/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html
+  demo_url: temps
+  img: /static/assets/img/landing/PlaceHolder.png
+  desc: A self-created Toon/Anime Shader for achieving a good looking cartoon rendering. The Features include View and Distance Based Outline, Fully Customized Cartoon Lighting Model based based on Ceil Rendering, View Based Rim Effect, Specular Mask, Custom Shadow Color, Normal Map Support, Stencil Features, MatCap & ShadeCap Support, Multi-Light Support.
+  
+
+- name: (2019-2020) Combat-Behavior System - Unity & Odin
   i18n: p15
   url:
   demo_url: temp
   img: /static/assets/img/landing/PlaceHolder.png
-  desc: An Action Game Creation tool will be created as my final year project.
+  desc: Combat-Behavior System is a flexible visualized action game creation toolkit will be created as my final year project. The features include Real-time Visualized Node Based Behavior-Tree Editor, customized BehaviorAction EditorWindow, Easily Functions customization, Followed by MVC Design Pattern for separate Model, View, Controller. 
 
   
