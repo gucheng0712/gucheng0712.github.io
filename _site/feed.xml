@@ -5,9 +5,41 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Oct 2019 18:53:42 -0700</pubDate>
-    <lastBuildDate>Tue, 22 Oct 2019 18:53:42 -0700</lastBuildDate>
+    <pubDate>Tue, 22 Oct 2019 21:49:11 -0700</pubDate>
+    <lastBuildDate>Tue, 22 Oct 2019 21:49:11 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Kinki Restaurant - Dev Journal</title>
+        <description>&lt;p&gt;A 3D Interior Creation, Texturing and Rendering for a Japanese Restaurant Kinki in Maya and Arnold.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;   
+&lt;iframe src=&quot;https://gfycat.com/ifr/SmartShortDegus&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;402&quot;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=73121791&amp;amp;cid=125068377&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 22 Oct 2019 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/2019/10/22/Kinki-Restaurant.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2019/10/22/Kinki-Restaurant.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+      </item>
     
       <item>
         <title>Fancy House Modeling &amp; Texturing &amp; Rendering- Dev Journal</title>
@@ -12018,13 +12050,15 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
         <description>&lt;p&gt;A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
+&lt;p align=&quot;center&quot;&gt; 
 &lt;iframe src=&quot;https://gfycat.com/ifr/LeafyImpressiveAurochs&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;320&quot; height=&quot;590&quot;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;iframe src=&quot;https://gfycat.com/ifr/TensePalatableChuckwalla&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;472&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt; &lt;a href=&quot;https://gfycat.com/tensepalatablechuckwalla&quot;&gt;via Gfycat&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt; 
+&lt;iframe src=&quot;https://gfycat.com/ifr/TensePalatableChuckwalla&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;472&quot;&gt;&lt;/iframe&gt;&lt;p&gt; &lt;a href=&quot;https://gfycat.com/tensepalatablechuckwalla&quot;&gt;via Gfycat&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
