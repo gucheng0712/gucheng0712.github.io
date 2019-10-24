@@ -13,12 +13,6 @@ A 3D Interior Creation, Texturing and Rendering for a Japanese Restaurant Kinki 
 
 <br/><br/>
 
-<p align="center">   
-<iframe src='https://gfycat.com/ifr/SmartShortDegus' frameborder='0' scrolling='no' allowfullscreen width='640' height='402'></iframe>
-</p>
-
-<br/><br/>
-
 <div style='position:relative; padding-bottom:calc(56.25% + 44px)'><iframe src="//player.bilibili.com/player.html?aid=73121791&cid=125068377&page=1" frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div> 
 
 
