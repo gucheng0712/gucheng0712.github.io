@@ -12,9 +12,7 @@ Some Character Drawings I created with Tablet in Photoshop.
 
 <br/><br/>
 
-<iframe src='https://gfycat.com/ifr/GentleKindlyFrenchbulldog' frameborder='0' scrolling='no' allowfullscreen width='640' height='471'></iframe>
-
-
+<iframe src='https://gfycat.com/ifr/BetterWhimsicalGrackle' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe>
 <br/><br/>
 
 ---
