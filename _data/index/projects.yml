@@ -65,6 +65,16 @@
   desc: A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states by using the P5.js with Arduino, as well as doing a lot of fabrication works. It was exhibited at 2018 Annual Showcase.
 
 
+- name: (2019-2020) FancyToon - using Unity
+  i18n: p16
+  gh_user: gucheng0712
+  #repo: FancyToon
+  #url: temp
+  #demo_url: temps
+  img: /static/assets/img/landing/P16.png
+  desc: An indevelopment Toon/Anime Shader project inspried by Mihoyo's NextGen-Toon Rendering presentation. The goal is to achieve a stylized standard looking in cartoon/anime rendering for my character and be optimized in any games. The Features include View and Distance Based Outline, Fully Customized Cartoon Lighting Model based based on Ceil Rendering, View Based Rim Effect, Specular Mask, Custom Shadow Color, Normal Map Support, Stencil Features, MatCap & ShadeCap Support, Multi-Light Support.
+  
+
 - name: (2018 Fall) Voice Basketball Machine - using Unity & Waston & Vuforia
   i18n: p9
   gh_user: gucheng0712
@@ -118,16 +128,6 @@
 #   img: /static/assets/img/landing/P13.png
 #   desc: Some Character drawing I created with Tablet in Photoshop on my free time for making 3D Model in the future.
 
-
-- name: (2019-2020) FancyToon - using Unity
-  i18n: p16
-  gh_user: gucheng0712
-  #repo: FancyToon
-  #url: temp
-  #demo_url: temps
-  img: /static/assets/img/landing/P16.png
-  desc: An indevelopment Toon/Anime Shader project inspried by Mihoyo's NextGen-Toon Rendering presentation. The goal is to achieve a stylized standard looking in cartoon/anime rendering for my character and be optimized in any games. The Features include View and Distance Based Outline, Fully Customized Cartoon Lighting Model based based on Ceil Rendering, View Based Rim Effect, Specular Mask, Custom Shadow Color, Normal Map Support, Stencil Features, MatCap & ShadeCap Support, Multi-Light Support.
-  
 
 - name: (2019-2020) Combat-Behavior System - Unity & Odin
   i18n: p15
