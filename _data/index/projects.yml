@@ -44,8 +44,8 @@
   url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html
   demo_url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html
   img: /static/assets/img/landing/P2.png
-  desc: A VR Demo Aimed to reduce the problem of motion sickness, used a third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence. In this Project, I create everything by myself, such as the building blocks, character model, particles, animations, and many game mechanics such as swinging moving, wall walking, battle system, and wall walking. Also, I created an infinite city generator instead of spending time on level design.
-
+  desc: A VR Demo Aimed to reduce the problem of motion sickness, used a self create third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence, features includes, FSM for Character Movement, such as wallwalking, third person free style, battle movement and so on. 
+  
 - name: (2018 Fall) CatBox- using Unity & Node.js & Vuforia
   i18n: p8
   gh_user: gucheng0712
