@@ -103,19 +103,19 @@
   img: /static/assets/img/landing/P12.png
   desc: An Interior Modeling, Texturing and Rendering for a Japanese Restaurant Kinki in Maya and Arnold.  
 
-- name: Character Drawings - Photoshop
-  i18n: p13
-  url:
-  demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/24/CharacterConcepts.html
-  img: /static/assets/img/landing/P13.png
-  desc: Some Character drawing I created with Tablet in Photoshop on my free time for making 3D Model in the future.
+# - name: Character Drawings - Photoshop
+#   i18n: p13
+#   url:
+#   demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/24/CharacterConcepts.html
+#   img: /static/assets/img/landing/P13.png
+#   desc: Some Character drawing I created with Tablet in Photoshop on my free time for making 3D Model in the future.
 
-- name: Rina -using Maya & Zbrush & DAZ & MarvelousDesigner & Substance
+- name: Rina -using Maya & Zbrush & MarvelousDesigner & Substance
   i18n: p14
   url:
-  demo_url: temp
+  demo_url: https://gucheng0712.github.io/dev%20journal/2019/01/06/Rina-Creation.html
   img: /static/assets/img/landing/P14.png
-  desc: Using varity of softwares to create a 3D Character based on my character reference drawing on my free time. Haven't textured yet.
+  desc: A female samurai character creation during my free time. Using many different kinds of software to increase the workflow, includes, Maya, Zbrush, Substance Suites, RizomUV, Photoshop, Marmoset Toolbag, Marvelous Designer.
 
 - name: (2019-2020) FancyToon - using Unity
   i18n: p16
