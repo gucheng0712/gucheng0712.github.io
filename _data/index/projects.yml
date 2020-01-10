@@ -129,11 +129,11 @@
 #   desc: Some Character drawing I created with Tablet in Photoshop on my free time for making 3D Model in the future.
 
 
-- name: (2019-2020) Combat-Behavior System - Unity & Odin
+- name: (2019-2020) CombatDesigner - Unity & Odin
   i18n: p15
   #url:
   #demo_url: temp
-  img: /static/assets/img/landing/PlaceHolder.png
-  desc: Combat-Behavior System is a flexible visualized action game creation toolkit will be created as my final year project. The features include Real-time Visualized Node Based Behavior-Tree Editor, customized BehaviorAction EditorWindow, Easily Functions customization, Followed by MVC Design Pattern for separate Model, View, Controller. 
+  img: /static/assets/img/landing/P15.png
+  desc: CombatDesigner is the final year research project on creating an easy extensible role framework.
 
   
