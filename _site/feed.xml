@@ -5,9 +5,147 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Nov 2019 00:08:31 -0800</pubDate>
-    <lastBuildDate>Fri, 08 Nov 2019 00:08:31 -0800</lastBuildDate>
+    <pubDate>Wed, 29 Jan 2020 02:04:46 -0800</pubDate>
+    <lastBuildDate>Wed, 29 Jan 2020 02:04:46 -0800</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>IEnumerable and IEnumerator</title>
+        <description>&lt;p&gt;IEnumerable and IEnumerator both are interfaces in C#.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt; is an interface defining a single method &lt;code class=&quot;highlighter-rouge&quot;&gt;GetEnumerator()&lt;/code&gt; that returns an IEnumerator interface.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerator&lt;/code&gt; has two methods &lt;code class=&quot;highlighter-rouge&quot;&gt;MoveNext()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Reset()&lt;/code&gt;. It also has a property called &lt;code class=&quot;highlighter-rouge&quot;&gt;Current&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;1-foreach-and-enumerables&quot;&gt;1. Foreach and Enumerables&lt;/h4&gt;
+
+&lt;p&gt;Unlike &lt;code class=&quot;highlighter-rouge&quot;&gt;for loop&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;foreach loop&lt;/code&gt; is not specifiying the exact index  A foreach statement is basically implemented by IEnumerable and IEnumerator.&lt;/p&gt;
+
+&lt;p&gt;A Common for loop statement:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Output:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   1
+   2
+   3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A Common foreach statement:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Output:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   1
+   2
+   3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With IEnumerable and IEnumerator&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enumerator&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetEnumerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enumerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;MoveNext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enumerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Output:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   1
+   2
+   3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;2-examples&quot;&gt;2. Examples&lt;/h4&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Demo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IEnumerator&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// IEnumerable method GetEnumerator()&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;IEnumerator&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetEnumerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotImplementedException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Current&lt;/span&gt; 
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotImplementedException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// IEnumertor method&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MoveNext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotImplementedException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// IEnumertor method&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotImplementedException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Mon, 20 Jan 2020 17:00:05 -0800</pubDate>
+        <link>http://localhost:4000/csharp/2020/01/20/IEnumerable-and-IEnumerator.html</link>
+        <guid isPermaLink="true">http://localhost:4000/csharp/2020/01/20/IEnumerable-and-IEnumerator.html</guid>
+        
+        <category>Csharp</category>
+        
+        
+        <category>Csharp</category>
+        
+      </item>
+    
+      <item>
+        <title>Rina Creation - Dev Journal</title>
+        <description>&lt;p&gt;A female samurai character creation during my free time. Using many different kinds of software to increase the workflow, includes, Maya, Zbrush, Substance Suites, RizomUV, Photoshop, Marmoset Toolbag, Marvelous Designer.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=82418948&amp;amp;cid=141018457&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;h2&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/dev%20journal/2020/01/06/Rina-Creation.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2020/01/06/Rina-Creation.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+      </item>
     
       <item>
         <title>Character Concepts - Dev Journal</title>
@@ -7873,7 +8011,7 @@ Once a model’s vertices have been transformed into camera space, they will als
     &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Fragment Shader&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: Fully &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;programmable&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;. Use interpolated shading data as input and output one or more color values for the next phase. At this stage, GPU execution can be controlled by programming. The most commonly used technology in this stage is texture technology.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Per-Fragment Operation&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: The &lt;code class=&quot;highlighter-rouge&quot;&gt;Color value&lt;/code&gt; for each pixel is &lt;code class=&quot;highlighter-rouge&quot;&gt;stored&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Color Buffer&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;merged&lt;/code&gt; at this stage. This stage is &lt;code class=&quot;highlighter-rouge&quot;&gt;not completely programmable&lt;/code&gt;, but can be configured to produce different effects. In detail includes:&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Per-Fragment Operation&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: The &lt;code class=&quot;highlighter-rouge&quot;&gt;Color value&lt;/code&gt; for each pixel is &lt;code class=&quot;highlighter-rouge&quot;&gt;stored&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Color Buffer(a rectangular array of RGB colors)&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;merged&lt;/code&gt; at this stage. This stage is &lt;code class=&quot;highlighter-rouge&quot;&gt;not completely programmable&lt;/code&gt;, but can be configured to produce different effects. In detail includes:&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;
@@ -7886,10 +8024,10 @@ Once a model’s vertices have been transformed into camera space, they will als
         &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Alpha Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: When the final color of a fragment is calculated, an application may also calculate an alpha value that usually represents the degree of transparency associated with the fragment. &lt;strong&gt;&lt;em&gt;The alpha test compares the final alpha value of a fragment to a constant value that is preset by the application.&lt;/em&gt;&lt;/strong&gt; The application can specifies what relationship between the two values (such as less than, greater than, or equal to) causes the test to pass. If the relationship is not satisfied, then the fragment is discarded.&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stencil Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;:  The stencil test reads the value &lt;code class=&quot;highlighter-rouge&quot;&gt;stored in the stencil buffer&lt;/code&gt; at a fragment’s location and compares it to a value previously specified by the application. &lt;strong&gt;&lt;em&gt;The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Stencil Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;:  The stencil test reads the value stored in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Stencil Buffer(an offscreen buffer used to record the locations of the rendered primitive)&lt;/code&gt; at a fragment’s location and compares it to a value previously specified by the application. &lt;strong&gt;&lt;em&gt;The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Depth Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: The depth Test compares the &lt;code class=&quot;highlighter-rouge&quot;&gt;final depth&lt;/code&gt; associated with a fragment to the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; currently &lt;code class=&quot;highlighter-rouge&quot;&gt;stored&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;.&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Depth Test&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: The depth Test compares the &lt;code class=&quot;highlighter-rouge&quot;&gt;final depth&lt;/code&gt; associated with a fragment to the &lt;code class=&quot;highlighter-rouge&quot;&gt;value&lt;/code&gt; currently &lt;code class=&quot;highlighter-rouge&quot;&gt;stored&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;depth buffer&lt;/code&gt;, it is also called &lt;code class=&quot;highlighter-rouge&quot;&gt;Z-Buffer&lt;/code&gt;. A z-buffer is the same size and shape as the color buffer, and for each pixel it stores the z-value to the currently closest primitive. This means that when a primitive is being rendered to a certain pixel, the z-value on that primitive at that pixel is being computed and compared to the contents of the z-buffer at the same pixel. If the new z-value is smaller than the z-value in the z-buffer, then the primitive that is being rendered is the one which is closer to the camera.&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Blending&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: Once the pixel ownership test, scissor test, alpha test, stencil test, and depth test have all passed, a fragment’s final color is blended into the &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;image buffer&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;. 
@@ -11612,15 +11750,31 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 &lt;p align=&quot;center&quot;&gt;   
-&lt;img src=&quot;/static/assets/img/blog/matrix_rts.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/srt.png&quot; width=&quot;80%&quot; /&gt;
 &lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h4 id=&quot;1-translate-t&quot;&gt;1. Translate (T)&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/t.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/t.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/p&gt;
 
-&lt;p&gt;eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)&lt;/p&gt;
+&lt;p&gt;A change from one location to another is represented by a translation matrix, T. This matrix translates an entity by a vector $t = (tx, ty, tz)$. $T$ is given below by&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/translate.png&quot; width=&quot;40%&quot; /&gt;
+&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;  
+Note: The square on the left is transformed with a translation matrix T(5, 2, 0), whereby the square is moved 5 distance units to the right and 2 upward.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Code Example: Translate (3, -2, 1.5) from a start point (2, 3, 5)&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Matrix4x4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vector4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -11661,13 +11815,35 @@ After Translate:
 
 &lt;hr /&gt;
 &lt;h4 id=&quot;2-rotate-r&quot;&gt;2. Rotate (R)&lt;/h4&gt;
-&lt;p&gt;(1) Rotate Along X-Axis:
-In 3D, when P(x,y,z) rotate along the x-axis and got P’(x’,y’,z’). x will not change. the Y and Z composite a plane with O (the origin) - &lt;strong&gt;&lt;em&gt;YOZ&lt;/em&gt;&lt;/strong&gt; so:
-   x′=x 
-   y′=ycosθ−zsinθ 
-   z′=ysinθ+zcosθ&lt;/p&gt;
 
-&lt;p&gt;Normally use Matrix4X4 represent this transformation:&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/matrixRot.png&quot; width=&quot;25%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;In two dimensions, the rotation matrix is simple to derive. Assume that we have
+a vector, $v = (v_x, v_y)$, which we parameterize as $v = (v_x, v_y) = (r cos \theta, r sin \theta)$. If we were to rotate that vector by $\phi$ radians (counterclockwise), then we would get $u = (r cos(\theta + \phi), r sin(\theta + \phi))$. This can be rewritten as&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    u = \begin{bmatrix} 
+        rcos(\theta+\phi) \\
+        rsin(\theta+\phi)
+    \end{bmatrix} = 
+    \begin{bmatrix} 
+        r(cos\theta cos\phi - sin\theta sin\phi) \\
+        r(sin\theta cos\phi + cos\theta sin\phi) 
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        cos\phi &amp;amp; -sin\phi \\
+        sin\phi &amp;amp; cos\phi
+    \end{bmatrix} 
+    \begin{bmatrix} 
+        r cos\theta \\
+        r sin\theta
+    \end{bmatrix} = 
+    R(\phi)v
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;(1) Rotate Along X-Axis:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/r_x.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
 
@@ -11690,10 +11866,21 @@ when P(x,y,z) rotate along the y-axis got P’(x’,y’,z’). y will not chang
 
 &lt;p&gt;So, when rotating along y-axis,&lt;/p&gt;
 
-&lt;p&gt;it should transpose from [x y z 1] =&amp;gt;
-&lt;img src=&quot;/static/assets/img/blog/y_r_format.png&quot; width=&quot;10%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;it should transpose from $
+    \begin{bmatrix} 
+        x &amp;amp; y &amp;amp; z &amp;amp; 1
+    \end{bmatrix} =&amp;gt;
+      \begin{bmatrix} 
+        x \\ 
+        y \\ 
+        z \\
+         1
+    \end{bmatrix}
+$&lt;/p&gt;
 
-&lt;p&gt;eg: rotate along respectively x, y, z 30 degree:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Code Example: Rotate along respectively x, y, z 30 degree&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;Matrix4x4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Vector4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;

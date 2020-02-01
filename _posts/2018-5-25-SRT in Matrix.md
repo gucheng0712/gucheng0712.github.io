@@ -15,15 +15,29 @@ It is not only complicated but also inefficient. We can combine multiple transfo
 >Important Note: The order of Transformation does affect the result. In most cases, The order of Matrix Transformation is ***Scale -> Rotate -> Translate***. 
 
 <p align="center">   
-<img src="/static/assets/img/blog/matrix_rts.png" width="80%">
+<img src="/static/assets/img/blog/srt.png" width="80%">
 </p>
 
 ---
 #### 1. Translate (T)
 
-<img src="/static/assets/img/blog/t.png" width="30%">
+<p align="center">  
+<img src="/static/assets/img/blog/t.png" width="40%">
+</p>
 
-eg:Translate (3, -2, 1.5) from a start point (2, 3, 5)
+A change from one location to another is represented by a translation matrix, T. This matrix translates an entity by a vector $t = (tx, ty, tz)$. $T$ is given below by
+
+<p align="center">  
+<img src="/static/assets/img/blog/translate.png" width="40%">
+</p>
+<p align="center">  
+Note: The square on the left is transformed with a translation matrix T(5, 2, 0), whereby the square is moved 5 distance units to the right and 2 upward.
+</p>
+
+<br>
+<br>
+
+> Code Example: Translate (3, -2, 1.5) from a start point (2, 3, 5)
 
 ```csharp
     public Matrix4x4 matrix;
@@ -64,13 +78,36 @@ After Translate:
 
 ---
 #### 2. Rotate (R)
+
+
+<p align="center">  
+<img src="/static/assets/img/blog/matrixRot.png" width="25%">
+</p>
+
+In two dimensions, the rotation matrix is simple to derive. Assume that we have
+a vector, $v = (v_x, v_y)$, which we parameterize as $v = (v_x, v_y) = (r cos \theta, r sin \theta)$. If we were to rotate that vector by $\phi$ radians (counterclockwise), then we would get $u = (r cos(\theta + \phi), r sin(\theta + \phi))$. This can be rewritten as
+
+\begin{equation}
+    u = \begin{bmatrix} 
+        rcos(\theta+\phi) \\\
+        rsin(\theta+\phi)
+    \end{bmatrix} = 
+    \begin{bmatrix} 
+        r(cos\theta cos\phi - sin\theta sin\phi) \\\
+        r(sin\theta cos\phi + cos\theta sin\phi) 
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        cos\phi & -sin\phi \\\
+        sin\phi & cos\phi
+    \end{bmatrix} 
+    \begin{bmatrix} 
+        r cos\theta \\\
+        r sin\theta
+    \end{bmatrix} = 
+    R(\phi)v
+\end{equation}
+
 (1) Rotate Along X-Axis:
-In 3D, when P(x,y,z) rotate along the x-axis and got P'(x',y',z'). x will not change. the Y and Z composite a plane with O (the origin) - ***YOZ*** so:
-   x′=x 
-   y′=ycosθ−zsinθ 
-   z′=ysinθ+zcosθ 
-   
-Normally use Matrix4X4 represent this transformation: 
 
 <img src="/static/assets/img/blog/r_x.png" width="30%">
 
@@ -91,10 +128,20 @@ Above Described the roation in matrix. These three are all similar except rotati
 
 So, when rotating along y-axis,
 
-it should transpose from [x y z 1] =>
-<img src="/static/assets/img/blog/y_r_format.png" width="10%">
+it should transpose from $
+    \begin{bmatrix} 
+        x & y & z & 1
+    \end{bmatrix} =>
+      \begin{bmatrix} 
+        x \\\ 
+        y \\\ 
+        z \\\
+         1
+    \end{bmatrix}
+$
 
-eg: rotate along respectively x, y, z 30 degree:
+
+>Code Example: Rotate along respectively x, y, z 30 degree
 
 ```csharp
     Matrix4x4 matrix;

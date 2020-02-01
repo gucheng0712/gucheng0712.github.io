@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://localhost:4000/csharp/2020/01/20/IEnumerable-and-IEnumerator.html</loc>
+    </url>
+
+    <url>
+        <loc>http://localhost:4000/dev%20journal/2020/01/06/Rina-Creation.html</loc>
+    </url>
+
+    <url>
         <loc>http://localhost:4000/dev%20journal/2019/10/24/CharacterConcepts.html</loc>
     </url>
 

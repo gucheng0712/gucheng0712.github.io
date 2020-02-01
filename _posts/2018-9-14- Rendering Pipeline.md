@@ -90,7 +90,7 @@ In `Rasterization Stage`, GPU will use the data passed in the previous stage(Geo
 
 3. ***`Fragment Shader`***: Fully ***`programmable`***. Use interpolated shading data as input and output one or more color values for the next phase. At this stage, GPU execution can be controlled by programming. The most commonly used technology in this stage is texture technology.
 
-4. ***`Per-Fragment Operation`***: The `Color value` for each pixel is `stored` in the `Color Buffer` and `merged` at this stage. This stage is `not completely programmable`, but can be configured to produce different effects. In detail includes: 
+4. ***`Per-Fragment Operation`***: The `Color value` for each pixel is `stored` in the `Color Buffer(a rectangular array of RGB colors)` and `merged` at this stage. This stage is `not completely programmable`, but can be configured to produce different effects. In detail includes: 
 
     * ***`The pixel ownership`*** (the only one `can't be disabled`): it simply determines whether a fragment lies in the region of the viewport that is currently visible on the display. 
 
@@ -98,9 +98,9 @@ In `Rasterization Stage`, GPU will use the data passed in the previous stage(Geo
 
     * ***`Alpha Test`***: When the final color of a fragment is calculated, an application may also calculate an alpha value that usually represents the degree of transparency associated with the fragment. ***The alpha test compares the final alpha value of a fragment to a constant value that is preset by the application.*** The application can specifies what relationship between the two values (such as less than, greater than, or equal to) causes the test to pass. If the relationship is not satisfied, then the fragment is discarded.
 
-    * ***`Stencil Test`***:  The stencil test reads the value `stored in the stencil buffer` at a fragment’s location and compares it to a value previously specified by the application. ***The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.***
+    * ***`Stencil Test`***:  The stencil test reads the value stored in the `Stencil Buffer(an offscreen buffer used to record the locations of the rendered primitive)` at a fragment’s location and compares it to a value previously specified by the application. ***The stencil test passes only if a specific relationship is satisfied (e.g., the stencil value is equal to a particular value); otherwise, the stencil test fails, and the fragment is discarded.***
 
-    * ***`Depth Test`***: The depth Test compares the `final depth` associated with a fragment to the `value` currently `stored` in the `depth buffer`.
+    * ***`Depth Test`***: The depth Test compares the `final depth` associated with a fragment to the `value` currently `stored` in the `depth buffer`, it is also called `Z-Buffer`. A z-buffer is the same size and shape as the color buffer, and for each pixel it stores the z-value to the currently closest primitive. This means that when a primitive is being rendered to a certain pixel, the z-value on that primitive at that pixel is being computed and compared to the contents of the z-buffer at the same pixel. If the new z-value is smaller than the z-value in the z-buffer, then the primitive that is being rendered is the one which is closer to the camera.
 
     * ***`Blending`***: Once the pixel ownership test, scissor test, alpha test, stencil test, and depth test have all passed, a fragment’s final color is blended into the ***`image buffer`***. 
     ***The blending operation calculates a new color by combining the fragment’s final color and the color already stored in the image buffer at the fragment’s location.*** The fragment’s alpha value and the alpha value stored in the image buffer may also be used to determine the color that ultimately appears in the viewport. *(The blending operation may be configured to simply replace the previous color in the image buffer, or it may produce special visual effects such as transparency.)*
