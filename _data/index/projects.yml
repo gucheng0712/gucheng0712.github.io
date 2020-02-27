@@ -116,7 +116,7 @@
 
 - name: (2019 Fall) Kinki Restaurant - Maya & Arnold & Substance
   i18n: p12
-  url:
+  url: https://gucheng0712.github.io/dev%20journal/2019/10/22/Kinki-Restaurant.html
   demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/22/Kinki-Restaurant.html
   img: /static/assets/img/landing/P12.png
   desc: An Interior Modeling, Texturing and Rendering for a Japanese Restaurant Kinki in Maya and Arnold.  
