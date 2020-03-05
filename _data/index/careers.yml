@@ -1,24 +1,26 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
+
+
 - name:
-    detail: Woodbury University
-    i18n: college
+    detail: Shanghai Xiji Education Technology co., LTD
+    i18n: companyB
   desc:
-    detail: At September 2016,I went to Woodbury University majoring Applied Computer Science, and started my IT career.
-    i18n: college_des
+    detail: In August 2019, I start my internship as an 3D artist assistant at Shanghai Xiji Education Technology co., LTD. 
+    i18n: companyA_des
   date:
-    detail: Sep. 2016
-    i18n: college_date
+    detail: Aug. 2019
+    i18n: companyB_date
   job:
-    detail: Student
-    i18n: college_job
+    detail: 3D Artist Assistant
+    i18n: companyB_job
   icon: fa-plus-square
 
 - name:
-    detail: Math & Science Tutoring Center in Woodbury University
+    detail: Math & Science Tutoring Center at Woodbury University
     i18n: companyA
   desc:
-    detail: At October 2017,I got my first on-campus job, which is tutoring student in the Math and other Science Subjects at Woodbuty University Tutoring Center.
+    detail: In October 2017,I got my first on-campus job, which is tutoring student in the Math and other Science Subjects at Woodbuty University Tutoring Center.
     i18n: companyA_des
   date:
     detail: Oct. 2017
@@ -26,5 +28,19 @@
   job:
     detail: Tutor
     i18n: companyA_job
+  icon: fa-plus-square
+
+- name:
+    detail: Woodbury University
+    i18n: college
+  desc:
+    detail: In September 2016,I went to Woodbury University majoring Applied Computer Science, and started my IT career.
+    i18n: college_des
+  date:
+    detail: Sep. 2016
+    i18n: college_date
+  job:
+    detail: Student
+    i18n: college_job
   icon: fa-plus-square
   

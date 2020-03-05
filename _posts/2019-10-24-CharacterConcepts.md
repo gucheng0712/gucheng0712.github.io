@@ -8,11 +8,13 @@ categories: [Dev journal]
 tags: [ Journal]
 icon: icon-ps
 ---
-Some Character Drawings I created with Tablet in Photoshop.
 
-<br/><br/>
 
 <iframe src='https://gfycat.com/ifr/BetterWhimsicalGrackle' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'></iframe>
+<br/><br/>
+
+Some Character Drawings I drawed in Photoshop on my free time   .
+
 <br/><br/>
 
 ---
