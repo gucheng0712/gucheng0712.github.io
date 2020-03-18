@@ -6,29 +6,39 @@
         </div>
     </div>
     <div class="row">
-        {% for project in site.data.index.projects %} {% assign loopindex = forloop.index | modulo: 2 %} {% if forloop.last %} {% if forloop.last == forloop.first %}
+        {% for project in site.data.index.projects %} {% assign loopindex = forloop.index | modulo: 2 %}
+        {% if forloop.last %} {% if forloop.last == forloop.first %}
         <div class="col-sm-6 wow col-sm-offset-3 zoomIn">
             {% else %}
-            <div class="col-sm-6 wow {% if loopindex == 1 %} fadeInLeft col-sm-offset-3 {% else %} fadeInRight {% endif %}">
+            <div
+                class="col-sm-6 wow {% if loopindex == 1 %} fadeInLeft col-sm-offset-3 {% else %} fadeInRight {% endif %}">
                 {% endif %} {% else %}
                 <div class="col-sm-6 wow {% if loopindex == 1 %} fadeInLeft {% else %} fadeInRight {% endif %}">
                     {% endif %}
                     <div class="team-member">
-                        <img src="{{ project.img | prepend: site.baseurl }}" width=100% height=56% class="img-responsive" alt="">
+                        <img src="{{ project.img | prepend: site.baseurl }}" width=100% height=56%
+                            class="img-responsive" alt="">
                         <h4>
                             {% if project.url %}
-                            <a href="{{ project.url }}" target="_blank"><span class="navy">{{ project.name }}</span></a> {% elsif project.repo %}
-                            <a href="https://github.com/{{ project.gh_user }}/{{ project.repo }}" target="_blank"><span class="navy">{{ project.name }}</span></a> {% else %}
+                            <a href="{{ project.url }}" target="_blank"><span class="navy">{{ project.name }}</span></a>
+                            {% elsif project.repo %}
+                            <a href="https://github.com/{{ project.gh_user }}/{{ project.repo }}" target="_blank"><span
+                                    class="navy">{{ project.name }}</span></a> {% else %}
                             <span class="navy">{{ project.name }}</span> {% endif %}
                         </h4>
                         <p><span data-i18n="projects.{{ project.i18n }}">{{ project.desc }}</span></p>
 
-                        <div user="{{ project.gh_user }}" repo="{{ project.repo }}" demo_url="{{project.demo_url }}" class="ghbtn">
+                        <div user="{{ project.gh_user }}" repo="{{ project.repo }}" demo_url="{{project.demo_url }}"
+                            class="ghbtn">
                             {% if project.repo %}
                             <!-- <a target="_blank" style="width: 65px;" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/stargazers" class="btn btn-white btn-xs star"><i class="fa fa-star"></i> ...</a>&emsp;&emsp;
                             <a target="_blank" style="width: 65px;" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}/network" class="btn btn-white btn-xs fork"><i class="fa fa-github"></i></a> -->
-                            &emsp;<a target="_blank" style="width: 65px;" href="https://github.com/{{ project.gh_user }}/{{ project.repo }}" class="btn btn-white btn-xs"><i class="fa fa-github"></i> GitHub</a>&emsp; {% endif %} {% if project.demo_url %} &emsp;
-                            <a target="_blank" style="width: 65px;" href="{{ project.demo_url }}" class="btn btn-white btn-xs"><i class="fa fa-play"> </i> Demo</a>&emsp; {% endif %}
+                            &emsp;<a target="_blank" style="width: 65px;"
+                                href="https://github.com/{{ project.gh_user }}/{{ project.repo }}"
+                                class="btn btn-white btn-xs"><i class="fa fa-github"></i> GitHub</a>&emsp; {% endif %}
+                            {% if project.demo_url %} &emsp;
+                            <a target="_blank" style="width: 65px;" href="{{ project.demo_url }}"
+                                class="btn btn-white btn-xs"><i class="fa fa-play"> </i> Demo</a>&emsp; {% endif %}
                             <div style="height: 10px;"></div>
                         </div>
 

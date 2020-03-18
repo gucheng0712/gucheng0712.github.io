@@ -1,18 +1,13 @@
 ---
 layout: post
-title:  "Matrix SRT"
-date:   2018-05-25 
+title:  "Matrix MVP"
+date:   2018-05-26
 categories: [Math, Unity, Csharp]
 tags: [Unity,Csharp,Math,CG]
 icon: fa-calculator
 ---
 
-Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.
-
-It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.
-
-{: style="color: red"}
->Important Note: The order of Transformation does affect the result. In most cases, The order of Matrix Transformation is ***Scale -> Rotate -> Translate***. 
+MVP Matrix is the shorthand of  ***Model***,  ***View*** and ***Projection*** matrices.
 
 <p align="center">   
 <img src="/static/assets/img/blog/srt.png" width="80%">
