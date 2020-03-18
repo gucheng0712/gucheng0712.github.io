@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 18 Mar 2020 10:50:53 -0700</pubDate>
-    <lastBuildDate>Wed, 18 Mar 2020 10:50:53 -0700</lastBuildDate>
+    <pubDate>Wed, 18 Mar 2020 13:55:13 -0700</pubDate>
+    <lastBuildDate>Wed, 18 Mar 2020 13:55:13 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -7025,16 +7025,16 @@ It is often rescaled into the range between 0 and 1. This is useful for optimiza
     
       <item>
         <title>Troubadour - Dev Journal</title>
-        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37156808&amp;amp;cid=65297452&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;detail-journal-link&quot;&gt;&lt;a href=&quot;https://troubadourprototyping.wordpress.com/&quot;&gt;Detail Journal Link&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;An RPG rhythm game demo, a game that works with game design and art students in my junior semester game prototype class. A complete game development process from idea and prototype design to completion of Demo development, features include backpacking system, data saving and loading, dialogue, social media, rhythm gameplay, UI framework, storyline, shopping, evolution, etc. And the overall structure of the game.
+        <description>&lt;p&gt;An RPG rhythm game demo, a game that works with game design and art students in my junior semester game prototype class. A complete game development process from idea and prototype design to completion of Demo development, features include backpacking system, data saving and loading, dialogue, social media, rhythm gameplay, UI framework, storyline, shopping, evolution, etc. And the overall structure of the game.
 ght )&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;detail-journal-link&quot;&gt;&lt;a href=&quot;https://troubadourprototyping.wordpress.com/&quot;&gt;Detail Journal Link&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37156808&amp;amp;cid=65297452&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -12638,16 +12638,23 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
         <title>Beyond Atlantis - Dev Journal</title>
         <description>&lt;p&gt;A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt; 
-&lt;iframe src=&quot;https://gfycat.com/ifr/LeafyImpressiveAurochs&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;320&quot; height=&quot;590&quot;&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt; 
-&lt;iframe src=&quot;https://gfycat.com/ifr/TensePalatableChuckwalla&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;472&quot;&gt;&lt;/iframe&gt;&lt;p&gt; &lt;a href=&quot;https://gfycat.com/tensepalatablechuckwalla&quot;&gt;via Gfycat&lt;/a&gt;&lt;/p&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/BeyondA1.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA2.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA3.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA4.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA5.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA6.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA7.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA8.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA9.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA10.jpg&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA11.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA12.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA13.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA14.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA15.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA16.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA17.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
