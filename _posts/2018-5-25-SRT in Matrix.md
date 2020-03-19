@@ -131,7 +131,6 @@ After Translate:
 ---
 ### 2. Rotate (R)
 
-
 <p align="center">  
 <img src="/static/assets/img/blog/matrixRot.png" width="25%">
 </p>
@@ -264,6 +263,66 @@ After Rotate(along z-axis):
         0.00000   0.00000   1.00000   0.00000
         0.00000   0.00000   0.00000   1.00000
 ```
+
+---
+### 2.1  Rotation About an Arbitrary Axis in 3 Dimensions
+
+\begin{equation}
+    R_{Arbitrary} = \begin{bmatrix} 
+    n_x^2(1 - \cos \theta) + \cos \theta  &  n_x n_y ( 1 - \cos \theta )  -n_z \sin \theta  &  n_x n_z ( 1 - \cos \theta ) + n_y \sin \theta \\\ 
+    n_xn_y(1 - \cos \theta) + n_z \sin \theta  &  n_y^2(1 - \cos \theta) + \cos \theta  &  n_yn_z(1 - \cos \theta) - n_x \sin \theta \\\
+    n_xn_z(1 - \cos \theta) - n_y \sin \theta  &  n_yn_z(1 - \cos \theta) + n_x \sin \theta  &  n_z^2(1 - \cos \theta) + \cos \theta\\\
+    \end{bmatrix}
+\end{equation}
+
+> So Let prove this complex matrix:
+
+For rotating about an arbitrary axis, we firstly consider<span style="color:red"> $v$</span> is a vector in 3D space, we need to get <span style="color:red">$v^\prime$</span> which is a vector that obtained by rotating $v$ along <span style="color:red">$n$</span> axis <span style="color:red"> $\theta$</span> angle. (n is a unit vector )
+
+Step 1: Get the projection of $v$ on $n$, denoted as ${proj_n}v$.
+   
+$${proj_n}v =  \frac{v\cdot n}{\|n\|^2} n $$
+    
+Because n is a unit vector, so its magnitude $|n\|$ is 1. We can simplify ${proj_n}v$ to 
+    
+$${proj_n}v =  \frac{v\cdot n}{\|n\|^2} n = (v\cdot n)n $$
+
+Step 2: Get the vector $v_\perp$ which is a vector from \overrightarrow{v} that perpendicular to ${proj_n}v$.
+
+$$v_\perp = v- {proj_n}v = v - (v\cdot n)n $$
+
+Step 3: Get the $w$ which is the cross product of $n$ and $v_\perp$. Based on the definition of cross product $w$ is a vector that perpendicular to a plane fixed by $n$ and $v_\perp$. Also $n$ is a unit vector, and n also perpendicular to $v_\perp$, so the length between w and $v_\perp$ are same.
+
+<img src="/static/assets/img/blog/abtrmatrix.png" width="30%">
+
+Step 4: Get $v_\perp^\prime$ which is a vector that obtained by rotating $v_\perp$ along $n$ axis $\theta$ angle.
+
+\begin{align} 
+v_\perp^\prime &= v_\perp \cos \theta + w\sin \theta \\\ &= \left[ v - \left( v^Tn \right)n \right] \cos \theta + \left( n \times v \right) \sin \theta 
+\end{align}
+
+Besed on $v_\perp^\prime$, can get $v^\prime$
+
+\begin{align} 
+v^\prime &= v_\perp^\prime + v_\parallel \\\ &= \left[ v - \left( v^Tn \right)n \right] \cos \theta + \left( n \times v \right) \sin \theta + (v^Tn)n 
+\end{align}
+
+Step 5: substituting $v = \begin{bmatrix} 1 \\\ 0 \\\ 0 \end{bmatrix}$, $v = \begin{bmatrix} 0 \\\ 1 \\\ 0 \end{bmatrix}$ $v = \begin{bmatrix} 0 \\\ 0 \\\ 1 \end{bmatrix}$ into above equation.
+
+\begin{align}  
+v^\prime_x &= \left( \begin{bmatrix}  1 \\\  0 \\\  0 \\\   \end{bmatrix}  - \left(  \begin{bmatrix}  1 \\\  0 \\\  0 \\\   \end{bmatrix} \cdot \begin{bmatrix}  n_x \\\  n_y \\\  n_z \\\  \end{bmatrix} \right) \begin{bmatrix}  n_x \\\  n_y \\\  n_z \\\  \end{bmatrix} \right) \cos \theta + \left(    \begin{bmatrix}  n_x \\\  n_y \\\  n_z \\\  \end{bmatrix} \times \begin{bmatrix}  1 \\\  0 \\\  0 \\\  \end{bmatrix} \right) \sin \theta + \left(  \begin{bmatrix}  1 \\\  0 \\\  0 \\\   \end{bmatrix} \cdot \begin{bmatrix}  n_x \\\  n_y \\\  n_z \\\  \end{bmatrix} \right)  \begin{bmatrix}  n_x \\\  n_y \\\  n_z \\\  \end{bmatrix} \\\  &=\left( \begin{bmatrix}   1 \\\  0 \\\  0 \\\  \end{bmatrix} - n_x \begin{bmatrix}  n_x \\\  n_y \\\ n_z \\\  \end{bmatrix} \right) \cos \theta +  \begin{bmatrix}   0 \\\  n_z \\\ -n_y \\\  \end{bmatrix} \sin \theta + n_x  \begin{bmatrix}  n_x \\\  n_y \\\  n_z \\\  \end{bmatrix} \\\  &= \begin{bmatrix}  1 - n_x^2 \\\  -n_x n_y \\\  -n_x n_z \\\  \end{bmatrix} \cos \theta + \begin{bmatrix}   0 \\\  n_z \\\  -n_y \\\  \end{bmatrix} \sin \theta + \begin{bmatrix}  n_x^2 \\\  n_x n_y \\\  n_x n_z \\\  \end{bmatrix} \\\  &= \begin{bmatrix}  \cos \theta - n_x^2 \cos \theta + n_x^2 \\\   -n_xn_y \cos \theta + n_z \sin \theta + n_xn_y \\\   -n_xn_z \cos \theta - n_y \sin \theta + n_xn_z   \end{bmatrix} \\\ &= \begin{bmatrix} n_x^2(1 - \cos \theta) + \cos \theta \\\ n_xn_y(1 - \cos \theta) + n_z \sin \theta \\\ n_xn_z(1 - \cos \theta) - n_y \sin \theta \end{bmatrix} \end{align}
+
+<br>
+
+\begin{align} 
+v^\prime_y &= \left( \begin{bmatrix} 0 \\\ 1 \\\ 0\\\  \end{bmatrix}  - \left( \begin{bmatrix} 0 \\\ 1 \\\ 0\\\  \end{bmatrix} \cdot \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \cos \theta + \left(   \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \times \begin{bmatrix} 0\\\ 1\\\ 0\\\ \end{bmatrix} \right) \sin \theta + \left( \begin{bmatrix} 0 \\\ 1 \\\ 0\\\  \end{bmatrix} \cdot \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \\\ &=\left( \begin{bmatrix}  0 \\\ 1 \\\ 0 \\\ \end{bmatrix}  - n_y\begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \cos \theta +  \begin{bmatrix} -n_z \\\ 0 \\\ n_x \\\ \end{bmatrix} \sin \theta + n_y  \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \\\ &= \begin{bmatrix} - n_x n_y \\\ 1 - n_y^2 \\\ -n_y n_z \\\ \end{bmatrix} \cos \theta + \begin{bmatrix}  -n_z\\\ 0 \\\ n_x \\\ \end{bmatrix} \sin \theta + \begin{bmatrix} n_x n_y \\\ n_y^2 \\\ n_y n_z \\\ \end{bmatrix} \\\ &= \begin{bmatrix} -n_x n_y \cos \theta -n_z \sin \theta + n_x n_y \\\ \cos \theta -n_y^2 \cos \theta + n_y^2 \\\ -n_yn_z \cos \theta + n_x \sin \theta + n_yn_z \end{bmatrix} \\\ &= \begin{bmatrix} n_x n_y ( 1 - \cos \theta )  -n_z \sin \theta \\\ n_y^2(1 - \cos \theta) + \cos \theta \\\ n_yn_z(1 - \cos \theta) + n_x \sin \theta \end{bmatrix} 
+\end{align}
+
+<br>
+
+\begin{align}
+ v^\prime_z &= \left( \begin{bmatrix} 0 \\\ 0 \\\ 1 \\\ \end{bmatrix}  - \left( \begin{bmatrix} 0 \\\ 0 \\\ 1 \\\ \end{bmatrix} \cdot \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \cos \theta + \left(   \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \times \begin{bmatrix} 0 \\\ 0 \\\ 1 \\\ \end{bmatrix} \right) \sin \theta + \left( \begin{bmatrix}  0 \\\ 0 \\\ 1 \\\ \end{bmatrix} \cdot \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \\\ &=\left( \begin{bmatrix}  0 \\\ 0 \\\ 1 \\\ \end{bmatrix}  - n_z\begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \cos \theta +  \begin{bmatrix} n_y \\\ -n_x \\\ 0 \\\ \end{bmatrix} \sin \theta + n_z \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \\\ &= \begin{bmatrix} - n_x n_z \\\ -n_y n_z \\\ 1 - n_z^2 \\\ \end{bmatrix} \cos \theta + \begin{bmatrix} n_y \\\ -n_x \\\ 0 \\\ \end{bmatrix} \sin \theta + \begin{bmatrix} n_x n_z \\\ n_y n_z \\\ n_z^2 \\\  \end{bmatrix} \\\  &= \begin{bmatrix} -n_x n_z \cos \theta +n_y \sin \theta + n_x n_z \\\ -n_yn_z \cos \theta - n_x \sin \theta + n_yn_z \\\ (1 - n_z^2) \cos \theta + n_z^2 \end{bmatrix} \\\  &= \begin{bmatrix} n_x n_z ( 1 - \cos \theta ) + n_y \sin \theta \\\ n_yn_z(1 - \cos \theta) - n_x \sin \theta \\\ n_z^2(1 - \cos \theta) + \cos \theta \end{bmatrix} 
+ \end{align}
 
 ---
 ### 3. Scale (S)
