@@ -7,305 +7,147 @@ tags: [Unity,Csharp,Math,CG]
 icon: fa-calculator
 ---
 
-MVP Matrix is the shorthand of  ***Model***,  ***View*** and ***Projection*** matrices.
-
-<p align="center">   
-<img src="/static/assets/img/blog/srt.png" width="80%">
+<p align="center">  
+<img src="/static/assets/img/blog/mvp_transformation.png" width="90%">
 </p>
 
+MVP Matrix is the shorthand of  ***Model***,  ***View*** and ***Projection*** matrices. Model matrix represents the 3d model's transformation from object space to world space. View matrix represents the transformation of the 3d model from the world space to the camera(view) space. Projection(Clip) matrix represents the transformation of the 3d model from camera space to clip(screen) space.
+
+
 ---
-### Homogeneous Coordinates
-Before, we only considered 3D vertices as a (x,y,z) triplet. For making the 3D transformation easier, We will now have (x,y,z,w) vectors.
+## Model
+Model matrix is used for the transformation of 3D Models from model space(also called object/local space) to the world space. It includes Translation, Rotation, and Scale. For more Detail see post [Matrix SRT](https://gucheng0712.github.io/math/unity/csharp/2018/05/26/SRT-in-Matrix.html)
 
-If w == 1, then the vector (x,y,z,1) is a position in space.
-If w == 0, then the vector (x,y,z,0) is a direction.
+---
+## View
 
-A classic example of homogeneous coordinates is to make the translation of a vector become linear transformation.
+View matrix is used for the transformation of 3D Models from world space to view(camera) space. This is called **view transformation**. As we all known, there are two major coordinate system, right hand coordinate system, and left hand coordinate system. In Unity game engine, it uses left hand coordinate system, but in the view space, it will be coverted to left hand coordinate system.
 
-> Translation without Homogeneous Coordinates
+<p align="center">  
+<img src="/static/assets/img/blog/camera_space.png" width="40%">
+</p>
 
-\begin{equation}
-     \begin{bmatrix} 
-       x' \\\
-       y' \\\
-       z' \\\
-    \end{bmatrix} = 
-    \begin{bmatrix} 
-        t_x \\\
-        t_y \\\
-        t_z \\\
-    \end{bmatrix} +
-    \begin{bmatrix} 
-       x \\\
-       y \\\
-       z \\\
-    \end{bmatrix}
-\end{equation}
-
-> Translation in Homogeneous Coordinates
+In order to get the model's position in view space, we can place the origin of the camera at the origin of the world coordinate. based on the Transform Component in above picture, the transformation of camera in world space order is rotate (30,0,0), then translate(0,10,-10). so in order to move the camera's position back to the world origin, we need to do the inverse transformation, first translate(0,-10,10) then rotate(-30,0,0). we can get a matrix $M_{view^\prime}$
 
 \begin{equation}
-    \begin{bmatrix} 
-       x' \\\
-       y' \\\
-       z' \\\
-       1
-    \end{bmatrix} = 
-    \begin{bmatrix} 
-        1 & 0 & 0 & t_x \\\
-        0 & 1 & 0 & t_y \\\
-        0 & 0 & 1 & t_z \\\
+    M_{view^\prime} = \begin{bmatrix} 
+        1 & 0 & 0 & 0 \\\
+        0 & cos(-30) & -sin(-30) & 0 \\\
+        0 & sin(-30) & cos(-30) & 0 \\\
         0 & 0 & 0 & 1
-    \end{bmatrix} \cdot
-    \begin{bmatrix} 
-       x \\\
-       y \\\
-       z \\\
-       1
-    \end{bmatrix}
-\end{equation}
-
----
-### 1. Translate (T)
-
-<p align="center">  
-<img src="/static/assets/img/blog/t.png" width="40%">
-</p>
-
-A change from one location to another is represented by a translation matrix, T. This matrix translates an entity by a vector $t = (tx, ty, tz)$. $T$ is given below by
-
-<p align="center">  
-<img src="/static/assets/img/blog/translate.png" width="40%">
-</p>
-<p align="center">  
-Note: The square on the left is transformed with a translation matrix T(5, 2, 0), whereby the square is moved 5 distance units to the right and 2 upward.
-</p>
-
-<br>
-<br>
-
-> Code Example: Translate (3, -2, 1.5) from a start point (2, 3, 5)
-
-```csharp
-    public Matrix4x4 matrix;
-    public Vector4 vector;
-    void Start()
-    {
-        // if the w is 1 represent a point, 0 represent a vector
-        vector = new Vector4(transform.position.x, transform.position.y, transform.position.z, 1);
-        matrix = Matrix4x4.identity;
-        Debug.Log("Before Translate: " + transform.localToWorldMatrix);
-
-        matrix.m03 = 3; // move (3,-2,1.5)
-        matrix.m13 = -2;
-        matrix.m23 = 1.5f;
-        
-        // Translate
-        vector = matrix * vector;
-        transform.position = new Vector3(vector.x, vector.y, vector.z);
-        Debug.Log("After Translate: " + transform.localToWorldMatrix);
-    }
-```
-
->Output:
-
-```
-Before Translate: 
-    1.00000    0.00000    0.00000    2.00000
-    0.00000    1.00000    0.00000    3.00000
-    0.00000    0.00000    1.00000    5.00000
-    0.00000    0.00000    0.00000    1.00000
-
-After Translate: 
-    1.00000    0.00000    0.00000    5.00000
-    0.00000    1.00000    0.00000    1.00000
-    0.00000    0.00000    1.00000    6.50000
-    0.00000    0.00000    0.00000    1.00000
-```
-
----
-### 2. Rotate (R)
-
-
-<p align="center">  
-<img src="/static/assets/img/blog/matrixRot.png" width="25%">
-</p>
-
-In two dimensions, the rotation matrix is simple to derive. Assume that we have
-a vector, $v = (v_x, v_y)$, which we parameterize as $v = (v_x, v_y) = (r cos \theta, r sin \theta)$. If we were to rotate that vector by $\phi$ radians (counterclockwise), then we would get $u = (r cos(\theta + \phi), r sin(\theta + \phi))$. This can be rewritten as
-
-\begin{equation}
-    u = \begin{bmatrix} 
-        rcos(\theta+\phi) \\\
-        rsin(\theta+\phi)
-    \end{bmatrix} = 
-    \begin{bmatrix} 
-        r(cos\theta cos\phi - sin\theta sin\phi) \\\
-        r(sin\theta cos\phi + cos\theta sin\phi) 
-    \end{bmatrix} = 
-    \begin{bmatrix}
-        cos\phi & -sin\phi \\\
-        sin\phi & cos\phi
     \end{bmatrix} 
     \begin{bmatrix} 
-        r cos\theta \\\
-        r sin\theta
-    \end{bmatrix} = 
-    R(\phi)v
+        1 & 0 & 0 & 0 \\\
+        0 & 1 & 0 & -10 \\\
+        0 & 0 & 1 & 10 \\\
+        0 & 0 & 0 & 1
+    \end{bmatrix} 
 \end{equation}
 
-(1) Rotate Along X-Axis:
+However, due to the view space's coordinate system is changed to right hand coordinate system , so we have to invert the z component by mulitply another matrix $M_{negatez}$
 
-<img src="/static/assets/img/blog/r_x.png" width="30%">
+\begin{equation}
+    M_{view} = M_{negatez}M_{view^\prime} =  
+    \begin{bmatrix} 
+        1 & 0 & 0 & 0 \\\
+        0 & 1 & 0 & 0 \\\
+        0 & 0 & -1 & 0 \\\
+        0 & 0 & 0 & 1
+    \end{bmatrix} 
+    M_{view^\prime}
+\end{equation}
 
-(2) Rotate Along Z-Axis: 
+Finally, we can use this $M_{view}$ muiltiply the 3d model's world position $P_{world} = (9,4,18.072,1)$ to get the 3d model's position in view space $P_{view}$.
 
-<img src="/static/assets/img/blog/r_z.png" width="30%">
+\begin{equation}
+    P_{view}^T = M_{view}P_{world}^T = 
+    M_{view}
+    \begin{bmatrix} 
+        9 \\\
+        4 \\\
+        18.072 \\\
+        1 
+    \end{bmatrix} 
+\end{equation}
 
-(3) Rotate Along Y-Axis:
+$$P_{view} = (9, 4,18.072, 1)$$
 
-<img src="/static/assets/img/blog/r_y.png" width="30%">
-
----
-Above Described the roation in matrix. rotating along the X and Y axis are similar, but Y is not. The reason is that based on the right hand rule, rotating along the y-axis has a different axial order. When you point the right hand thumb in the axis you want to rotate along with, we can see the order of axis based on the right hand rule. (seec image below)
-1. XYZ --- rotating Along x-axis
-2. {: style="color: red"}YZX ---Along y-axis (NOT YXZ, Order changed)
-3. ZXY ---Along z-axis
-
-<img src="/static/assets/img/blog/right_hand_rule.jpg" width="30%">
-
-
-
->Code Example: Rotate along respectively x, y, z 30 degree
-
-```csharp
-    Matrix4x4 matrix;
-    Vector4 vector;
-    public float angle = 30;
-
-    public enum Axis { X, Y, Z }
-    public Axis axis;
-
-    void Start()
-    {
-        matrix = Matrix4x4.identity;
-        Debug.Log("Before Rotate: " + matrix);
-
-        switch (axis)
-        {
-            case Axis.X:
-                matrix.m11 = Mathf.Cos(angle * Mathf.Deg2Rad);
-                matrix.m12 = -Mathf.Sin(angle * Mathf.Deg2Rad);
-                matrix.m21 = Mathf.Sin(angle * Mathf.Deg2Rad);
-                matrix.m22 = Mathf.Cos(angle * Mathf.Deg2Rad);
-                Debug.Log("After Rotate(along x-axis) : " + matrix);
-                break;
-            case Axis.Y:
-                matrix.m01 = Mathf.Cos(angle * Mathf.Deg2Rad);
-                matrix.m02 = Mathf.Sin(angle * Mathf.Deg2Rad);
-                matrix.m21 = -Mathf.Sin(angle * Mathf.Deg2Rad);
-                matrix.m22 = Mathf.Cos(angle * Mathf.Deg2Rad);
-                Debug.Log("After Rotate(along y-axis): " + matrix);
-                break;
-            case Axis.Z:
-                matrix.m01 = Mathf.Cos(angle * Mathf.Deg2Rad);
-                matrix.m02 = -Mathf.Sin(angle * Mathf.Deg2Rad);
-                matrix.m11 = Mathf.Sin(angle * Mathf.Deg2Rad);
-                matrix.m12 = Mathf.Cos(angle * Mathf.Deg2Rad);
-                Debug.Log("After Rotate(along z-axis): " + matrix);
-                break;
-        }
-
-        transform.rotation = MatrixToQuaternion(matrix);
-    }
-
-    Quaternion MatrixToQuaternion(Matrix4x4 _matrix)
-    {
-        float qw = Mathf.Sqrt(1f + _matrix.m00 + _matrix.m11 + _matrix.m22) / 2;
-        float w = 4 * qw;
-        float qx = (_matrix.m21 - _matrix.m12) / w;
-        float qy = (_matrix.m02 - _matrix.m20) / w;
-        float qz = (_matrix.m10 - _matrix.m01) / w;
-
-        return new Quaternion(qx, qy, qz, qw);
-    }
-```
-
->Output:
-
-```
-Before Rotate: 
-        1.00000  0.00000 0.00000 0.00000
-        0.00000 1.00000 0.00000 0.00000
-        0.00000 0.00000 1.00000 0.00000
-        0.00000 0.00000 0.00000 1.00000
-
-After Rotate(along x-axis): 
-        1.00000   0.00000   0.00000   0.00000
-        0.00000   0.86603  -0.50000   0.00000
-        0.00000   0.50000   0.86603   0.00000
-        0.00000   0.00000   0.00000   1.00000
-                
-After Rotate(along y-axis): 
-        1.00000   0.86603   0.50000   0.00000
-        0.00000   1.00000   0.00000   0.00000
-        0.00000   -0.50000  0.86603   0.00000
-        0.00000   0.00000   0.00000   1.00000
-                            
-
-After Rotate(along z-axis): 
-        1.00000   0.86603  -0.50000   0.00000
-        0.00000   0.50000   0.86603   0.00000
-        0.00000   0.00000   1.00000   0.00000
-        0.00000   0.00000   0.00000   1.00000
-```
+<br>
+<br>
 
 ---
-### 3. Scale (S)
+## Projection
 
-<img src="/static/assets/img/blog/s.png" width="30%">
+Projection matrix is also called clip matrix which is used for the transformation of 3D Models from view space to clip space, then perform standard homogeneous division, also known as perspective division to get the Normalized Device Coordinates(NDC). Finally project on to screen which is known as screen space. Different from view space, the screen space is a 2-Dimensional space.
 
-eg: scale (1.5, 2, 3) from the atart scale (1, 1, 1)
+The goal of clip space is to clip the render objects based on the **view frustum**. everything inside this view frustum will be rendered onto screen, others will be clipped. There are 2 types of Projection, one is Perspective projection, another is orthographic projection(shown in below image).
 
-```csharp
- public Matrix4x4 matrix;
-    public Vector4 vector;
+<p align="center">  
+<img src="/static/assets/img/blog/camera_projection.png" width="70%">
+</p>
 
-    void Start()
-    {
-        Debug.Log("Before scale: " + transform.localToWorldMatrix);
+---
 
-        matrix = Matrix4x4.identity;
+### 1. Perspective Projection
 
-        // if the w is 1 represent a point, 0 represent a vector
-        vector = new Vector4(transform.localScale.x, transform.localScale.y, transform.localScale.z, 1);
+Perspective projection is characterized by the near large far small. There are 4 input parameters in perspective projection, Field of View(FOV), Aspect, Near , and Far. 
 
-        //scale times
-        matrix.m00 = 1.5f; // scale x
-        matrix.m11 = 2; // scale y
-        matrix.m22 = 3; // scale z
+<p align="center">  
+<img src="/static/assets/img/blog/perspective_projection_frustum.png" width="30%">
+</p>
 
-        vector = matrix * vector;
-        transform.localScale = new Vector3(vector.x, vector.y, vector.z);
-        Debug.Log("After scale: " + transform.localToWorldMatrix);
-    }
-```
+The purpose of perspective projection is to transform the view frustum into a cuboid for eaier clipping. After the transformation, the upper right corner of the near clipping plane of the view frustum will become the center of the front plane of the cuboid. This is known as Normalized Device Coordinates(NDC)
 
->Output:
+As can be seen from below figure, the transformation process is to enlarge the smaller part and shrink the larger part to form the final cuboid. That's why the projection transformation is going to have a smaller effect.The x-coordinate range after transformation is [-1, 1], the y-coordinate range is [-1, 1], and the z-coordinate range is [-1, 1] (DirectX is slightly different, and the z-value range is [0, 1]). 
 
-```
-Before scale: 
-        1.00000   0.00000 0.00000 2.00000
-        0.00000 1.00000 0.00000 3.00000
-        0.00000 0.00000 1.00000 5.00000
-        0.00000 0.00000 0.00000 1.00000
+<p align="center">  
+<img src="/static/assets/img/blog/perspectivet_ransformation.png" width="50%">
+</p> 
 
-After scale: 
-        1.50000    0.00000 0.00000 2.00000
-        0.00000 2.00000 0.00000 3.00000
-        0.00000 0.00000 3.00000 5.00000
-        0.00000 0.00000 0.00000 1.00000
-```
+Based on above infomation, we can get the perpective projection matrix $M_{frustum}$.
+
+\begin{equation}
+    M_{persp} = 
+    \begin{bmatrix} 
+      \frac{cot\frac{FOV}{2}}{Aspect} & 0 & 0 & 0 \\\
+      0 & cot\frac{FOV}{2} & 0 & 0 \\\
+      0 & 0 & -\frac{Far+Near}{Far-Near} & -\frac{2\cdot Near\cdot Far}{Far-Near} \\\
+      0 & 0 & -1 & 0
+    \end{bmatrix} 
+\end{equation}
+
+Then we can get $P_{clip}$ by multiply $P_{view}$.
+
+$$P_{clip} = M_{persp}P_{view}$$
+
+For the derivation method, refer to the this [Link](https://www.cnblogs.com/graphics/archive/2012/07/25/2582119.html)
+
+---
+
+### 2. Orthographic Projection
+
+The view frustum of orthographic projection is a cuboid, so it will be easier to calculate the transformation matrix, M_{ortho}:
+
+\begin{equation}
+M_{ortho} = 
+    \begin{bmatrix} 
+      \frac{1}{Aspect\cdot Size} & 0 & 0 & 0 \\\
+      0 & \frac{1}{Size} & 0 & 0 \\\
+      0 & 0 & -\frac{2}{Far-Near} & -\frac{Near+Far}{Far-Near} \\\
+      0 & 0 & 0 & 1
+    \end{bmatrix} 
+\end{equation}
+
+Then we can get $P_{clip}$ by multiply $P_{view}$.
+
+$$P_{clip} = M_{ortho}P_{view}$$
+
+Similarly, we need to scale the orthogonal projection matrix's x,y,z components to the range of [-1, 1](In DirectX, z component's range is [0, 1]) become Normalized Device Coordinates(NDC).
+
+<p align="center">  
+<img src="/static/assets/img/blog/orthographic_matrix.png" width="70%">
+</p> 
+
 
 ---
 
