@@ -126,7 +126,14 @@ For the derivation method, refer to the this [Link](https://www.cnblogs.com/grap
 
 ### 2. Orthographic Projection
 
-The view frustum of orthographic projection is a cuboid, so it will be easier to calculate the transformation matrix, M_{ortho}:
+The view frustum of orthographic projection is a cuboid, so it will be easier to calculate the transformation matrix, $M_{ortho}$. 
+
+Similarly, we need to scale the orthogonal projection matrix's x,y,z components to the range of [-1, 1](In DirectX, z component's range is [0, 1]) become Normalized Device Coordinates(NDC).
+
+<p align="center">  
+<img src="/static/assets/img/blog/orthographic_matrix.png" width="70%">
+</p> 
+
 
 \begin{equation}
 M_{ortho} = 
@@ -141,12 +148,6 @@ M_{ortho} =
 Then we can get $P_{clip}$ by multiply $P_{view}$.
 
 $$P_{clip} = M_{ortho}P_{view}$$
-
-Similarly, we need to scale the orthogonal projection matrix's x,y,z components to the range of [-1, 1](In DirectX, z component's range is [0, 1]) become Normalized Device Coordinates(NDC).
-
-<p align="center">  
-<img src="/static/assets/img/blog/orthographic_matrix.png" width="70%">
-</p> 
 
 
 ---

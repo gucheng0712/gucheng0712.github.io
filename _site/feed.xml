@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 Mar 2020 03:17:22 -0700</pubDate>
-    <lastBuildDate>Tue, 24 Mar 2020 03:17:22 -0700</lastBuildDate>
+    <pubDate>Wed, 01 Apr 2020 10:24:48 -0700</pubDate>
+    <lastBuildDate>Wed, 01 Apr 2020 10:24:48 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -1993,11 +1993,13 @@ reload(runMEL)
     
       <item>
         <title>NeverLand - Dev Journal</title>
-        <description>&lt;p&gt;A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.&lt;/p&gt;
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37152972&amp;amp;cid=65290329&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37152972&amp;amp;cid=65290329&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;A Level Design and Unity Shader Programming Project for creating a beautiful cartoon environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -7025,16 +7027,16 @@ It is often rescaled into the range between 0 and 1. This is useful for optimiza
     
       <item>
         <title>Troubadour - Dev Journal</title>
-        <description>&lt;p&gt;An RPG rhythm game demo, a game that works with game design and art students in my junior semester game prototype class. A complete game development process from idea and prototype design to completion of Demo development, features include backpacking system, data saving and loading, dialogue, social media, rhythm gameplay, UI framework, storyline, shopping, evolution, etc. And the overall structure of the game.
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37156808&amp;amp;cid=65297452&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;An RPG rhythm game demo, a game that works with game design and art students in my junior semester game prototype class. A complete game development process from idea and prototype design to completion of Demo development, features include backpacking system, data saving and loading, dialogue, social media, rhythm gameplay, UI framework, storyline, shopping, evolution, etc. And the overall structure of the game.
 ght )&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;detail-journal-link&quot;&gt;&lt;a href=&quot;https://troubadourprototyping.wordpress.com/&quot;&gt;Detail Journal Link&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37156808&amp;amp;cid=65297452&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -11862,7 +11864,13 @@ Blend One One // Linear Dodge
 
 &lt;h3 id=&quot;2-orthographic-projection&quot;&gt;2. Orthographic Projection&lt;/h3&gt;
 
-&lt;p&gt;The view frustum of orthographic projection is a cuboid, so it will be easier to calculate the transformation matrix, M_{ortho}:&lt;/p&gt;
+&lt;p&gt;The view frustum of orthographic projection is a cuboid, so it will be easier to calculate the transformation matrix, $M_{ortho}$.&lt;/p&gt;
+
+&lt;p&gt;Similarly, we need to scale the orthogonal projection matrix’s x,y,z components to the range of &lt;a href=&quot;In DirectX, z component's range is [0, 1]&quot;&gt;-1, 1&lt;/a&gt; become Normalized Device Coordinates(NDC).&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/orthographic_matrix.png&quot; width=&quot;70%&quot; /&gt;
+&lt;/p&gt;
 
 &lt;p&gt;\begin{equation}
 M_{ortho} = 
@@ -11877,12 +11885,6 @@ M_{ortho} =
 &lt;p&gt;Then we can get $P_{clip}$ by multiply $P_{view}$.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;P_{clip} = M_{ortho}P_{view}&lt;/script&gt;
-
-&lt;p&gt;Similarly, we need to scale the orthogonal projection matrix’s x,y,z components to the range of &lt;a href=&quot;In DirectX, z component's range is [0, 1]&quot;&gt;-1, 1&lt;/a&gt; become Normalized Device Coordinates(NDC).&lt;/p&gt;
-
-&lt;p align=&quot;center&quot;&gt;  
-&lt;img src=&quot;/static/assets/img/blog/orthographic_matrix.png&quot; width=&quot;70%&quot; /&gt;
-&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -12538,7 +12540,8 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
     
       <item>
         <title>Beyond Atlantis - Dev Journal</title>
-        <description>&lt;p&gt;A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.&lt;/p&gt;
+        <description>&lt;p&gt;A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/BeyondA1.jpg&quot; width=&quot;100%&quot; /&gt;
 &lt;img src=&quot;/static/assets/img/blog/BeyondA2.jpg&quot; width=&quot;100%&quot; /&gt;
@@ -12555,8 +12558,7 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
 &lt;img src=&quot;/static/assets/img/blog/BeyondA13.png&quot; width=&quot;100%&quot; /&gt;
 &lt;img src=&quot;/static/assets/img/blog/BeyondA14.png&quot; width=&quot;100%&quot; /&gt;
 &lt;img src=&quot;/static/assets/img/blog/BeyondA15.png&quot; width=&quot;100%&quot; /&gt;
-&lt;img src=&quot;/static/assets/img/blog/BeyondA16.png&quot; width=&quot;100%&quot; /&gt;
-&lt;img src=&quot;/static/assets/img/blog/BeyondA17.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/static/assets/img/blog/BeyondA16.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;blockquote&gt;
@@ -12576,15 +12578,14 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
     
       <item>
         <title>Suzuka Wants to Fly Game - Dev Journal</title>
-        <description>&lt;p&gt;This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality.&lt;/p&gt;
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37162427&amp;amp;cid=65307506&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality.&lt;/p&gt;
 
 &lt;p&gt;I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That’s the goal for me to create this project.&lt;/p&gt;
 
 &lt;p&gt;In this Project, I my own third person controling system for my first anime Character called Suzuka, with swinging moving, wall walking, battle system, and wallwalking machanics (compatible with HTC Vive). Also, I created a infinite city generator instead of wasting time on level design.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37162427&amp;amp;cid=65307506&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -12649,11 +12650,10 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
     
       <item>
         <title>Animated LED Sign -Dev Journal</title>
-        <description>&lt;p&gt;A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states. It was exhibited at 2018 Annual Showcase.&lt;/p&gt;
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=48173868&amp;amp;cid=84382509&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=48173868&amp;amp;cid=84382509&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states. It was exhibited at 2018 Annual Showcase.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -12679,11 +12679,11 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
     
       <item>
         <title>A Tragedy of Little Chicks - Dev Journal</title>
-        <description>&lt;p&gt;A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project.&lt;/p&gt;
+        <description>&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37404661&amp;amp;cid=65747228&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;div style=&quot;position:relative; padding-bottom:calc(56.25% + 44px)&quot;&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=37404661&amp;amp;cid=65747228&amp;amp;page=1&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;100%&quot; height=&quot;100%&quot; style=&quot;position:absolute;top:0;left:0;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;p&gt;A web game Inspired by Snake VS Block. The storyline is The Chicken Mother needs to fight with bad animals for saving her children. First programming project.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 

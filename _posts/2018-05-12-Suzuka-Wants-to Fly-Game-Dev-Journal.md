@@ -9,6 +9,9 @@ tags: [Unity]
 icon: icon-unity
 ---
 
+<div style='position:relative; padding-bottom:calc(56.25% + 44px)'><iframe src="//player.bilibili.com/player.html?aid=37162427&cid=65307506&page=1"  frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div> 
+
+<br/><br/>
 This is a third person spiderman style game demo. Because many people will have motion sickness when they are playing a game with faster visual change in Virtual Reality.
 
 I used a third person view spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequences. I also want to use this chance to practice my programming abilities. That's the goal for me to create this project.
@@ -17,9 +20,7 @@ In this Project, I my own third person controling system for my first anime Char
 
 <br/><br/>
 
-<div style='position:relative; padding-bottom:calc(56.25% + 44px)'><iframe src="//player.bilibili.com/player.html?aid=37162427&cid=65307506&page=1"  frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div> 
 
-<br/><br/>
 
 ---
 #### 1. Normal State Movement
