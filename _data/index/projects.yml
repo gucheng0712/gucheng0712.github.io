@@ -100,6 +100,13 @@
   img: /static/assets/img/landing/P5.png
   desc: A Level Design Project for creating a stylized realtime cartoon environment, includes Terrain Sculpting, Shader Programming, Particles, and Camera Movement, and Rendering.
 
+- name: (2019 Fall) Kinki Restaurant - Maya & Arnold & Substance
+  i18n: p12
+  url: https://gucheng0712.github.io/dev%20journal/2019/10/22/Kinki-Restaurant.html
+  demo_url: https://www.bilibili.com/video/BV19E41127UK
+  img: /static/assets/img/landing/P12.png
+  desc: An Interior Modeling, Texturing and Rendering for a Japanese Restaurant Kinki in Maya and Arnold.  
+
 - name: (2017 Spring) 3D Props - using Maya & Quixel & Photoshop
   i18n: p6
   url: https://gucheng0712.github.io/dev%20journal/2017/12/01/3D-Props-Modeling.html
@@ -114,12 +121,7 @@
   img: /static/assets/img/landing/P11.png
   desc: A Fancy House 3D Creation by using Maya, and Substance Deisnger. The Reference image is created by an Environmental Artist,OKU in Artstation.  
 
-- name: (2019 Fall) Kinki Restaurant - Maya & Arnold & Substance
-  i18n: p12
-  url: https://gucheng0712.github.io/dev%20journal/2019/10/22/Kinki-Restaurant.html
-  demo_url: https://www.bilibili.com/video/BV19E41127UK
-  img: /static/assets/img/landing/P12.png
-  desc: An Interior Modeling, Texturing and Rendering for a Japanese Restaurant Kinki in Maya and Arnold.  
+
 
 # - name: Character Drawings - Photoshop
 #   i18n: p13
