@@ -4,15 +4,14 @@
   desc: An Otaku
   github: https://github.com/gucheng0712
   email: gucheng0712@126.com
-#
 - last_name: 
- first_name: ZaneZee
- desc: College Class mate
- website: https://github.com/ZaneZee
- email: ZaneZukovsky@gmail.com
-#
+  first_name: ZaneZee
+  desc: College Class mate
+  website: https://github.com/ZaneZee
+  email: ZaneZukovsky@gmail.com
+
 - last_name: 
- first_name: Joab
- desc: College Class mate
- website: https://github.com/JoabMartinez
- email: joabmt@gmail.com 
+  first_name: Joab
+  desc: College Class mate
+  website: https://github.com/JoabMartinez
+  email: joabmt@gmail.com 
