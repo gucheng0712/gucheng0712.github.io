@@ -79,7 +79,8 @@ float angle = Mathf.Acos(dotValue) * Mathf.Rad2Deg;
 (2) Determine if the target is in front of you, or behind you.
 
 ```csharp
-float dotValue=Vector3.Dot(transform.forward, target.position)
+ Vector3 dirToTarget = (model.target.transform.position - model.character.transform.position).normalized;
+float dotValue=Vector3.Dot(dirToTarget, transform.forward)
 if(dotValue>0)
 {
     print("Target is in front of you");

@@ -2,13 +2,20 @@
 # If you don't have language feature(language.yml is empty), ignore "i18n" items
 # Suggest projects' img be located at '/static/assets/img/landing', and edit following img items.
 
+- name: (2019-2020) CombatDesigner - using Unity & Odin
+  i18n: p15
+  url: https://gucheng0712.github.io/dev%20journal/2020/04/28/CombatDesigner.html
+  demo_url: https://www.bilibili.com/video/BV13C4y1W7Uk/
+  repo: CombatDesigner
+  img: /static/assets/img/landing/P15.png
+  desc: CombatDesigner is a frame sequence based visual combat system, which designed specifically for Action/Combat Game Development.
+
 - name: (2019 Fall)Rina -using Maya & Zbrush & MarvelousDesigner & Substance
   i18n: p14
   url: https://gucheng0712.github.io/dev%20journal/2020/01/06/Rina-Creation.html
   demo_url: https://www.bilibili.com/video/av82418948
   img: /static/assets/img/landing/P14.png
   desc: A female samurai character creation during my free time. Using many different kinds of software to increase the workflow, includes, Maya, Zbrush, Substance Suites, RizomUV, Photoshop, Marmoset Toolbag, Marvelous Designer.
-
 
 - name: (2019 Spring) WISWYG - using TouchDesigner & Keras & Nltk & Open AI-GPT
   i18n: p10
@@ -131,11 +138,6 @@
 #   desc: Some Character drawing I created with Tablet in Photoshop on my free time for making 3D Model in the future.
 
 
-- name: (2019-2020) CombatDesigner - Unity & Odin
-  i18n: p15
-  #url:
-  #demo_url: temp
-  img: /static/assets/img/landing/P15.png
-  desc: CombatDesigner is the final year research project on creating an easy extensible role framework.
+
 
   
