@@ -17,15 +17,10 @@ The following charging plug-ins are used. Please purchase and download them on y
 ### Quick Overview to CombatDesigner
 
 CombatDesigner is a frame sequence based visual combat system, which designed specifically for Action/Combat Game Development.
-- <a href="Frame Sequence Based Behavior System">Frame Sequence Based Behavior System.</a>
-- <a href="Visualized Behavior Design">Visualized Behavior Design.<a>
+- Frame Sequence Based Behavior System.</a>
+- Visualized Behavior Design.<a>
 
-
-### System Diagram Overview
-
-<p align="center">     
-<img src="https://github.com/gucheng0712/CombatDesigner/blob/master/imgs/SystemDiagram.png" width="80%">
-</p>
+[Read Documentation on CombatDesigner Wiki](https://github.com/gucheng0712/CombatDesigner/wiki)
 
 ---
 >**End --Cheng Gu**
