@@ -80,7 +80,7 @@
   #url: temp
   #demo_url: temps
   img: /static/assets/img/landing/P16.png
-  desc: An indevelopment Toon/Anime Shader project inspried by Mihoyo's NextGen-Toon Rendering presentation. The goal is to achieve a stylized standard looking in cartoon/anime rendering for my character and be optimized in any games. The Features include View and Distance Based Outline, Fully Customized Cartoon Lighting Model based based on Ceil Rendering, View Based Rim Effect, Specular Mask, Custom Shadow Color, Normal Map Support, Stencil Features, MatCap & ShadeCap Support, Multi-Light Support.
+  desc: An indevelopment Toon/Anime Shader project inspried by Mihoyo's NextGen-Toon Rendering presentation. The goal is to achieve a stylized standard looking in cartoon/anime rendering for my character and be optimized in any games.
   
 
 - name: (2018 Fall) Voice Basketball Machine - using Unity & Waston & Vuforia
