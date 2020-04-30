@@ -4,9 +4,10 @@
 
 - name: (2019-2020) CombatDesigner - using Unity & Odin
   i18n: p15
+  gh_user: gucheng0712
+  repo: CombatDesigner
   url: https://gucheng0712.github.io/dev%20journal/2020/04/28/CombatDesigner.html
   demo_url: https://www.bilibili.com/video/BV13C4y1W7Uk/
-  repo: CombatDesigner
   img: /static/assets/img/landing/P15.png
   desc: CombatDesigner is a frame sequence based visual combat system, which designed specifically for Action/Combat Game Development.
 
