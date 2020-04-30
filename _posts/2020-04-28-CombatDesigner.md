@@ -22,9 +22,10 @@ CombatDesigner is a frame sequence based visual combat system, which designed sp
 
 
 ### System Diagram Overview
-![](https://github.com/gucheng0712/CombatDesigner/blob/master/imgs/SystemDiagram.png)
 
-
+<p align="center">     
+<img src="https://github.com/gucheng0712/CombatDesigner/blob/master/imgs/SystemDiagram.png" width="80%">
+</p>
 
 ---
 >**End --Cheng Gu**
