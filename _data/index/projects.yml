@@ -43,7 +43,7 @@
   url: https://gucheng0712.github.io/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html
   # demo_url: https://gucheng0712.github.io/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html
   img: /static/assets/img/landing/P3.png
-  desc: A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Use GLSL to write color animations in TouchDesigner and use Serial to collect information in Arduino to synchronize LED color animations while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.
+  desc: A group project Inspired by Yayoi Kusama’s Infinity Mirrored room, this project was designed to immerse the user into an infinite sea world just by looking the piece of installation. Synchronizing the LED Color animations between TouchDesigner and Arduino while using The versatility of the projection map and the depth of the infinite mirror to show a piece of work.
 
 - name: (2017 Fall) Suzuka Wants to Fly -using Unity & HTC Vive
   i18n: p2
@@ -52,7 +52,7 @@
   url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html
   demo_url: https://www.bilibili.com/video/av37162427
   img: /static/assets/img/landing/P2.png
-  desc: A VR Demo Aimed to reduce the problem of motion sickness, used a self create third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence, features includes, FSM for Character Movement, such as wallwalking, third person free style, battle movement and so on. 
+  desc: A VR Demo Aimed to reduce the problem of motion sickness, used a self create third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence. It is also a practise demo for game mechanics such as FSM for Character Movement, such as wallwalking, third person free style, battle movement and so on. 
   
 - name: (2018 Fall) CatBox- using Unity & Node.js & Vuforia
   i18n: p8
