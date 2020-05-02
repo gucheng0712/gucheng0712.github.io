@@ -9,13 +9,31 @@ icon: fa-code
 
 Pathfinding is to find the route between two points. It basically is implemented by graph search algorithms. In this post, we will implement `Breadth-First Search`, `Dijkstra's Algorithm`, `Greedy Best-First Search`, and `A*`, and understand the relation, and differences in these graph search algorithms.
 
+
+- [**1. Priority Queue**](#1-priority-queue)
+- [Binary Heaps](#binary-heaps)
+- [Code Implementation for Priority Queue](#code-implementation-for-priority-queue)
+- [**2. PathFinding Algorithms**](#2-pathfinding-algorithms) 
+- [Breadth-First Search](#breadth-first-search)
+- [Dijkstra Algorithm](#dijkstra-algorithm)
+- [Greedy Best-First Search](#greedy-best-first-search)  
+- [A* Algorithm](#a-algorithm)   
+- [Depth-First Search](#depth-first-search)
+
+<br/><br/>
+
 ---
+
+<br/><br/>
+
 # **1. Priority Queue**
 Before doing any graph search, there is a important data structure called `Priority Queue`. It holds information that has some sort of `priority value`. When an item is removed from a priority queue, it's always the item with the highest priority. Priority queues are used in many important computer algorithms, in particular graph-based shortest-path algorithms.
 
 <p align="center">     
 <img src="/static/assets/img/blog/priority-queue.jpg" width="50%">
 </p>
+
+<br/><br/>
 
 ## Binary Heaps
 
@@ -24,6 +42,8 @@ A performanced way to implement a priority queue would be to use a binary heap. 
 <p align="center">     
 <img src="/static/assets/img/blog/Min-Max-Heap.png" width="50%">
 </p>
+
+<br/><br/>
 
 ## Code Implementation for Priority Queue
 
@@ -150,8 +170,11 @@ public class PriorityQueue<T> where T : IComparable<T>
 }
 ```
 
+<br/><br/>
 
 ---
+
+<br/><br/>
 
 # **2. PathFinding Algorithms**
 
@@ -212,7 +235,11 @@ public class PriorityQueue<T> where T : IComparable<T>
         }
 ```
 
+<br/><br/>
+
 ---
+
+<br/><br/>
 
 ## Breadth-First Search
 
@@ -253,7 +280,11 @@ This most basic pathfinding algorithm is `Breadth-first search (BFS)`, which is 
     }
 ```
 
+<br/><br/>
+
 ---
+
+<br/><br/>
 
 ## Dijkstra Algorithm
 
@@ -305,8 +336,11 @@ Dijkstra Algorithm is the improvement of BFS, because BFS doesn't really find th
 
 ```
 
+<br/><br/>
 
 ---
+
+<br/><br/>
 
 ## Greedy Best-First Search
 
@@ -360,8 +394,11 @@ Dijkstra Algorithm is the improvement of BFS, because BFS doesn't really find th
 
 ```
 
+<br/><br/>
 
 ---
+
+<br/><br/>
 
 ## A* Algorithm
 
@@ -416,8 +453,11 @@ Dijkstra Algorithm is the improvement of BFS, because BFS doesn't really find th
 
 ```
 
+<br/><br/>
 
 ---
+
+<br/><br/>
 
 ## Depth-First Search
 

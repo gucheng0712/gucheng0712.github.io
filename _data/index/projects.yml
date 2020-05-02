@@ -54,7 +54,7 @@
   img: /static/assets/img/landing/P2.png
   desc: A VR Demo Aimed to reduce the problem of motion sickness, used a self create third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence. It is also a practise demo for game mechanics such as FSM for Character Movement, such as wallwalking, third person free style, battle movement and so on. 
   
-- name: (2018 Fall) CatBox- using Unity & Node.js & Vuforia
+- name: (2018 Fall) CatBox- using Unity & BestHttp & Node.js & Vuforia
   i18n: p8
   gh_user: gucheng0712
   url:

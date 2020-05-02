@@ -5,9 +5,42 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Apr 2020 05:48:04 -0700</pubDate>
-    <lastBuildDate>Sat, 04 Apr 2020 05:48:04 -0700</lastBuildDate>
+    <pubDate>Fri, 01 May 2020 19:20:07 -0700</pubDate>
+    <lastBuildDate>Fri, 01 May 2020 19:20:07 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>CombatDesigner -  Summary</title>
+        <description>&lt;h3 id=&quot;dependent-plugins&quot;&gt;Dependent Plugins&lt;/h3&gt;
+&lt;p&gt;The following charging plug-ins are used. Please purchase and download them on your own.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041&quot;&gt;Odin - Inspector and Serializer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;quick-overview-to-combatdesigner&quot;&gt;Quick Overview to CombatDesigner&lt;/h3&gt;
+
+&lt;p&gt;CombatDesigner is a frame sequence based visual combat system, which designed specifically for Action/Combat Game Development.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Frame Sequence Based Behavior System.&amp;lt;/a&amp;gt;&lt;/li&gt;
+  &lt;li&gt;Visualized Behavior Design.&lt;a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/gucheng0712/CombatDesigner/wiki&quot;&gt;Read Documentation on CombatDesigner Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 28 Apr 2020 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/dev%20journal/2020/04/28/CombatDesigner.html</link>
+        <guid isPermaLink="true">http://localhost:4000/dev%20journal/2020/04/28/CombatDesigner.html</guid>
+        
+        <category>Journal</category>
+        
+        
+        <category>Dev journal</category>
+        
+      </item>
     
       <item>
         <title>IEnumerable and IEnumerator</title>
@@ -519,17 +552,17 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;1-creating-a-simple-window-ui-in-maya&quot;&gt;1. Creating a Simple Window UI in Maya&lt;/h1&gt;
+&lt;h1 id=&quot;6-creating-a-simple-window-ui-in-maya&quot;&gt;6. Creating a Simple Window UI in Maya&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;creating-a-window-through-mel&quot;&gt;Creating a Window through &lt;code class=&quot;highlighter-rouge&quot;&gt;MEL&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;61-creating-a-window-through-mel&quot;&gt;6.1. Creating a Window through &lt;code class=&quot;highlighter-rouge&quot;&gt;MEL&lt;/code&gt;&lt;/h2&gt;
 
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;win&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`window &quot;Simple Window&quot;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;showWindow&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;win&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;creating-a-window-through-mayacmd&quot;&gt;Creating a Window through &lt;code class=&quot;highlighter-rouge&quot;&gt;maya.cmd&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;62-creating-a-window-through-mayacmd&quot;&gt;6.2. Creating a Window through &lt;code class=&quot;highlighter-rouge&quot;&gt;maya.cmd&lt;/code&gt;&lt;/h2&gt;
 
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;maya&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmds&lt;/span&gt;
 
@@ -538,7 +571,7 @@
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;creating-a-window-through-openmaya-api--pyside2&quot;&gt;Creating a Window through &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenMaya API &amp;amp; PySide2&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;63-creating-a-window-through-openmaya-api--pyside2&quot;&gt;6.3. Creating a Window through &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenMaya API &amp;amp; PySide2&lt;/code&gt;&lt;/h2&gt;
 
 &lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;PySide2&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QtCore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QtWidgets&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;shiboken2&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapInstance&lt;/span&gt;
@@ -573,7 +606,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;2-creating-a-maya-workspacecontrol-window&quot;&gt;2. Creating a Maya WorkSpaceControl Window&lt;/h1&gt;
+&lt;h1 id=&quot;7-creating-a-maya-workspacecontrol-window&quot;&gt;7. Creating a Maya WorkSpaceControl Window&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -611,11 +644,11 @@
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;
 &lt;a name=&quot;3.1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;3-creating-ui-elements-in-maya-through-mayacmds&quot;&gt;3. Creating UI elements in Maya (Through &lt;code class=&quot;highlighter-rouge&quot;&gt;maya.cmds&lt;/code&gt;)&lt;/h1&gt;
+&lt;h1 id=&quot;8-creating-ui-elements-in-maya-through-mayacmds&quot;&gt;8. Creating UI elements in Maya (Through &lt;code class=&quot;highlighter-rouge&quot;&gt;maya.cmds&lt;/code&gt;)&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;creating-a-simple-button&quot;&gt;Creating a Simple &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/button.html&quot;&gt;&lt;strong&gt;Button&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;81-creating-a-simple-button&quot;&gt;8.1. Creating a Simple &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/button.html&quot;&gt;&lt;strong&gt;Button&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;maya&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cmds&lt;/span&gt;
 
@@ -635,7 +668,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;retrieve-input-from-intfield--floatfield&quot;&gt;Retrieve Input from &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?intField.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;intField&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?floatField.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;floatField&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;82-retrieve-input-from-intfield--floatfield&quot;&gt;8.2. Retrieve Input from &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?intField.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;intField&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?floatField.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;floatField&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Sometimes we also need to grab input from field controls, in both integet and float varieties.&lt;/p&gt;
 
@@ -661,7 +694,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;using-nested-layout-to-add-text-before-the-input-field&quot;&gt;Using Nested Layout to Add &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?text.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;text&lt;/strong&gt;&lt;/a&gt; Before the Input Field&lt;/h2&gt;
+&lt;h2 id=&quot;83-using-nested-layout-to-add-text-before-the-input-field&quot;&gt;8.3. Using Nested Layout to Add &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?text.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;text&lt;/strong&gt;&lt;/a&gt; Before the Input Field&lt;/h2&gt;
 
 &lt;p&gt;Many times, we will want to create organized UI Layout, we need to nest layouts inside each other.&lt;/p&gt;
 
@@ -699,7 +732,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;using-tabs-and-scrolling&quot;&gt;Using &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?tabLayout.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;Tabs&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?scrollLayout.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;Scrolling&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;84-using-tabs-and-scrolling&quot;&gt;8.4. Using &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?tabLayout.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;Tabs&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?scrollLayout.html&amp;amp;cat=Windows&quot;&gt;&lt;strong&gt;Scrolling&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -746,7 +779,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;working-with-menu-and-menuitem&quot;&gt;Working with &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menu.html&amp;amp;cat=Windows&quot;&gt;Menu&lt;/a&gt; and &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menuItem.html&amp;amp;cat=Windows&quot;&gt;MenuItem&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;85-working-with-menu-and-menuitem&quot;&gt;8.5. Working with &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menu.html&amp;amp;cat=Windows&quot;&gt;Menu&lt;/a&gt; and &lt;a href=&quot;https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menuItem.html&amp;amp;cat=Windows&quot;&gt;MenuItem&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -801,11 +834,11 @@
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;
 &lt;a name=&quot;4.1&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;4-creating-ui-elements-in-maya-through-pyqt5pyside2&quot;&gt;4. Creating UI elements in Maya (Through &lt;code class=&quot;highlighter-rouge&quot;&gt;PyQt5/PySide2&lt;/code&gt;)&lt;/h1&gt;
+&lt;h1 id=&quot;9-creating-ui-elements-in-maya-through-pyqt5pyside2&quot;&gt;9. Creating UI elements in Maya (Through &lt;code class=&quot;highlighter-rouge&quot;&gt;PyQt5/PySide2&lt;/code&gt;)&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;pushbutton&quot;&gt;&lt;a href=&quot;https://doc.qt.io/qtforpython/PySide2/QtWidgets/QPushButton.html&quot;&gt;&lt;strong&gt;PushButton&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;91-pushbutton&quot;&gt;9.1. &lt;a href=&quot;https://doc.qt.io/qtforpython/PySide2/QtWidgets/QPushButton.html&quot;&gt;&lt;strong&gt;PushButton&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;PySide2&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QtCore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QtWidgets&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;shiboken2&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wrapInstance&lt;/span&gt;
@@ -2822,13 +2855,32 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
         <title>PathFinding Algorithm</title>
         <description>&lt;p&gt;Pathfinding is to find the route between two points. It basically is implemented by graph search algorithms. In this post, we will implement &lt;code class=&quot;highlighter-rouge&quot;&gt;Breadth-First Search&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Dijkstra's Algorithm&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Greedy Best-First Search&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;A*&lt;/code&gt;, and understand the relation, and differences in these graph search algorithms.&lt;/p&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-priority-queue&quot;&gt;&lt;strong&gt;1. Priority Queue&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#binary-heaps&quot;&gt;Binary Heaps&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#code-implementation-for-priority-queue&quot;&gt;Code Implementation for Priority Queue&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-pathfinding-algorithms&quot;&gt;&lt;strong&gt;2. PathFinding Algorithms&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#breadth-first-search&quot;&gt;Breadth-First Search&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#dijkstra-algorithm&quot;&gt;Dijkstra Algorithm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#greedy-best-first-search&quot;&gt;Greedy Best-First Search&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#a-algorithm&quot;&gt;A* Algorithm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#depth-first-search&quot;&gt;Depth-First Search&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;1-priority-queue&quot;&gt;&lt;strong&gt;1. Priority Queue&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;Before doing any graph search, there is a important data structure called &lt;code class=&quot;highlighter-rouge&quot;&gt;Priority Queue&lt;/code&gt;. It holds information that has some sort of &lt;code class=&quot;highlighter-rouge&quot;&gt;priority value&lt;/code&gt;. When an item is removed from a priority queue, it’s always the item with the highest priority. Priority queues are used in many important computer algorithms, in particular graph-based shortest-path algorithms.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/priority-queue.jpg&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;binary-heaps&quot;&gt;Binary Heaps&lt;/h2&gt;
 
@@ -2837,6 +2889,8 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/Min-Max-Heap.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;code-implementation-for-priority-queue&quot;&gt;Code Implementation for Priority Queue&lt;/h2&gt;
 
@@ -2962,7 +3016,11 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;2-pathfinding-algorithms&quot;&gt;&lt;strong&gt;2. PathFinding Algorithms&lt;/strong&gt;&lt;/h1&gt;
 
@@ -3022,7 +3080,11 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;breadth-first-search&quot;&gt;Breadth-First Search&lt;/h2&gt;
 
@@ -3062,7 +3124,11 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;dijkstra-algorithm&quot;&gt;Dijkstra Algorithm&lt;/h2&gt;
 
@@ -3117,7 +3183,11 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;greedy-best-first-search&quot;&gt;Greedy Best-First Search&lt;/h2&gt;
 
@@ -3174,7 +3244,11 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;a-algorithm&quot;&gt;A* Algorithm&lt;/h2&gt;
 
@@ -3228,7 +3302,11 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;depth-first-search&quot;&gt;Depth-First Search&lt;/h2&gt;
 
@@ -12398,7 +12476,8 @@ The result of &lt;code class=&quot;highlighter-rouge&quot;&gt;cross product&lt;/
 
 &lt;p&gt;(2) Determine if the target is in front of you, or behind you.&lt;/p&gt;
 
-&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dotValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dirToTarget&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;character&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;normalized&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dotValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Vector3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirToTarget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dotValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Target is in front of you&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;

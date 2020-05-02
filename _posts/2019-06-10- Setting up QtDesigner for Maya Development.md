@@ -7,6 +7,7 @@ tags: [Python]
 icon: fa-code
 ---
 
+
 # 1. Download the QtDesigner Mac version
 * [Download Link](https://build-system.fman.io/qt-designer-download)
 <br/>
@@ -44,11 +45,6 @@ win = window()
 
 ```
 
-
-
-
-
-
 <a name="1"></a>
 
 <br/><br/>
@@ -57,11 +53,11 @@ win = window()
 
 <br/><br/>
 
-# 1. Creating a Simple Window UI in Maya
+# 6. Creating a Simple Window UI in Maya
 
 <br/>
 
-## Creating a Window through `MEL`
+## 6.1. Creating a Window through `MEL`
 
 ```py
 string $win = `window "Simple Window"`;
@@ -69,7 +65,7 @@ showWindow $win;
 ```
 
 
-## Creating a Window through `maya.cmd`
+## 6.2. Creating a Window through `maya.cmd`
 
 ```py
 from maya import cmds
@@ -80,7 +76,7 @@ cmds.showWindow(win)
 ```
 
 
-## Creating a Window through `OpenMaya API & PySide2`
+## 6.3. Creating a Window through `OpenMaya API & PySide2`
 
 ```py
 from PySide2 import QtCore, QtWidgets
@@ -119,7 +115,7 @@ if __name__=="__main__":
 
 <br/><br/>
 
-# 2. Creating a Maya WorkSpaceControl Window
+# 7. Creating a Maya WorkSpaceControl Window
 
 <br/>
 
@@ -159,11 +155,11 @@ getDock()
 <br/><br/>
 <a name="3.1"></a>
 
-# 3. Creating UI elements in Maya (Through `maya.cmds`)
+# 8. Creating UI elements in Maya (Through `maya.cmds`)
 
 <br/>
 
-## Creating a Simple [**Button**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/button.html)
+## 8.1. Creating a Simple [**Button**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/button.html)
 
 ``` python
 from maya import cmds
@@ -185,7 +181,7 @@ showUI()
 
 <br/><br/>
 
-## Retrieve Input from [**intField**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?intField.html&cat=Windows) | [**floatField**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?floatField.html&cat=Windows)
+## 8.2. Retrieve Input from [**intField**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?intField.html&cat=Windows) | [**floatField**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?floatField.html&cat=Windows)
 
 Sometimes we also need to grab input from field controls, in both integet and float varieties. 
 
@@ -213,7 +209,7 @@ SpheresClass()
 
 <br/><br/>
 
-## Using Nested Layout to Add [**text**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?text.html&cat=Windows) Before the Input Field
+## 8.3. Using Nested Layout to Add [**text**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?text.html&cat=Windows) Before the Input Field
 
 Many times, we will want to create organized UI Layout, we need to nest layouts inside each other. 
 
@@ -253,7 +249,7 @@ NestedLayouts()
 
 <br/><br/>
 
-## Using [**Tabs**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?tabLayout.html&cat=Windows) and [**Scrolling**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?scrollLayout.html&cat=Windows)
+## 8.4. Using [**Tabs**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?tabLayout.html&cat=Windows) and [**Scrolling**](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?scrollLayout.html&cat=Windows)
 
 <br>
 
@@ -300,7 +296,7 @@ TabExample()
 
 <br/><br/>
 
-## Working with [Menu](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menu.html&cat=Windows) and [MenuItem](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menuItem.html&cat=Windows)
+## 8.5. Working with [Menu](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menu.html&cat=Windows) and [MenuItem](https://help.autodesk.com/cloudhelp/2018/ENU/Maya-Tech-Docs/CommandsPython/show.html?menuItem.html&cat=Windows)
 
 <br>
 
@@ -360,11 +356,11 @@ CustomMenu()
 <br/><br/>
 <a name="4.1"></a>
 
-# 4. Creating UI elements in Maya (Through `PyQt5/PySide2`)
+# 9. Creating UI elements in Maya (Through `PyQt5/PySide2`)
 
 <br/>
 
-## [**PushButton**](https://doc.qt.io/qtforpython/PySide2/QtWidgets/QPushButton.html)
+## 9.1. [**PushButton**](https://doc.qt.io/qtforpython/PySide2/QtWidgets/QPushButton.html)
 
 ``` python
 from PySide2 import QtCore, QtWidgets
