@@ -7,6 +7,14 @@ tags: [Unity,Csharp,Math,CG]
 icon: fa-calculator
 ---
 
+[Homogeneous Coordinates](#homogeneous-coordinates)
+- [1. Translate (T)](#1-translate-t)
+- [2. Rotate (R)](#2-rotate-r)
+- [2.1  Rotation About an Arbitrary Axis in 3 Dimensions](#21--rotation-about-an-arbitrary-axis-in-3-dimensions)
+- [3. Scale (S)](#3-scale-s)
+- [3.1 Normal Transformation](#31-normal-transformation)
+
+
 Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.
 
 It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.
@@ -18,8 +26,11 @@ It is not only complicated but also inefficient. We can combine multiple transfo
 <img src="/static/assets/img/blog/srt.png" width="80%">
 </p>
 
+<br><br>
 ---
-### Homogeneous Coordinates
+<br><br>
+
+## Homogeneous Coordinates
 Before, we only considered 3D vertices as a (x,y,z) triplet. For making the 3D transformation easier, We will now have (x,y,z,w) vectors.
 
 If w == 1, then the vector (x,y,z,1) is a position in space.
@@ -70,8 +81,11 @@ A classic example of homogeneous coordinates is to make the translation of a vec
     \end{bmatrix}
 \end{equation}
 
+<br><br>
 ---
-### 1. Translate (T)
+<br><br>
+
+# 1. Translate (T)
 
 <p align="center">  
 <img src="/static/assets/img/blog/t.png" width="40%">
@@ -128,8 +142,11 @@ After Translate:
     0.00000    0.00000    0.00000    1.00000
 ```
 
+<br><br>
 ---
-### 2. Rotate (R)
+<br><br>
+
+# 2. Rotate (R)
 
 <p align="center">  
 <img src="/static/assets/img/blog/matrixRot.png" width="25%">
@@ -264,8 +281,11 @@ After Rotate(along z-axis):
         0.00000   0.00000   0.00000   1.00000
 ```
 
+<br><br>
 ---
-### 2.1  Rotation About an Arbitrary Axis in 3 Dimensions
+<br><br>
+
+## Rotation About an Arbitrary Axis in 3 Dimensions
 
 \begin{equation}
     R_{Arbitrary} = \begin{bmatrix} 
@@ -293,7 +313,10 @@ $$v_\perp = v- {proj_n}v = v - (v\cdot n)n $$
 
 Step 3: Get the $w$ which is the cross product of $n$ and $v_\perp$. Based on the definition of cross product $w$ is a vector that perpendicular to a plane fixed by $n$ and $v_\perp$. Also $n$ is a unit vector, and n also perpendicular to $v_\perp$, so the length between w and $v_\perp$ are same.
 
+<p align="center">  
 <img src="/static/assets/img/blog/abtrmatrix.png" width="30%">
+</p>
+
 
 Step 4: Get $v_\perp^\prime$ which is a vector that obtained by rotating $v_\perp$ along $n$ axis $\theta$ angle.
 
@@ -324,8 +347,11 @@ v^\prime_y &= \left( \begin{bmatrix} 0 \\\ 1 \\\ 0\\\  \end{bmatrix}  - \left( \
  v^\prime_z &= \left( \begin{bmatrix} 0 \\\ 0 \\\ 1 \\\ \end{bmatrix}  - \left( \begin{bmatrix} 0 \\\ 0 \\\ 1 \\\ \end{bmatrix} \cdot \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \cos \theta + \left(   \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \times \begin{bmatrix} 0 \\\ 0 \\\ 1 \\\ \end{bmatrix} \right) \sin \theta + \left( \begin{bmatrix}  0 \\\ 0 \\\ 1 \\\ \end{bmatrix} \cdot \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \\\ &=\left( \begin{bmatrix}  0 \\\ 0 \\\ 1 \\\ \end{bmatrix}  - n_z\begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \right) \cos \theta +  \begin{bmatrix} n_y \\\ -n_x \\\ 0 \\\ \end{bmatrix} \sin \theta + n_z \begin{bmatrix} n_x \\\ n_y \\\ n_z \\\ \end{bmatrix} \\\ &= \begin{bmatrix} - n_x n_z \\\ -n_y n_z \\\ 1 - n_z^2 \\\ \end{bmatrix} \cos \theta + \begin{bmatrix} n_y \\\ -n_x \\\ 0 \\\ \end{bmatrix} \sin \theta + \begin{bmatrix} n_x n_z \\\ n_y n_z \\\ n_z^2 \\\  \end{bmatrix} \\\  &= \begin{bmatrix} -n_x n_z \cos \theta +n_y \sin \theta + n_x n_z \\\ -n_yn_z \cos \theta - n_x \sin \theta + n_yn_z \\\ (1 - n_z^2) \cos \theta + n_z^2 \end{bmatrix} \\\  &= \begin{bmatrix} n_x n_z ( 1 - \cos \theta ) + n_y \sin \theta \\\ n_yn_z(1 - \cos \theta) - n_x \sin \theta \\\ n_z^2(1 - \cos \theta) + \cos \theta \end{bmatrix} 
  \end{align}
 
+<br><br>
 ---
-### 3. Scale (S)
+<br><br>
+
+# 3. Scale (S)
 
 <img src="/static/assets/img/blog/s.png" width="30%">
 
@@ -371,7 +397,27 @@ After scale:
         0.00000 0.00000 0.00000 1.00000
 ```
 
+<br><br>
+
+## Normal Transformation
+
+Scale Transformation has two types of scale operation, Uniform Scaling and Non-Uniform Scaling. 
+
+<p align="center">  
+<img src="/static/assets/img/blog/uniformtransformation.png" width="50%">
+</p>
+<p align="center">  
+<img src="/static/assets/img/blog/non-uniformt_transformation.png" width="50%">
+</p>
+
+
+From above image, we can see Non- Uniform Transformation will cause the object normal not be perpendicular to the surface, we have to do Normal Transformation to fix this issue. In the rendering pipeline, the coordinates of the model are transformed from local space to world space via the Model matrix (M). The Normal Transformation matrix is the transposition matrix for the inverse matrix of the vertex position transformation matrix, which is $(M^-1)^T$ 
+
+For the derivation method, refer to the this [Link](http://warmcat.org/chai/blog/?p=884)
+
+<br><br>
 ---
+<br><br>
 
 >**End --Cheng Gu**
 

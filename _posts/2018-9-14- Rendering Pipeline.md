@@ -8,9 +8,9 @@ icon: icon-splatter
 ---
 
 # Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
+- [**1. Application Stage**](#1-application-stage)
+- [**2. Geometry Stage**](#2-geometry-stage)
+- [**3. Rasterization Stage**](#3-rasterization-stage)
 
 
 The pipeline of Graphic Rendering includes `3` stages: ***`Application Stage`*** --> ***`Geometry Stage`*** --> ***`Rasterization Stage`***.

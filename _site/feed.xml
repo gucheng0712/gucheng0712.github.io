@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 01 May 2020 19:20:07 -0700</pubDate>
-    <lastBuildDate>Fri, 01 May 2020 19:20:07 -0700</lastBuildDate>
+    <pubDate>Sun, 03 May 2020 09:57:46 -0700</pubDate>
+    <lastBuildDate>Sun, 03 May 2020 09:57:46 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -7984,11 +7984,11 @@ Code:&lt;/p&gt;
       <item>
         <title>Rendering Pipeline (CG)</title>
         <description>&lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#example&quot;&gt;Example&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#example2&quot;&gt;Example2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#third-example&quot;&gt;Third Example&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-application-stage&quot;&gt;&lt;strong&gt;1. Application Stage&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-geometry-stage&quot;&gt;&lt;strong&gt;2. Geometry Stage&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-rasterization-stage&quot;&gt;&lt;strong&gt;3. Rasterization Stage&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;The pipeline of Graphic Rendering includes &lt;code class=&quot;highlighter-rouge&quot;&gt;3&lt;/code&gt; stages: &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Application Stage&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; –&amp;gt; &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Geometry Stage&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; –&amp;gt; &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rasterization Stage&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 
@@ -11825,7 +11825,8 @@ Blend One One // Linear Dodge
       <item>
         <title>Matrix MVP</title>
         <description>&lt;p align=&quot;center&quot;&gt;  
-&lt;img src=&quot;/static/assets/img/blog/mvp_transformation.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/mvp_transformation.png&quot; width=&quot;60%&quot; /&gt;
+&lt;img src=&quot;/static/assets/img/blog/mvpCoordinate.png&quot; width=&quot;20%&quot; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;MVP Matrix is the shorthand of  &lt;strong&gt;&lt;em&gt;Model&lt;/em&gt;&lt;/strong&gt;,  &lt;strong&gt;&lt;em&gt;View&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;Projection&lt;/em&gt;&lt;/strong&gt; matrices. Model matrix represents the 3d model’s transformation from object space to world space. View matrix represents the transformation of the 3d model from the world space to the camera(view) space. Projection(Clip) matrix represents the transformation of the 3d model from camera space to clip(screen) space.&lt;/p&gt;
@@ -11837,7 +11838,7 @@ Blend One One // Linear Dodge
 &lt;hr /&gt;
 &lt;h2 id=&quot;view&quot;&gt;View&lt;/h2&gt;
 
-&lt;p&gt;View matrix is used for the transformation of 3D Models from world space to view(camera) space. This is called &lt;strong&gt;view transformation&lt;/strong&gt;. As we all known, there are two major coordinate system, right hand coordinate system, and left hand coordinate system. In Unity game engine, it uses left hand coordinate system, but in the view space, it will be coverted to left hand coordinate system.&lt;/p&gt;
+&lt;p&gt;View matrix is used for the transformation of 3D Models from world space to view(camera) space. This is called &lt;strong&gt;view transformation&lt;/strong&gt;. As we all known, there are two major coordinate system, right hand coordinate system, and left hand coordinate system. In Unity game engine, it uses &lt;strong&gt;left hand coordinate system&lt;/strong&gt;, but in the view space, it will be coverted to &lt;strong&gt;right hand coordinate&lt;/strong&gt; system.&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;  
 &lt;img src=&quot;/static/assets/img/blog/camera_space.png&quot; width=&quot;40%&quot; /&gt;
@@ -11938,7 +11939,194 @@ Blend One One // Linear Dodge
 
 &lt;p&gt;For the derivation method, refer to the this &lt;a href=&quot;https://www.cnblogs.com/graphics/archive/2012/07/25/2582119.html&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;derivation-method&quot;&gt;Derivation Method&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Step 1:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/frustum_y.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Based on above image,, calculating $y’$. $P = (y,z)$ and $P’ = (y’,z’)$. We can get&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z = -cot(\frac{FOV_y}{2})&lt;/script&gt;
+
+&lt;p&gt;Also, because $\Delta PAO$ and $\Delta P’A’O$ are similiar triangle, so&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{y}{z} = \frac{y'}{z'}, z' = -cot(\frac{FOV_y}{2})&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y'= \frac{y}{z} z' = -\frac{y}{z} \cdot cot(\frac{FOV_y}{2})&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Step 2:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/frustum_x.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We can use the same method to calculate the top view(see img above) to get&lt;/p&gt;
+
+&lt;p&gt;$ x’=  -\frac{x}{z} cot(\frac{FOV_x}{2}) $$&lt;/p&gt;
+
+&lt;p&gt;However, we dont know the $FOV_x$, but we can based on $FOV_y$ and the Aspect of the screen to calculate&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Aspect = \frac{W}{H} = \frac{tan(\frac{FOV_x}{2})z'}{tan(\frac{FOV_y}{2})z'} = \frac{cot(\frac{FOV_x}{2})}{cot(\frac{FOV_y}{2})}&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;cot(\frac{FOV_x}{2}) = \frac{cot(\frac{FOV_y}{2})}{Aspect}&lt;/script&gt;
+
+&lt;p&gt;Based on above formulas to get x’&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x' = -\frac{x}{z}cot(\frac{FOV_x}{2}) = -\frac{x}{z} \cdot \frac{cot(\frac{FOV_y}{2})}{Aspect}&lt;/script&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Step 3:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Combine above to get $P’$&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p' = (x',y',z',1) = ( -\frac{x \cdot cot(\frac{FOV_y}{2}) }{z \cdot Aspect}, -\frac{y}{z} \cdot cot(\frac{FOV_y}{2}), z', 1 )&lt;/script&gt;
+
+&lt;p&gt;However, $z’$ is still unknown. By the nature of the Homogeneous coordinates, if $w \neq 0$, then $(x,y,z,1) = (wx,wy,wz,w)$. We can  use $P’$ multiply $-z$ to get
+&lt;script type=&quot;math/tex&quot;&gt;P' = ( \frac{x \cdot cot(\frac{FOV_y}{2}) }{Aspect}, ycot(\frac{FOV_y}{2}), -zz', -z )&lt;/script&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Step 4:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Observing the components of P’ we got above, we can find P’ actually can be calculated by using P post-multiply a Matrix, $M_{proj}$.&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+    \begin{bmatrix} 
+      \frac{x \cdot cot(\frac{FOV_y}{2}) }{Aspect} \\
+      ycot(\frac{FOV_y}{2}) \\
+      -zz’ \\
+      -z
+    \end{bmatrix} = M_{proj} \begin{bmatrix} 
+      x \\
+      y \\
+      z \\
+      1
+    \end{bmatrix} =&lt;br /&gt;
+    \begin{bmatrix} 
+      \frac{cot(\frac{FOV_y}{2}) }{Aspect}  &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; cot(\frac{FOV_y}{2}) &amp;amp; 0 &amp;amp; 0 \\
+      m_1 &amp;amp; m_2 &amp;amp; m_3 &amp;amp; m_4 \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0
+    \end{bmatrix} 
+    \begin{bmatrix} 
+      x \\
+      y \\
+      z \\
+      1
+    \end{bmatrix}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;So, if we can get m1, m2, m3, m4, then we can get the projection matrix M_proj. Firsly we know that the every point in the projection plane has the same z value which means z has no relationship with x or y. so we can get only when $m_1 = m_2 = 0$, we can make sure xy won’t influence projection point z’. We can get
+&lt;script type=&quot;math/tex&quot;&gt;m_3z + m_4 = -zz'&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;In Direct3D platform after projection the range of z’ is [-1,0], we can get z’(-Far) after the z-projection in the far plane is -1, and z’(-Near) after the z-projection in the near plane is 0. Therefore we can get a set of equations&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{cases} 
+m_3(-Far)+m_4 = Far(-1)\\ 
+m_3(-Near)+m_4 = Near \cdot 0 
+\end{cases}&lt;/script&gt;
+
+&lt;p&gt;After calculate, we can get&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{cases} 
+m_3 = \frac{Far}{Far-Near}\\ 
+m_4 = \frac{NearFar}{Far - Near}
+\end{cases}&lt;/script&gt;
+
+&lt;p&gt;Then Plug $m_1$ $m_2$ $m_3$ $m_4$ into $M_{proj}$, we can get M_{tempProj}:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+     M_{tempProj}  =&lt;br /&gt;
+    \begin{bmatrix} 
+      \frac{cot(\frac{FOV_y}{2}) }{Aspect}  &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; cot(\frac{FOV_y}{2}) &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; \frac{Far}{Far-Near} &amp;amp; \frac{NearFar}{Far - Near} \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0
+    \end{bmatrix} 
+\end{equation}&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Step 5.1 Unity Projection Matrix in Direct3D Platform :&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the vertex operation stage, projection transformation can be considered as the last step, then the vertices will go into rasterization stage, in rasterization stage, In Unity, the clip space uses Left Hand Coordinate, so it is necessary to convert back to left hand coordinate system. When x and y components of right hand coordinate system and left hand coordinate system has the same direction, then their z components are opposite. we can calculate it to get&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+     M_{proj}  =&lt;br /&gt;
+     \begin{bmatrix} 
+      1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 1 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1
+    \end{bmatrix} 
+    \begin{bmatrix} 
+      \frac{cot(\frac{FOV_y}{2}) }{Aspect}  &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; cot(\frac{FOV_y}{2}) &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; \frac{Far}{Far-Near} &amp;amp; \frac{NearFar}{Far - Near} \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0
+    \end{bmatrix}  = 
+    \begin{bmatrix} 
+      \frac{cot(\frac{FOV_y}{2}) }{Aspect}  &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; cot(\frac{FOV_y}{2}) &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; \frac{Far}{Near-Far} &amp;amp; \frac{NearFar}{Far - Near} \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0
+    \end{bmatrix} 
+\end{equation}&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Step 5.2:  Unity Projection Matrix in OpenGL Platform&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Because the range of z’ in OpenGL platform is [-1,1]. We should scale the range of z from [-1,0] to [-1,1].  we can get z’(-Far) after the z-projection in the far plane is -1, and z’(-Near) after the z-projection in the near plane is 1. Therefore we can get a set of equations:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{cases} 
+m_3(-Far)+m_4 = Far(-1)\\ 
+m_3(-Near)+m_4 = Near \cdot 1
+\end{cases}&lt;/script&gt;
+
+&lt;p&gt;After calculate, we can get&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{cases} 
+m_3 = \frac{Near+Far}{Far-Near}\\ 
+m_4 = \frac{2NearFar}{Far - Near}
+\end{cases}&lt;/script&gt;
+
+&lt;p&gt;Then plug them into $M_{tempProj}$, we can get:&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+     M_{proj}  = &lt;br /&gt;
+     \begin{bmatrix} 
+      1 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 1 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1
+    \end{bmatrix} 
+    \begin{bmatrix} 
+      \frac{cot(\frac{FOV_y}{2}) }{Aspect}  &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; cot(\frac{FOV_y}{2}) &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; \frac{Near+Far}{Far-Near} &amp;amp; \frac{2NearFar}{Far - Near} \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0
+    \end{bmatrix} =
+    \begin{bmatrix} 
+      \frac{cot(\frac{FOV_y}{2}) }{Aspect}  &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; cot(\frac{FOV_y}{2}) &amp;amp; 0 &amp;amp; 0 \\
+      0 &amp;amp; 0 &amp;amp; -\frac{Far+Near}{Far-Near} &amp;amp; -\frac{2NearFar}{Far - Near} \\
+      0 &amp;amp; 0 &amp;amp; -1 &amp;amp; 0
+    \end{bmatrix} 
+\end{equation}&lt;/p&gt;
+
+&lt;h2&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;2-orthographic-projection&quot;&gt;2. Orthographic Projection&lt;/h3&gt;
 
@@ -11994,7 +12182,16 @@ M_{ortho} =
     
       <item>
         <title>Matrix SRT</title>
-        <description>&lt;p&gt;Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;a href=&quot;#homogeneous-coordinates&quot;&gt;Homogeneous Coordinates&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#1-translate-t&quot;&gt;1. Translate (T)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#2-rotate-r&quot;&gt;2. Rotate (R)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#21--rotation-about-an-arbitrary-axis-in-3-dimensions&quot;&gt;2.1  Rotation About an Arbitrary Axis in 3 Dimensions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#3-scale-s&quot;&gt;3. Scale (S)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#31-normal-transformation&quot;&gt;3.1 Normal Transformation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Normally when we develop programs, unavoidably want to do all sorts of transformation processing to the image. Especically the transformation bewtween multiple coordinate system.&lt;/p&gt;
 
 &lt;p&gt;It is not only complicated but also inefficient. We can combine multiple transformations by using transformation matrix and matrix multiplication. Finally, we can get the desired result by using a matrix for each point.&lt;/p&gt;
 
@@ -12006,8 +12203,10 @@ M_{ortho} =
 &lt;img src=&quot;/static/assets/img/blog/srt.png&quot; width=&quot;80%&quot; /&gt;
 &lt;/p&gt;
 
-&lt;hr /&gt;
-&lt;h3 id=&quot;homogeneous-coordinates&quot;&gt;Homogeneous Coordinates&lt;/h3&gt;
+&lt;h2&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;homogeneous-coordinates&quot;&gt;Homogeneous Coordinates&lt;/h2&gt;
 &lt;p&gt;Before, we only considered 3D vertices as a (x,y,z) triplet. For making the 3D transformation easier, We will now have (x,y,z,w) vectors.&lt;/p&gt;
 
 &lt;p&gt;If w == 1, then the vector (x,y,z,1) is a position in space.
@@ -12062,8 +12261,10 @@ If w == 0, then the vector (x,y,z,0) is a direction.&lt;/p&gt;
     \end{bmatrix}
 \end{equation}&lt;/p&gt;
 
-&lt;hr /&gt;
-&lt;h3 id=&quot;1-translate-t&quot;&gt;1. Translate (T)&lt;/h3&gt;
+&lt;h2 id=&quot;-1&quot;&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;1-translate-t&quot;&gt;1. Translate (T)&lt;/h1&gt;
 
 &lt;p align=&quot;center&quot;&gt;  
 &lt;img src=&quot;/static/assets/img/blog/t.png&quot; width=&quot;40%&quot; /&gt;
@@ -12122,8 +12323,10 @@ After Translate:
     0.00000    0.00000    0.00000    1.00000
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;hr /&gt;
-&lt;h3 id=&quot;2-rotate-r&quot;&gt;2. Rotate (R)&lt;/h3&gt;
+&lt;h2 id=&quot;-2&quot;&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-rotate-r&quot;&gt;2. Rotate (R)&lt;/h1&gt;
 
 &lt;p align=&quot;center&quot;&gt;  
 &lt;img src=&quot;/static/assets/img/blog/matrixRot.png&quot; width=&quot;25%&quot; /&gt;
@@ -12260,8 +12463,10 @@ After Rotate(along z-axis):
         0.00000   0.00000   0.00000   1.00000
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;hr /&gt;
-&lt;h3 id=&quot;21--rotation-about-an-arbitrary-axis-in-3-dimensions&quot;&gt;2.1  Rotation About an Arbitrary Axis in 3 Dimensions&lt;/h3&gt;
+&lt;h2 id=&quot;-3&quot;&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;rotation-about-an-arbitrary-axis-in-3-dimensions&quot;&gt;Rotation About an Arbitrary Axis in 3 Dimensions&lt;/h2&gt;
 
 &lt;p&gt;\begin{equation}
     R_{Arbitrary} = \begin{bmatrix} 
@@ -12298,7 +12503,9 @@ After Rotate(along z-axis):
 
 &lt;p&gt;Step 3: Get the $w$ which is the cross product of $n$ and $v_\perp$. Based on the definition of cross product $w$ is a vector that perpendicular to a plane fixed by $n$ and $v_\perp$. Also $n$ is a unit vector, and n also perpendicular to $v_\perp$, so the length between w and $v_\perp$ are same.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/abtrmatrix.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/abtrmatrix.png&quot; width=&quot;30%&quot; /&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Step 4: Get $v_\perp^\prime$ which is a vector that obtained by rotating $v_\perp$ along $n$ axis $\theta$ angle.&lt;/p&gt;
 
@@ -12329,8 +12536,10 @@ v^\prime_y &amp;amp;= \left( \begin{bmatrix} 0 \\ 1 \\ 0\\  \end{bmatrix}  - \le
  v^\prime_z &amp;amp;= \left( \begin{bmatrix} 0 \\ 0 \\ 1 \\ \end{bmatrix}  - \left( \begin{bmatrix} 0 \\ 0 \\ 1 \\ \end{bmatrix} \cdot \begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \right) \begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \right) \cos \theta + \left(   \begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \times \begin{bmatrix} 0 \\ 0 \\ 1 \\ \end{bmatrix} \right) \sin \theta + \left( \begin{bmatrix}  0 \\ 0 \\ 1 \\ \end{bmatrix} \cdot \begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \right) \begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \\ &amp;amp;=\left( \begin{bmatrix}  0 \\ 0 \\ 1 \\ \end{bmatrix}  - n_z\begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \right) \cos \theta +  \begin{bmatrix} n_y \\ -n_x \\ 0 \\ \end{bmatrix} \sin \theta + n_z \begin{bmatrix} n_x \\ n_y \\ n_z \\ \end{bmatrix} \\ &amp;amp;= \begin{bmatrix} - n_x n_z \\ -n_y n_z \\ 1 - n_z^2 \\ \end{bmatrix} \cos \theta + \begin{bmatrix} n_y \\ -n_x \\ 0 \\ \end{bmatrix} \sin \theta + \begin{bmatrix} n_x n_z \\ n_y n_z \\ n_z^2 \\  \end{bmatrix} \\  &amp;amp;= \begin{bmatrix} -n_x n_z \cos \theta +n_y \sin \theta + n_x n_z \\ -n_yn_z \cos \theta - n_x \sin \theta + n_yn_z \\ (1 - n_z^2) \cos \theta + n_z^2 \end{bmatrix} \\  &amp;amp;= \begin{bmatrix} n_x n_z ( 1 - \cos \theta ) + n_y \sin \theta \\ n_yn_z(1 - \cos \theta) - n_x \sin \theta \\ n_z^2(1 - \cos \theta) + \cos \theta \end{bmatrix} 
  \end{align}&lt;/p&gt;
 
-&lt;hr /&gt;
-&lt;h3 id=&quot;3-scale-s&quot;&gt;3. Scale (S)&lt;/h3&gt;
+&lt;h2 id=&quot;-4&quot;&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;3-scale-s&quot;&gt;3. Scale (S)&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;/static/assets/img/blog/s.png&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
 
@@ -12376,7 +12585,25 @@ After scale:
         0.00000 0.00000 0.00000 1.00000
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;normal-transformation&quot;&gt;Normal Transformation&lt;/h2&gt;
+
+&lt;p&gt;Scale Transformation has two types of scale operation, Uniform Scaling and Non-Uniform Scaling.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/uniformtransformation.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;  
+&lt;img src=&quot;/static/assets/img/blog/non-uniformt_transformation.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;From above image, we can see Non- Uniform Transformation will cause the object normal not be perpendicular to the surface, we have to do Normal Transformation to fix this issue. In the rendering pipeline, the coordinates of the model are transformed from local space to world space via the Model matrix (M). The Normal Transformation matrix is the transposition matrix for the inverse matrix of the vertex position transformation matrix, which is $(M^-1)^T$&lt;/p&gt;
+
+&lt;p&gt;For the derivation method, refer to the this &lt;a href=&quot;http://warmcat.org/chai/blog/?p=884&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;-5&quot;&gt;&lt;br /&gt;&lt;br /&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
