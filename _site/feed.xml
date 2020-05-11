@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 May 2020 16:53:27 -0700</pubDate>
-    <lastBuildDate>Mon, 04 May 2020 16:53:27 -0700</lastBuildDate>
+    <pubDate>Tue, 05 May 2020 01:28:39 -0700</pubDate>
+    <lastBuildDate>Tue, 05 May 2020 01:28:39 -0700</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -2167,10 +2167,10 @@ reload(runMEL)
 &lt;p&gt;&lt;strong&gt;立体角(Solid Angle):&lt;/strong&gt; 立体角描述了从原点向一个球面区域张成的视野大小,也可以理解为是一个形状在球面上的投影.球面度(Steradian,简写为sr)是立体角的国际单位.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;弧度是用于度量二维角度的量,等于角度在单位元上对应的弧长,单位圆的周长是$2\pi$,所以整个圆的对应弧度也就是$2\pi$. 立体角则是度量三维角度的量,等于立体角在单位求上对应的区域的面积(实际上也就是在任意半径的球上的面积除以半径的平方 $w=\frac{s}{r^2}$),微分形式为如下:&lt;/p&gt;
+  &lt;p&gt;弧度是用于度量二维角度的量,等于角度在单位元上对应的弧长,单位圆的周长是$2\pi$,所以整个圆的对应弧度也就是$2\pi$. 立体角则是度量三维角度的量,等于立体角在单位球上对应的区域的面积(实际上也就是在任意半径的球上的面积 S 除以半径的平方 $w=\frac{S}{r^2}$),微分形式为如下:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;dw=\frac{ds}{r^2}&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;dw=\frac{dS}{r^2}&lt;/script&gt;
 
 &lt;p align=&quot;center&quot;&gt;     
 &lt;img src=&quot;/static/assets/img/blog/solidangle.png&quot; width=&quot;40%&quot; /&gt;
