@@ -3,16 +3,16 @@
 
 
 - name:
-    detail: Shanghai Xiji Education Technology co., LTD
+    detail: Ubisoft Shanghai
     i18n: companyB
   desc:
-    detail: In August 2019, I start my internship as an 3D artist assistant at Shanghai Xiji Education Technology co., LTD. 
+    detail: In August 2020, I start my game dev career as an Technical Artist at Ubisoft Shanghai. 
     i18n: companyA_des
   date:
-    detail: Aug. 2019
+    detail: Aug. 2010
     i18n: companyB_date
   job:
-    detail: 3D Artist Assistant
+    detail: Technical Artist
     i18n: companyB_job
   icon: fa-plus-square
 
