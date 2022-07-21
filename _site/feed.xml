@@ -5,8 +5,8 @@
     <description>An Otaku who loves making and playing games.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 May 2020 01:28:39 -0700</pubDate>
-    <lastBuildDate>Tue, 05 May 2020 01:28:39 -0700</lastBuildDate>
+    <pubDate>Fri, 22 Jul 2022 00:39:25 +0800</pubDate>
+    <lastBuildDate>Fri, 22 Jul 2022 00:39:25 +0800</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -31,7 +31,7 @@
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Tue, 28 Apr 2020 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 28 Apr 2020 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2020/04/28/CombatDesigner.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2020/04/28/CombatDesigner.html</guid>
         
@@ -145,9 +145,9 @@
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Mon, 20 Jan 2020 17:00:05 -0800</pubDate>
-        <link>http://localhost:4000/csharp/2020/01/20/IEnumerable-and-IEnumerator.html</link>
-        <guid isPermaLink="true">http://localhost:4000/csharp/2020/01/20/IEnumerable-and-IEnumerator.html</guid>
+        <pubDate>Tue, 21 Jan 2020 09:00:05 +0800</pubDate>
+        <link>http://localhost:4000/csharp/2020/01/21/IEnumerable-and-IEnumerator.html</link>
+        <guid isPermaLink="true">http://localhost:4000/csharp/2020/01/21/IEnumerable-and-IEnumerator.html</guid>
         
         <category>Csharp</category>
         
@@ -183,7 +183,7 @@
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Mon, 06 Jan 2020 00:00:00 -0800</pubDate>
+        <pubDate>Mon, 06 Jan 2020 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2020/01/06/Rina-Creation.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2020/01/06/Rina-Creation.html</guid>
         
@@ -196,10 +196,17 @@
     
       <item>
         <title>Character Concepts - Dev Journal</title>
-        <description>&lt;iframe src=&quot;https://gfycat.com/ifr/BetterWhimsicalGrackle&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot; width=&quot;640&quot; height=&quot;404&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+        <description>&lt;!-- 
+&lt;iframe src='https://gfycat.com/ifr/BetterWhimsicalGrackle' frameborder='0' scrolling='no' allowfullscreen width='640' height='404'&gt;&lt;/iframe&gt;
+&lt;br/&gt;&lt;br/&gt; --&gt;
 
-&lt;p&gt;Some Character Drawings I drawed in Photoshop on my free time   .&lt;/p&gt;
+&lt;p&gt;Some Character Concepts creation in Photoshop on my spare time   .&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/gucheng0712/ImageHoster/main/src/202207200250173.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/gucheng0712/ImageHoster/main/src/202207200253192.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/gucheng0712/ImageHoster/main/src/202207200253585.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/gucheng0712/ImageHoster/main/src/202207200257826.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/gucheng0712/ImageHoster/main/src/202207200257079.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -208,7 +215,7 @@
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Thu, 24 Oct 2019 00:00:00 -0700</pubDate>
+        <pubDate>Thu, 24 Oct 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2019/10/24/CharacterConcepts.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2019/10/24/CharacterConcepts.html</guid>
         
@@ -234,7 +241,7 @@
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Tue, 22 Oct 2019 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 22 Oct 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2019/10/22/Kinki-Restaurant.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2019/10/22/Kinki-Restaurant.html</guid>
         
@@ -289,7 +296,7 @@
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Tue, 01 Oct 2019 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 01 Oct 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2019/10/01/Fancy-House-Modeling.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2019/10/01/Fancy-House-Modeling.html</guid>
         
@@ -491,7 +498,7 @@
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Thu, 20 Jun 2019 00:00:00 -0700</pubDate>
+        <pubDate>Thu, 20 Jun 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/2019/06/20/MayaScripting-Working-with-Geometry.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2019/06/20/MayaScripting-Working-with-Geometry.html</guid>
         
@@ -887,7 +894,7 @@
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Mon, 10 Jun 2019 00:00:00 -0700</pubDate>
+        <pubDate>Mon, 10 Jun 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/2019/06/10/Setting-up-QtDesigner-for-Maya-Development.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2019/06/10/Setting-up-QtDesigner-for-Maya-Development.html</guid>
         
@@ -1262,7 +1269,7 @@
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sat, 01 Jun 2019 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 01 Jun 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/2019/06/01/Creating-UI-in-Maya.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2019/06/01/Creating-UI-in-Maya.html</guid>
         
@@ -1448,7 +1455,7 @@ reload(runMEL)
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Thu, 30 May 2019 00:00:00 -0700</pubDate>
+        <pubDate>Thu, 30 May 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/2019/05/30/Maya-Scripting-Basics.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/2019/05/30/Maya-Scripting-Basics.html</guid>
         
@@ -1964,7 +1971,7 @@ reload(runMEL)
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Wed, 15 May 2019 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 15 May 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/unity/2019/05/15/Unity-Editor-Scripting-References.html</link>
         <guid isPermaLink="true">http://localhost:4000/unity/2019/05/15/Unity-Editor-Scripting-References.html</guid>
         
@@ -2005,7 +2012,7 @@ reload(runMEL)
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Sun, 12 May 2019 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 12 May 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/python/ai/2019/05/12/WISIWYG-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/python/ai/2019/05/12/WISIWYG-Dev-Journal.html</guid>
         
@@ -2039,7 +2046,7 @@ reload(runMEL)
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Sun, 12 May 2019 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 12 May 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/unity/2019/05/12/NeverLand-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/2019/05/12/NeverLand-Dev-Journal.html</guid>
         
@@ -2840,7 +2847,7 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Wed, 01 May 2019 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 01 May 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/2019/05/01/PBR-Theory.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/2019/05/01/PBR-Theory.html</guid>
         
@@ -3361,7 +3368,7 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 21 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 21 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/data%20structure/unity/2019/04/21/PathFindingAlgorithm.html</link>
         <guid isPermaLink="true">http://localhost:4000/data%20structure/unity/2019/04/21/PathFindingAlgorithm.html</guid>
         
@@ -3707,7 +3714,7 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 19 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 19 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/unity/csharp/2019/04/19/C-Reflection-in-Unity-copy.html</link>
         <guid isPermaLink="true">http://localhost:4000/unity/csharp/2019/04/19/C-Reflection-in-Unity-copy.html</guid>
         
@@ -3843,7 +3850,7 @@ $lambda_l$表示入射方向上的阴影和遮掩&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Thu, 18 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Thu, 18 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/unity/csharp/2019/04/18/Bind-Multiple-UI-Events-through-One-Function-in-Unity-Copy.html</link>
         <guid isPermaLink="true">http://localhost:4000/unity/csharp/2019/04/18/Bind-Multiple-UI-Events-through-One-Function-in-Unity-Copy.html</guid>
         
@@ -4108,7 +4115,7 @@ Next is to train the CNNs on the MNIST digits.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 16 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 16 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/ai/2019/04/16/Convolutional-Neuron-Network.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/ai/2019/04/16/Convolutional-Neuron-Network.html</guid>
         
@@ -4222,7 +4229,7 @@ Next is to train the CNNs on the MNIST digits.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 14 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 14 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/csharp/2019/04/14/Refactor-If-Statement-By-using-Delegate.html</link>
         <guid isPermaLink="true">http://localhost:4000/csharp/2019/04/14/Refactor-If-Statement-By-using-Delegate.html</guid>
         
@@ -4346,7 +4353,7 @@ Next is to train the CNNs on the MNIST digits.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 12 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 12 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2019/04/12/Access-the-Depth-and-Normal-Textures-in-Unity.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2019/04/12/Access-the-Depth-and-Normal-Textures-in-Unity.html</guid>
         
@@ -5166,7 +5173,7 @@ Next is to train the CNNs on the MNIST digits.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Mon, 08 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Mon, 08 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/unity/cg/2019/04/08/Cg-Standard-Library-Functions.html</link>
         <guid isPermaLink="true">http://localhost:4000/unity/cg/2019/04/08/Cg-Standard-Library-Functions.html</guid>
         
@@ -5284,7 +5291,7 @@ Flipped Kernel = \begin{bmatrix} i &amp;amp; h &amp;amp; g \\
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Wed, 03 Apr 2019 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 03 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/ai/math/unity/2019/04/03/Convolution-in-Image-Processing.html</guid>
         
@@ -5685,7 +5692,7 @@ Document term matrix:
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 15 Mar 2019 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 15 Mar 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/15/Natural-Language-Processing.html</guid>
         
@@ -5775,7 +5782,7 @@ steps (over 1000).&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 10 Mar 2019 00:00:00 -0800</pubDate>
+        <pubDate>Sun, 10 Mar 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/ai/2019/03/10/Artificial-Neural-Network.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/10/Artificial-Neural-Network.html</guid>
         
@@ -5883,7 +5890,7 @@ steps (over 1000).&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 01 Mar 2019 00:00:00 -0800</pubDate>
+        <pubDate>Fri, 01 Mar 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning-Copy.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/ai/2019/03/01/Dimensionality-Reduction-UnsupervisedLearning-Copy.html</guid>
         
@@ -6186,7 +6193,7 @@ Optimal number of clusters = 4
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Wed, 20 Feb 2019 00:00:00 -0800</pubDate>
+        <pubDate>Wed, 20 Feb 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/ai/2019/02/20/Clustering-UnsupervisedLearning.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/ai/2019/02/20/Clustering-UnsupervisedLearning.html</guid>
         
@@ -6418,7 +6425,7 @@ Optimal number of clusters = 4
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 15 Feb 2019 00:00:00 -0800</pubDate>
+        <pubDate>Fri, 15 Feb 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/python/ai/2019/02/15/Linear-Regression.html</link>
         <guid isPermaLink="true">http://localhost:4000/python/ai/2019/02/15/Linear-Regression.html</guid>
         
@@ -6879,9 +6886,9 @@ probability&lt;/strong&gt;. It is a popular and powerful algorithm used for:&lt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 29 Jan 2019 17:00:05 -0800</pubDate>
-        <link>http://localhost:4000/python/ai/2019/01/29/Data-Classification-Approaches.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/01/29/Data-Classification-Approaches.html</guid>
+        <pubDate>Wed, 30 Jan 2019 09:00:05 +0800</pubDate>
+        <link>http://localhost:4000/python/ai/2019/01/30/Data-Classification-Approaches.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/01/30/Data-Classification-Approaches.html</guid>
         
         <category>Python</category>
         
@@ -7088,9 +7095,9 @@ It is often rescaled into the range between 0 and 1. This is useful for optimiza
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Mon, 21 Jan 2019 17:00:05 -0800</pubDate>
-        <link>http://localhost:4000/python/ai/2019/01/21/DataPreprocessing.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/01/21/DataPreprocessing.html</guid>
+        <pubDate>Tue, 22 Jan 2019 09:00:05 +0800</pubDate>
+        <link>http://localhost:4000/python/ai/2019/01/22/DataPreprocessing.html</link>
+        <guid isPermaLink="true">http://localhost:4000/python/ai/2019/01/22/DataPreprocessing.html</guid>
         
         <category>Python</category>
         
@@ -7121,7 +7128,7 @@ ght )&lt;/p&gt;
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Wed, 05 Dec 2018 00:00:00 -0800</pubDate>
+        <pubDate>Wed, 05 Dec 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/unity/dev%20journal/2018/12/05/Troubadour-Dev-Journal.html</guid>
         
@@ -7381,9 +7388,9 @@ Code:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 30 Sep 2018 18:00:05 -0700</pubDate>
-        <link>http://localhost:4000/csharp/2018/09/30/IComparable-and-IComparer.html</link>
-        <guid isPermaLink="true">http://localhost:4000/csharp/2018/09/30/IComparable-and-IComparer.html</guid>
+        <pubDate>Mon, 01 Oct 2018 09:00:05 +0800</pubDate>
+        <link>http://localhost:4000/csharp/2018/10/01/IComparable-and-IComparer.html</link>
+        <guid isPermaLink="true">http://localhost:4000/csharp/2018/10/01/IComparable-and-IComparer.html</guid>
         
         <category>Csharp</category>
         
@@ -7649,7 +7656,7 @@ Code:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sat, 22 Sep 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 22 Sep 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/09/22/CubeMap.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/09/22/CubeMap.html</guid>
         
@@ -7970,7 +7977,7 @@ Code:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 16 Sep 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 16 Sep 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/csharp/2018/09/16/Observer-Pattern-in-C.html</link>
         <guid isPermaLink="true">http://localhost:4000/csharp/2018/09/16/Observer-Pattern-in-C.html</guid>
         
@@ -8127,7 +8134,7 @@ Once a model’s vertices have been transformed into camera space, they will als
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 14 Sep 2018 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 14 Sep 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/2018/09/14/Rendering-Pipeline.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/2018/09/14/Rendering-Pipeline.html</guid>
         
@@ -8188,7 +8195,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 11 Sep 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 11 Sep 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/data%20structure/2018/09/11/Lazy-vs-Eager-Evaluation.html</link>
         <guid isPermaLink="true">http://localhost:4000/data%20structure/2018/09/11/Lazy-vs-Eager-Evaluation.html</guid>
         
@@ -8390,7 +8397,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 04 Sep 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 04 Sep 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/csharp/2018/09/04/The-Flag-Attribute-in-Enumation.html</link>
         <guid isPermaLink="true">http://localhost:4000/csharp/2018/09/04/The-Flag-Attribute-in-Enumation.html</guid>
         
@@ -8563,7 +8570,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 28 Aug 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 28 Aug 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/csharp/2018/08/28/CSharp-Iterator.html</link>
         <guid isPermaLink="true">http://localhost:4000/csharp/2018/08/28/CSharp-Iterator.html</guid>
         
@@ -8736,7 +8743,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 14 Aug 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 14 Aug 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/unity/cg/2018/08/14/Unity-Rendering-Path.html</link>
         <guid isPermaLink="true">http://localhost:4000/unity/cg/2018/08/14/Unity-Rendering-Path.html</guid>
         
@@ -9004,7 +9011,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Thu, 09 Aug 2018 00:00:00 -0700</pubDate>
+        <pubDate>Thu, 09 Aug 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/data%20structure/csharp/2018/08/09/Union-Find-Algorithm.html</link>
         <guid isPermaLink="true">http://localhost:4000/data%20structure/csharp/2018/08/09/Union-Find-Algorithm.html</guid>
         
@@ -9168,7 +9175,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 05 Aug 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 05 Aug 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/08/05/X-Ray-Effect-in-Shader.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/08/05/X-Ray-Effect-in-Shader.html</guid>
         
@@ -9342,7 +9349,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 03 Aug 2018 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 03 Aug 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/08/03/Partial-Derivative-in-Shader.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/08/03/Partial-Derivative-in-Shader.html</guid>
         
@@ -9474,7 +9481,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 29 Jul 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 29 Jul 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/07/29/Dynamic-Discoloration-Shader.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/07/29/Dynamic-Discoloration-Shader.html</guid>
         
@@ -9617,7 +9624,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 20 Jul 2018 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 20 Jul 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/csharp/python/javascript/2018/07/20/OPP-Programming-Common-Design-Pattern.html</link>
         <guid isPermaLink="true">http://localhost:4000/csharp/python/javascript/2018/07/20/OPP-Programming-Common-Design-Pattern.html</guid>
         
@@ -9884,7 +9891,7 @@ Responsibility for code performance is however shifted towards the programmer, t
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 15 Jul 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 15 Jul 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/07/15/The-Magic-of-Stencil-Shader.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/07/15/The-Magic-of-Stencil-Shader.html</guid>
         
@@ -10290,7 +10297,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 10 Jul 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/07/10/TransparentEffect.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/07/10/TransparentEffect.html</guid>
         
@@ -10501,7 +10508,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 29 Jun 2018 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 29 Jun 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/06/29/Ramp-And-Mask.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/06/29/Ramp-And-Mask.html</guid>
         
@@ -10790,7 +10797,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sat, 23 Jun 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 23 Jun 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/06/23/Bump-Mapping.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/06/23/Bump-Mapping.html</guid>
         
@@ -10976,7 +10983,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Wed, 20 Jun 2018 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 20 Jun 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/06/20/Single-Texture.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/06/20/Single-Texture.html</guid>
         
@@ -11064,7 +11071,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 10 Jun 2018 07:15:05 -0700</pubDate>
+        <pubDate>Sun, 10 Jun 2018 22:15:05 +0800</pubDate>
         <link>http://localhost:4000/cg/math/2018/06/10/Tangent-Space.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/math/2018/06/10/Tangent-Space.html</guid>
         
@@ -11724,7 +11731,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 05 Jun 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 05 Jun 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/cg/unity/2018/06/05/Lighting-Models.html</link>
         <guid isPermaLink="true">http://localhost:4000/cg/unity/2018/06/05/Lighting-Models.html</guid>
         
@@ -11799,7 +11806,7 @@ Blend One One // Linear Dodge
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Tue, 29 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 29 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/math/unity/csharp/2018/05/29/Trig-In-Game-World.html</link>
         <guid isPermaLink="true">http://localhost:4000/math/unity/csharp/2018/05/29/Trig-In-Game-World.html</guid>
         
@@ -12159,7 +12166,7 @@ M_{ortho} =
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sat, 26 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 26 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/math/unity/csharp/2018/05/26/MVP-in-Matrix.html</link>
         <guid isPermaLink="true">http://localhost:4000/math/unity/csharp/2018/05/26/MVP-in-Matrix.html</guid>
         
@@ -12610,7 +12617,7 @@ After scale:
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Fri, 25 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 25 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/math/unity/csharp/2018/05/25/SRT-in-Matrix.html</link>
         <guid isPermaLink="true">http://localhost:4000/math/unity/csharp/2018/05/25/SRT-in-Matrix.html</guid>
         
@@ -12823,7 +12830,7 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
 &lt;/blockquote&gt;
 
 </description>
-        <pubDate>Sun, 20 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sun, 20 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/math/unity/csharp/2018/05/20/The-Cross-Product-and-the-Dot-Product-in-Unity.html</link>
         <guid isPermaLink="true">http://localhost:4000/math/unity/csharp/2018/05/20/The-Cross-Product-and-the-Dot-Product-in-Unity.html</guid>
         
@@ -12871,7 +12878,7 @@ float angle = Mathf.Asin(value) * Mathf.Rad2Deg;
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 12 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2018/05/12/BeyondAtlantis-Dev-Journal.html</guid>
         
@@ -12939,7 +12946,7 @@ I used a Spot light’s angle as the enemy’s detecting range. When the enemy d
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 12 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html</guid>
         
@@ -12968,7 +12975,7 @@ A group project, making an Animated Led Sign built for our Major Applied Compute
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Sat, 12 May 2018 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 12 May 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/unity/csharp/2018/05/12/Animated-LED-Sign-Dev-Journal.html</guid>
         
@@ -13000,7 +13007,7 @@ A group project, making an Animated Led Sign built for our Major Applied Compute
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Fri, 01 Dec 2017 00:00:00 -0800</pubDate>
+        <pubDate>Fri, 01 Dec 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2017/12/01/A-Tragedy-of-Little-Chicks-Dev-Journal.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2017/12/01/A-Tragedy-of-Little-Chicks-Dev-Journal.html</guid>
         
@@ -13097,7 +13104,7 @@ A group project, making an Animated Led Sign built for our Major Applied Compute
   &lt;p&gt;&lt;strong&gt;End –Cheng Gu&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
-        <pubDate>Fri, 01 Dec 2017 00:00:00 -0800</pubDate>
+        <pubDate>Fri, 01 Dec 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/dev%20journal/2017/12/01/3D-Props-Modeling.html</link>
         <guid isPermaLink="true">http://localhost:4000/dev%20journal/2017/12/01/3D-Props-Modeling.html</guid>
         

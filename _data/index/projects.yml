@@ -2,6 +2,16 @@
 # If you don't have language feature(language.yml is empty), ignore "i18n" items
 # Suggest projects' img be located at '/static/assets/img/landing', and edit following img items.
 
+- name: (2022-Now) Stylized NextGen - using Unity URP
+  i18n: p17
+  gh_user: gucheng0712
+  repo: Stylized-NextGen
+  url: https://github.com/gucheng0712/Stylized-NextGen/blob/main/README.md
+  # demo_url: https://www.bilibili.com/video/BV13C4y1W7Uk/
+  img: /static/assets/img/landing/P17.png
+  desc: A stylized shader pipeline that integrating stylization into advanced physically based rendering using Unity URP
+
+
 - name: (2019-2020) CombatDesigner - using Unity & Odin
   i18n: p15
   gh_user: gucheng0712
@@ -11,13 +21,6 @@
   img: /static/assets/img/landing/P15.png
   desc: CombatDesigner is a frame sequence based visual combat system, which designed specifically for Action/Combat Game Development.
 
-- name: (2019 Fall)Rina -using Maya & Zbrush & MarvelousDesigner & Substance
-  i18n: p14
-  url: https://gucheng0712.github.io/dev%20journal/2020/01/06/Rina-Creation.html
-  demo_url: https://www.bilibili.com/video/av82418948
-  img: /static/assets/img/landing/P14.png
-  desc: A female samurai character creation during my free time. Using many different kinds of software to increase the workflow, includes, Maya, Zbrush, Substance Suites, RizomUV, Photoshop, Marmoset Toolbag, Marvelous Designer.
-
 - name: (2019 Spring) WISWYG - using TouchDesigner & Keras & Nltk & Open AI-GPT
   i18n: p10
   gh_user: gucheng0712
@@ -26,6 +29,13 @@
   demo_url: https://www.bilibili.com/video/av52461636
   img: /static/assets/img/landing/P10.png
   desc: An immersive interactive installation technology project that combines visual art and AI to analyzes facial expressions and behaviors for creating interactive works of art and text descriptions.
+
+- name: (2019 Fall)Rina -using Maya & Zbrush & MarvelousDesigner & Substance
+  i18n: p14
+  url: https://gucheng0712.github.io/dev%20journal/2020/01/06/Rina-Creation.html
+  demo_url: https://www.bilibili.com/video/av82418948
+  img: /static/assets/img/landing/P14.png
+  desc: A female samurai character creation during my free time. Using many different kinds of software to increase the workflow, includes, Maya, Zbrush, Substance Suites, RizomUV, Photoshop, Marmoset Toolbag, Marvelous Designer.
 
 - name: (2018 Fall) Troubadour - using Unity
   i18n: p4
@@ -52,7 +62,7 @@
   url: https://gucheng0712.github.io/dev%20journal/unity/csharp/2018/05/12/Suzuka-Wants-to-Fly-Game-Dev-Journal.html
   demo_url: https://www.bilibili.com/video/av37162427
   img: /static/assets/img/landing/P2.png
-  desc: A VR Demo Aimed to reduce the problem of motion sickness, used a self create third person view Spiderman style swinging game demo to try to discover a new world in visual reality for reducing this adverse consequence. It is also a practise demo for game mechanics such as FSM for Character Movement, such as wallwalking, third person free style, battle movement and so on. 
+  desc: A third person view Spiderman style swinging game demo to try to discover a new world in VR for reducing this adverse consequence. It is also a practise demo for game mechanics such as FSM for Character Movement, such as wallwalking, third person free style, battle movement and so on. 
   
 - name: (2018 Fall) CatBox- using Unity & BestHttp & Node.js & Vuforia
   i18n: p8
@@ -70,13 +80,13 @@
   repo: Animated-LED-Sign
   demo_url: https://www.bilibili.com/video/BV17b411W7cc
   img: /static/assets/img/landing/P7.png
-  desc: A group project, making an Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states by using the P5.js with Arduino, as well as doing a lot of fabrication works. It was exhibited at 2018 Annual Showcase.
+  desc: An Animated Led Sign built for our Major Applied Computer Science, be able to send msg through Adafruit and change the Led Animation and the Motor movement states by using the P5.js with Arduino. It was exhibited at 2018 Annual Showcase.
 
 
-- name: (2019-2020) FancyToon - using Unity
+- name: (2018-2019) FancyToon - using Unity
   i18n: p16
   gh_user: gucheng0712
-  #repo: FancyToon
+  repo: FancyToon
   #url: temp
   #demo_url: temps
   img: /static/assets/img/landing/P16.png
@@ -122,7 +132,7 @@
   img: /static/assets/img/landing/P6.png
   desc: 3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.
 
-- name: (2019 Fall) Fancy House - using Maya & Arnold & Substance
+- name: (2017 Fall) Fancy House - using Maya & Arnold & Substance
   i18n: p11
   url: https://gucheng0712.github.io/dev%20journal/2019/10/01/Fancy-House-Modeling.html
   # demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/01/Fancy-House-Modeling.html
@@ -131,12 +141,12 @@
 
 
 
-# - name: Character Drawings - Photoshop
-#   i18n: p13
-#   url:
-#   demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/24/CharacterConcepts.html
-#   img: /static/assets/img/landing/P13.png
-#   desc: Some Character drawing I created with Tablet in Photoshop on my free time for making 3D Model in the future.
+- name: Character Concepts - Photoshop
+  i18n: p13
+  url:
+  demo_url: https://gucheng0712.github.io/dev%20journal/2019/10/24/CharacterConcepts.html
+  img: /static/assets/img/landing/P13.png
+  desc: Some Character Concepts creation in Photoshop on my spare time  
 
 
 
