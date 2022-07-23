@@ -5,12 +5,29 @@
 - name: (2022-Now) Stylized NextGen - using Unity URP
   i18n: p17
   gh_user: gucheng0712
-  repo: Stylized-NextGen
+  # repo: Stylized-NextGen
   url: https://github.com/gucheng0712/Stylized-NextGen/blob/main/README.md
-  # demo_url: https://www.bilibili.com/video/BV13C4y1W7Uk/
+  demo_url: https://github.com/gucheng0712/Stylized-NextGen/blob/main/README.md
   img: /static/assets/img/landing/P17.png
-  desc: A stylized shader pipeline that integrating stylization into advanced physically based rendering using Unity URP
+  desc: A stylized shader pipeline that integrating stylization into advanced physically based rendering using Unity URP.
 
+- name: (2020-Now) Skull & Bones - using Anvil
+  i18n: p18
+  gh_user: gucheng0712
+  # repo: Stylized-NextGen
+  url: https://www.bilibili.com/video/BV11U4y1D7jR
+  demo_url: https://www.bilibili.com/video/BV11U4y1D7jR
+  img: /static/assets/img/landing/P18.png
+  desc: A pirate naval battle-themed MMORPG game led by Ubisoft Singapore Studio and assisted by multiple studios. Landing on PC, PS5, Xbox Series X|S platforms.
+
+- name: (2021-2022) RockSmith+ - using Snowdrop
+  i18n: p19
+  gh_user: gucheng0712
+  # repo: Stylized-NextGen
+  url: https://www.bilibili.com/video/BV1Sw411Z7PY
+  demo_url: https://www.bilibili.com/video/BV1Sw411Z7PY
+  img: /static/assets/img/landing/P19.png
+  desc: A musical rhythm game played with a real guitar/bass which led by Ubisoft San Francisco Studio and assisted by few studios. It will be landed on full platforms.
 
 - name: (2019-2020) CombatDesigner - using Unity & Odin
   i18n: p15
