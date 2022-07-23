@@ -2,7 +2,7 @@
 # If you don't have language feature(language.yml is empty), ignore "i18n" items
 # Suggest projects' img be located at '/static/assets/img/landing', and edit following img items.
 
-- name: (2022-Now) Stylized NextGen - using Unity URP
+- name: (2022-Now) Stylized NextGen - using Unity
   i18n: p17
   gh_user: gucheng0712
   # repo: Stylized-NextGen
@@ -147,7 +147,7 @@
   url: https://gucheng0712.github.io/dev%20journal/2017/12/01/3D-Props-Modeling.html
   # demo_url: https://gucheng0712.github.io/dev%20journal/2017/12/01/3D-Props-Modeling.html
   img: /static/assets/img/landing/P6.png
-  desc: 3D Props Modelling for Game Code Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.
+  desc: 3D Props Modelling for Game Art Fundamental class, Created a Lamp, Old Well, Super Long Hidden Blade, and a Revolving Pistol.
 
 - name: (2017 Fall) Fancy House - using Maya & Arnold & Substance
   i18n: p11
